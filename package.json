@@ -1,7 +1,7 @@
 {
   "name": "erduotong_blog",
   "version": "0.0.1",
-  "description": "This is erduotong's blog!",
+  "description": "This is erduotong's blog！",
   "license": "MIT",
   "type": "module",
   "scripts": {
