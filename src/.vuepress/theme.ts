@@ -4,18 +4,18 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-    hostname: "https://mister-hope.github.io",
+    hostname: "https://erduotong.github.io",
 
     author: {
-        name: "Mr.Hope",
-        url: "https://mister-hope.com",
+        name: "耳朵同",
+        url: "https://erduotong.github.io",
     },
 
     iconAssets: "fontawesome-with-brands",
 
+    editLink: false,
     logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
-    repo: "vuepress-theme-hope/vuepress-theme-hope",
 
     docsDir: "src",
 
@@ -31,24 +31,14 @@ export default hopeTheme({
 
     // 博客相关
     blog: {
-        description: "一个前端开发者",
-        intro: "/intro.html",
+        description: "欢迎~",
+        intro: "/about_site/intro",
     },
 
     // 加密配置
     encrypt: {
-        config: {
-            "/demo/encrypt.html": ["1234"],
-        },
+        config: {},
     },
-
-    // 多语言配置
-    metaLocales: {
-        editLink: "在 GitHub 上编辑此页",
-    },
-
-    // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
-    // hotReload: true,
 
     // 在这里配置主题提供的插件
     plugins: {
@@ -67,7 +57,7 @@ export default hopeTheme({
             type: "katex",
         },
 
-        // 此处开启了很多功能用于演示，你应仅保留用到的功能。
+
         mdEnhance: {
             //角标
             sub: true,

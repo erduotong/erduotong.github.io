@@ -10,7 +10,14 @@ export default sidebar({
             link: "posts/",
             children: "structure",
         },
-        "intro",
+        {
+            text: "关于本站",
+            icon: "circle-info",
+            prefix: "about_site",
+            link: "about_site/",
+            children: "structure"
+        },
+
 
     ],
 });
