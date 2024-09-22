@@ -12,6 +12,9 @@ export default defineUserConfig({
 
     theme,
     alias: {
-
+        "@theme-hope/components/PageFooter": path.resolve(
+            __dirname,
+            "./components/websiteFooter.vue",
+        ),
     }
 });
