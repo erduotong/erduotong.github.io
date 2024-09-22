@@ -16,5 +16,9 @@
     "vue": "^3.5.5",
     "vuepress": "2.0.0-rc.15",
     "vuepress-theme-hope": "2.0.0-rc.53"
+  },
+  "dependencies": {
+    "katex": "^0.16.11",
+    "mermaid": "^11.2.1"
   }
 }
