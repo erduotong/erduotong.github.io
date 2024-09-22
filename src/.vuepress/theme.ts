@@ -3,6 +3,7 @@ import {hopeTheme} from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
+
 export default hopeTheme({
     hostname: "https://erduotong.github.io",
 
@@ -26,7 +27,7 @@ export default hopeTheme({
     sidebar,
 
     // 页脚
-    footer: "默认页脚",
+    footer: "123",
     displayFooter: true,
 
     // 博客相关
@@ -71,6 +72,9 @@ export default hopeTheme({
             mark: true,
             mermaid: true,
         },
+        autoCatalog: {
+            index: true,
+        }
 
 
     },

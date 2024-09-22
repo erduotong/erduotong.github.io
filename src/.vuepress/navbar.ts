@@ -6,7 +6,7 @@ export default navbar([
     {
         text: "时间线",
         link: "/timeline/",
-        icon: "timeline"
+        icon: "clock"
     }
 
 ]);
