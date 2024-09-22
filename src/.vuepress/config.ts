@@ -8,7 +8,7 @@ export default defineUserConfig({
 
     lang: "zh-CN",
     title: "耳朵同的博客",
-    description: "vuepress-theme-hope 的博客演示",
+    description: "欢迎来到耳朵同的博客",
 
     theme,
     alias: {

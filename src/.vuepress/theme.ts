@@ -72,9 +72,7 @@ export default hopeTheme({
             mark: true,
             mermaid: true,
         },
-        autoCatalog: {
-            index: true,
-        }
+
 
 
     },
