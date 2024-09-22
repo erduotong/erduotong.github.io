@@ -7,5 +7,7 @@ export default defineClientConfig({
     },
     setup() {
     },
-    rootComponents: [],
+    rootComponents: [
+        "website-footer",
+    ],
 });

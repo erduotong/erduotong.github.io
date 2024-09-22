@@ -27,7 +27,7 @@ export default hopeTheme({
     sidebar,
 
     // 页脚
-    footer: "123",
+    footer: "欢迎!",
     displayFooter: true,
 
     // 博客相关
@@ -78,4 +78,6 @@ export default hopeTheme({
 
 
     },
+}, {
+    custom: true,
 });
