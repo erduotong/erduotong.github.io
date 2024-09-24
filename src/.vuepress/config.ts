@@ -16,5 +16,5 @@ export default defineUserConfig({
             __dirname,
             "./components/websiteFooter.vue",
         ),
-    }
+    },
 });
