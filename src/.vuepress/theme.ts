@@ -6,39 +6,22 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
     hostname: "https://erduotong.github.io",
-
     author: {
         name: "耳朵同",
         url: "https://erduotong.github.io",
     },
-
     iconAssets: "fontawesome-with-brands",
-
     editLink: false,
     logo: "https://theme-hope-assets.vuejs.press/logo.svg",
-
-
     docsDir: "src",
-
-    // 导航栏
-    navbar,
-
-    // 侧边栏
-    sidebar,
-
-    // 页脚
-    footer: "欢迎!",
+    navbar, // 导航栏设置
+    sidebar, // 侧边栏设置
     displayFooter: true,
 
     // 博客相关
     blog: {
-        description: "欢迎~",
-        intro: "/about_site/intro",
-    },
-
-    // 加密配置
-    encrypt: {
-        config: {},
+        description: "这位客官，欢迎~",
+        intro: "about_site/intro",
     },
 
     // 在这里配置主题提供的插件
@@ -47,18 +30,14 @@ export default hopeTheme({
         components: {
             components: ["Badge", "VPCard"],
         },
-
         markdownImage: {
             figure: true,
             lazyload: true,
             size: true,
         },
-
         markdownMath: {
             type: "katex",
         },
-
-
         mdEnhance: {
             //角标
             sub: true,
@@ -72,9 +51,6 @@ export default hopeTheme({
             mark: true,
             mermaid: true,
         },
-
-
-
     },
 }, {
     custom: true,
