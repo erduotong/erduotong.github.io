@@ -3,6 +3,7 @@ import argparse
 import pathlib
 import sys
 
+from scripts.vault_transform.modules.link_handle import handle_link
 from scripts.vault_transform.modules.pretreatment import pretreatment
 
 
@@ -13,10 +14,11 @@ def main() -> int:
     args = parser.parse_args()
     dirname = pathlib.Path(args.path)
 
-    exclude_folder = [".obsidian"]
+    exclude_folder = [".obsidianPC", ".obsidianPhone", ".trash", ".obsidian"]
     print(f"开始处理{dirname}中的库的链接")
     pretreatment(dirname, exclude_folder)
-
+    print(f"转换wiki链接")
+    handle_link(dirname)
     return 0
 
 
