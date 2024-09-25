@@ -1,4 +1,5 @@
 # 处理库中的wiki链接
+import os
 import pathlib
 import re
 
@@ -38,12 +39,16 @@ def replace_links(file_path: pathlib.Path):
         if len(parts) == 1:
             file_name, title = parts[0], ''
         else:
-            file_name, title = parts[0], parts[1]
+            file_name, title = parts[0], '#' + parts[1]
         # 尝试转换为相对路径
-        if file_name in files_dict:  # 文件存在 计算相对路径
-            file_name = file_path.relative_to(files_dict[file_name].path).as_posix()
 
-        result = ''
+        if file_name in files_dict:  # 文件存在 计算相对路径
+            current = file_path.parent
+            to = files_dict[file_name].path
+            file_name = os.path.relpath(to, current)
+            if pathlib.Path(file_name).parent == pathlib.Path('.'):
+                file_name = f'./{file_name}'
+
         if target_display is None:
             result = f'[{match.group(1)}]({file_name}{title})'
         else:
