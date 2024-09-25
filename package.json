@@ -2,7 +2,7 @@
   "name": "erduotong_blog",
   "description": "erduotong's blog",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "",
   "type": "module",
   "scripts": {
     "docs:build": "vuepress-vite build src",
