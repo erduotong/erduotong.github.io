@@ -38,4 +38,4 @@ jobs:
           # 部署目录为 VuePress 的默认输出目录
           build_dir: src/.vuepress/dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
