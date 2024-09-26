@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import {onMounted, onUnmounted, ref} from 'vue'
 
 const startTime = new Date("2024-09-22T00:00:00+08:00") // 网站创建时间
 // 计算网站运行时间
@@ -18,7 +18,13 @@ const calculateTime = () => {
   time.value.seconds = Math.floor((diff % (1000 * 60)) / 1000);
 }
 calculateTime()
-setInterval(calculateTime, 1000)
+onMounted(() => {
+  calculateTime();
+  const interval = setInterval(calculateTime, 1000);
+  onUnmounted(() => {
+    clearInterval(interval);
+  });
+});
 </script>
 
 <template>
