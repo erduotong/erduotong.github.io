@@ -17,8 +17,10 @@ def main() -> int:
     exclude_folder = [".obsidianPC", ".obsidianPhone", ".trash", ".obsidian"]
     print(f"开始处理{dirname}中的库的链接")
     pretreatment(dirname, exclude_folder)
-    print(f"转换wiki链接")
+    print(f"转换wiki链接并创建全局关系字典")
     handle_link(dirname)
+    print(f"过滤所需文件")
+
     return 0
 
 
