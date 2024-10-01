@@ -55,6 +55,13 @@ export default hopeTheme({
             mark: true,
             mermaid: true,
         },
+        comment: {
+            provider: "Giscus",
+            repo: "erduotong/erduotong.github.io",
+            repoID: "R_kgDOM1B4zA",
+            category: "Announcements",
+            categoryId: "DIC_kwDOM1B4zM4Ci9HB"
+        }
     },
 }, {
     custom: true,
