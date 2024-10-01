@@ -19,7 +19,7 @@ export default navbar([
             {
                 text: "项目",
                 link: "/projects/",
-                icon: " laptop-code"
+                icon: "laptop-code"
             },
         ]
     },
