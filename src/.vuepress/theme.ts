@@ -17,10 +17,13 @@ export default hopeTheme({
     navbar, // 导航栏设置
     sidebar, // 侧边栏设置
     displayFooter: true,
-
+    // repo
+    repo: "https://github.com/erduotong/erduotong.github.io",
+    repoLabel: "Github",
+    repoDisplay: true,
     // 博客相关
     blog: {
-        description: "这位客官，欢迎~",
+        description: "欢迎来到耳朵同的博客，请随处逛逛吧",
         intro: "about_site/intro",
     },
 
