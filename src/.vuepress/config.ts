@@ -18,6 +18,6 @@ export default defineUserConfig({
         ),
     },
     head: [
-        ["link", {rel: "icon", href: 'logo.jpg'}]
+        ["link", {rel: "icon", href: 'logo.png'}]
     ]
 });

@@ -12,7 +12,7 @@ export default hopeTheme({
     },
     iconAssets: "fontawesome-with-brands",
     editLink: false,
-    logo: "/logo.jpg",
+    logo: "/logo.png",
     docsDir: "src",
     navbar, // 导航栏设置
     sidebar, // 侧边栏设置
