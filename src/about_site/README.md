@@ -1,5 +1,5 @@
 ---
-title: 关于本站
+title: 关于
 index: false
 icon: circle-info
 
