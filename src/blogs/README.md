@@ -1,8 +1,8 @@
 ---
-title: 文章目录
+title: 博客目录
 index: false
 icon: book
-
+date: 2024-09-22
 ---
 
 <Catalog/>
