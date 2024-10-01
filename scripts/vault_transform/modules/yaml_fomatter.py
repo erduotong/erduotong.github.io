@@ -35,7 +35,9 @@ def extract_yaml_content(file: str) -> tuple:
     yaml_str = '\n'.join(yaml_content)
     content_str = '\n'.join(content)
     # format yaml to dict
+
     yaml_content = yaml.load(yaml_str, Loader=yaml.FullLoader)
+
     return yaml_content, content_str
 
 

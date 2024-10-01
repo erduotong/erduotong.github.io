@@ -3,8 +3,10 @@ import argparse
 import pathlib
 import sys
 
+from scripts.vault_transform.modules.fliter import filter_files
 from scripts.vault_transform.modules.link_handle import handle_link
 from scripts.vault_transform.modules.pretreatment import pretreatment
+from scripts.vault_transform.modules.yaml_handler import yaml_handler
 
 
 def main() -> int:
@@ -20,6 +22,10 @@ def main() -> int:
     print(f"转换wiki链接并创建全局关系字典")
     handle_link(dirname)
     print(f"过滤所需文件")
+    filter_files(dirname)
+    print(f"处理每个文件的yaml到vuepress格式")
+    yaml_handler(dirname)
+    print(f"处理完成")
 
     return 0
 

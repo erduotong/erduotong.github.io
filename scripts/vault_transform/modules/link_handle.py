@@ -18,6 +18,16 @@ class File:
         self.link_to = []
         self.backlink = []
 
+    def __str__(self):
+        result = f"File: 文件名：{self.name}，文件类型：{self.file_type}，路径：{self.path}\n"
+        result += "  link_to:\n"
+        for link in self.link_to:
+            result += f"    - {link}\n"
+        result += "  backlink:\n"
+        for link in self.backlink:
+            result += f"    - {link}\n"
+        return result
+
 
 files_dict = {}
 
