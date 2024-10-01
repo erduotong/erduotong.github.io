@@ -5,6 +5,12 @@ export default sidebar({
     "/": [
         "",
         {
+            text:"站点地图",
+            link:"catalog",
+            icon:"sort",
+
+        },
+        {
             text: "博客",
             icon: "book",
             prefix: "blogs/",
@@ -12,11 +18,11 @@ export default sidebar({
             children: "structure",
         },
         {
-            text: "关于本站",
+            text: "关于",
             icon: "circle-info",
             prefix: "about_site/",
             link: "about_site/",
-            children: "structure"
+            children: "structure",
         },
 
 
