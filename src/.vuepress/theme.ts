@@ -17,6 +17,7 @@ export default hopeTheme({
     navbar, // 导航栏设置
     sidebar, // 侧边栏设置
     displayFooter: true,
+    fullscreen: true,
     // repo
     repo: "https://github.com/erduotong/erduotong.github.io",
     repoLabel: "Github",
