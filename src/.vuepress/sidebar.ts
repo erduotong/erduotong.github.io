@@ -5,10 +5,10 @@ export default sidebar({
     "/": [
         "",
         {
-            text: "文章",
+            text: "博客",
             icon: "book",
-            prefix: "posts/",
-            link: "posts/",
+            prefix: "blogs/",
+            link: "blogs/",
             children: "structure",
         },
         {

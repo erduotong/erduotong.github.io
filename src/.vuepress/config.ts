@@ -17,4 +17,7 @@ export default defineUserConfig({
             "./components/websiteFooter.vue",
         ),
     },
+    head: [
+        ["link", {rel: "icon", href: 'logo.jpg'}]
+    ]
 });

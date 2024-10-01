@@ -12,7 +12,7 @@ export default hopeTheme({
     },
     iconAssets: "fontawesome-with-brands",
     editLink: false,
-    logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+    logo: "/logo.jpg",
     docsDir: "src",
     navbar, // 导航栏设置
     sidebar, // 侧边栏设置

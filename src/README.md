@@ -3,7 +3,7 @@ home: true
 layout: BlogHome
 icon: home
 title: 博客主页
-heroImage: https://theme-hope-assets.vuejs.press/logo.svg
+heroImage: /logo.jpg
 heroText: 耳朵同
 heroFullScreen: true
 tagline: 一个博客而已
