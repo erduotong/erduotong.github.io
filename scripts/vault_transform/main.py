@@ -1,7 +1,9 @@
 # 这是用于处理库的链接的脚本
 import argparse
+import os
 import pathlib
 import sys
+import time
 
 from scripts.vault_transform.modules.fliter import filter_files
 from scripts.vault_transform.modules.link_handle import handle_link
@@ -15,7 +17,7 @@ def main() -> int:
     parser.add_argument('--path', type=str, required=True, help='输入路径')
     args = parser.parse_args()
     dirname = pathlib.Path(args.path)
-
+    sttime = time.time()
     exclude_folder = [".obsidianPC", ".obsidianPhone", ".trash", ".obsidian"]
     print(f"开始处理{dirname}中的库的链接")
     pretreatment(dirname, exclude_folder)
@@ -25,8 +27,15 @@ def main() -> int:
     filter_files(dirname)
     print(f"处理每个文件的yaml到vuepress格式")
     yaml_handler(dirname)
+    print(f"删除所有的空文件夹")
+    for root, dirs, files in os.walk(dirname, topdown=False):
+        for _dir in dirs:
+            dir_path = os.path.join(root, _dir)
+            if not os.listdir(dir_path):
+                os.rmdir(dir_path)
+                print(f"Deleted empty folder: {dir_path}")
     print(f"处理完成")
-
+    print(f"总耗时{time.time() - sttime:.2f}秒")
     return 0
 
 

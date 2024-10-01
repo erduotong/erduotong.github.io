@@ -117,10 +117,10 @@ def replace_links(file_path: pathlib.Path):
         path = pathlib.Path(current_file.path.parent, base_file_name)
         normalized_path = os.path.normpath(path)
 
-        print(normalized_path)
+
         is_found = False
         for key, value in files_dict.items():
-            print(value.path, normalized_path + "." + value.file_type)
+
             if str(value.path) == normalized_path + "." + value.file_type or \
                     str(value.path) == normalized_path:
                 link_to_file = value
@@ -173,6 +173,7 @@ def handle_link(target: pathlib.Path):
             replace_links(item)
             print(f"处理文件：{item}")
     # 输出所有文件的链接关系 并且要有缩进
+    print("文件链接关系：")
     for key, value in files_dict.items():
         print(f"{key}:")
         print("  link_to:")

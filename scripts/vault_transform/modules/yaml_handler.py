@@ -13,7 +13,9 @@ def handler(file_content: str, file_title: str) -> str:
         yaml_content = {}
     result_yaml = {
         "isOriginal": True,
+
     }
+    # todo 这里处理一下link
     if file_title != "project.md":
         result_yaml["title"] = file_title[:-3]
     if yaml_content.get("date") is not None:

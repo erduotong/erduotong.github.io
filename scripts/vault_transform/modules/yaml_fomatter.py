@@ -41,27 +41,4 @@ def extract_yaml_content(file: str) -> tuple:
     return yaml_content, content_str
 
 
-def test_extract_yaml_content():
-    file = """---   
-date: 2024-02-25
-share: false
-tags:
-  - project
----
-初中历史关系图
-## 信息
-- 起始时间: 2024-02-25
-- 结束时间: 
-- 状态: #tracking 
-## 简介
-这是对整个初中历史(2022级)的每课的笔记，包括关系梳理，时间轴等
-## 待办
 
-## 记录
-- 2024-02-25 项目建立"""
-    yaml_str, content_str = extract_yaml_content(file)
-    print(content_str)
-    print(yaml_str)
-
-
-test_extract_yaml_content()

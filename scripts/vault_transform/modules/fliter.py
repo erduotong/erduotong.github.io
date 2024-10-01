@@ -56,7 +56,7 @@ def filter_files(dirname: Path) -> None:
             for key, value in files_dict.items():
                 if value.path == file:
                     current_file = value
-                    print(current_file.path)
+
                     break
             # 遍历current_file的link_to，并且找到link_to的文件，将其加入other_list
             for link in current_file.link_to:
