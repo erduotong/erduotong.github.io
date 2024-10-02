@@ -117,12 +117,12 @@ def replace_links(file_path: pathlib.Path):
         path = pathlib.Path(current_file.path.parent, base_file_name)
         normalized_path = os.path.normpath(path)
 
-
         is_found = False
         for key, value in files_dict.items():
-
-            if str(value.path) == normalized_path + "." + value.file_type or \
-                    str(value.path) == normalized_path:
+            value_path = pathlib.Path(os.path.normpath(value.path)).name
+            normalized_path_with_type = pathlib.Path(normalized_path + "." + value.file_type).name
+            normalized_path_without_type = pathlib.Path(normalized_path).name
+            if value_path == normalized_path_with_type or value_path == normalized_path_without_type:
                 link_to_file = value
                 is_found = True
                 break
