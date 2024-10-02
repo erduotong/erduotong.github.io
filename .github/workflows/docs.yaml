@@ -38,6 +38,7 @@ jobs:
         run: |
           rm -rf notes_folder/.git
           cp -rf notes_folder/* src/
+          ls -R src
 
       # 运行构建脚本
       - name: Build The Site
