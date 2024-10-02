@@ -1,9 +1,10 @@
 name: 部署文档
 
 on:
-  #  push:
-  #    branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
 
 jobs:
   docs:
@@ -31,7 +32,7 @@ jobs:
         run: |
           git clone ${{ secrets.NOTE_TARGET }} --depth 1 --branch publish notes_folder 
           rm -rf notes_folder/.git
-          cp -rf notes_folder/* src/.vuepress/
+          cp -rf notes_folder/* src/
 
       # 运行构建脚本
       - name: Build The Site
