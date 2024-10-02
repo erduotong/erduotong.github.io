@@ -1,8 +1,8 @@
 name: 部署文档
 
 on:
-#  push:
-#    branches: [main]
+  #  push:
+  #    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -25,6 +25,13 @@ jobs:
           node-version: 21
           # 缓存 pnpm 依赖
           cache: pnpm
+      - name: merge note
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN}}
+        run: |
+          git clone ${{ secrets.NOTE_TARGET }} --depth 1 --branch publish notes_folder 
+          rm -rf notes_folder/.git
+          cp -rf notes_folder/* src/.vuepress/
 
       # 运行构建脚本
       - name: Build The Site

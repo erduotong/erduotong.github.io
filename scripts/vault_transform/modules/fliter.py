@@ -2,8 +2,8 @@
 import os
 from pathlib import Path
 
-from scripts.vault_transform.modules.link_handle import files_dict
-from scripts.vault_transform.modules.yaml_fomatter import extract_yaml_content
+from modules.link_handle import files_dict
+from modules.yaml_fomatter import extract_yaml_content
 
 share_list = []
 other_list = []

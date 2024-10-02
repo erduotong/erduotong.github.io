@@ -13,15 +13,15 @@ export default sidebar({
         {
             text: "博客",
             icon: "book",
-            prefix: "blogs/",
-            link: "blogs/",
+            prefix: "42 博客/",
+            link: "42 博客/",
             children: "structure",
         },
         {
             text: "项目",
             icon: "laptop-code",
-            prefix: "projects/",
-            link: "projects/",
+            prefix: "43 项目/",
+            link: "43 项目/",
             children: "structure",
         },
         {

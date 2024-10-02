@@ -5,10 +5,10 @@ import pathlib
 import sys
 import time
 
-from scripts.vault_transform.modules.fliter import filter_files
-from scripts.vault_transform.modules.link_handle import handle_link
-from scripts.vault_transform.modules.pretreatment import pretreatment
-from scripts.vault_transform.modules.yaml_handler import yaml_handler
+from modules.fliter import filter_files
+from modules.link_handle import handle_link
+from modules.pretreatment import pretreatment
+from modules.yaml_handler import yaml_handler
 
 
 def main() -> int:

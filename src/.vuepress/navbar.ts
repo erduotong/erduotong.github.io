@@ -13,12 +13,12 @@ export default navbar([
             },
             {
                 text: "博客",
-                link: "/blogs/",
+                link: "/42 博客/",
                 icon: "book"
             },
             {
                 text: "项目",
-                link: "/projects/",
+                link: "/43 项目/",
                 icon: "laptop-code"
             },
         ]
