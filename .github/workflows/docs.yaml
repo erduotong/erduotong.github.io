@@ -26,11 +26,16 @@ jobs:
           node-version: 21
           # 缓存 pnpm 依赖
           cache: pnpm
+      - name: Checkout Notes
+        uses: actions/checkout@v2
+        with:
+          repository: ${{secrets.NOTE_REPO}}
+          token: ${{secrets.WORKFLOW_TOKEN}}
+          path: notes_folder
+          ref: publish
+
       - name: merge note
-        env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN}}
         run: |
-          git clone ${{ secrets.NOTE_TARGET }} --depth 1 --branch publish notes_folder 
           rm -rf notes_folder/.git
           cp -rf notes_folder/* src/
 
