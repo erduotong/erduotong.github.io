@@ -5,6 +5,7 @@
 若重复，则加个hash值
 """
 import os
+import re
 import uuid
 from pathlib import Path
 
@@ -31,6 +32,23 @@ def move_file(src, target):
         target_file.write(content)
     # Delete the source file
     src_path.unlink()
+
+
+
+
+import re
+
+def replace_md_links(file_path, original_img_path, target_path):
+    pattern = re.compile(r'\[([^\]]+)\]\((.+?)\)')
+    new_content = []
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            new_line = pattern.sub(lambda m: f"[{m.group(1)}]({target_path})" if m.group(2).strip() == original_img_path else m.group(0), line)
+            new_content.append(new_line)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.writelines(new_content)
 
 
 def update_link(dirname, file):
@@ -61,13 +79,12 @@ def update_link(dirname, file):
             move_target_path = os.path.normpath(
                 os.path.join(move_target, file.name + uuid.uuid4() + '.' + file.file_type))
         move_target_path = os.path.join(dirname, move_target_path)
-        print(move_target_path, file.path)
         move_file(file.path, move_target_path)
         for i in range(len(target_file.link_to)):
             if target_file.link_to[i] == original_img_path:
                 target_file.link_to[i] = f"{move_target_name}/{file.name}.{file.file_type}"
-
-
+        # replace
+        replace_md_links(target_file.path, original_img_path, f"{move_target_name}/{file.name}.{file.file_type}")
 
 
 def image_handler(dirname):
