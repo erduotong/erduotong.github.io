@@ -37,7 +37,7 @@ jobs:
       - name: merge note
         run: |
           rm -rf notes_folder/.git
-          cp -rf notes_folder/* src/
+          cp -rf notes_folder/. src/
           ls -Ra src
 
       # 运行构建脚本
