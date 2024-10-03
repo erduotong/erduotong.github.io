@@ -6,6 +6,7 @@ import sys
 import time
 
 from modules.fliter import filter_files
+from modules.image_handler import image_handler
 from modules.link_handle import handle_link
 from modules.pretreatment import pretreatment
 from modules.yaml_handler import yaml_handler
@@ -34,6 +35,10 @@ def main() -> int:
             if not os.listdir(dir_path):
                 os.rmdir(dir_path)
                 print(f"Deleted empty folder: {dir_path}")
+    print("图片处理")
+    image_handler(dirname)
+    print("再跑一次yaml_handler")
+    yaml_handler(dirname)
     print(f"处理完成")
     print(f"总耗时{time.time() - sttime:.2f}秒")
     return 0
