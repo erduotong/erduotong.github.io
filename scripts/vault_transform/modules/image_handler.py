@@ -26,12 +26,13 @@ def move_file(src, target):
     # Open the source file and read its content
     with src_path.open('rb') as src_file:
         content = src_file.read()
-
+    src_path.unlink()
     # Open the target file and write the content
     with target_path.open('wb') as target_file:
         target_file.write(content)
     # Delete the source file
-    src_path.unlink()
+    print(src)
+
 
 
 
@@ -44,7 +45,7 @@ def replace_md_links(file_path, original_img_path, target_path):
 
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
-            new_line = pattern.sub(lambda m: f"[{m.group(1)}]({target_path})" if m.group(2).strip() == original_img_path else m.group(0), line)
+            new_line = pattern.sub(lambda m: f"[{m.group(1)}]({target_path})" if os.path.normpath(m.group(2).strip()) == os.path.normpath(original_img_path) else m.group(0), line)
             new_content.append(new_line)
 
     with open(file_path, 'w', encoding='utf-8') as f:
@@ -58,7 +59,7 @@ def update_link(dirname, file):
         path = os.path.normpath(os.path.join(file.path, '../', backlink))
         target_file = None
         for key, value in files_dict.items():
-            if str(value.path) == path:  # 去TM的防御性编程
+            if os.path.normpath(str(value.path)) == os.path.normpath(path):  # 去TM的防御性编程
                 target_file = value
                 break
         if target_file is None:
@@ -70,7 +71,7 @@ def update_link(dirname, file):
         original_img_path = None
         for link in target_file.link_to:
             temp_path = os.path.normpath(os.path.join(target_file.path, '../', link))
-            if temp_path == str(file.path):
+            if temp_path == os.path.normpath(str(file.path)):
                 original_img_path = link
                 break
         # 找到了 判断一下是否
@@ -81,7 +82,7 @@ def update_link(dirname, file):
         move_target_path = os.path.join(dirname, move_target_path)
         move_file(file.path, move_target_path)
         for i in range(len(target_file.link_to)):
-            if target_file.link_to[i] == original_img_path:
+            if os.path.normpath(target_file.link_to[i]) == os.path.normpath(original_img_path):
                 target_file.link_to[i] = f"{move_target_name}/{file.name}.{file.file_type}"
         # replace
         replace_md_links(target_file.path, original_img_path, f"{move_target_name}/{file.name}.{file.file_type}")
