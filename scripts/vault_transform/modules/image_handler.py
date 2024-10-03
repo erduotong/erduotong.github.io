@@ -12,7 +12,7 @@ from pathlib import Path
 from modules.link_handle import files_dict
 
 image_type = ['jpg', 'jpeg', 'png', 'gif', 'svg']
-move_target = 'public/image'
+move_target = '.vuepress/public/image'
 move_target_name = '/image'
 
 

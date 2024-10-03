@@ -19,7 +19,7 @@ def main() -> int:
     args = parser.parse_args()
     dirname = pathlib.Path(args.path)
     sttime = time.time()
-    exclude_folder = [".obsidianPC", ".obsidianPhone", ".trash", ".obsidian"]
+    exclude_folder = [".obsidianPC", ".obsidianPhone", ".trash", ".obsidian", '.git']
     print(f"开始处理{dirname}中的库的链接")
     pretreatment(dirname, exclude_folder)
     print(f"转换wiki链接并创建全局关系字典")
