@@ -12,6 +12,7 @@ export default hopeTheme({
     },
     iconAssets: "fontawesome-with-brands",
     editLink: false,
+    hotReload: true,
     logo: "/logo.png",
     docsDir: "src",
     navbar, // 导航栏设置
@@ -65,8 +66,23 @@ export default hopeTheme({
             hint: true,
             mark: true,
             mermaid: true,
-
         },
+        searchPro: {
+            indexContent: true,
+            autoSuggestions: false,
+            customFields: [
+                {
+                    getter(page: any) {
+                        return page.frontmatter.category
+                    }
+                },
+                {
+                    getter(page: any): any {
+                        return page.frontmatter.tag
+                    }
+                }
+            ]
+        }
 
     },
 }, {
