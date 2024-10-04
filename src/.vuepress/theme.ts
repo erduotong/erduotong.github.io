@@ -27,7 +27,11 @@ export default hopeTheme({
         description: "欢迎来到耳朵同的博客，请随处逛逛吧",
         intro: "about_site/intro",
     },
-
+    navbarLayout: {
+        start: ['Brand'],
+        center: [],
+        end: ['Search', 'Links', 'Language', 'Outlook'],
+    },
     // 在这里配置主题提供的插件
     plugins: {
         blog: true,
