@@ -5,7 +5,7 @@
 若重复，则加个hash值
 """
 import os
-import re
+import shutil
 import uuid
 from pathlib import Path
 
@@ -17,6 +17,7 @@ move_target_name = '/image'
 
 
 def move_file(src, target):
+    print("movefile", src, target)
     src_path = Path(src)
     target_path = Path(target)
 
@@ -24,20 +25,11 @@ def move_file(src, target):
     target_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Open the source file and read its content
-    with src_path.open('rb') as src_file:
-        content = src_file.read()
-    src_path.unlink()
-    # Open the target file and write the content
-    with target_path.open('wb') as target_file:
-        target_file.write(content)
-    # Delete the source file
-    print(src)
-
-
-
+    shutil.move(src_path, target_path)
 
 
 import re
+
 
 def replace_md_links(file_path, original_img_path, target_path):
     pattern = re.compile(r'\[([^\]]+)\]\((.+?)\)')
@@ -45,7 +37,9 @@ def replace_md_links(file_path, original_img_path, target_path):
 
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
-            new_line = pattern.sub(lambda m: f"[{m.group(1)}]({target_path})" if os.path.normpath(m.group(2).strip()) == os.path.normpath(original_img_path) else m.group(0), line)
+            new_line = pattern.sub(
+                lambda m: f"[{m.group(1)}]({target_path})" if os.path.normpath(m.group(2).strip()) == os.path.normpath(
+                    original_img_path) else m.group(0), line)
             new_content.append(new_line)
 
     with open(file_path, 'w', encoding='utf-8') as f:
@@ -79,7 +73,7 @@ def update_link(dirname, file):
         while Path(move_target_path).exists():
             move_target_path = os.path.normpath(
                 os.path.join(move_target, file.name + uuid.uuid4() + '.' + file.file_type))
-        move_target_path = os.path.join(dirname, move_target_path)
+        move_target_path = os.path.normpath(str(dirname) + '/' + move_target_path)
         move_file(file.path, move_target_path)
         for i in range(len(target_file.link_to)):
             if os.path.normpath(target_file.link_to[i]) == os.path.normpath(original_img_path):
