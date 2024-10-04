@@ -24,13 +24,20 @@ export default hopeTheme({
     repoDisplay: true,
     // 博客相关
     blog: {
+        name: "耳朵同",
         description: "欢迎来到耳朵同的博客，请随处逛逛吧",
         intro: "about_site/intro",
+        medias: {
+            Github: "https://github.com/erduotong",
+            BiliBili: "https://space.bilibili.com/1486177608",
+            Email: "3135351980@qq.com"
+        },
+        timeline: "所谓开拓，就是沿着前人未尽的道路，走出更遥远的距离...",
     },
     navbarLayout: {
         start: ['Brand'],
         center: [],
-        end: ['Search', 'Links', 'Language', 'Outlook'],
+        end: ['Search', 'Links', 'Repo', 'Outlook'],
     },
     // 在这里配置主题提供的插件
     plugins: {
