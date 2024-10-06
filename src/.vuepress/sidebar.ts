@@ -11,6 +11,11 @@ export default sidebar({
 
         },
         {
+            text: "笔记",
+            link: "/41 笔记/",
+            icon: "sticky-note"
+        },
+        {
             text: "博客",
             icon: "book",
             prefix: "42 博客/",
