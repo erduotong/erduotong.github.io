@@ -20,6 +20,7 @@
     "vuepress-theme-hope": "2.0.0-rc.56"
   },
   "dependencies": {
+    "@vuepress/plugin-feed": "2.0.0-rc.3",
     "katex": "^0.16.11",
     "markdown-it-obsidian-callouts": "^0.2.6",
     "mermaid": "^11.2.1",

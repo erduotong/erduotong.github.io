@@ -82,6 +82,15 @@ export default hopeTheme({
                     }
                 }
             ]
+        },
+
+        feed: {
+            atom: true,
+            rss: true,
+            json: true,
+            image: "/logo.png",
+            icon: "/logo.png",
+            devServer: true
         }
 
     },
