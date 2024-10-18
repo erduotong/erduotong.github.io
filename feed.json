@@ -1,0 +1,136 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "耳朵同的博客",
+  "home_page_url": "https://erduotong.github.io/",
+  "feed_url": "https://erduotong.github.io/feed.json",
+  "description": "欢迎来到耳朵同的博客",
+  "icon": "https://erduotong.github.io/logo.png",
+  "favicon": "https://erduotong.github.io/logo.png",
+  "items": [
+    {
+      "title": "站点地图",
+      "url": "https://erduotong.github.io/catalog.html",
+      "id": "https://erduotong.github.io/catalog.html",
+      "summary": "站点地图 本站全部文章的索引",
+      "content_html": "\n<h2>本站全部文章的索引</h2>\n",
+      "date_published": "2024-10-01T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "笔记",
+      "url": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/",
+      "id": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/",
+      "content_html": "",
+      "date_published": "2024-10-06T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "博客目录",
+      "url": "https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/",
+      "id": "https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/",
+      "content_html": "",
+      "date_published": "2024-09-22T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "项目",
+      "url": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/",
+      "id": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/",
+      "content_html": "",
+      "date_published": "2024-10-01T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "关于",
+      "url": "https://erduotong.github.io/about_site/",
+      "id": "https://erduotong.github.io/about_site/",
+      "content_html": "",
+      "date_published": "2024-09-22T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "个人介绍",
+      "url": "https://erduotong.github.io/about_site/intro.html",
+      "id": "https://erduotong.github.io/about_site/intro.html",
+      "summary": "这是@erduotong的个人介绍！",
+      "content_html": "<p>这是@erduotong的个人介绍！</p>\n",
+      "date_published": "2024-09-23T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "关于本站",
+      "url": "https://erduotong.github.io/about_site/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99.html",
+      "id": "https://erduotong.github.io/about_site/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99.html",
+      "summary": "这里是关于本站",
+      "content_html": "<p>这里是关于本站</p>\n",
+      "date_published": "2024-10-01T00:00:00.000Z",
+      "date_modified": "2024-10-12T14:48:16.000Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "正则表达式无法匹配markdown链接",
+      "url": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A0%E6%B3%95%E5%8C%B9%E9%85%8Dmarkdown%E9%93%BE%E6%8E%A5.html",
+      "id": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A0%E6%B3%95%E5%8C%B9%E9%85%8Dmarkdown%E9%93%BE%E6%8E%A5.html",
+      "summary": "背景 一般来说，正则表达式很强大，大部分的字符串基本都能处理。 但是，它对于处理markdown链接这一块具有较大的问题。 如下列表达式: 尝试匹配一个这样的字符串: 结果是: 原因 正则对这种不规则的嵌套很难处理，哪怕贪婪匹配也无法完成。 解决办法 不用正则表达式",
+      "content_html": "<h2>背景</h2>\n<p>一般来说，正则表达式很强大，大部分的字符串基本都能处理。\n但是，它对于处理markdown链接这一块具有较大的问题。\n如下列表达式:</p>\n<div class=\"language-re line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"re\" data-title=\"re\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span>\\[([^\\]]+)\\]\\((.+?)\\)</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>尝试匹配一个这样的字符串:</p>\n<div class=\"language-markdown line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"markdown\" data-title=\"markdown\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#986801;--shiki-dark:#ABB2BF\">[</span><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">IMG1</span><span style=\"--shiki-light:#986801;--shiki-dark:#ABB2BF\">]</span><span style=\"--shiki-light:#A626A4;--shiki-dark:#E06C75\">(</span><span style=\"--shiki-light:#A626A4;--shiki-light-text-decoration:inherit;--shiki-dark:#C678DD;--shiki-dark-text-decoration:underline\">IMG1（1</span><span style=\"--shiki-light:#A626A4;--shiki-dark:#E06C75\">)</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">.png)</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>结果是:</p>\n<div class=\"language-markdown line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"markdown\" data-title=\"markdown\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#986801;--shiki-dark:#ABB2BF\">[</span><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">IMG1</span><span style=\"--shiki-light:#986801;--shiki-dark:#ABB2BF\">]</span><span style=\"--shiki-light:#A626A4;--shiki-dark:#E06C75\">(</span><span style=\"--shiki-light:#A626A4;--shiki-light-text-decoration:inherit;--shiki-dark:#C678DD;--shiki-dark-text-decoration:underline\">IMG1（1</span><span style=\"--shiki-light:#A626A4;--shiki-dark:#E06C75\">)</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><h2>原因</h2>\n<p>正则对这种不规则的嵌套很难处理，哪怕贪婪匹配也无法完成。</p>\n<h2>解决办法</h2>\n<p>不用正则表达式</p>\n",
+      "date_modified": "2024-10-18T00:44:36.266Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "vuepress 打包后不自动退出",
+      "url": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/vuepress%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/vuepress%20%E6%89%93%E5%8C%85%E5%90%8E%E4%B8%8D%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA.html",
+      "id": "https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/vuepress%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/vuepress%20%E6%89%93%E5%8C%85%E5%90%8E%E4%B8%8D%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA.html",
+      "summary": "描述 在用Vuepress构建的时候，部分情况会出现Build Successful后，不自动结束进程，导致一直卡住终端不进行下一步。 IMG-20241002 100845785-vuepress 打包后不自动退出.pngIMG-20241002 100845785-vuepress 打包后不自动退出.png 原因 在组件中，添加了SetInterv...",
+      "content_html": "\n<p>在用Vuepress构建的时候，部分情况会出现<code>Build Successful</code>后，不自动结束进程，导致一直卡住终端不进行下一步。</p>\n<figure><img src=\"/image/IMG-20241002 100845785-vuepress 打包后不自动退出.png\" alt=\"IMG-20241002 100845785-vuepress 打包后不自动退出.png\" tabindex=\"0\" loading=\"lazy\"><figcaption>IMG-20241002 100845785-vuepress 打包后不自动退出.png</figcaption></figure>\n<h1>原因</h1>\n<p>在组件中，添加了SetInterval等组件，并且没有释放，如下图</p>\n<div class=\"language-javascript line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"javascript\" data-title=\"javascript\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">const</span><span style=\"--shiki-light:#986801;--shiki-dark:#E5C07B\"> interval</span><span style=\"--shiki-light:#0184BC;--shiki-dark:#56B6C2\"> =</span><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\"> setInterval</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(</span><span style=\"--shiki-light:#383A42;--shiki-dark:#E06C75\">calculateTime</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">, </span><span style=\"--shiki-light:#986801;--shiki-dark:#D19A66\">1000</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">);</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>因为一直没有释放，所以导致<code>Node JS</code>一直无法结束事件循环，哪怕该组件不再使用</p>\n<h1>解决办法</h1>\n<p>在组件的生命周期中，挂载和卸载计时器</p>\n<div class=\"language-javascript line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"javascript\" data-title=\"javascript\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">onMounted</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(() </span><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">=&gt;</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\"> {  </span></span>\n<span class=\"line\"><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">  const</span><span style=\"--shiki-light:#986801;--shiki-dark:#E5C07B\"> interval</span><span style=\"--shiki-light:#0184BC;--shiki-dark:#56B6C2\"> =</span><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\"> setInterval</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(</span><span style=\"--shiki-light:#383A42;--shiki-dark:#E06C75\">calculateTime</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">, </span><span style=\"--shiki-light:#986801;--shiki-dark:#D19A66\">1000</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">); </span></span>\n<span class=\"line\"><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">  onUnmounted</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(() </span><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">=&gt;</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\"> {  </span></span>\n<span class=\"line\"><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">    clearInterval</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(</span><span style=\"--shiki-light:#383A42;--shiki-dark:#E06C75\">interval</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">);  </span></span>\n<span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">  });  </span></span>\n<span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">});</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div></div></div>",
+      "image": "https://erduotong.github.io/image/IMG-20241002 100845785-vuepress 打包后不自动退出.png",
+      "date_modified": "2024-10-18T00:44:36.267Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "一个＊引发的惨案",
+      "url": "https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/debug%E8%AE%B0%E5%BD%95/%E4%B8%80%E4%B8%AA%EF%BC%8A%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88.html",
+      "id": "https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/debug%E8%AE%B0%E5%BD%95/%E4%B8%80%E4%B8%AA%EF%BC%8A%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88.html",
+      "summary": "背景 最近，我正在部署我自己的博客，因为使用的是obsidian，所以为了过滤隐私文件/转换wiki链接，我自己写了个Python程序来转换。 因为使用的Vuepress需要把图片文件放在Public文件夹下面，所以还写了个程序，用来把图片文件转移到.vuepress/public文件夹下。 本地运行，很完美，效果都实现了。要不部署看看吧。然后，.vu...",
+      "content_html": "\n<p>最近，我正在部署我自己的博客，因为使用的是obsidian，所以为了过滤隐私文件/转换wiki链接，我自己写了个Python程序来转换。</p>\n<p>因为使用的Vuepress需要把图片文件放在Public文件夹下面，所以还写了个程序，用来把图片文件转移到<code>.vuepress/public</code>文件夹下。</p>\n<p>本地运行，很完美，效果都实现了。要不部署看看吧。然后，<code>.vuepress</code>就不知道去哪了</p>\n<h1>开始Debug——怀疑Linux的问题</h1>\n<p>介于以前就因为Github Action就出现过因Linux的路径问题导致的BUG，所以先给所有的路径都加上一个<code>os.path.normpath</code>，希望能实现。</p>\n<p>本地跑，完美。放到Action，还是不在。加一个ls，也找不到。</p>\n<h1>怀疑Python的问题</h1>\n<p>因为我的file_move写的很抽象，是这样写的:</p>\n<div class=\"language-python line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"python\" data-title=\"python\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">with</span><span style=\"--shiki-light:#0184BC;--shiki-dark:#56B6C2\"> open</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(path1) </span><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">as</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\"> f:</span></span>\n<span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">    content </span><span style=\"--shiki-light:#383A42;--shiki-dark:#56B6C2\">=</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\"> f.</span><span style=\"--shiki-light:#383A42;--shiki-dark:#61AFEF\">read</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">():</span></span>\n<span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">path1.</span><span style=\"--shiki-light:#383A42;--shiki-dark:#61AFEF\">unlink</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">()</span></span>\n<span class=\"line\"><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">with</span><span style=\"--shiki-light:#0184BC;--shiki-dark:#56B6C2\"> open</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(path2) </span><span style=\"--shiki-light:#A626A4;--shiki-dark:#C678DD\">as</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\"> f:</span></span>\n<span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">    f.</span><span style=\"--shiki-light:#383A42;--shiki-dark:#61AFEF\">write</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(content)</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div><div class=\"line-number\"></div></div></div><p>因为一些莫名其妙的路径问题，所以只能用这种浪费IO性能的方式。\n然后用Pycharm的debug调试了半天，还是改回了一般的移动方式</p>\n<div class=\"language-python line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"python\" data-title=\"python\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">shutil.</span><span style=\"--shiki-light:#383A42;--shiki-dark:#61AFEF\">move</span><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">(path1,path2)</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>本地运行，还是完美。但是Github Action还是跑不出来。\n此时，因为长时间的调试，已经刷了10多个Commit，也红温了</p>\n<h1>初露端倪</h1>\n<p>既然还是路径的问题，那就加ls吧，狠狠的加。\n不过没用。</p>\n<p>但是为什么不试试在Python内ls一下呢（？\n直接叫出copilot写一个递归打印。\nAmazing! 文件已经处理好了！都在处理好的文件夹安安静静的躺着呢。\n但是目标文件夹依然找不到，Push后的仓库也找不到。</p>\n<h1>找到原因</h1>\n<p>经过一系列对ls，最终锁定到了一条语句上:</p>\n<div class=\"language-bash line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"bash\" data-title=\"bash\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\">cp</span><span style=\"--shiki-light:#986801;--shiki-dark:#D19A66\"> -r</span><span style=\"--shiki-light:#50A14F;--shiki-dark:#98C379\"> obsidian_data/</span><span style=\"--shiki-light:#E45649;--shiki-dark:#E5C07B\">*</span><span style=\"--shiki-light:#50A14F;--shiki-dark:#98C379\"> wait_publish_data/</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>看起来很正常，对吧？把obsidian_data内的所有文件移动到wait_publish_data。\n但是，在两侧中，都是正常的。能处理文件的也只有这一条语句了。\n随后就开始怀疑，怀疑<code>*</code>是否正常。立刻询问Github Copilot网页版（不得不说是真好用）\n得到结论:</p>\n<blockquote>\n<p><code>/*</code>选中的是所有的文件，但是不包括隐藏文件和文件夹，例如<code>.git</code>和<code>.vuepress</code>，如果要选择的话，请使用<code>/.</code>以选择所有的文件</p>\n</blockquote>\n<p>好，问题成功解决，只因为一个*。\n但是代价呢？</p>\n<p>红温了3小时</p>\n",
+      "date_modified": "2024-10-18T00:44:36.269Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "1. 与Obsidian相结合 （一）",
+      "url": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.%20%E4%B8%8EObsidian%E7%9B%B8%E7%BB%93%E5%90%88%20%EF%BC%88%E4%B8%80%EF%BC%89.html",
+      "id": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.%20%E4%B8%8EObsidian%E7%9B%B8%E7%BB%93%E5%90%88%20%EF%BC%88%E4%B8%80%EF%BC%89.html",
+      "summary": "Obsidian Obsidian是一款笔记软件，你可以前往官网了解更多 0. 背景 我个人习惯在Obsidian进行写作，并且我个人很喜欢All In One，因此我很难接受再开启一个Obsidian的仓库来进行写作。 但是我的仓库也有很多不便于分享的其他内容，例如日记等，不能进行分享。 为了实现 自动化，有必要写个脚本，自动帮我过滤出可以被分享的文...",
+      "content_html": "\n<div class=\"callout\" data-callout=\"tip\">\n<div class=\"callout-title\">\n<div class=\"callout-title-icon\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-flame\"><path d=\"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z\"></path></svg>\n</div>\n<div class=\"callout-title-inner\">Obsidian</div>\n</div>\n<div class=\"callout-content\"><p>Obsidian是一款笔记软件，你可以前往<a href=\"https://obsidian.md/\" target=\"_blank\" rel=\"noopener noreferrer\">官网</a>了解更多</p>\n</div></div><h2>0. 背景</h2>\n<p>我个人习惯在Obsidian进行写作，并且我个人很喜欢All In One，因此我很难接受再开启一个Obsidian的仓库来进行写作。\n但是我的仓库也有很多不便于分享的其他内容，例如日记等，不能进行分享。\n为了实现 自动化，有必要写个脚本，自动帮我过滤出可以被分享的文件。</p>\n<h2>1. 语言选择</h2>\n<p>目前流行的脚本语言无外乎就两种，<code>Python</code>和<code>Javascript</code>。\n考虑到<code>Javascript</code>对文件处理没<code>Python</code>那样优雅，并且没有类型系统（我不写Typescript，并且Ts太复杂了也不适合干这活），所以选择了Python</p>\n<h2>2. 结构梳理</h2>\n<p>先想想目标是什么:</p>\n<ul>\n<li>简单易用</li>\n<li>体验割裂少</li>\n</ul>\n<h3>单个文件</h3>\n<p>一般来说，博客主要是笔记构成的。如果需要声明是否分享，就需要一些地方来记录信息。</p>\n<p>正好，Obsidian为我们提供了文档属性来记录一些信息。</p>\n<figure><img src=\"/image/IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png\" alt=\"IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png\" tabindex=\"0\" loading=\"lazy\"><figcaption>IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png</figcaption></figure>\n<p>所以，我们就可以给每个笔记的文档属性中添加一个<code>share</code>的Bool属性，用来声明是否分享这个笔记。到时候，只需要点击就可以切换分享状态。\n这样，我们就完成了对笔记文件的分享声明，完全满足了目标。</p>\n<h3>项目</h3>\n<p>但是，如果有一大堆笔记要分享，那么一个一个添加很累。如果有类似图片、白板、Excilidraw等不支持文档属性的也不方便声明。因此，我们再引入一个结构——项目。</p>\n<p>每个文件夹都可以是一个项目，要声明一个项目的话，项目内就必须有一个<code>project.md</code>，在这个文件内可以处理该文件下所有的文件是否分享，并且还能放一些其他的信息。也就是相当于github上面的<code>README.md</code></p>\n<figure><img src=\"/image/IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png\" alt=\"IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png\" tabindex=\"0\" loading=\"lazy\"><figcaption>IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png</figcaption></figure>\n<p><code>project.md</code>因为是笔记文件，也支持文档属性，因此，我们用相同的方式来使用文档属性</p>\n<figure><img src=\"/image/IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png\" alt=\"IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png\" tabindex=\"0\" loading=\"lazy\"><figcaption>IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png</figcaption></figure>\n<h2>3. 仓库处理</h2>\n<blockquote>\n<p>你可以在我的博客<a href=\"https://github.com/erduotong/erduotong.github.io/tree/main/scripts/vault_transform\" target=\"_blank\" rel=\"noopener noreferrer\">开源代码仓库</a>找到这里的所有代码。\n如果你不想看实现过程，你也可以直接跳到下一部分</p>\n</blockquote>\n<h3>需求</h3>\n<p>为了过滤，首先我们得处理一下链接，不然如果有一些图片，没设置<code>share</code>，到时候文章里面就不会有图片了。\n因此，我们需要先处理所有的链接，再把所有和可分享文件有关的附件都分享出去（当然，笔记不属于附件，要是分享的话到时候整个库就会因为双链都被分享出去）</p>\n<p>但是，Obsidian支持Wiki链接，并且Wiki链接的使用体验比较好。\n所以我们还得多一步，Wiki链接转markdown链接。</p>\n<p>接下来，就让我们开始写代码吧！</p>\n<h3>主程序</h3>\n<p>毕竟也不是什么大的程序，用不着太复杂的结构。\n把程序拆分成几个函数，依次调用就行了。</p>\n<h3>预处理</h3>\n<p>Obsidian会有类似<code>.obsidian</code>的文件夹，用来存放配置文件，与我们的笔记无关。\n所以，写一个预处理函数，把要删除的文件夹读进来，然后一个一个删除。</p>\n<h3>处理链接</h3>\n<p>这是最麻烦的一部分了，字符串的处理真的不算很简单。</p>\n<p>首先，为了实现双链，我们必须给每个文件都做一下处理。既然每个文件都有双链，那就声明一个类来存储这些双链、标题数据。\n并且，我们声明__str__，到时候方便打印。只需要<code>str(obj)</code>就可以获得输出的字符串了</p>\n<p>接着，让我们跑一次遍历，给每个文件都放到我们的字典里面</p>\n<p>然后，第二次遍历，处理一下markdown文件里面的链接\n让我们来看一下逻辑。</p>\n<p>首先，我们肯定得把内容拿出来，处理之后，再写回去</p>\n<p>因为<code>mermaid</code>这种东西存在，所以代码块内部的东西肯定是不能动的。我们用一个函数把它们分开吧！</p>\n<p>分开之后，就到了最丑的函数——替换链接了。</p>\n<p>首先，我们来看看一般来说一个Obsidian的链接是长什么样的</p>\n<div class=\"language-markdown line-numbers-mode\" data-highlighter=\"shiki\" data-ext=\"markdown\" data-title=\"markdown\" style=\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\"><pre class=\"shiki shiki-themes one-light one-dark-pro vp-code\"><code><span class=\"line\"><span style=\"--shiki-light:#383A42;--shiki-dark:#ABB2BF\">[[1. 与Obsidian相结合 (一)#0. 背景|123]]</span></span></code></pre>\n<div class=\"line-numbers\" aria-hidden=\"true\" style=\"counter-reset:line-number 0\"><div class=\"line-number\"></div></div></div><p>可以看到，一共有文件名，标题，显示名称三部分组成。\n让我们先把它们拆开来。</p>\n<p>然后，我们需要找到<code>文件名</code>是属于哪个文件的，并且通过路径计算出相对路径。\n不过在此之前，还是得先找到目前在处理哪个文件</p>\n<p>如果是自己指向的是自己的话 （例如<code>[0. 背景](#0.%20背景)</code>这种用法），那么也用不着处理，直接返回。</p>\n<p>然后，让我们开找!</p>\n\n<div class=\"callout\" data-callout=\"note\">\n<div class=\"callout-title\">\n<div class=\"callout-title-icon\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pencil\"><path d=\"M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z\"></path><path d=\"m15 5 4 4\"></path></svg>\n</div>\n<div class=\"callout-title-inner\">一些提示</div>\n</div>\n<div class=\"callout-content\"><p>Obsidian中，如果有同名文件的话，不写路径就是在当前文件夹下，如果写了的话才是指定的。因此，优先从当前文件夹下开始找。</p>\n</div></div><p>如果找到的话，那就好办了。通过Python的库计算一下就行，并且把双链记录好</p>\n<p>找不到的话，那我们就认为是个相对路径，再次计算。</p>\n\n<div class=\"callout\" data-callout=\"tip\">\n<div class=\"callout-title\">\n<div class=\"callout-title-icon\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-flame\"><path d=\"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z\"></path></svg>\n</div>\n<div class=\"callout-title-inner\">Tip</div>\n</div>\n<div class=\"callout-content\"><p>注意，相对路径直接拼接的话会出现类似<code>./abc/../e</code>的奇怪路径，所以要用normaPath处理一下</p>\n</div></div><p>恭喜，Wiki链接已经全部转换成markdown链接了！并且，双链图谱也建立好了。</p>\n<h3>过滤文件</h3>\n<p>过滤文件就很简单了。\n首先，跑一次递归，判断每个文件的分享可行性:</p>\n<p>然后，直接根据双链计算下，没有覆盖到的就删了。</p>\n<p>以及，因为我们使用<code>vuepress</code>，需要做一下yaml的转换，顺带做了吧!</p>\n<h2>4.结束</h2>\n<p>这样，我们的仓库就处理完成了。只保留了需要的内容。\n接下来，内容就可以直接推送到公开仓库了。</p>\n",
+      "image": "https://erduotong.github.io/image/IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png",
+      "date_modified": "2024-10-18T00:44:36.271Z",
+      "authors": [],
+      "tags": []
+    },
+    {
+      "title": "vuepress搭建自己的博客",
+      "url": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/project.html",
+      "id": "https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/project.html",
+      "summary": "vuepress搭建自己的博客 信息 起始时间: 2024-10-01 结束时间: 状态: 简介 用vuepress搭建自己的博客，并且配合obsidian！ 待办 记录 2024-10-01 01:30 : 项目建立",
+      "content_html": "\n<h2>信息</h2>\n<ul>\n<li>起始时间: 2024-10-01</li>\n<li>结束时间:</li>\n<li>状态:</li>\n</ul>\n<h2>简介</h2>\n<p>用vuepress搭建自己的博客，并且配合obsidian！</p>\n<h2>待办</h2>\n<h2>记录</h2>\n<ul>\n<li>2024-10-01 01:30 :  项目建立</li>\n</ul>\n",
+      "date_modified": "2024-10-18T00:44:36.271Z",
+      "authors": [],
+      "tags": []
+    }
+  ]
+}
