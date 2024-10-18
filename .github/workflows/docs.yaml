@@ -7,7 +7,8 @@ on:
 
 
 jobs:
-  docs:
+  merge:
+    name: Merge Notes
     runs-on: ubuntu-latest
 
     steps:
@@ -45,56 +46,36 @@ jobs:
           git commit -m "merge notes"
           git push
           cd ..
-      
+  build:
+    name: build the website
+    runs-on: ubuntu-latest
+    needs: merge
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: merged
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+          run_install: true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: pnpm
 
-#
-#      - name: Setup pnpm
-#        uses: pnpm/action-setup@v2
-#        with:
-#          version: 9
-#          run_install: true
-#
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          # 选择要使用的 node 版本
-#          node-version: 21
-#          # 缓存 pnpm 依赖
-#          cache: pnpm
-#      - name: Checkout Notes
-#        uses: actions/checkout@v2
-#        with:
-#          repository: ${{secrets.NOTE_REPO}}
-#          token: ${{secrets.WORKFLOW_TOKEN}}
-#          path: notes_folder
-#          ref: publish
-#
-#      - name: merge note
-#        run: |
-#          rm -rf notes_folder/.git
-#          cp -rf notes_folder/. src/
-#          ls -Ra src
-#
-#      # 运行构建脚本
-#      - name: Build The Site
-#        run: pnpm docs:build
-#
-#      - name: Deploy to GitHub Pages
-#        uses: crazy-max/ghaction-github-pages@v4
-#        with:
-#          # 部署到 gh-pages 分支
-#          target_branch: gh-pages
-#          # 部署目录为 VuePress 的默认输出目录
-#          build_dir: src/.vuepress/dist
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN}}
-#      - name: Compress src folder
-#        run: tar -czf src.tar.gz src
-#
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: src-archive
-#          path: src.tar.gz
-#          retention-days: 1
+      - name: Build The Site
+        run: pnpm docs:build
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          # 部署到 gh-pages 分支
+          target_branch: gh-pages
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: src/.vuepress/dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN}}
