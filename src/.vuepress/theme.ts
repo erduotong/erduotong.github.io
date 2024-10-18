@@ -91,6 +91,13 @@ export default hopeTheme({
             image: "/logo.png",
             icon: "/logo.png",
             devServer: true
+        },
+        comment: {
+            provider: "Giscus",
+            repo: "erduotong/erduotong.github.io",
+            repoId: "R_kgDOM1B4zA",
+            category: "Announcements",
+            categoryId: "DIC_kwDOM1B4zM4Ci9HB",
         }
 
     },
