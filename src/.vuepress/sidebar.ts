@@ -12,7 +12,8 @@ export default sidebar({
         },
         {
             text: "笔记",
-            link: "/41 笔记/",
+            link: "41 笔记/",
+            prefix: "41 笔记/",
             icon: "sticky-note",
             children: "structure",
         },

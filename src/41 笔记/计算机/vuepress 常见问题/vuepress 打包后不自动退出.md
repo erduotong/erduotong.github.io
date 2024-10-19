@@ -3,7 +3,7 @@ backlink: []
 date: '2024-10-02'
 isOriginal: true
 outlink:
-- /image/IMG-20241002 100845785-vuepress 打包后不自动退出.png
+- /image/IMG-20241012 225747121-vuepress 打包后不自动退出.png
 tags:
 - vuepress
 - debug
@@ -11,7 +11,7 @@ title: vuepress 打包后不自动退出
 ---
 # 描述
 在用Vuepress构建的时候，部分情况会出现`Build Successful`后，不自动结束进程，导致一直卡住终端不进行下一步。
-![IMG-20241002 100845785-vuepress 打包后不自动退出.png](/image/IMG-20241002 100845785-vuepress 打包后不自动退出.png)
+![IMG-20241012 225747121-vuepress 打包后不自动退出.png](/image/IMG-20241012 225747121-vuepress 打包后不自动退出.png)
 # 原因
 在组件中，添加了SetInterval等组件，并且没有释放，如下图
 ```javascript
