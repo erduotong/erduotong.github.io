@@ -9,13 +9,15 @@ const time = ref({
   minutes: 0,
   seconds: 0
 })
+const padZero = (num) => String(num).padStart(2, '0');
+
 const calculateTime = () => {
   const now = new Date();
   const diff = now.getTime() - startTime.getTime();
   time.value.days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  time.value.hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  time.value.minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  time.value.seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  time.value.hours = padZero(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+  time.value.minutes = padZero(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+  time.value.seconds = padZero(Math.floor((diff % (1000 * 60)) / 1000));
 }
 calculateTime()
 onMounted(() => {
@@ -30,11 +32,22 @@ onMounted(() => {
 <template>
   <footer class="footer-wrapper">
     <div class="footer">
-      本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
-      {{ time.seconds }} 秒
+      <!--suppress HtmlUnknownTarget -->
+      <div>
+        <span>订阅本站</span> |
+        <a href="/rss.xml">RSS</a> |
+        <a href="/atom">Atom</a> |
+        <a href="/feed.json">JSON</a>
+
+
+      </div>
     </div>
     <div class="copyright">
-      Copyright © 2024-present 耳朵同
+      <div> Copyright © 2024-present 耳朵同</div>
+
+      <div>本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
+        {{ time.seconds }} 秒
+      </div>
     </div>
   </footer>
 </template>
