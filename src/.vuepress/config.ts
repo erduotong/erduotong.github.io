@@ -3,7 +3,9 @@ import {getDirname, path} from "vuepress/utils"
 import theme from "./theme.js";
 import link_handler from './plugins/markdown_it/link_handler.js'
 import img_space_adder from './plugins/markdown_it/img_space_adder.js'
+import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
+
 const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
     base: "/",
@@ -26,6 +28,7 @@ export default defineUserConfig({
         md.use(link_handler)
         md.use(mdItObsidianCallouts)
         md.use(img_space_adder)
+        md.use(enable_multi_h1)
     },
     markdown: {
         headers: {
