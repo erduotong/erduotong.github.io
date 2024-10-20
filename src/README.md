@@ -13,7 +13,8 @@ projects:
     name: 站点导航
     desc: 查看所有的文章
     link: /catalog.html
-
-
+  - icon: link
+    name: 友情链接
+    desc: 一些友联，欢迎交换
+    link: /about_site/friend.html
 ---
-
