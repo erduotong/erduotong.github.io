@@ -26,7 +26,7 @@ export default hopeTheme({
     // 博客相关
     blog: {
         name: "耳朵同",
-        description: "欢迎来到耳朵同的博客，请随处逛逛吧",
+        description: "欢迎回来",
         intro: "about_site/intro",
         medias: {
             Github: "https://github.com/erduotong",

@@ -6,7 +6,8 @@ title: 博客主页
 heroImage: /logo.png
 heroText: 耳朵同
 heroFullScreen: true
-tagline: 欢迎，到处看看吧
+tagline: 这里是耳朵同的博客
+bgImage: //file.mo7.cc/api/public/bz?idx=1
 projects:
   - icon: project
     name: 站点导航
