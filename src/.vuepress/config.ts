@@ -5,6 +5,7 @@ import link_handler from './plugins/markdown_it/link_handler.js'
 import img_space_adder from './plugins/markdown_it/img_space_adder.js'
 import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
+import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
 
 const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
@@ -29,6 +30,7 @@ export default defineUserConfig({
         md.use(mdItObsidianCallouts)
         md.use(img_space_adder)
         md.use(enable_multi_h1)
+        md.use(ab_mdit)
     },
     markdown: {
         headers: {
