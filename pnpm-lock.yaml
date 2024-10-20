@@ -39,9 +39,6 @@ importers:
       '@vuepress/bundler-vite':
         specifier: 2.0.0-rc.15
         version: 2.0.0-rc.15(@types/node@22.7.7)(sass@1.80.3)(yaml@2.6.0)
-      any-block-converter-markdown-it:
-        specifier: 3.1.3-beta11
-        version: 3.1.3-beta11(markdown-it@14.1.0)
       jsdom:
         specifier: ^25.0.1
         version: 25.0.1
@@ -1149,11 +1146,6 @@ packages:
   ansi-styles@4.3.0:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==, tarball: https://registry.npmmirror.com/ansi-styles/-/ansi-styles-4.3.0.tgz}
     engines: {node: '>=8'}
-
-  any-block-converter-markdown-it@3.1.3-beta11:
-    resolution: {integrity: sha512-NIDCs4HrODqYn4sszxWytmPVhcvN3KuXuFbtPVIJneZlkXHZe07iADBwslq4CNaVQWVxYDkBoivyHaeWjdaCuQ==, tarball: https://registry.npmmirror.com/any-block-converter-markdown-it/-/any-block-converter-markdown-it-3.1.3-beta11.tgz}
-    peerDependencies:
-      markdown-it: ^14.1.0
 
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==, tarball: https://registry.npmmirror.com/anymatch/-/anymatch-3.1.3.tgz}
@@ -3915,11 +3907,6 @@ snapshots:
   ansi-styles@4.3.0:
     dependencies:
       color-convert: 2.0.1
-
-  any-block-converter-markdown-it@3.1.3-beta11(markdown-it@14.1.0):
-    dependencies:
-      markdown-it: 14.1.0
-      plantuml-encoder: 1.4.0
 
   anymatch@3.1.3:
     dependencies:
