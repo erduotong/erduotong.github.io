@@ -30,7 +30,7 @@ export default defineUserConfig({
         md.use(mdItObsidianCallouts)
         md.use(img_space_adder)
         md.use(enable_multi_h1)
-        md.use(ab_mdit)
+        // md.use(ab_mdit)
 
     },
     markdown: {
