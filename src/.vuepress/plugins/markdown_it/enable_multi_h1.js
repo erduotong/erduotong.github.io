@@ -12,7 +12,7 @@ export default (md) => {
         const regex = /^(# .+)/m;
 
         const processedSrc = src.replace(regex, (match) => {
-            return `---\n${match}`;
+            return `\n***\n${match}`;
         });
 
         return originalRender.call(md, processedSrc, env);
