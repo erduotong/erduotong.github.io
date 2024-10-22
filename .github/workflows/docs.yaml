@@ -43,7 +43,7 @@ jobs:
           
           cd merged
           git add .
-          git commit -m "merge notes"
+          git commit -m "merge notes" || echo "nothing to commit"
           git push
           cd ..
   build:
