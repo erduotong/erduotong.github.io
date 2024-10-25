@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://erduotong.github.io/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <atom:link href="https://erduotong.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>耳朵同的博客</title>
+    <link>https://erduotong.github.io/</link>
+    <description>欢迎来到耳朵同的博客</description>
+    <language>zh-CN</language>
+    <pubDate>Fri, 25 Oct 2024 00:45:27 GMT</pubDate>
+    <lastBuildDate>Fri, 25 Oct 2024 00:45:27 GMT</lastBuildDate>
+    <generator>@vuepress/plugin-feed</generator>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <image>
+      <title>耳朵同的博客</title>
+      <url>https://erduotong.github.io/logo.png</url>
+      <link>https://erduotong.github.io/</link>
+    </image>
+    <item>
+      <title>站点地图</title>
+      <link>https://erduotong.github.io/catalog.html</link>
+      <guid>https://erduotong.github.io/catalog.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">站点地图</source>
+      <description>站点地图 本站全部文章的索引</description>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>站点地图</h1>
+<h2>本站全部文章的索引</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>笔记</title>
+      <link>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/</link>
+      <guid>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/</guid>
+      <source url="https://erduotong.github.io/rss.xml">笔记</source>
+      <pubDate>Sun, 06 Oct 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>项目</title>
+      <link>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/</link>
+      <guid>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/</guid>
+      <source url="https://erduotong.github.io/rss.xml">项目</source>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>博客目录</title>
+      <link>https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/</link>
+      <guid>https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/</guid>
+      <source url="https://erduotong.github.io/rss.xml">博客目录</source>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>https://erduotong.github.io/about_site/</link>
+      <guid>https://erduotong.github.io/about_site/</guid>
+      <source url="https://erduotong.github.io/rss.xml">关于</source>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>友情链接</title>
+      <link>https://erduotong.github.io/about_site/friend.html</link>
+      <guid>https://erduotong.github.io/about_site/friend.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">友情链接</source>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>个人介绍</title>
+      <link>https://erduotong.github.io/about_site/intro.html</link>
+      <guid>https://erduotong.github.io/about_site/intro.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">个人介绍</source>
+      <description>似乎这里还什么都没有？</description>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p>似乎这里还什么都没有？</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>关于本站</title>
+      <link>https://erduotong.github.io/about_site/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99.html</link>
+      <guid>https://erduotong.github.io/about_site/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">关于本站</source>
+      <description>这里是关于本站</description>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p>这里是关于本站</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Obsidian 模板&amp;组件</title>
+      <link>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/Obsidian%20%E6%A8%A1%E6%9D%BF_%E7%BB%84%E4%BB%B6/project.html</link>
+      <guid>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/Obsidian%20%E6%A8%A1%E6%9D%BF_%E7%BB%84%E4%BB%B6/project.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">Obsidian 模板&amp;组件</source>
+      <description>Obsidian 模板&amp;组件 信息 起始时间: 2024-10-19\ 结束时间: 状态: 简介 这是一个存放一些Obsidian的模板和组件的一个记录的项目 一些零散的组件/模板啥的就丢这里面来了 待办 记录 2024-10-19 02:42 : 项目建立</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>Obsidian 模板&amp;组件</h1>
+<h2>信息</h2>
+<ul>
+<li>起始时间: 2024-10-19\</li>
+<li>结束时间:</li>
+<li>状态:</li>
+</ul>
+<h2>简介</h2>
+<p>这是一个存放一些Obsidian的模板和组件的一个记录的项目
+一些零散的组件/模板啥的就丢这里面来了</p>
+<h2>待办</h2>
+<h2>记录</h2>
+<ul>
+<li>2024-10-19 02:42 :  项目建立</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>1. 与Obsidian相结合 （一）</title>
+      <link>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.%20%E4%B8%8EObsidian%E7%9B%B8%E7%BB%93%E5%90%88%20%EF%BC%88%E4%B8%80%EF%BC%89.html</link>
+      <guid>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.%20%E4%B8%8EObsidian%E7%9B%B8%E7%BB%93%E5%90%88%20%EF%BC%88%E4%B8%80%EF%BC%89.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">1. 与Obsidian相结合 （一）</source>
+      <description>Obsidian Obsidian是一款笔记软件，你可以前往官网了解更多 0. 背景 我个人习惯在Obsidian进行写作，并且我个人很喜欢All In One，因此我很难接受再开启一个Obsidian的仓库来进行写作。 但是我的仓库也有很多不便于分享的其他内容，例如日记等，不能进行分享。 为了实现 自动化，有必要写个脚本，自动帮我过滤出可以被分享的文...</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[
+<div class="callout" data-callout="tip">
+<div class="callout-title">
+<div class="callout-title-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+</div>
+<div class="callout-title-inner">Obsidian</div>
+</div>
+<div class="callout-content"><p>Obsidian是一款笔记软件，你可以前往<a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">官网</a>了解更多</p>
+</div></div><h2>0. 背景</h2>
+<p>我个人习惯在Obsidian进行写作，并且我个人很喜欢All In One，因此我很难接受再开启一个Obsidian的仓库来进行写作。
+但是我的仓库也有很多不便于分享的其他内容，例如日记等，不能进行分享。
+为了实现 自动化，有必要写个脚本，自动帮我过滤出可以被分享的文件。</p>
+<h2>1. 语言选择</h2>
+<p>目前流行的脚本语言无外乎就两种，<code>Python</code>和<code>Javascript</code>。
+考虑到<code>Javascript</code>对文件处理没<code>Python</code>那样优雅，并且没有类型系统（我不写Typescript，并且Ts太复杂了也不适合干这活），所以选择了Python</p>
+<h2>2. 结构梳理</h2>
+<p>先想想目标是什么:</p>
+<ul>
+<li>简单易用</li>
+<li>体验割裂少</li>
+</ul>
+<h3>单个文件</h3>
+<p>一般来说，博客主要是笔记构成的。如果需要声明是否分享，就需要一些地方来记录信息。</p>
+<p>正好，Obsidian为我们提供了文档属性来记录一些信息。</p>
+<figure><img src="/image/IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png" alt="IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png" tabindex="0" loading="lazy"><figcaption>IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png</figcaption></figure>
+<p>所以，我们就可以给每个笔记的文档属性中添加一个<code>share</code>的Bool属性，用来声明是否分享这个笔记。到时候，只需要点击就可以切换分享状态。
+这样，我们就完成了对笔记文件的分享声明，完全满足了目标。</p>
+<h3>项目</h3>
+<p>但是，如果有一大堆笔记要分享，那么一个一个添加很累。如果有类似图片、白板、Excilidraw等不支持文档属性的也不方便声明。因此，我们再引入一个结构——项目。</p>
+<p>每个文件夹都可以是一个项目，要声明一个项目的话，项目内就必须有一个<code>project.md</code>，在这个文件内可以处理该文件下所有的文件是否分享，并且还能放一些其他的信息。也就是相当于github上面的<code>README.md</code></p>
+<figure><img src="/image/IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png" alt="IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png" tabindex="0" loading="lazy"><figcaption>IMG-20241003 192402814-1. 与Obsidian相结合 （一）.png</figcaption></figure>
+<p><code>project.md</code>因为是笔记文件，也支持文档属性，因此，我们用相同的方式来使用文档属性</p>
+<figure><img src="/image/IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png" alt="IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png" tabindex="0" loading="lazy"><figcaption>IMG-20241003 192403010-1. 与Obsidian相结合 （一）.png</figcaption></figure>
+<h2>3. 仓库处理</h2>
+<blockquote>
+<p>你可以在我的博客<a href="https://github.com/erduotong/erduotong.github.io/tree/main/scripts/vault_transform" target="_blank" rel="noopener noreferrer">开源代码仓库</a>找到这里的所有代码。
+如果你不想看实现过程，你也可以直接跳到下一部分</p>
+</blockquote>
+<h3>需求</h3>
+<p>为了过滤，首先我们得处理一下链接，不然如果有一些图片，没设置<code>share</code>，到时候文章里面就不会有图片了。
+因此，我们需要先处理所有的链接，再把所有和可分享文件有关的附件都分享出去（当然，笔记不属于附件，要是分享的话到时候整个库就会因为双链都被分享出去）</p>
+<p>但是，Obsidian支持Wiki链接，并且Wiki链接的使用体验比较好。
+所以我们还得多一步，Wiki链接转markdown链接。</p>
+<p>接下来，就让我们开始写代码吧！</p>
+<h3>主程序</h3>
+<p>毕竟也不是什么大的程序，用不着太复杂的结构。
+把程序拆分成几个函数，依次调用就行了。</p>
+<h3>预处理</h3>
+<p>Obsidian会有类似<code>.obsidian</code>的文件夹，用来存放配置文件，与我们的笔记无关。
+所以，写一个预处理函数，把要删除的文件夹读进来，然后一个一个删除。</p>
+<h3>处理链接</h3>
+<p>这是最麻烦的一部分了，字符串的处理真的不算很简单。</p>
+<p>首先，为了实现双链，我们必须给每个文件都做一下处理。既然每个文件都有双链，那就声明一个类来存储这些双链、标题数据。
+并且，我们声明__str__，到时候方便打印。只需要<code>str(obj)</code>就可以获得输出的字符串了</p>
+<p>接着，让我们跑一次遍历，给每个文件都放到我们的字典里面</p>
+<p>然后，第二次遍历，处理一下markdown文件里面的链接
+让我们来看一下逻辑。</p>
+<p>首先，我们肯定得把内容拿出来，处理之后，再写回去</p>
+<p>因为<code>mermaid</code>这种东西存在，所以代码块内部的东西肯定是不能动的。我们用一个函数把它们分开吧！</p>
+<p>分开之后，就到了最丑的函数——替换链接了。</p>
+<p>首先，我们来看看一般来说一个Obsidian的链接是长什么样的</p>
+<div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" data-title="markdown" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[[1. 与Obsidian相结合 (一)#0. 背景|123]]</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>可以看到，一共有文件名，标题，显示名称三部分组成。
+让我们先把它们拆开来。</p>
+<p>然后，我们需要找到<code>文件名</code>是属于哪个文件的，并且通过路径计算出相对路径。
+不过在此之前，还是得先找到目前在处理哪个文件</p>
+<p>如果是自己指向的是自己的话 （例如<code>[0. 背景](#0.%20背景)</code>这种用法），那么也用不着处理，直接返回。</p>
+<p>然后，让我们开找!</p>
+
+<div class="callout" data-callout="note">
+<div class="callout-title">
+<div class="callout-title-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>
+</div>
+<div class="callout-title-inner">一些提示</div>
+</div>
+<div class="callout-content"><p>Obsidian中，如果有同名文件的话，不写路径就是在当前文件夹下，如果写了的话才是指定的。因此，优先从当前文件夹下开始找。</p>
+</div></div><p>如果找到的话，那就好办了。通过Python的库计算一下就行，并且把双链记录好</p>
+<p>找不到的话，那我们就认为是个相对路径，再次计算。</p>
+
+<div class="callout" data-callout="tip">
+<div class="callout-title">
+<div class="callout-title-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+</div>
+<div class="callout-title-inner">Tip</div>
+</div>
+<div class="callout-content"><p>注意，相对路径直接拼接的话会出现类似<code>./abc/../e</code>的奇怪路径，所以要用normaPath处理一下</p>
+</div></div><p>恭喜，Wiki链接已经全部转换成markdown链接了！并且，双链图谱也建立好了。</p>
+<h3>过滤文件</h3>
+<p>过滤文件就很简单了。
+首先，跑一次递归，判断每个文件的分享可行性:</p>
+<p>然后，直接根据双链计算下，没有覆盖到的就删了。</p>
+<p>以及，因为我们使用<code>vuepress</code>，需要做一下yaml的转换，顺带做了吧!</p>
+<h2>4.结束</h2>
+<p>这样，我们的仓库就处理完成了。只保留了需要的内容。
+接下来，内容就可以直接推送到公开仓库了。</p>
+]]></content:encoded>
+      <enclosure url="https://erduotong.github.io/image/IMG-20241003 192402663-1. 与Obsidian相结合 （一）.png" type="image/png"/>
+    </item>
+    <item>
+      <title>vuepress搭建自己的博客</title>
+      <link>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/project.html</link>
+      <guid>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/vuepress%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/project.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">vuepress搭建自己的博客</source>
+      <description>vuepress搭建自己的博客 信息 起始时间: 2024-10-01 结束时间: 状态: 简介 用vuepress搭建自己的博客，并且配合obsidian！ 待办 记录 2024-10-01 01:30 : 项目建立</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>vuepress搭建自己的博客</h1>
+<h2>信息</h2>
+<ul>
+<li>起始时间: 2024-10-01</li>
+<li>结束时间:</li>
+<li>状态:</li>
+</ul>
+<h2>简介</h2>
+<p>用vuepress搭建自己的博客，并且配合obsidian！</p>
+<h2>待办</h2>
+<h2>记录</h2>
+<ul>
+<li>2024-10-01 01:30 :  项目建立</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>一个＊引发的惨案</title>
+      <link>https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/debug%E8%AE%B0%E5%BD%95/%E4%B8%80%E4%B8%AA%EF%BC%8A%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88.html</link>
+      <guid>https://erduotong.github.io/42%20%E5%8D%9A%E5%AE%A2/debug%E8%AE%B0%E5%BD%95/%E4%B8%80%E4%B8%AA%EF%BC%8A%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">一个＊引发的惨案</source>
+      <description>背景 最近，我正在部署我自己的博客，因为使用的是obsidian，所以为了过滤隐私文件/转换wiki链接，我自己写了个Python程序来转换。 因为使用的Vuepress需要把图片文件放在Public文件夹下面，所以还写了个程序，用来把图片文件转移到.vuepress/public文件夹下。 本地运行，很完美，效果都实现了。要不部署看看吧。然后，.vu...</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>背景</h1>
+<p>最近，我正在部署我自己的博客，因为使用的是obsidian，所以为了过滤隐私文件/转换wiki链接，我自己写了个Python程序来转换。</p>
+<p>因为使用的Vuepress需要把图片文件放在Public文件夹下面，所以还写了个程序，用来把图片文件转移到<code>.vuepress/public</code>文件夹下。</p>
+<p>本地运行，很完美，效果都实现了。要不部署看看吧。然后，<code>.vuepress</code>就不知道去哪了</p>
+<h1>开始Debug——怀疑Linux的问题</h1>
+<p>介于以前就因为Github Action就出现过因Linux的路径问题导致的BUG，所以先给所有的路径都加上一个<code>os.path.normpath</code>，希望能实现。</p>
+<p>本地跑，完美。放到Action，还是不在。加一个ls，也找不到。</p>
+<h1>怀疑Python的问题</h1>
+<p>因为我的file_move写的很抽象，是这样写的:</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(path1) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    content </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">read</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">():</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">path1.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">unlink</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(path2) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">write</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(content)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>因为一些莫名其妙的路径问题，所以只能用这种浪费IO性能的方式。
+然后用Pycharm的debug调试了半天，还是改回了一般的移动方式</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">shutil.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">move</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(path1,path2)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>本地运行，还是完美。但是Github Action还是跑不出来。
+此时，因为长时间的调试，已经刷了10多个Commit，也红温了</p>
+<h1>初露端倪</h1>
+<p>既然还是路径的问题，那就加ls吧，狠狠的加。
+不过没用。</p>
+<p>但是为什么不试试在Python内ls一下呢（？
+直接叫出copilot写一个递归打印。
+Amazing! 文件已经处理好了！都在处理好的文件夹安安静静的躺着呢。
+但是目标文件夹依然找不到，Push后的仓库也找不到。</p>
+<h1>找到原因</h1>
+<p>经过一系列对ls，最终锁定到了一条语句上:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">cp</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -r</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> obsidian_data/</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">*</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> wait_publish_data/</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>看起来很正常，对吧？把obsidian_data内的所有文件移动到wait_publish_data。
+但是，在两侧中，都是正常的。能处理文件的也只有这一条语句了。
+随后就开始怀疑，怀疑<code>*</code>是否正常。立刻询问Github Copilot网页版（不得不说是真好用）
+得到结论:</p>
+<blockquote>
+<p><code>/*</code>选中的是所有的文件，但是不包括隐藏文件和文件夹，例如<code>.git</code>和<code>.vuepress</code>，如果要选择的话，请使用<code>/.</code>以选择所有的文件</p>
+</blockquote>
+<p>好，问题成功解决，只因为一个*。
+但是代价呢？</p>
+<p>红温了3小时</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>vuepress 打包后不自动退出</title>
+      <link>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/vuepress%20%E6%89%93%E5%8C%85%E5%90%8E%E4%B8%8D%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA.html</link>
+      <guid>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/vuepress%20%E6%89%93%E5%8C%85%E5%90%8E%E4%B8%8D%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">vuepress 打包后不自动退出</source>
+      <description>描述 在用Vuepress构建的时候，部分情况会出现Build Successful后，不自动结束进程，导致一直卡住终端不进行下一步。 IMG-20241018 201348330-vuepress 打包后不自动退出.pngIMG-20241018 201348330-vuepress 打包后不自动退出.png 原因 在组件中，添加了SetInterv...</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>描述</h1>
+<p>在用Vuepress构建的时候，部分情况会出现<code>Build Successful</code>后，不自动结束进程，导致一直卡住终端不进行下一步。</p>
+<figure><img src="/image/IMG-20241018 201348330-vuepress 打包后不自动退出.png" alt="IMG-20241018 201348330-vuepress 打包后不自动退出.png" tabindex="0" loading="lazy"><figcaption>IMG-20241018 201348330-vuepress 打包后不自动退出.png</figcaption></figure>
+<h1>原因</h1>
+<p>在组件中，添加了SetInterval等组件，并且没有释放，如下图</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="shiki" data-ext="javascript" data-title="javascript" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> interval</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> setInterval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">calculateTime</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1000</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>因为一直没有释放，所以导致<code>Node JS</code>一直无法结束事件循环，哪怕该组件不再使用</p>
+<h1>解决办法</h1>
+<p>在组件的生命周期中，挂载和卸载计时器</p>
+<div class="language-javascript line-numbers-mode" data-highlighter="shiki" data-ext="javascript" data-title="javascript" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">onMounted</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(() </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> interval</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> setInterval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">calculateTime</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1000</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">); </span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">  onUnmounted</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(() </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">    clearInterval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">interval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  });  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">});</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
+      <enclosure url="https://erduotong.github.io/image/IMG-20241018 201348330-vuepress 打包后不自动退出.png" type="image/png"/>
+    </item>
+    <item>
+      <title>正则表达式无法匹配markdown链接</title>
+      <link>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A0%E6%B3%95%E5%8C%B9%E9%85%8Dmarkdown%E9%93%BE%E6%8E%A5.html</link>
+      <guid>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A0%E6%B3%95%E5%8C%B9%E9%85%8Dmarkdown%E9%93%BE%E6%8E%A5.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">正则表达式无法匹配markdown链接</source>
+      <description>背景 一般来说，正则表达式很强大，大部分的字符串基本都能处理。 但是，它对于处理markdown链接这一块具有较大的问题。 如下列表达式: 尝试匹配一个这样的字符串: 结果是: 原因 正则对这种不规则的嵌套很难处理，哪怕贪婪匹配也无法完成。 解决办法 不用正则表达式</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<h2>背景</h2>
+<p>一般来说，正则表达式很强大，大部分的字符串基本都能处理。
+但是，它对于处理markdown链接这一块具有较大的问题。
+如下列表达式:</p>
+<div class="language-regex line-numbers-mode" data-highlighter="shiki" data-ext="regex" data-title="regex" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\[</span><span style="--shiki-light:#383A42;--shiki-dark:#D19A66">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">[</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">^</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\]</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">]</span><span style="--shiki-light:#383A42;--shiki-dark:#D19A66">+)</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\]\(</span><span style="--shiki-light:#383A42;--shiki-dark:#D19A66">(</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#383A42;--shiki-dark:#D19A66">+?)</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>尝试匹配一个这样的字符串:</p>
+<div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" data-title="markdown" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">IMG1</span><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF">]</span><span style="--shiki-light:#A626A4;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#A626A4;--shiki-light-text-decoration:inherit;--shiki-dark:#C678DD;--shiki-dark-text-decoration:underline">IMG1（1</span><span style="--shiki-light:#A626A4;--shiki-dark:#E06C75">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.png)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>结果是:</p>
+<div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" data-title="markdown" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">IMG1</span><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF">]</span><span style="--shiki-light:#A626A4;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#A626A4;--shiki-light-text-decoration:inherit;--shiki-dark:#C678DD;--shiki-dark-text-decoration:underline">IMG1（1</span><span style="--shiki-light:#A626A4;--shiki-dark:#E06C75">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2>原因</h2>
+<p>正则对这种不规则的嵌套很难处理，哪怕贪婪匹配也无法完成。</p>
+<h2>解决办法</h2>
+<p>不用正则表达式</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Obsidian组件——检查不规范的文件</title>
+      <link>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/Obsidian%20%E6%A8%A1%E6%9D%BF_%E7%BB%84%E4%BB%B6/%E6%A3%80%E6%9F%A5%E4%B8%8D%E8%A7%84%E8%8C%83%E7%9A%84%E6%96%87%E4%BB%B6/Obsidian%E7%BB%84%E4%BB%B6%E2%80%94%E2%80%94%E6%A3%80%E6%9F%A5%E4%B8%8D%E8%A7%84%E8%8C%83%E7%9A%84%E6%96%87%E4%BB%B6.html</link>
+      <guid>https://erduotong.github.io/43%20%E9%A1%B9%E7%9B%AE/Obsidian%20%E6%A8%A1%E6%9D%BF_%E7%BB%84%E4%BB%B6/%E6%A3%80%E6%9F%A5%E4%B8%8D%E8%A7%84%E8%8C%83%E7%9A%84%E6%96%87%E4%BB%B6/Obsidian%E7%BB%84%E4%BB%B6%E2%80%94%E2%80%94%E6%A3%80%E6%9F%A5%E4%B8%8D%E8%A7%84%E8%8C%83%E7%9A%84%E6%96%87%E4%BB%B6.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">Obsidian组件——检查不规范的文件</source>
+      <description>背景 众所周知，Obsidian是一款依赖于 Markdown 笔记软件。但是因为Obsidian既支持Wiki链接 (形如[]())，又支持Markdown链接（形如[]()），在某些时候，就会出现一些文件名，与markdown链接冲突，或者与Wiki链接冲突。 为了解决这个问题，就有了这个组件。 功能 列出所有存在问题的文件 文件名预览 一键跳转到...</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<h2>背景</h2>
+<p>众所周知，Obsidian是一款依赖于 <code>Markdown</code> 笔记软件。但是因为Obsidian既支持Wiki链接 (形如<code>[]()</code>)，又支持Markdown链接（形如<code>[]()</code>），在某些时候，就会出现一些文件名，与markdown链接冲突，或者与Wiki链接冲突。
+为了解决这个问题，就有了这个组件。</p>
+<h2>功能</h2>
+<ul>
+<li>列出所有存在问题的文件</li>
+<li>文件名预览</li>
+<li>一键跳转到目标文件</li>
+<li>提出修改的命名建议</li>
+<li>一键修改成符合规范的命名</li>
+</ul>
+<figure><img src="/image/IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png" alt="IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png" tabindex="0" loading="lazy"><figcaption>IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png</figcaption></figure>
+<h2>使用</h2>
+<ol>
+<li>首先，下载<strong>Dataview</strong>插件</li>
+<li>将下列代码粘贴到任意一个笔记文件中</li>
+<li>开始使用吧！</li>
+</ol>
+
+<details class="callout" data-callout="note" data-callout-fold="-">
+<summary class="callout-title">
+<div class="callout-title-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>
+</div>
+<div class="callout-title-inner">匹配更多字符</div>
+<div class="callout-fold"></div>
+</summary>
+<div class="callout-content"><p>你可以修改 <code>unallowedChars</code> 这个对象，并且添加一个新的键，以及一个你想要替换的值。
+例如，你想要将空格替换为_，那么你应该这样添加一个新的项:</p>
+<div class="language-js line-numbers-mode" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> unallowedChars</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">   " "</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "_"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></details><div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" data-title="markdown" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```dataviewjs</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> unallowedChars</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "#"</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "＃"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "^"</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "＾"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "["</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "［"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "]"</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "］"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "("</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "（"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  ")"</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "）"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  "|"</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "｜"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">};</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">async</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> viewIncorrectFiles</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> files</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> app</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">vault</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getFiles</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">().</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">filter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">keys</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">unallowedChars</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">some</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">char</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">includes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">char</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">));</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  });</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // 获取所有文件名不符合规范的文件</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">files</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">length</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> ===</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    dv</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">paragraph</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"✅ 恭喜，所有的文件名都符合规范！"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  }</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  else</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    dv</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">paragraph</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"🚨 以下文件名不符合规范，请检查"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  dv</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">table</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    [</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"文件名"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"查看文件"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"重命名文件"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"重命名预览"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">],</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    files</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> show</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> dv</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">el</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"button"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"查看文件"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">      show</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">onclick</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">        app</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">workspace</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">createLeafInTabGroup</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">app</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">workspace</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">rootSplit</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">children</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">])</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">openFile</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">active</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> });</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      };</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> rename</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> dv</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">el</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"button"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"重命名"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      let</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> replaced_name</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">const</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B">key</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B">value</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">of</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">entries</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">unallowedChars</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">        replaced_name</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> replaced_name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">split</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">key</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">join</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">      rename</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">onclick</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">        app</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">fileManager</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">renameFile</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">          file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">          `</span><span style="--shiki-light:#CA1243;--shiki-dark:#C678DD">${</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">file</span><span style="--shiki-light:#50A14F;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">parent</span><span style="--shiki-light:#50A14F;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">path</span><span style="--shiki-light:#CA1243;--shiki-dark:#C678DD">}</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">/</span><span style="--shiki-light:#CA1243;--shiki-dark:#C678DD">${</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">replaced_name</span><span style="--shiki-light:#CA1243;--shiki-dark:#C678DD">}</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">`</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        );</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      };</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">file</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#C18401;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">show</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">rename</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">replaced_name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">];</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    })</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  );</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">await</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> viewIncorrectFiles</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
+      <enclosure url="https://erduotong.github.io/image/IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png" type="image/png"/>
+    </item>
+    <item>
+      <title>添加Giscus评论</title>
+      <link>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/Theme-Hope/%E6%B7%BB%E5%8A%A0Giscus%E8%AF%84%E8%AE%BA.html</link>
+      <guid>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/Theme-Hope/%E6%B7%BB%E5%8A%A0Giscus%E8%AF%84%E8%AE%BA.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">添加Giscus评论</source>
+      <description>简介 Giscus是一个基于Github Discussions的评论系统，可以让用户登录github账号以评论。 在Vuepress Themehope主题中，已经提供了Giscus的支持，通过一些配置就可以方便的调用 配置 准备 首先，准备一个公有仓库，并且开启Dicussions功能，用于存放评论 安装Giscus的Github App，使Gis...</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<h2>简介</h2>
+<p><a href="https://giscus.app/zh-CN" target="_blank" rel="noopener noreferrer">Giscus</a>是一个基于Github Discussions的评论系统，可以让用户登录github账号以评论。
+在Vuepress Themehope主题中，已经提供了Giscus的支持，通过一些配置就可以方便的调用</p>
+]]></content:encoded>
+      <enclosure url="https://erduotong.github.io/image/IMG-20241018 202838725-添加Giscus评论.png" type="image/png"/>
+    </item>
+    <item>
+      <title>防止标题被吞</title>
+      <link>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/Theme-Hope/%E9%98%B2%E6%AD%A2%E6%A0%87%E9%A2%98%E8%A2%AB%E5%90%9E.html</link>
+      <guid>https://erduotong.github.io/41%20%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA/Vuepress/Theme-Hope/%E9%98%B2%E6%AD%A2%E6%A0%87%E9%A2%98%E8%A2%AB%E5%90%9E.html</guid>
+      <source url="https://erduotong.github.io/rss.xml">防止标题被吞</source>
+      <description>背景 在Vuepress中，若一篇Markdown文章中有多个 # h1 标题，则第一个标题会消失，即使已经指定了文章标题 解决办法 通过Markdown it插件解决，在文章开头加入分割线 但是因为存在frontmatter(yaml)这种东西，处理原始内容不太方便。 所以，反向思考，因为要处理的是 h1 的问题，所以在 h1 前面加入分割线就行。 代码</description>
+      <pubDate>Tue, 22 Oct 2024 10:40:28 GMT</pubDate>
+      <content:encoded><![CDATA[<hr>
+<h1>背景</h1>
+<p>在Vuepress中，若一篇Markdown文章中有多个 <code># h1</code> 标题，则第一个标题会消失，即使已经指定了文章标题</p>
+<h1>解决办法</h1>
+<p>通过Markdown it插件解决，在文章开头加入分割线
+但是因为存在frontmatter(yaml)这种东西，处理原始内容不太方便。
+所以，反向思考，因为要处理的是 <code>h1</code> 的问题，所以在 <code>h1</code> 前面加入分割线就行。</p>
+<h1>代码</h1>
+<div class="language-javascript line-numbers-mode" data-highlighter="shiki" data-ext="javascript" data-title="javascript" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">export</span><span style="--shiki-light:#E45649;--shiki-dark:#C678DD"> default</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">md</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> originalRender</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> md</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">render</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    md</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">render</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">src</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">env</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  </span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> regex</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#E06C75"> /</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">^</span><span style="--shiki-light:#0184BC;--shiki-dark:#E06C75">(# </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75">.</span><span style="--shiki-light:#0184BC;--shiki-dark:#D19A66">+</span><span style="--shiki-light:#0184BC;--shiki-dark:#E06C75">)/</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">m</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;  </span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  </span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> processedSrc</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> src</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">replace</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">regex</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">match</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">            return</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> `</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
