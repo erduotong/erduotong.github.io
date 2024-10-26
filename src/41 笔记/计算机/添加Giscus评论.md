@@ -3,9 +3,9 @@ backlink: []
 date: '2024-10-18'
 isOriginal: true
 outlink:
-- /image/IMG-20241018 202838725-添加Giscus评论.png
-- /image/IMG-20241018 203207422-添加Giscus评论.png
-- /image/IMG-20241018 203332811-添加Giscus评论.png
+- /image/IMG-20241021 231355788-添加Giscus评论.png
+- /image/IMG-20241021 231355854-添加Giscus评论.png
+- /image/IMG-20241021 231355988-添加Giscus评论.png
 tags:
 - giscus
 - vuepress/theme-hope
@@ -22,12 +22,12 @@ title: 添加Giscus评论
 1. 首先，准备一个公有仓库，并且开启`Dicussions`功能，用于存放评论
 2. 安装[Giscus](https://github.com/apps/giscus)的Github App，使Giscus有访问仓库的权限
 ### 配置
-1.  前往[Giscus的网站](https://giscus.app/zh-CN)，向下滑动找到 `配置`，并且选择一个合适的语言![IMG-20241018 202838725-添加Giscus评论.png](/image/IMG-20241018 202838725-添加Giscus评论.png)
+1.  前往[Giscus的网站](https://giscus.app/zh-CN)，向下滑动找到 `配置`，并且选择一个合适的语言![IMG-20241021 231355788-添加Giscus评论.png](/image/IMG-20241021 231355788-添加Giscus评论.png)
 2. 找到仓库，填入你刚刚的仓库
    例如，你的Github仓库地址是 `https://github.com/<your-id>/<name>`
    那么，就这样填写仓库这一栏: 
-   `<your-id>/<name>`![IMG-20241018 203207422-添加Giscus评论.png](/image/IMG-20241018 203207422-添加Giscus评论.png)
-   等待一段时间，若网站说明识别通过，那么就可以继续了。![IMG-20241018 203332811-添加Giscus评论.png](/image/IMG-20241018 203332811-添加Giscus评论.png)
+   `<your-id>/<name>`![IMG-20241021 231355854-添加Giscus评论.png](/image/IMG-20241021 231355854-添加Giscus评论.png)
+   等待一段时间，若网站说明识别通过，那么就可以继续了。![IMG-20241021 231355988-添加Giscus评论.png](/image/IMG-20241021 231355988-添加Giscus评论.png)
 3. 继续往下，找到Discussion分类，根据提示，选择一个你喜欢的分类
 4. 找到 `启用Giscus`， 将其中的一些值复制出来备用
     -  `data-repo`
