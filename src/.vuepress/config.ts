@@ -26,11 +26,13 @@ export default defineUserConfig({
         ["link", {rel: "icon", href: '/logo.png'}]
     ],
     extendsMarkdown: (md) => {
+
         md.use(link_handler)
-        md.use(mdItObsidianCallouts)
         md.use(img_space_adder)
         md.use(enable_multi_h1)
-        // md.use(ab_mdit)
+        md.use(mdItObsidianCallouts)
+
+        md.use(ab_mdit)
 
     },
     markdown: {
