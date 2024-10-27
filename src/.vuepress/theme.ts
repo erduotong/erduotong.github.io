@@ -69,7 +69,6 @@ export default hopeTheme({
         },
         searchPro: {
             indexContent: true,
-            autoSuggestions: false,
             customFields: [
                 {
                     getter(page: any) {
