@@ -69,6 +69,11 @@ export default navbar([
                 link: "/about_site/intro.md",
                 icon: "user"
             },
+            {
+                text: "友链",
+                link: "/about_site/friend.md",
+                icon: "link"
+            }
         ]
     },
 
