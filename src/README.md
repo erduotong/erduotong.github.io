@@ -15,6 +15,6 @@ projects:
     link: /catalog.html
   - icon: link
     name: 友情链接
-    desc: 一些友联，欢迎交换
+    desc: 一些友链，欢迎交换
     link: /about_site/friend.html
 ---
