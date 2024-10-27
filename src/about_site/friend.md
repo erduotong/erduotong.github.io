@@ -10,6 +10,13 @@ desc="一只可爱的小懒猫~"
 logo="https://assets.msdnicrosoft.work/img/favicon.webp"
 link="https://msdnicrosoft.work/"
 />
+<VPCard
+title="墨七"
+desc="专心致志做事，大气温和待人。"
+logo="https://file.mo7.cc/static/lxh_gif/lxh_71.gif"
+link="https://blog.mo7.cc"
+/>
+
 
 
 > [!quote]- 申请友链 >
