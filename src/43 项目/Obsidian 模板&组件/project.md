@@ -5,10 +5,11 @@ isOriginal: true
 outlink: []
 tags:
 - project
+title: README
 ---
 # Obsidian 模板&组件
 ## 信息
-- 起始时间: 2024-10-19\
+- 起始时间: 2024-10-19
 - 结束时间: 
 - 状态: 
 ## 简介
