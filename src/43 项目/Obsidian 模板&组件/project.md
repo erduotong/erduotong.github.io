@@ -5,7 +5,6 @@ isOriginal: true
 outlink: []
 tags:
 - project
-title: README
 ---
 # Obsidian 模板&组件
 ## 信息
