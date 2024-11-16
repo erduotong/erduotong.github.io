@@ -5,7 +5,7 @@ date: '2024-10-26'
 isOriginal: true
 outlink: []
 tags:
-- Blog
+- Type/Blog
 - CSP
 - 游记
 title: CSP J ／S2024

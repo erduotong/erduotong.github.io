@@ -4,7 +4,7 @@ date: '2024-10-29'
 isOriginal: true
 outlink: []
 tags:
-- project
+- Type/project
 ---
 # Obsidian折腾记录
 ## 信息

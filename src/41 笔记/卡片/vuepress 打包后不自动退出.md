@@ -1,5 +1,6 @@
 ---
-backlink: []
+backlink:
+- ../MOCS/Vuepress相关.md
 date: '2024-10-02'
 isOriginal: true
 outlink:
@@ -7,6 +8,7 @@ outlink:
 tags:
 - vuepress
 - debug
+- Type/卡片
 title: vuepress 打包后不自动退出
 ---
 # 描述

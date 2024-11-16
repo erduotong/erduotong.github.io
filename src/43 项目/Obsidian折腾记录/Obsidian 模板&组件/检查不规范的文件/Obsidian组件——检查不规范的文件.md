@@ -3,7 +3,7 @@ backlink: []
 date: '2024-10-19'
 isOriginal: true
 outlink:
-- /image/IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png
+- /image/IMG-20241111 220710110-Obsidian组件——检查不规范的文件.png
 tags:
 - Obsidian
 - Dataviewjs
@@ -18,7 +18,7 @@ title: Obsidian组件——检查不规范的文件
 - 一键跳转到目标文件
 - 提出修改的命名建议
 - 一键修改成符合规范的命名
-![IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png](/image/IMG-20241019 150651884-Obsidian组件——检查不规范的文件.png)
+![IMG-20241111 220710110-Obsidian组件——检查不规范的文件.png](/image/IMG-20241111 220710110-Obsidian组件——检查不规范的文件.png)
 ## 使用
 1. 首先，下载**Dataview**插件
 2. 将下列代码粘贴到任意一个笔记文件中

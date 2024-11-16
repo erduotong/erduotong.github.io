@@ -1,5 +1,6 @@
 ---
-backlink: []
+backlink:
+- ../MOCS/Vuepress相关.md
 date: '2024-10-26'
 isOriginal: true
 outlink:
@@ -9,6 +10,7 @@ tags:
 - localStorage
 - jsdom
 - nodejs
+- Type/卡片
 title: jsdom导致无法使用localStorage
 ---
 ## 情况

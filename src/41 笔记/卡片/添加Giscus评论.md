@@ -1,5 +1,6 @@
 ---
-backlink: []
+backlink:
+- ../MOCS/Vuepress相关.md
 date: '2024-10-18'
 isOriginal: true
 outlink:
@@ -9,6 +10,7 @@ outlink:
 tags:
 - giscus
 - vuepress/theme-hope
+- Type/卡片
 title: 添加Giscus评论
 ---
 ## 简介
