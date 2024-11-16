@@ -26,6 +26,7 @@
     "markdown-it-obsidian-callouts": "^0.3.0",
     "markmap-lib": "^0.17.2",
     "mermaid": "^11.2.1",
-    "plantuml-encoder": "^1.4.0"
+    "plantuml-encoder": "^1.4.0",
+    "vite-plugin-minipic": "^1.2.0"
   }
 }

@@ -7,6 +7,9 @@ import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
 import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
 import relational_graph from "./plugins/relational_graph/index.js";
+import viteBundler from "@vuepress/bundler-vite";
+import minipic from "vite-plugin-minipic"
+
 
 const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
@@ -17,6 +20,16 @@ export default defineUserConfig({
     description: "欢迎来到耳朵同的博客",
     plugins: [relational_graph()],
     theme,
+    bundler: viteBundler({
+        viteOptions: {
+            plugins: [minipic({
+
+
+                    cache: false
+                }
+            )]
+        }
+    }),
     alias: {
         "@theme-hope/components/PageFooter": path.resolve(
             __dirname,

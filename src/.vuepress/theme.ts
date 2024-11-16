@@ -3,6 +3,7 @@ import {hopeTheme} from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
+
 export default hopeTheme({
     hostname: "https://erduotong.github.io",
     author: {
@@ -40,6 +41,7 @@ export default hopeTheme({
         center: [],
         end: ['Search', 'Links', 'Repo', 'Outlook'],
     },
+
     // 在这里配置主题提供的插件
     plugins: {
         blog: true,
@@ -62,8 +64,6 @@ export default hopeTheme({
             tasklist: true,
             include: true,
             footnote: true,
-            tabs: true,
-            hint: true,
             mark: true,
             mermaid: true,
         },
