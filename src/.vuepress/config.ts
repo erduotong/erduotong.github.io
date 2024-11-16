@@ -6,6 +6,7 @@ import img_space_adder from './plugins/markdown_it/img_space_adder.js'
 import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
 import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
+import relational_graph from "./plugins/relational_graph/index.js";
 
 const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
@@ -14,7 +15,7 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "耳朵同的博客",
     description: "欢迎来到耳朵同的博客",
-
+    plugins: [relational_graph()],
     theme,
     alias: {
         "@theme-hope/components/PageFooter": path.resolve(
