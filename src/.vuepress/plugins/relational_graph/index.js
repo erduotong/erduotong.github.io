@@ -1,5 +1,45 @@
 const bioChainMap = {};
+const max_deep = 5;
+// BFS 生成局部图
+function generateLocalMap(root) {
+    const localMap = {};
+    const queue = [{ path: root, depth: 0 }];
+    const visited = new Set();
 
+    while (queue.length > 0) {
+        const { path, depth } = queue.shift();
+
+        if (depth > max_deep || visited.has(path)) {
+            continue;
+        }
+
+        visited.add(path);
+        localMap[path] = {
+            title: bioChainMap[path].title,
+            outlink: [],
+            backlink: [],
+        };
+
+        const outlinks = bioChainMap[path].outlink;
+        const backlinks = bioChainMap[path].backlink;
+
+        outlinks.forEach((link) => {
+            if (!visited.has(link) && depth + 1 <= max_deep) {
+                queue.push({ path: link, depth: depth + 1 });
+                localMap[path].outlink.push(link);
+            }
+        });
+
+        backlinks.forEach((link) => {
+            if (!visited.has(link) && depth + 1 <= max_deep) {
+                queue.push({ path: link, depth: depth + 1 });
+                localMap[path].backlink.push(link);
+            }
+        });
+    }
+
+    return localMap;
+}
 function buildBioChainMap(pages) {
     // 生成双链
     for (const page of pages) {
@@ -25,7 +65,39 @@ function buildBioChainMap(pages) {
             }
         });
     }
-    console.log(bioChainMap);
+    // 第三次遍历 写入到页面中
+    for (const page of pages) {
+        const bioChain = bioChainMap[page.filePathRelative];
+        //去个重
+        bioChain.outlink = [...new Set(bioChain.outlink)];
+        bioChain.backlink = [...new Set(bioChain.backlink)];
+        if (!bioChain) {
+            continue;
+        }
+        const outlink_array = JSON.parse(JSON.stringify(bioChain.outlink));
+        const backlink_array = JSON.parse(JSON.stringify(bioChain.backlink));
+        outlink_array.map((link) => {
+            return {
+                title: bioChainMap[link].title,
+                link: link,
+            };
+        });
+        backlink_array.map((link) => {
+            return {
+                title: bioChainMap[link].title,
+                link: link,
+            };
+        });
+        const localMap = generateLocalMap(page.filePathRelative);
+        const bioChainData = {
+            outlink: outlink_array,
+            backlink: backlink_array,
+            localMap: localMap,
+        };
+        page.frontmatter.bioChainData = bioChainData;
+        page.data.frontmatter.bioChainData = bioChainData;
+    }
+
 }
 
 const relational_graph = () => {
