@@ -68,12 +68,13 @@ function buildBioChainMap(pages) {
     // 第三次遍历 写入到页面中
     for (const page of pages) {
         const bioChain = bioChainMap[page.filePathRelative];
-        //去个重
-        bioChain.outlink = [...new Set(bioChain.outlink)];
-        bioChain.backlink = [...new Set(bioChain.backlink)];
         if (!bioChain) {
             continue;
         }
+        //去个重
+        bioChain.outlink = [...new Set(bioChain.outlink)];
+        bioChain.backlink = [...new Set(bioChain.backlink)];
+
         const outlink_array = JSON.parse(JSON.stringify(bioChain.outlink));
         const backlink_array = JSON.parse(JSON.stringify(bioChain.backlink));
         outlink_array.map((link) => {
