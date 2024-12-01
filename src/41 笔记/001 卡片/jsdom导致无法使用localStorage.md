@@ -1,11 +1,11 @@
 ---
 backlink:
-- ../MOCS/Vuepress相关.md
+- ../000 MOCS/Vuepress相关.md
 date: '2024-10-26'
 isOriginal: true
 outlink:
-- /image/IMG-20241029 202456779-jsdom导致无法使用localStorage.png
-- /image/IMG-20241029 202456864-jsdom导致无法使用localStorage.png
+- /image/IMG-20241129 221622536-jsdom导致无法使用localStorage.png
+- /image/IMG-20241129 221622892-jsdom导致无法使用localStorage.png
 tags:
 - localStorage
 - jsdom
@@ -15,13 +15,13 @@ title: jsdom导致无法使用localStorage
 ---
 ## 情况
 在使用[Anyblock](Anyblock)插件的时候，通过源码安装时，出现`Storage is not defined`的报错
-![IMG-20241029 202456779-jsdom导致无法使用localStorage.png](/image/IMG-20241029 202456779-jsdom导致无法使用localStorage.png)
+![IMG-20241129 221622536-jsdom导致无法使用localStorage.png](/image/IMG-20241129 221622536-jsdom导致无法使用localStorage.png)
 ## 解决
 首先，既然你找不到Storage，那就写一个进去
 ```js
 global.Storage = null
 ```
-接下来，出现了新的报错![IMG-20241029 202456864-jsdom导致无法使用localStorage.png](/image/IMG-20241029 202456864-jsdom导致无法使用localStorage.png)
+接下来，出现了新的报错![IMG-20241129 221622892-jsdom导致无法使用localStorage.png](/image/IMG-20241129 221622892-jsdom导致无法使用localStorage.png)
 然后，构造一个函数，既然需要`instanceof`，那么就给它
 ```js
 global.Storage = function(){
