@@ -134,7 +134,7 @@ const relational_graph = () => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        clientConfigFile: path.resolve(__dirname, "../client/config.js"),
+        // clientConfigFile: path.resolve(__dirname, "../client/config.js"),
 
     };
 };
