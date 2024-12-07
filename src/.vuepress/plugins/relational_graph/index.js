@@ -104,14 +104,13 @@ function buildBioChainMap(pages) {
 const relational_graph = () => {
 
     return {
+
         name: "vuepress-plugin-relational-graph",
         onPrepared: async (app) => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        onGenerated: async (app) => {
-            console.log("on Generated 11111111111111111\non generated!~~~~~~~~~~~");
-        },
+
     };
 };
 export default relational_graph;

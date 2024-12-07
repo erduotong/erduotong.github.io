@@ -86,7 +86,10 @@ export default hopeTheme({
             categoryId: "DIC_kwDOM1B4zM4Ci9HB",
         },
 
+        slimsearch: {
+            indexContent: true,
 
+        }
     },
 }, {
     custom: true,

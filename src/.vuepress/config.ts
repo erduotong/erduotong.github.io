@@ -19,10 +19,7 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "耳朵同的博客",
     description: "欢迎来到耳朵同的博客",
-    plugins: [relational_graph(), slimsearchPlugin({
-        indexContent: true,
-        suggestion: false,
-    })],
+    plugins: [relational_graph()],
     theme,
     bundler: viteBundler({
         viteOptions: {
