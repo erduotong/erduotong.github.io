@@ -27,6 +27,7 @@
     "markmap-lib": "^0.17.2",
     "mermaid": "^11.4.1",
     "plantuml-encoder": "^1.4.0",
+    "sass-embedded": "^1.82.0",
     "vite-plugin-minipic": "^1.2.0"
   }
 }

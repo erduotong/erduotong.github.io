@@ -3,7 +3,6 @@ import {hopeTheme} from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
-
 export default hopeTheme({
     hostname: "https://erduotong.github.io",
     author: {
@@ -86,7 +85,7 @@ export default hopeTheme({
             category: "Announcements",
             categoryId: "DIC_kwDOM1B4zM4Ci9HB",
         },
-        slimsearch: true,
+
 
     },
 }, {
