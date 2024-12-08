@@ -12,7 +12,7 @@ tags:
 title: git使用ssh的同时使用watt toolkit加速github
 ---
 ## 问题由来
-在使用[ssh](ssh)的方式拉取Git仓库的时候，如果使用[watt tookit](watt tookit)，通过host加速[Github](Github)的链接的话，因为修改[Host](Host)为如下这样:
+在使用ssh的方式拉取Git仓库的时候，如果使用watt tookit，通过host加速Github的链接的话，因为修改Host为如下这样:
 ```
 127.0.0.1 github.com
 ```

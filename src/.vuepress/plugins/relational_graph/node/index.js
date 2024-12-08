@@ -2,8 +2,7 @@
  * @fileOverview index.js
  * @author erduotong
  */
-import path from "path";
-import {getDirname} from "vuepress/utils";
+import {getDirname, path} from "vuepress/utils";
 
 const bioChainMap = {};
 const max_deep = 5;
@@ -62,6 +61,7 @@ function generateLocalMap(root) {
 }
 
 function buildBioChainMap(pages) {
+
     // 生成双链
     for (const page of pages) {
         if (!page.filePathRelative) {
@@ -86,55 +86,73 @@ function buildBioChainMap(pages) {
             }
         });
     }
-    // 第三次遍历 写入到页面中
-    for (const page of pages) {
-        const bioChain = bioChainMap[page.filePathRelative];
-        if (!bioChain) {
-            continue;
-        }
-        //去个重
-        bioChain.outlink = [...new Set(bioChain.outlink)];
-        bioChain.backlink = [...new Set(bioChain.backlink)];
 
-        const outlink_array = JSON.parse(JSON.stringify(bioChain.outlink));
-        const backlink_array = JSON.parse(JSON.stringify(bioChain.backlink));
-        outlink_array.map((link) => {
-            return {
-                title: bioChainMap[link].title,
-                link: link,
-            };
-        });
-        backlink_array.map((link) => {
-            return {
-                title: bioChainMap[link].title,
-                link: link,
-            };
-        });
-        const localMap = generateLocalMap(page.filePathRelative);
-        const bioChainData = {
-            outlink: outlink_array,
-            backlink: backlink_array,
-            localMap: localMap,
-        };
-        page.frontmatter.bioChainData = bioChainData;
-        page.data.frontmatter.bioChainData = bioChainData;
+    for (const page of pages) {
+        write_to_frontmatter(page);
     }
+}
+
+function write_to_frontmatter(page) {
+    // 第三次遍历 写入到页面中
+
+    const bioChain = bioChainMap[page.data.filePathRelative];
+
+    if (!bioChain) {
+        console.log("notable to find", page.data.filePathRelative);
+        return;
+    }
+    //去个重
+    bioChain.outlink = [...new Set(bioChain.outlink)];
+    bioChain.backlink = [...new Set(bioChain.backlink)];
+
+    const outlink_array = JSON.parse(JSON.stringify(bioChain.outlink));
+    const backlink_array = JSON.parse(JSON.stringify(bioChain.backlink));
+
+    const outlink_result = [];
+    for (let i = 0; i < outlink_array.length; i++) {
+        let link = outlink_array[i];
+        if (link.endsWith(".md")) {
+            link = link.replace(/\.md$/, ".html");
+        }
+        outlink_result.push({
+            title: bioChainMap[outlink_array[i]].title,
+            link: link,
+        });
+    }
+
+    const backlink_result = [];
+    for (let i = 0; i < backlink_array.length; i++) {
+        let link = backlink_array[i];
+        if (link.endsWith(".md")) {
+            link = link.replace(/\.md$/, ".html");
+        }
+        backlink_result.push({
+            title: bioChainMap[backlink_array[i]].title,
+            link: link,
+        });
+    }
+    const localMap = generateLocalMap(page.filePathRelative);
+    page.data.bioChainData = {
+        outlink: outlink_result,
+        backlink: backlink_result,
+        localMap: localMap,
+    };
+
 
 }
 
 
+const __dirname = getDirname(import.meta.url);
 
-
-const __dirname = import.meta.dirname || getDirname(import.meta.url)
-console.info(__dirname);
 const relational_graph = () => {
     return {
         name: "vuepress-plugin-relational-graph",
-        onPrepared: async (app) => {
+        onInitialized: (app) => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        // clientConfigFile: path.resolve(__dirname, "../client/config.js"),
+
+        clientConfigFile: path.resolve(__dirname, "../client/config.js"),
 
     };
 };
