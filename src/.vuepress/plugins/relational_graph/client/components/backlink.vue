@@ -1,8 +1,9 @@
 <script setup lang="js">
-import {usePageData} from "vuepress/client";
+import {usePageData, useRouter, withBase} from "vuepress/client";
 import {computed} from "vue";
 
 const data = usePageData();
+const router = useRouter();
 const biodata = data.value?.bioChainData;
 // console.log(data, biodata);
 const hasBacklink = computed(() => {
@@ -20,7 +21,7 @@ const hasBacklink = computed(() => {
     <div v-else>
       <template v-for="item in biodata.backlink">
         <h3>{{ item.title }}</h3>
-        <a :href="$withBase(item.link)">{{ item.link }}</a>
+       <router-link :to="withBase(item.link)">{{ item.link }}</router-link>
       </template>
     </div>
 
