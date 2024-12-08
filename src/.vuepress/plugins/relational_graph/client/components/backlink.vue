@@ -1,24 +1,31 @@
 <script setup lang="js">
-import {usePageFrontmatter} from "vuepress/client";
+import {usePageData} from "vuepress/client";
 import {computed} from "vue";
 
-const data = usePageFrontmatter();
-console.log(data.value.bioChainData);
+const data = usePageData();
+const biodata = data.value?.bioChainData;
+// console.log(data, biodata);
 const hasBacklink = computed(() => {
-
-})
+  return biodata?.backlink && biodata?.backlink?.length > 0;
+});
 
 </script>
 
 <template>
-  <!--<div>-->
+  <div>
 
-  <!--  <div v-if="!hasBacklink">-->
-  <!--    这里没有双链！-->
-  <!--  </div>-->
+    <div v-if="!hasBacklink">
+      这里没有反向链接
+    </div>
+    <div v-else>
+      <template v-for="item in biodata.backlink">
+        <h3>{{ item.title }}</h3>
+        <a :href="$withBase(item.link)">{{ item.link }}</a>
+      </template>
+    </div>
 
 
-  <!--</div>-->
+  </div>
 </template>
 
 <style scoped>

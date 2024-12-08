@@ -87,7 +87,9 @@ function buildBioChainMap(pages) {
         });
     }
 
-
+    for (const page of pages) {
+        write_to_frontmatter(page);
+    }
 }
 
 function write_to_frontmatter(page) {
@@ -105,22 +107,34 @@ function write_to_frontmatter(page) {
 
     const outlink_array = JSON.parse(JSON.stringify(bioChain.outlink));
     const backlink_array = JSON.parse(JSON.stringify(bioChain.backlink));
-    outlink_array.map((link) => {
-        return {
-            title: bioChainMap[link].title,
+
+    const outlink_result = [];
+    for (let i = 0; i < outlink_array.length; i++) {
+        let link = outlink_array[i];
+        if (link.endsWith(".md")) {
+            link = link.replace(/\.md$/, ".html");
+        }
+        outlink_result.push({
+            title: bioChainMap[outlink_array[i]].title,
             link: link,
-        };
-    });
-    backlink_array.map((link) => {
-        return {
-            title: bioChainMap[link].title,
+        });
+    }
+
+    const backlink_result = [];
+    for (let i = 0; i < backlink_array.length; i++) {
+        let link = backlink_array[i];
+        if (link.endsWith(".md")) {
+            link = link.replace(/\.md$/, ".html");
+        }
+        backlink_result.push({
+            title: bioChainMap[backlink_array[i]].title,
             link: link,
-        };
-    });
+        });
+    }
     const localMap = generateLocalMap(page.filePathRelative);
     page.data.bioChainData = {
-        outlink: outlink_array,
-        backlink: backlink_array,
+        outlink: outlink_result,
+        backlink: backlink_result,
         localMap: localMap,
     };
 
@@ -137,9 +151,7 @@ const relational_graph = () => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        extendsPage: async (page) => {
-            write_to_frontmatter(page);
-        },
+
         clientConfigFile: path.resolve(__dirname, "../client/config.js"),
 
     };
