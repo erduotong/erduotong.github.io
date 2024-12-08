@@ -2,8 +2,7 @@
  * @fileOverview index.js
  * @author erduotong
  */
-import path from "path";
-import {getDirname} from "vuepress/utils";
+import {getDirname,path} from "vuepress/utils";
 
 const bioChainMap = {};
 const max_deep = 5;
@@ -125,8 +124,8 @@ function buildBioChainMap(pages) {
 
 
 
-const __dirname = import.meta.dirname || getDirname(import.meta.url)
-console.info(__dirname);
+const __dirname =  getDirname(import.meta.url)
+console.log(path.resolve(__dirname, "../client/config.js"));
 const relational_graph = () => {
     return {
         name: "vuepress-plugin-relational-graph",
@@ -134,7 +133,7 @@ const relational_graph = () => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        // clientConfigFile: path.resolve(__dirname, "../client/config.js"),
+        clientConfigFile: path.resolve(__dirname, "../client/config.js"),
 
     };
 };
