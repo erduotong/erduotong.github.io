@@ -11,14 +11,14 @@ const hasBacklink = computed(() => {
 </script>
 
 <template>
-  <div>
+  <!--<div>-->
 
-    <div v-if="!hasBacklink">
-      这里没有双链！
-    </div>
+  <!--  <div v-if="!hasBacklink">-->
+  <!--    这里没有双链！-->
+  <!--  </div>-->
 
 
-  </div>
+  <!--</div>-->
 </template>
 
 <style scoped>

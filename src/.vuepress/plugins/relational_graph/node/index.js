@@ -134,10 +134,8 @@ const relational_graph = () => {
     return {
         name: "vuepress-plugin-relational-graph",
         onInitialized: (app) => {
-            console.log('we are waiting')
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
-            initPromiseResolve().then();
         },
         extendsPage: async (page) => {
             write_to_frontmatter(page);
