@@ -6,9 +6,10 @@ import img_space_adder from './plugins/markdown_it/img_space_adder.js'
 import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
 import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
-import relational_graph from "./plugins/relational_graph/index.js";
+import relational_graph from "./plugins/relational_graph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic"
+import {slimsearchPlugin} from "@vuepress/plugin-slimsearch";
 
 
 const __dirname = getDirname(import.meta.url);

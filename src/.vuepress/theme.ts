@@ -3,7 +3,6 @@ import {hopeTheme} from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
-
 export default hopeTheme({
     hostname: "https://erduotong.github.io",
     author: {
@@ -41,6 +40,27 @@ export default hopeTheme({
         center: [],
         end: ['Search', 'Links', 'Repo', 'Outlook'],
     },
+    markdown: {
+
+        figure: true,
+        imgLazyload: true,
+        imgSize: true,
+
+        math: {
+            type: "katex",
+
+        },
+        sub: true,
+        sup: true,
+
+        tasklist: true,
+        include: true,
+        footnote: true,
+        mark: true,
+        mermaid: true,
+
+    },
+
 
     // 在这里配置主题提供的插件
     plugins: {
@@ -48,40 +68,7 @@ export default hopeTheme({
         components: {
             components: ["Badge", "VPCard"],
         },
-        markdownImage: {
-            figure: true,
-            lazyload: true,
-            size: true,
-        },
-        markdownMath: {
-            type: "katex",
-        },
-        mdEnhance: {
-            //角标
-            sub: true,
-            sup: true,
 
-            tasklist: true,
-            include: true,
-            footnote: true,
-            mark: true,
-            mermaid: true,
-        },
-        searchPro: {
-            indexContent: true,
-            customFields: [
-                {
-                    getter(page: any) {
-                        return page.frontmatter.category
-                    }
-                },
-                {
-                    getter(page: any): any {
-                        return page.frontmatter.tag
-                    }
-                }
-            ]
-        },
 
         feed: {
             atom: true,
@@ -97,8 +84,12 @@ export default hopeTheme({
             repoId: "R_kgDOM1B4zA",
             category: "Announcements",
             categoryId: "DIC_kwDOM1B4zM4Ci9HB",
-        }
+        },
 
+        slimsearch: {
+            indexContent: true,
+
+        }
     },
 }, {
     custom: true,

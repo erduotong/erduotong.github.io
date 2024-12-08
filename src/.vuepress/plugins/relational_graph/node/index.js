@@ -1,13 +1,27 @@
+/**
+ * @fileOverview index.js
+ * @author erduotong
+ */
+import path from "path";
+import {getDirname} from "vuepress/utils";
+
 const bioChainMap = {};
 const max_deep = 5;
-// BFS 生成局部图
+
+
 function generateLocalMap(root) {
     const localMap = {};
-    const queue = [{ path: root, depth: 0 }];
+    const queue = [{
+        path: root,
+        depth: 0,
+    }];
     const visited = new Set();
 
     while (queue.length > 0) {
-        const { path, depth } = queue.shift();
+        const {
+            path,
+            depth,
+        } = queue.shift();
 
         if (depth > max_deep || visited.has(path)) {
             continue;
@@ -25,14 +39,20 @@ function generateLocalMap(root) {
 
         outlinks.forEach((link) => {
             if (!visited.has(link) && depth + 1 <= max_deep) {
-                queue.push({ path: link, depth: depth + 1 });
+                queue.push({
+                    path: link,
+                    depth: depth + 1,
+                });
                 localMap[path].outlink.push(link);
             }
         });
 
         backlinks.forEach((link) => {
             if (!visited.has(link) && depth + 1 <= max_deep) {
-                queue.push({ path: link, depth: depth + 1 });
+                queue.push({
+                    path: link,
+                    depth: depth + 1,
+                });
                 localMap[path].backlink.push(link);
             }
         });
@@ -40,6 +60,7 @@ function generateLocalMap(root) {
 
     return localMap;
 }
+
 function buildBioChainMap(pages) {
     // 生成双链
     for (const page of pages) {
@@ -101,17 +122,20 @@ function buildBioChainMap(pages) {
 
 }
 
-const relational_graph = () => {
 
+
+
+const __dirname = import.meta.dirname || getDirname(import.meta.url)
+console.info(__dirname);
+const relational_graph = () => {
     return {
         name: "vuepress-plugin-relational-graph",
         onPrepared: async (app) => {
             Object.assign(bioChainMap, {});
             buildBioChainMap(app.pages);
         },
-        onGenerated: async (app) => {
-            console.log("on Generated 11111111111111111\non generated!~~~~~~~~~~~");
-        },
+        // clientConfigFile: path.resolve(__dirname, "../client/config.js"),
+
     };
 };
 export default relational_graph;
