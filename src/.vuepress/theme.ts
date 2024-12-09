@@ -88,7 +88,7 @@ export default hopeTheme({
 
         slimsearch: {
             indexContent: true,
-
+            suggestion: false
         }
     },
 }, {
