@@ -98,7 +98,6 @@ function write_to_frontmatter(page) {
     const bioChain = bioChainMap[page.data.filePathRelative];
 
     if (!bioChain) {
-        console.log("notable to find", page.data.filePathRelative);
         return;
     }
     //去个重
