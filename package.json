@@ -21,6 +21,7 @@
     "@mermaid-js/mermaid-mindmap": "^9.3.0",
     "@vuepress/plugin-feed": "2.0.0-rc.65",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.65",
+    "d3": "^7.9.0",
     "katex": "^0.16.14",
     "markdown-it-container": "^4.0.0",
     "markdown-it-obsidian-callouts": "^0.3.1",
