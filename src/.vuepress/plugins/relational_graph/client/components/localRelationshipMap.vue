@@ -1,5 +1,5 @@
 <script setup lang="js">
-import {onMounted, ref} from "vue";
+import {onMounted, ref, onUnmounted} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
 import * as d3 from "d3";
 
@@ -270,7 +270,7 @@ onMounted(() => {
       });
     }
 
-    // 先绘制普通节点
+    // ���绘制普通节点
     context.beginPath();
     map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
       drawNode(d, CANVAS_CONFIG.nodeRadius);
@@ -412,6 +412,148 @@ onMounted(() => {
       ticked(); // 重新渲染
     }
   }
+
+  // 添加 CSS 变量观察器
+  const observer = new MutationObserver(() => {
+    // CSS 变量发生变化时重新渲染
+    ticked();
+  });
+
+  // 观察 html 元素的 style 属性变化
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['style', 'class', 'data-theme']
+  });
+
+  // 获取主题颜色函数
+  function getThemeColors() {
+    const root = getComputedStyle(document.documentElement);
+    return {
+      accent: root.getPropertyValue('--vp-c-accent').trim(),
+      text: root.getPropertyValue('--vp-c-text').trim()
+    };
+  }
+
+  // 修改 drawLinks 函数
+  function drawLinks() {
+    const { accent } = getThemeColors();
+    
+    map_data.links.forEach(link => {
+      context.beginPath();
+      drawLink(link);
+      
+      if (hoveredNode && (link.source === hoveredNode || link.target === hoveredNode)) {
+        context.strokeStyle = accent;
+        context.globalAlpha = STYLE_CONFIG.link.highlightOpacity;
+      } else {
+        context.strokeStyle = STYLE_CONFIG.link.color;
+        context.globalAlpha = hoveredNode ? STYLE_CONFIG.link.normalOpacity : STYLE_CONFIG.link.highlightOpacity;
+      }
+      
+      context.stroke();
+    });
+    context.globalAlpha = 1;
+  }
+
+  // 修改 drawNodes 函数
+  function drawNodes() {
+    const { accent, text } = getThemeColors();
+    
+    // 获取与悬停节点相连的节点
+    const connectedNodes = new Set();
+    if (hoveredNode) {
+      map_data.links.forEach(link => {
+        if (link.source === hoveredNode) connectedNodes.add(link.target);
+        if (link.target === hoveredNode) connectedNodes.add(link.source);
+      });
+    }
+
+    // 先绘制普通节点
+    context.beginPath();
+    map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
+      drawNode(d, CANVAS_CONFIG.nodeRadius);
+    });
+    context.fillStyle = text;
+    context.globalAlpha = hoveredNode ? STYLE_CONFIG.node.normalOpacity : STYLE_CONFIG.node.highlightOpacity;
+    context.fill();
+
+    // 如果有悬停节点，绘制与其相连的节点
+    if (hoveredNode) {
+      context.beginPath();
+      Array.from(connectedNodes).forEach(d => {
+        if (!d.isCurrent) {
+          drawNode(d, CANVAS_CONFIG.nodeRadius);
+        }
+      });
+      context.fillStyle = text;
+      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
+      context.fill();
+    }
+
+    // 绘制悬停节点
+    if (hoveredNode && !hoveredNode.isCurrent) {
+      context.beginPath();
+      drawNode(hoveredNode, CANVAS_CONFIG.hoverNodeRadius);
+      context.fillStyle = accent;
+      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
+      context.fill();
+    }
+
+    // 绘制当前节点
+    const currentNode = map_data.nodes.find(d => d.isCurrent);
+    if (currentNode) {
+      context.beginPath();
+      drawNode(currentNode, currentNode === hoveredNode ?
+        CANVAS_CONFIG.hoverNodeRadius : CANVAS_CONFIG.nodeRadius);
+      context.fillStyle = accent;
+      context.globalAlpha = hoveredNode && currentNode !== hoveredNode && !connectedNodes.has(currentNode)
+        ? STYLE_CONFIG.node.normalOpacity
+        : STYLE_CONFIG.node.highlightOpacity;
+      context.fill();
+    }
+
+    // 恢复默认透明度
+    context.globalAlpha = 1;
+  }
+
+  // 修改 drawLabels 函数
+  function drawLabels() {
+    context.font = STYLE_CONFIG.text.font;
+    const { text } = getThemeColors();
+    
+    map_data.nodes.forEach(node => {
+      let shouldDrawText = false;
+      let opacity = 1;
+      
+      if (node === hoveredNode) {
+        shouldDrawText = true;
+      }
+      else if (transform.k > STYLE_CONFIG.text.minScale) {
+        shouldDrawText = true;
+        opacity = Math.min(
+          (transform.k - STYLE_CONFIG.text.minScale) / 
+          (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
+          1
+        );
+      }
+      
+      if (shouldDrawText) {
+        const textWidth = context.measureText(node.value.title).width;
+        const [r, g, b] = text.match(/\d+/g).map(Number);
+        context.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+        context.fillText(
+          node.value.title,
+          node.x - textWidth / 2,
+          node.y + STYLE_CONFIG.text.offset
+        );
+      }
+    });
+  }
+
+  // 在组件卸载时清理观察器
+  onUnmounted(() => {
+    observer.disconnect();
+  });
 });
 </script>
 
