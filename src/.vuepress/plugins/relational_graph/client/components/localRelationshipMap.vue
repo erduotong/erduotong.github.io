@@ -70,6 +70,9 @@ const data = usePageData();
 const map_data = data.value?.bioChainData?.localMap;
 const canvasRef = ref(null);
 const router = useRouter();
+const mouseDownTime = ref(0);
+const mouseDownPosition = ref({ x: 0, y: 0 });
+
 onMounted(() => {
   if (!map_data) {
     return;
@@ -143,6 +146,10 @@ onMounted(() => {
     const [x, y] = transform.invert(d3.pointer(event));
     draggingNode = simulation.find(x, y, CANVAS_CONFIG.nodeClickRadius);
 
+    // 记录按下时的时间和位置
+    mouseDownTime.value = Date.now();
+    mouseDownPosition.value = { x: event.clientX, y: event.clientY };
+
     if (draggingNode) {
       event.stopPropagation();
       document.body.style.userSelect = "none";
@@ -156,17 +163,22 @@ onMounted(() => {
   }
 
   function onMouseMove(event) {
-    if (!draggingNode) {
-      return;
+    if (draggingNode) {
+      const moveDistance = Math.sqrt(
+        Math.pow(event.clientX - mouseDownPosition.value.x, 2) +
+        Math.pow(event.clientY - mouseDownPosition.value.y, 2)
+      );
+      
+      // 只有当移动距离大于5像素时才开始拖拽
+      if (moveDistance > 5) {
+        isDragging = true;
+        const [x, y] = getTransformedMousePosition(event);
+        const boundedPosition = getBoundedPosition(x, y);
+        updateDraggingNodePosition(boundedPosition);
+        simulation.alphaTarget(0.3);
+      }
+      event.preventDefault();
     }
-
-    const [x, y] = getTransformedMousePosition(event);
-    const boundedPosition = getBoundedPosition(x, y);
-
-    updateDraggingNodePosition(boundedPosition);
-    isDragging = true;
-    simulation.alphaTarget(0.3);
-    event.preventDefault();
   }
 
   function onMouseUp() {
@@ -270,7 +282,7 @@ onMounted(() => {
       });
     }
 
-    // ���绘制普通节点
+    // 绘制普通节点
     context.beginPath();
     map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
       drawNode(d, CANVAS_CONFIG.nodeRadius);
@@ -374,16 +386,26 @@ onMounted(() => {
   }
 
   function onClick(event) {
-    const [graphX, graphY] = getTransformedMousePosition(event);
-    const clickedNode = findClickedNode(graphX, graphY);
+    // 计算点击持续时间和移动距离
+    const clickDuration = Date.now() - mouseDownTime.value;
+    const moveDistance = Math.sqrt(
+      Math.pow(event.clientX - mouseDownPosition.value.x, 2) +
+      Math.pow(event.clientY - mouseDownPosition.value.y, 2)
+    );
 
-    if (clickedNode && !isDragging) {
-      if (!clickedNode.isCurrent) {
-        router.push(withBase(clickedNode.value.path));
+    // 如果点击时间小于300ms且移动距离小于5像素，才认为是有效点击
+    if (clickDuration < 300 && moveDistance < 5) {
+      const [graphX, graphY] = getTransformedMousePosition(event);
+      const clickedNode = findClickedNode(graphX, graphY);
+
+      if (clickedNode && !isDragging) {
+        if (!clickedNode.isCurrent) {
+          router.push(withBase(clickedNode.value.path));
+        }
       }
-    } else {
-      isDragging = false;
     }
+    
+    isDragging = false;
   }
 
   function findClickedNode(x, y) {
