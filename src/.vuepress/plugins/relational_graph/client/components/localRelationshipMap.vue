@@ -60,11 +60,6 @@ function isPathMatch(routePath, nodePath) {
   const normalizedRoutePath = cleanRoutePath.replace(/^\//, '');
   const normalizedNodePath = cleanNodePath.replace(/^\//, '');
 
-  console.log('Normalized paths:');
-  console.log('Route path:', normalizedRoutePath);
-  console.log('Node path:', normalizedNodePath);
-  console.log('Match:', normalizedRoutePath === normalizedNodePath);
-
   return normalizedRoutePath === normalizedNodePath;
 }
 
@@ -79,15 +74,10 @@ onMounted(() => {
   }
 
   // 找到当前节点
-  console.log('Current route:', router.currentRoute.value.path);
-  console.log('Available nodes:', map_data.nodes.map(n => n.value.path));
-
-  const currentNode = map_data.nodes.find(node =>
+  const currentNode = map_data.nodes.find(node => 
     isPathMatch(router.currentRoute.value.path, node.value.path)
   );
-
-  console.log('Found current node:', currentNode);
-
+  
   if (currentNode) {
     currentNode.isCurrent = true;
     currentNode.fx = CANVAS_CONFIG.width / 2;
