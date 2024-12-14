@@ -37,8 +37,10 @@ const STYLE_CONFIG = {
   },
   text: {
     color: "#fff",
-font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
+    font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
     offset: 20,
+    minScale: 1,     // 开始显示文字的最小缩放比例
+    maxScale: 1.5,   // 完全显示文字的缩放比例
   },
   currentNode: {
     fill: "#ff7675",
@@ -265,15 +267,22 @@ onMounted(() => {
   }
 
   function drawLabels() {
-    if (transform.k > 1) {
-      context.fillStyle = STYLE_CONFIG.text.color;
+    if (transform.k > STYLE_CONFIG.text.minScale) {
+      // 计算透明度
+      const opacity = Math.min(
+        (transform.k - STYLE_CONFIG.text.minScale) / 
+        (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
+        1
+      );
+      
+      context.fillStyle = `rgba(255, 255, 255, ${opacity})`;
       context.font = STYLE_CONFIG.text.font;
       map_data.nodes.forEach(node => {
         const textWidth = context.measureText(node.value.title).width;
         context.fillText(
-            node.value.title,
-            node.x - textWidth / 2,
-            node.y + STYLE_CONFIG.text.offset,
+          node.value.title,
+          node.x - textWidth / 2,
+          node.y + STYLE_CONFIG.text.offset,
         );
       });
     }
