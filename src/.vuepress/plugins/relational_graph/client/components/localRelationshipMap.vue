@@ -41,7 +41,7 @@ const STYLE_CONFIG = {
   text: {
     font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
     offset: 25,
-    minScale: 1,
+    minScale: 0.5,
     maxScale: 1.5,
   },
   currentNode: {
