@@ -76,10 +76,10 @@ onMounted(() => {
   }
 
   // 找到当前节点
-  const currentNode = map_data.nodes.find(node => 
+  const currentNode = map_data.nodes.find(node =>
     isPathMatch(router.currentRoute.value.path, node.value.path)
   );
-  
+
   if (currentNode) {
     currentNode.isCurrent = true;
     currentNode.fx = CANVAS_CONFIG.width / 2;
@@ -270,11 +270,11 @@ onMounted(() => {
     if (transform.k > STYLE_CONFIG.text.minScale) {
       // 计算透明度
       const opacity = Math.min(
-        (transform.k - STYLE_CONFIG.text.minScale) / 
+        (transform.k - STYLE_CONFIG.text.minScale) /
         (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
         1
       );
-      
+
       context.fillStyle = `rgba(255, 255, 255, ${opacity})`;
       context.font = STYLE_CONFIG.text.font;
       map_data.nodes.forEach(node => {
