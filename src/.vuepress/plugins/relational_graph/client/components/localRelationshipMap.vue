@@ -11,6 +11,7 @@ const CANVAS_CONFIG = {
   nodePadding: 5,
   zoomExtent: [0.1, 10],
   nodeClickRadius: 15,
+  hoverNodeRadius: 8,
 };
 
 // 力导向图配置
@@ -30,21 +31,20 @@ const FORCE_CONFIG = {
 const STYLE_CONFIG = {
   link: {
     color: "#aaa",
+    normalOpacity: 0.3,
+    highlightOpacity: 1,
   },
   node: {
-    fill: "#69b3a2",
-    stroke: "#fff",
+    normalOpacity: 0.3,
+    highlightOpacity: 0.8,
   },
   text: {
-    color: "#fff",
     font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
-    offset: 20,
-    minScale: 1,     // 开始显示文字的最小缩放比例
-    maxScale: 1.5,   // 完全显示文字的缩放比例
+    offset: 25,
+    minScale: 1,
+    maxScale: 1.5,
   },
   currentNode: {
-    fill: "#ff7675",
-    stroke: "#d63031",
     strokeWidth: 2,
   },
 };
@@ -76,10 +76,10 @@ onMounted(() => {
   }
 
   // 找到当前节点
-  const currentNode = map_data.nodes.find(node => 
+  const currentNode = map_data.nodes.find(node =>
     isPathMatch(router.currentRoute.value.path, node.value.path)
   );
-  
+
   if (currentNode) {
     currentNode.isCurrent = true;
     currentNode.fx = CANVAS_CONFIG.width / 2;
@@ -96,6 +96,7 @@ onMounted(() => {
   let isDragging = false;
   let draggingNode = null;
   let transform = d3.zoomIdentity;
+  let hoveredNode = null;
 
   // 初始化力导向图
   const simulation = initializeSimulation();
@@ -125,6 +126,8 @@ onMounted(() => {
     d3.select(canvas).call(zoom);
     canvas.addEventListener("mousedown", onMouseDown);
     canvas.addEventListener("click", onClick);
+    canvas.addEventListener("mousemove", onCanvasMouseMove);
+    canvas.addEventListener("mouseleave", onCanvasMouseLeave);
   }
 
   // 事件处理函数
@@ -230,62 +233,126 @@ onMounted(() => {
   }
 
   function drawLinks() {
-    context.beginPath();
-    map_data.links.forEach(drawLink);
-    context.strokeStyle = STYLE_CONFIG.link.color;
-    context.stroke();
+    // 获取高亮颜色
+    const accentColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--vp-c-accent').trim();
+
+    map_data.links.forEach(link => {
+      context.beginPath();
+      drawLink(link);
+
+      if (hoveredNode && (link.source === hoveredNode || link.target === hoveredNode)) {
+        context.strokeStyle = accentColor;
+        context.globalAlpha = STYLE_CONFIG.link.highlightOpacity;
+      } else {
+        context.strokeStyle = STYLE_CONFIG.link.color;
+        context.globalAlpha = hoveredNode ? STYLE_CONFIG.link.normalOpacity : STYLE_CONFIG.link.highlightOpacity;
+      }
+
+      context.stroke();
+    });
+    context.globalAlpha = 1;
   }
 
   function drawNodes() {
+    // 获取高亮颜色和文字颜色
+    const accentColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--vp-c-accent').trim();
+    const textColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--vp-c-text').trim();
+
+    // 获取与悬停节点相连的节点
+    const connectedNodes = new Set();
+    if (hoveredNode) {
+      map_data.links.forEach(link => {
+        if (link.source === hoveredNode) connectedNodes.add(link.target);
+        if (link.target === hoveredNode) connectedNodes.add(link.source);
+      });
+    }
+
     // 先绘制普通节点
     context.beginPath();
-    map_data.nodes.filter(d => !d.isCurrent).forEach(drawNode);
-    context.fillStyle = STYLE_CONFIG.node.fill;
+    map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
+      drawNode(d, CANVAS_CONFIG.nodeRadius);
+    });
+    context.fillStyle = textColor;
+    context.globalAlpha = hoveredNode ? STYLE_CONFIG.node.normalOpacity : STYLE_CONFIG.node.highlightOpacity;
     context.fill();
-    context.strokeStyle = STYLE_CONFIG.node.stroke;
-    context.lineWidth = 1;  // 确保普通节点使用默认线宽
-    context.stroke();
 
-    // 单独绘制当前节点
+    // 如果有悬停节点，绘制与其相连的节点
+    if (hoveredNode) {
+      context.beginPath();
+      Array.from(connectedNodes).forEach(d => {
+        if (!d.isCurrent) {
+          drawNode(d, CANVAS_CONFIG.nodeRadius);
+        }
+      });
+      context.fillStyle = textColor;
+      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
+      context.fill();
+    }
+
+    // 绘制悬停节点
+    if (hoveredNode && !hoveredNode.isCurrent) {
+      context.beginPath();
+      drawNode(hoveredNode, CANVAS_CONFIG.hoverNodeRadius);
+      context.fillStyle = accentColor;
+      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
+      context.fill();
+    }
+
+    // 绘制当前节点
     const currentNode = map_data.nodes.find(d => d.isCurrent);
     if (currentNode) {
-
       context.beginPath();
-      drawNode(currentNode);
-      // 保存当前上下文状态
-      context.save();
-      // 应用当前节点的样式
-      context.fillStyle = STYLE_CONFIG.currentNode.fill;
-      context.strokeStyle = STYLE_CONFIG.currentNode.stroke;
-      context.lineWidth = STYLE_CONFIG.currentNode.strokeWidth;
-      // 绘制
+      drawNode(currentNode, currentNode === hoveredNode ?
+        CANVAS_CONFIG.hoverNodeRadius : CANVAS_CONFIG.nodeRadius);
+      context.fillStyle = accentColor;
+      context.globalAlpha = hoveredNode && currentNode !== hoveredNode && !connectedNodes.has(currentNode)
+        ? STYLE_CONFIG.node.normalOpacity
+        : STYLE_CONFIG.node.highlightOpacity;
       context.fill();
-      context.stroke();
-      // 恢复上下文状态
-      context.restore();
     }
+
+    // 恢复默认透明度
+    context.globalAlpha = 1;
   }
 
   function drawLabels() {
-    if (transform.k > STYLE_CONFIG.text.minScale) {
-      // 计算透明度
-      const opacity = Math.min(
-        (transform.k - STYLE_CONFIG.text.minScale) / 
-        (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
-        1
-      );
-      
-      context.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-      context.font = STYLE_CONFIG.text.font;
-      map_data.nodes.forEach(node => {
+    context.font = STYLE_CONFIG.text.font;
+
+    // 获取 CSS 变量颜色
+    const textColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--vp-c-text').trim();
+
+    map_data.nodes.forEach(node => {
+      let shouldDrawText = false;
+      let opacity = 1;
+
+      if (node === hoveredNode) {
+        shouldDrawText = true;
+      }
+      else if (transform.k > STYLE_CONFIG.text.minScale) {
+        shouldDrawText = true;
+        opacity = Math.min(
+          (transform.k - STYLE_CONFIG.text.minScale) /
+          (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
+          1
+        );
+      }
+
+      if (shouldDrawText) {
         const textWidth = context.measureText(node.value.title).width;
+        // 使用 CSS 变量颜色
+        const [r, g, b] = textColor.match(/\d+/g).map(Number);
+        context.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
         context.fillText(
           node.value.title,
           node.x - textWidth / 2,
-          node.y + STYLE_CONFIG.text.offset,
+          node.y + STYLE_CONFIG.text.offset
         );
-      });
-    }
+      }
+    });
   }
 
   function drawLink(d) {
@@ -293,9 +360,9 @@ onMounted(() => {
     context.lineTo(d.target.x, d.target.y);
   }
 
-  function drawNode(d) {
-    context.moveTo(d.x + CANVAS_CONFIG.nodeRadius, d.y);
-    context.arc(d.x, d.y, CANVAS_CONFIG.nodeRadius, 0, 2 * Math.PI);
+  function drawNode(d, radius) {
+    context.moveTo(d.x + radius, d.y);
+    context.arc(d.x, d.y, radius, 0, 2 * Math.PI);
   }
 
   function isMouseOverNode(x, y) {
@@ -325,6 +392,25 @@ onMounted(() => {
       const dy = node.y - y;
       return Math.sqrt(dx * dx + dy * dy) < CANVAS_CONFIG.nodeClickRadius;
     });
+  }
+
+  function onCanvasMouseMove(event) {
+    if (draggingNode) return;
+
+    const [x, y] = getTransformedMousePosition(event);
+    const node = findClickedNode(x, y);
+
+    if (node !== hoveredNode) {
+      hoveredNode = node;
+      ticked(); // 重新渲染
+    }
+  }
+
+  function onCanvasMouseLeave() {
+    if (hoveredNode) {
+      hoveredNode = null;
+      ticked(); // 重新渲染
+    }
   }
 });
 </script>
