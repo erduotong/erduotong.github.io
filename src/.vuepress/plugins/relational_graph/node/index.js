@@ -56,8 +56,34 @@ function generateLocalMap(root) {
             }
         });
     }
+    // 转成node-link的格式
+    const localMapNodeLink = {
+        nodes: [],
+        links: [],
+    };
+    for (const key of Object.keys(localMap)) {
+        localMapNodeLink.nodes.push({
+            id: key,
+            value: {
+                ...localMap[key],
+            },
+        });
+        localMap[key].outlink.forEach((link) => {
+            localMapNodeLink.links.push({
+                source: key,
+                target: link,
+            });
+        });
+        localMap[key].backlink.forEach((link) => {
+            localMapNodeLink.links.push({
+                source: link,
+                target: key,
+            });
+        });
 
-    return localMap;
+
+    }
+    return localMapNodeLink;
 }
 
 function buildBioChainMap(pages) {
@@ -95,6 +121,7 @@ function buildBioChainMap(pages) {
 function write_to_frontmatter(page) {
     // 第三次遍历 写入到页面中
 
+    // noinspection JSUnresolvedReference
     const bioChain = bioChainMap[page.data.filePathRelative];
 
     if (!bioChain) {
