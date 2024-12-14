@@ -16,12 +16,12 @@ const CANVAS_CONFIG = {
 // 力导向图配置
 const FORCE_CONFIG = {
   link: d3.forceLink().id(d => d.id)
-      .distance(50)
-      .strength(0.5),
+      .distance(70)
+      .strength(0.2),
   charge: d3.forceManyBody()
-      .strength(-150)
-      .distanceMin(10)
-      .distanceMax(100),
+      .strength(-80)
+      .distanceMin(20)
+      .distanceMax(120),
   center: d3.forceCenter(CANVAS_CONFIG.width / 2, CANVAS_CONFIG.height / 2)
       .strength(0.01),
 };
@@ -37,20 +37,65 @@ const STYLE_CONFIG = {
   },
   text: {
     color: "#fff",
-    font: "10px Arial",
-    offset: -10,
+font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
+    offset: 20,
+  },
+  currentNode: {
+    fill: "#ff7675",
+    stroke: "#d63031",
+    strokeWidth: 2,
   },
 };
+
+// 添加路径匹配工具函数
+function isPathMatch(routePath, nodePath) {
+  // 1. 解码 URL 编码的字符
+  const decodedRoutePath = decodeURIComponent(routePath);
+
+  // 2. 移除两个路径的后缀（.html 和 .md 等）
+  const cleanRoutePath = decodedRoutePath.replace(/\.[^/.]+$/, '');
+  const cleanNodePath = nodePath.replace(/\.[^/.]+$/, '');
+
+  // 3. 移除开头的斜杠
+  const normalizedRoutePath = cleanRoutePath.replace(/^\//, '');
+  const normalizedNodePath = cleanNodePath.replace(/^\//, '');
+
+  console.log('Normalized paths:');
+  console.log('Route path:', normalizedRoutePath);
+  console.log('Node path:', normalizedNodePath);
+  console.log('Match:', normalizedRoutePath === normalizedNodePath);
+
+  return normalizedRoutePath === normalizedNodePath;
+}
 
 // 基础数据设置
 const data = usePageData();
 const map_data = data.value?.bioChainData?.localMap;
 const canvasRef = ref(null);
 const router = useRouter();
-
 onMounted(() => {
   if (!map_data) {
     return;
+  }
+
+  // 找到当前节点
+  console.log('Current route:', router.currentRoute.value.path);
+  console.log('Available nodes:', map_data.nodes.map(n => n.value.path));
+
+  const currentNode = map_data.nodes.find(node =>
+    isPathMatch(router.currentRoute.value.path, node.value.path)
+  );
+
+  console.log('Found current node:', currentNode);
+
+  if (currentNode) {
+    currentNode.isCurrent = true;
+    currentNode.fx = CANVAS_CONFIG.width / 2;
+    currentNode.fy = CANVAS_CONFIG.height / 2;
+    setTimeout(() => {
+      currentNode.fx = null;
+      currentNode.fy = null;
+    }, 1000);
   }
 
   // 初始化变量
@@ -66,7 +111,7 @@ onMounted(() => {
   // 设置事件监听
   setupEventListeners();
 
-  // 力导向图初始化
+  // 力导图初始化
   function initializeSimulation() {
     return d3.forceSimulation(map_data.nodes)
         .force("link", FORCE_CONFIG.link.links(map_data.links))
@@ -200,12 +245,33 @@ onMounted(() => {
   }
 
   function drawNodes() {
+    // 先绘制普通节点
     context.beginPath();
-    map_data.nodes.forEach(drawNode);
+    map_data.nodes.filter(d => !d.isCurrent).forEach(drawNode);
     context.fillStyle = STYLE_CONFIG.node.fill;
     context.fill();
     context.strokeStyle = STYLE_CONFIG.node.stroke;
+    context.lineWidth = 1;  // 确保普通节点使用默认线宽
     context.stroke();
+
+    // 单独绘制当前节点
+    const currentNode = map_data.nodes.find(d => d.isCurrent);
+    if (currentNode) {
+
+      context.beginPath();
+      drawNode(currentNode);
+      // 保存当前上下文状态
+      context.save();
+      // 应用当前节点的样式
+      context.fillStyle = STYLE_CONFIG.currentNode.fill;
+      context.strokeStyle = STYLE_CONFIG.currentNode.stroke;
+      context.lineWidth = STYLE_CONFIG.currentNode.strokeWidth;
+      // 绘制
+      context.fill();
+      context.stroke();
+      // 恢复上下文状态
+      context.restore();
+    }
   }
 
   function drawLabels() {
@@ -246,7 +312,9 @@ onMounted(() => {
     const clickedNode = findClickedNode(graphX, graphY);
 
     if (clickedNode && !isDragging) {
-      router.push(withBase(clickedNode.value.path));
+      if (!clickedNode.isCurrent) {
+        router.push(withBase(clickedNode.value.path));
+      }
     } else {
       isDragging = false;
     }
@@ -264,9 +332,9 @@ onMounted(() => {
 
 <template>
   <canvas
-      ref="canvasRef"
-      :width="CANVAS_CONFIG.width"
-      :height="CANVAS_CONFIG.height"
+    ref="canvasRef"
+    :width="CANVAS_CONFIG.width"
+    :height="CANVAS_CONFIG.height"
   ></canvas>
 </template>
 
