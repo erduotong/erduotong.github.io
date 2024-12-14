@@ -66,9 +66,6 @@ jobs:
         with:
           node-version: 21
           cache: pnpm
-      - name: Prepare Content
-        run: |
-          node scripts/projectHandler.js
       - name: Build The Site
         run: pnpm docs:build
 
