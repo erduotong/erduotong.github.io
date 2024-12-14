@@ -68,38 +68,20 @@ function generateLocalMap(root) {
                 ...localMap[key],
             },
         });
+        localMap[key].outlink.forEach((link) => {
+            localMapNodeLink.links.push({
+                source: key,
+                target: link,
+            });
+        });
+        localMap[key].backlink.forEach((link) => {
+            localMapNodeLink.links.push({
+                source: link,
+                target: key,
+            });
+        });
 
-    }
-    // source转数组下标
-    const find_index = (key) => {
-        for (let i = 0; i < localMapNodeLink.nodes.length; i++) {
-            if (localMapNodeLink.nodes[i].id === key) {
-                return i;
-            }
-        }
-        return -1;
-    };
-    for (const key of Object.keys(localMap)) {
-        for (const link of localMap[key].outlink) {
-            const source = find_index(key);
-            const target = find_index(link);
-            if (source !== -1 && target !== -1) {
-                localMapNodeLink.links.push({
-                    source: source,
-                    target: target,
-                });
-            }
-        }
-        for (const link of localMap[key].backlink) {
-            const source = find_index(key);
-            const target = find_index(link);
-            if (source !== -1 && target !== -1) {
-                localMapNodeLink.links.push({
-                    source: source,
-                    target: target,
-                });
-            }
-        }
+
     }
     return localMapNodeLink;
 }
