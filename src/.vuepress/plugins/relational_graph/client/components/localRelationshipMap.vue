@@ -11,9 +11,15 @@ const height = 300;
 const width = 300;
 
 const forces = {
-  link: d3.forceLink().id(d => d.id),
-  charge: d3.forceManyBody().strength(-300),
-  center: d3.forceCenter(width / 2, height / 2),
+  link: d3.forceLink().id(d => d.id)
+    .distance(50)
+    .strength(0.5),
+  charge: d3.forceManyBody()
+    .strength(-150)
+    .distanceMin(10)
+    .distanceMax(100),
+  center: d3.forceCenter(width / 2, height / 2)
+    .strength(0.01),
 };
 
 const router = useRouter();
@@ -24,7 +30,7 @@ onMounted(() => {
   if (map_data) {
     const canvas = canvasRef.value;
     const context = canvas.getContext("2d");
-  let isDragging = false;
+    let isDragging = false;
     const simulation = d3.forceSimulation(map_data.nodes)
         .force("link", forces.link.links(map_data.links))
         .force("charge", forces.charge)
@@ -43,15 +49,20 @@ onMounted(() => {
     }
 
     const zoom = d3.zoom()
-        .scaleExtent([0.1, 10])
-        .filter((event) => {
-          const [x, y] = transform.invert(d3.pointer(event, canvas));
-          return !isMouseOverNode(x, y) && !draggingNode;
-        })
-        .on("zoom", (event) => {
-          transform = event.transform;
-          ticked();
-        });
+    .scaleExtent([0.1, 10])
+    .filter((event) => {
+        // 只过滤掉鼠标左键的拖拽事件，允许滚轮事件
+        if (event.type === 'mousedown') {
+            const [x, y] = transform.invert(d3.pointer(event, canvas));
+            return !isMouseOverNode(x, y) && !draggingNode;
+        }
+        // 允许所有其他事件（包括滚轮事件）
+        return true;
+    })
+    .on("zoom", (event) => {
+        transform = event.transform;
+        ticked();
+    });
 
     d3.select(canvas).call(zoom);
 
@@ -62,7 +73,7 @@ onMounted(() => {
       draggingNode = simulation.find(x, y, 15);
       document.body.style.userSelect = "none";
       if (draggingNode) {
-        event.stopPropagation(); // 阻止缩放事件
+        event.stopPropagation();
         draggingNode.fx = x;
         draggingNode.fy = y;
         simulation.alphaTarget(0.3).restart();
@@ -71,15 +82,33 @@ onMounted(() => {
       }
     }
 
-    function onMouseMove(event) {
+   function onMouseMove(event) {
       if (draggingNode) {
         const rect = canvas.getBoundingClientRect();
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
         [x, y] = transform.invert([x, y]);
+        
+        // 计算可见区域的边界
+        const visibleBounds = {
+          left: -transform.x / transform.k,
+          top: -transform.y / transform.k,
+          right: (width - transform.x) / transform.k,
+          bottom: (height - transform.y) / transform.k
+        };
+
+        // 限制节点在可见区域内
+        x = Math.max(visibleBounds.left + 5, Math.min(visibleBounds.right - 5, x));
+        y = Math.max(visibleBounds.top + 5, Math.min(visibleBounds.bottom - 5, y));
+
+        // 更新节点位置
+        draggingNode.x = x;
+        draggingNode.y = y;
         draggingNode.fx = x;
         draggingNode.fy = y;
-isDragging = true;
+        
+        isDragging = true;
+        simulation.alphaTarget(0.3);
         event.preventDefault();
       }
     }
@@ -87,10 +116,10 @@ isDragging = true;
     function onMouseUp(event) {
       if (draggingNode) {
         draggingNode.fx = null;
-        document.body.style.userSelect = "";
         draggingNode.fy = null;
+        document.body.style.userSelect = "";
         draggingNode = null;
-        simulation.alphaTarget(0);
+        simulation.alphaTarget(0).alpha(0.3);
         window.removeEventListener("mousemove", onMouseMove);
         window.removeEventListener("mouseup", onMouseUp);
       }
@@ -156,8 +185,7 @@ isDragging = true;
 
       if (clickedNode && !isDragging) {
         router.push(withBase(clickedNode.value.path));
-      }
-      else{
+      } else {
         isDragging = false;
       }
     }
