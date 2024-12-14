@@ -11,15 +11,15 @@ export const CANVAS_CONFIG = {
 
 // 力导向图配置
 export const FORCE_CONFIG = {
-  link: d3.forceLink().id(d => d.id)
-      .distance(70)
-      .strength(0.2),
-  charge: d3.forceManyBody()
-      .strength(-80)
-      .distanceMin(20)
-      .distanceMax(120),
-  center: d3.forceCenter(CANVAS_CONFIG.width / 2, CANVAS_CONFIG.height / 2)
-      .strength(0.01),
+  link: d3
+    .forceLink()
+    .id((d) => d.id)
+    .distance(70)
+    .strength(0.2),
+  charge: d3.forceManyBody().strength(-80).distanceMin(20).distanceMax(120),
+  center: d3
+    .forceCenter(CANVAS_CONFIG.width / 2, CANVAS_CONFIG.height / 2)
+    .strength(0.01),
 };
 
 // 样式配置
@@ -51,9 +51,9 @@ export const STYLE_CONFIG = {
     link: {
       color: "#74b9ff",
       width: 2,
-    }
+    },
   },
   inactive: {
     opacity: 0.2,
   },
-}; 
+};
