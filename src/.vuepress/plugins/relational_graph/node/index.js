@@ -29,6 +29,7 @@ function generateLocalMap(root) {
         visited.add(path);
         localMap[path] = {
             title: bioChainMap[path].title,
+            path: path,
             outlink: [],
             backlink: [],
         };
