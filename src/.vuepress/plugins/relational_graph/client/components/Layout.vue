@@ -9,7 +9,7 @@ import LocalRelationshipMap from "./localRelationshipMap.vue";
     <template #contentAfter>
       <backlink></backlink>
     </template>
-    <template #tocAfter>
+    <template #tocBefore>
       <local-relationship-map></local-relationship-map>
     </template>
   </layout>

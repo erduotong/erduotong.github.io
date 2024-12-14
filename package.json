@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@mermaid-js/mermaid-mindmap": "^9.3.0",
+    "@types/d3": "^7.4.3",
     "@vuepress/plugin-feed": "2.0.0-rc.66",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.66",
     "d3": "^7.9.0",
@@ -28,6 +29,7 @@
     "markmap-lib": "^0.17.2",
     "mermaid": "^11.4.1",
     "plantuml-encoder": "^1.4.0",
+    "relation-graph": "^2.2.10",
     "sass-embedded": "^1.83.0",
     "vite-plugin-minipic": "^1.2.0"
   }
