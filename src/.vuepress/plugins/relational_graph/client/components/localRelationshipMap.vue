@@ -1,12 +1,12 @@
 <script setup lang="js">
-import {onMounted, ref, onUnmounted} from "vue";
+import {onMounted, ref, onUnmounted, nextTick} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
 import * as d3 from "d3";
 
 // 常量配置
 const CANVAS_CONFIG = {
-  height: 250,
-  width: 250,
+  defaultWidth: 300,
+  defaultHeight: 300,
   nodeRadius: 5,
   nodePadding: 5,
   zoomExtent: [0.1, 10],
@@ -23,8 +23,6 @@ const FORCE_CONFIG = {
       .strength(-80)
       .distanceMin(20)
       .distanceMax(120),
-  center: d3.forceCenter(CANVAS_CONFIG.width / 2, CANVAS_CONFIG.height / 2)
-      .strength(0.01),
 };
 
 // 样式配置
@@ -75,25 +73,68 @@ const mouseDownPosition = ref({
   x: 0,
   y: 0,
 });
+const containerRef = ref(null);
+const canvasSize = ref({
+  width: CANVAS_CONFIG.defaultWidth,
+  height: CANVAS_CONFIG.defaultHeight
+});
+const containerWidth = ref(0);
+const isLargeScreen = ref(false);
+const isExpanded = ref(false);
+
+// 添加媒体查询监听函数
+function updateScreenSize() {
+  isLargeScreen.value = window.matchMedia('(min-width: 1440px)').matches;
+}
+
+// 修改 updateContainerWidth 函数
+function updateContainerWidth() {
+  if (containerRef.value) {
+    const parentElement = containerRef.value.parentElement;
+    const parentRect = parentElement.getBoundingClientRect();
+
+    if (isLargeScreen.value) {
+      // 大屏幕时使用距离屏幕边距的算方式
+      const availableWidth = document.documentElement.clientWidth - parentRect.left - 40;
+      containerWidth.value = availableWidth;
+    } else {
+      // 小屏幕时直接使用父元素宽度减40
+      containerWidth.value = parentRect.width - 40;
+    }
+
+    // 更新 canvasSize
+    canvasSize.value = {
+      width: containerWidth.value,
+      height: CANVAS_CONFIG.defaultHeight
+    };
+
+    // 如果 simulation 存在，更新力导向图的中心点
+    if (window.simulation) {
+      const centerForce = d3.forceCenter(canvasSize.value.width / 2, canvasSize.value.height / 2)
+          .strength(0.01);
+      window.simulation.force("center", centerForce);
+      window.simulation.alpha(0.3).restart();
+    }
+  }
+}
+
+// 添加切换折叠状态的方法
+function toggleExpand() {
+  isExpanded.value = !isExpanded.value;
+  // 展开时需要重新计算和更新画布
+  if (isExpanded.value) {
+    nextTick(() => {
+      updateContainerWidth();
+      if (window.simulation) {
+        window.simulation.alpha(0.3).restart();
+      }
+    });
+  }
+}
 
 onMounted(() => {
   if (!map_data) {
     return;
-  }
-
-  // 找到当前节点
-  const currentNode = map_data.nodes.find(node =>
-      isPathMatch(router.currentRoute.value.path, node.value.path),
-  );
-
-  if (currentNode) {
-    currentNode.isCurrent = true;
-    currentNode.fx = CANVAS_CONFIG.width / 2;
-    currentNode.fy = CANVAS_CONFIG.height / 2;
-    setTimeout(() => {
-      currentNode.fx = null;
-      currentNode.fy = null;
-    }, 1000);
   }
 
   // 初始化变量
@@ -103,20 +144,67 @@ onMounted(() => {
   let draggingNode = null;
   let transform = d3.zoomIdentity;
   let hoveredNode = null;
+  let simulation = null;
+
+  // 初始化屏幕尺寸状态
+  updateScreenSize();
+
+  // 添加媒体查询监听器
+  const mediaQuery = window.matchMedia('(min-width: 1440px)');
+  mediaQuery.addEventListener('change', updateScreenSize);
+
+  // 初始化容器宽度
+  updateContainerWidth();
+
+  // 监听窗口大小变化
+  window.addEventListener('resize', updateContainerWidth);
+
+  // 修改 ResizeObserver
+  const resizeObserver = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      updateContainerWidth(); // 这里会同时处理画大小和力导向图的更新
+    }
+  });
+
+  // 开始观察容器元素
+  if (containerRef.value) {
+    resizeObserver.observe(containerRef.value);
+  }
+
+  // 找到当前节点
+  const currentNode = map_data.nodes.find(node =>
+      isPathMatch(router.currentRoute.value.path, node.value.path),
+  );
+
+  if (currentNode) {
+    currentNode.isCurrent = true;
+    currentNode.fx = canvasSize.value.width / 2;
+    currentNode.fy = canvasSize.value.height / 2;
+    setTimeout(() => {
+      currentNode.fx = null;
+      currentNode.fy = null;
+    }, 1000);
+  }
 
   // 初始化力导向图
-  const simulation = initializeSimulation();
+  simulation = initializeSimulation();
 
   // 设置事件监听
   setupEventListeners();
 
   // 力导图初始化
   function initializeSimulation() {
-    return d3.forceSimulation(map_data.nodes)
+    // 创建一个动态的 center force
+    const centerForce = d3.forceCenter(canvasSize.value.width / 2, canvasSize.value.height / 2)
+        .strength(0.01);
+
+    window.simulation = d3.forceSimulation(map_data.nodes)
         .force("link", FORCE_CONFIG.link.links(map_data.links))
         .force("charge", FORCE_CONFIG.charge)
-        .force("center", FORCE_CONFIG.center)
+        .force("center", centerForce)
         .on("tick", ticked);
+
+    return window.simulation;
   }
 
   // 事件监听器设置
@@ -212,8 +300,8 @@ onMounted(() => {
     const bounds = {
       left: -transform.x / transform.k,
       top: -transform.y / transform.k,
-      right: (CANVAS_CONFIG.width - transform.x) / transform.k,
-      bottom: (CANVAS_CONFIG.height - transform.y) / transform.k,
+      right: (canvasSize.value.width - transform.x) / transform.k,
+      bottom: (canvasSize.value.height - transform.y) / transform.k,
     };
 
     return {
@@ -236,7 +324,7 @@ onMounted(() => {
 
   // 渲染相关函数
   function ticked() {
-    context.clearRect(0, 0, CANVAS_CONFIG.width, CANVAS_CONFIG.height);
+    context.clearRect(0, 0, canvasSize.value.width, canvasSize.value.height);
     context.save();
     applyTransform();
     drawLinks();
@@ -250,131 +338,7 @@ onMounted(() => {
     context.scale(transform.k, transform.k);
   }
 
-  function drawLinks() {
-    // 获取高亮颜色
-    const accentColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--vp-c-accent").trim();
 
-    map_data.links.forEach(link => {
-      context.beginPath();
-      drawLink(link);
-
-      if (hoveredNode && (link.source === hoveredNode || link.target === hoveredNode)) {
-        context.strokeStyle = accentColor;
-        context.globalAlpha = STYLE_CONFIG.link.highlightOpacity;
-      } else {
-        context.strokeStyle = STYLE_CONFIG.link.color;
-        context.globalAlpha = hoveredNode ? STYLE_CONFIG.link.normalOpacity : STYLE_CONFIG.link.highlightOpacity;
-      }
-
-      context.stroke();
-    });
-    context.globalAlpha = 1;
-  }
-
-  function drawNodes() {
-    // 获取高亮颜色和文字颜色
-    const accentColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--vp-c-accent").trim();
-    const textColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--vp-c-text").trim();
-
-    // 获取与悬停节点相连的节点
-    const connectedNodes = new Set();
-    if (hoveredNode) {
-      map_data.links.forEach(link => {
-        if (link.source === hoveredNode) {
-          connectedNodes.add(link.target);
-        }
-        if (link.target === hoveredNode) {
-          connectedNodes.add(link.source);
-        }
-      });
-    }
-
-    // 绘制普通节点
-    context.beginPath();
-    map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
-      drawNode(d, CANVAS_CONFIG.nodeRadius);
-    });
-    context.fillStyle = textColor;
-    context.globalAlpha = hoveredNode ? STYLE_CONFIG.node.normalOpacity : STYLE_CONFIG.node.highlightOpacity;
-    context.fill();
-
-    // 如果有悬停节点，绘制与其相连的节点
-    if (hoveredNode) {
-      context.beginPath();
-      Array.from(connectedNodes).forEach(d => {
-        if (!d.isCurrent) {
-          drawNode(d, CANVAS_CONFIG.nodeRadius);
-        }
-      });
-      context.fillStyle = textColor;
-      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
-      context.fill();
-    }
-
-    // 绘制悬停节点
-    if (hoveredNode && !hoveredNode.isCurrent) {
-      context.beginPath();
-      drawNode(hoveredNode, CANVAS_CONFIG.hoverNodeRadius);
-      context.fillStyle = accentColor;
-      context.globalAlpha = STYLE_CONFIG.node.highlightOpacity;
-      context.fill();
-    }
-
-    // 绘制当前节点
-    const currentNode = map_data.nodes.find(d => d.isCurrent);
-    if (currentNode) {
-      context.beginPath();
-      drawNode(currentNode, currentNode === hoveredNode ?
-          CANVAS_CONFIG.hoverNodeRadius : CANVAS_CONFIG.nodeRadius);
-      context.fillStyle = accentColor;
-      context.globalAlpha = hoveredNode && currentNode !== hoveredNode && !connectedNodes.has(currentNode)
-          ? STYLE_CONFIG.node.normalOpacity
-          : STYLE_CONFIG.node.highlightOpacity;
-      context.fill();
-    }
-
-    // 恢复默认透明度
-    context.globalAlpha = 1;
-  }
-
-  function drawLabels() {
-    context.font = STYLE_CONFIG.text.font;
-
-    // 获取 CSS 变量颜色
-    const textColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--vp-c-text").trim();
-
-    map_data.nodes.forEach(node => {
-      let shouldDrawText = false;
-      let opacity = 1;
-
-      if (node === hoveredNode) {
-        shouldDrawText = true;
-      } else if (transform.k > STYLE_CONFIG.text.minScale) {
-        shouldDrawText = true;
-        opacity = Math.min(
-            (transform.k - STYLE_CONFIG.text.minScale) /
-            (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
-            1,
-        );
-      }
-
-      if (shouldDrawText) {
-        const textWidth = context.measureText(node.value.title).width;
-        // 使用 CSS 变量颜色
-        const [r, g, b] = textColor.match(/\d+/g).map(Number);
-        context.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-        context.fillText(
-            node.value.title,
-            node.x - textWidth / 2,
-            node.y + STYLE_CONFIG.text.offset,
-        );
-      }
-    });
-  }
 
   function drawLink(d) {
     context.moveTo(d.source.x, d.source.y);
@@ -446,7 +410,7 @@ onMounted(() => {
     }
   }
 
-  // 添加 CSS 变量观察器
+  // 添加 CSS 变量察器
   const observer = new MutationObserver(() => {
     // CSS 变量发生变化时重新渲染
     ticked();
@@ -495,7 +459,7 @@ onMounted(() => {
       text,
     } = getThemeColors();
 
-    // 获取与悬停节点相连的节点
+    // 获取与悬停节点相连的点
     const connectedNodes = new Set();
     if (hoveredNode) {
       map_data.links.forEach(link => {
@@ -591,23 +555,97 @@ onMounted(() => {
 
   // 在组件卸载时清理观察器
   onUnmounted(() => {
+    window.removeEventListener('resize', updateContainerWidth);
+    mediaQuery.removeEventListener('change', updateScreenSize);
     observer.disconnect();
   });
+
 });
 </script>
 
 <template>
-  <canvas
-      ref="canvasRef"
-      :width="CANVAS_CONFIG.width"
-      :height="CANVAS_CONFIG.height"
-  ></canvas>
+  <div class="graph-wrapper">
+    <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
+      View Local Graph 
+
+      
+          {{ isExpanded ? "▼" : "▶" }}
+   
+    </button>
+    <div
+      ref="containerRef"
+      class="graph-container"
+      :class="{ expanded: isExpanded || isLargeScreen }"
+      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+    >
+      <canvas
+        ref="canvasRef"
+        :width="canvasSize.width"
+        :height="canvasSize.height"
+        :style="{
+          width: canvasSize.width + 'px',
+          height: canvasSize.height + 'px',
+        }"
+      ></canvas>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+
+
+.toggle-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: var(--vp-c-bg-mute);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: left;
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+.graph-container {
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1439px) {
+  .graph-container {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+    padding: 2px;
+  }
+
+  .graph-container.expanded {
+    height: 300px;
+    padding-top: 10px;
+    opacity: 1;
+  }
+
+  canvas {
+    position: relative !important;
+  }
+}
+
 canvas {
   border: 1px solid rgb(60, 60, 67);
-  margin: 12px;
+  margin: 0;
   border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>
