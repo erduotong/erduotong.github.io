@@ -76,7 +76,7 @@ const mouseDownPosition = ref({
 const containerRef = ref(null);
 const canvasSize = ref({
   width: CANVAS_CONFIG.defaultWidth,
-  height: CANVAS_CONFIG.defaultHeight
+  height: CANVAS_CONFIG.defaultHeight,
 });
 const containerWidth = ref(0);
 const isLargeScreen = ref(false);
@@ -84,7 +84,7 @@ const isExpanded = ref(false);
 
 // 添加媒体查询监听函数
 function updateScreenSize() {
-  isLargeScreen.value = window.matchMedia('(min-width: 1440px)').matches;
+  isLargeScreen.value = window.matchMedia("(min-width: 1440px)").matches;
 }
 
 // 修改 updateContainerWidth 函数
@@ -95,8 +95,7 @@ function updateContainerWidth() {
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
-      const availableWidth = document.documentElement.clientWidth - parentRect.left - 40;
-      containerWidth.value = availableWidth;
+      containerWidth.value = document.documentElement.clientWidth - parentRect.left - 40;
     } else {
       // 小屏幕时直接使用父元素宽度减40
       containerWidth.value = parentRect.width - 40;
@@ -105,7 +104,7 @@ function updateContainerWidth() {
     // 更新 canvasSize
     canvasSize.value = {
       width: containerWidth.value,
-      height: CANVAS_CONFIG.defaultHeight
+      height: CANVAS_CONFIG.defaultHeight,
     };
 
     // 如果 simulation 存在，更新力导向图的中心点
@@ -150,14 +149,14 @@ onMounted(() => {
   updateScreenSize();
 
   // 添加媒体查询监听器
-  const mediaQuery = window.matchMedia('(min-width: 1440px)');
-  mediaQuery.addEventListener('change', updateScreenSize);
+  const mediaQuery = window.matchMedia("(min-width: 1440px)");
+  mediaQuery.addEventListener("change", updateScreenSize);
 
   // 初始化容器宽度
   updateContainerWidth();
 
   // 监听窗口大小变化
-  window.addEventListener('resize', updateContainerWidth);
+  window.addEventListener("resize", updateContainerWidth);
 
   // 修改 ResizeObserver
   const resizeObserver = new ResizeObserver(entries => {
@@ -337,7 +336,6 @@ onMounted(() => {
     context.translate(transform.x, transform.y);
     context.scale(transform.k, transform.k);
   }
-
 
 
   function drawLink(d) {
@@ -555,8 +553,8 @@ onMounted(() => {
 
   // 在组件卸载时清理观察器
   onUnmounted(() => {
-    window.removeEventListener('resize', updateContainerWidth);
-    mediaQuery.removeEventListener('change', updateScreenSize);
+    window.removeEventListener("resize", updateContainerWidth);
+    mediaQuery.removeEventListener("change", updateScreenSize);
     observer.disconnect();
   });
 
@@ -565,24 +563,26 @@ onMounted(() => {
 
 <template>
   <div class="graph-wrapper">
-    <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
-      View Local Graph 
+    <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand"
 
-      
-          {{ isExpanded ? "▼" : "▶" }}
-   
+    >
+      View Local Graph
+
+
+      {{ isExpanded ? "▼" : "▶" }}
+
     </button>
     <div
-      ref="containerRef"
-      class="graph-container"
-      :class="{ expanded: isExpanded || isLargeScreen }"
-      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+        ref="containerRef"
+        class="graph-container"
+        :class="{ expanded: isExpanded || isLargeScreen }"
+        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
     >
       <canvas
-        ref="canvasRef"
-        :width="canvasSize.width"
-        :height="canvasSize.height"
-        :style="{
+          ref="canvasRef"
+          :width="canvasSize.width"
+          :height="canvasSize.height"
+          :style="{
           width: canvasSize.width + 'px',
           height: canvasSize.height + 'px',
         }"
@@ -597,7 +597,6 @@ onMounted(() => {
 .toggle-button {
   display: block;
   width: 100%;
-  padding: 8px;
   background: var(--vp-c-bg-mute);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
@@ -606,7 +605,7 @@ onMounted(() => {
   font-size: 14px;
   margin-bottom: 8px;
   text-align: left;
-  padding-left: 16px;
+  padding: 8px 8px 8px 16px;
   font-weight: 600;
 }
 
@@ -624,7 +623,6 @@ onMounted(() => {
     width: 100%;
     height: 0;
     overflow: hidden;
-    padding: 0;
     opacity: 0;
     padding: 2px;
   }
