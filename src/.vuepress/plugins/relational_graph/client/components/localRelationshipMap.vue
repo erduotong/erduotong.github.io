@@ -229,6 +229,7 @@ onMounted(() => {
     canvas.addEventListener("mousedown", onMouseDown);
     canvas.addEventListener("touchstart", onMouseDown, touchOptions);
     canvas.addEventListener("click", onClick);
+    canvas.addEventListener("touchend", onClick);
     canvas.addEventListener("mousemove", onCanvasMouseMove);
     canvas.addEventListener("touchmove", onCanvasMouseMove, touchOptions);
     canvas.addEventListener("mouseleave", onCanvasMouseLeave);
@@ -406,17 +407,22 @@ onMounted(() => {
   }
 
   function onClick(event) {
+    // 如果是触摸事件，使用 changedTouches
+    const point = event.changedTouches ? event.changedTouches[0] : event;
+    
     // 计算点击持续时间和移动距离
     const clickDuration = Date.now() - mouseDownTime.value;
     const moveDistance = Math.sqrt(
-        Math.pow(event.clientX - mouseDownPosition.value.x, 2) +
-        Math.pow(event.clientY - mouseDownPosition.value.y, 2),
+      Math.pow(point.clientX - mouseDownPosition.value.x, 2) +
+      Math.pow(point.clientY - mouseDownPosition.value.y, 2),
     );
 
     // 如果点击时间小于300ms且移动距离小于5像素，才认为是有效点击
     if (clickDuration < 300 && moveDistance < 5) {
-      const [graphX, graphY] = getTransformedMousePosition(event);
-      const clickedNode = findClickedNode(graphX, graphY);
+      const rect = canvas.getBoundingClientRect();
+      const x = (point.clientX - rect.left - transform.x) / transform.k;
+      const y = (point.clientY - rect.top - transform.y) / transform.k;
+      const clickedNode = simulation.find(x, y, CANVAS_CONFIG.nodeClickRadius);
 
       if (clickedNode && !isDragging) {
         if (!clickedNode.isCurrent) {
@@ -522,7 +528,7 @@ onMounted(() => {
       });
     }
 
-    // 先绘��普通节点
+    // 先绘普通节点
     context.beginPath();
     map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
       drawNode(d, CANVAS_CONFIG.nodeRadius);
