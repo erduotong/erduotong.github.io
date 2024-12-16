@@ -193,7 +193,7 @@ onMounted(() => {
 
   // 力导图初始化
   function initializeSimulation() {
-    // 创建一个动态的 center force
+    // 创建一个 center force
     const centerForce = d3.forceCenter(canvasSize.value.width / 2, canvasSize.value.height / 2)
         .strength(0.01);
 
@@ -211,20 +211,42 @@ onMounted(() => {
     const zoom = d3.zoom()
         .scaleExtent(CANVAS_CONFIG.zoomExtent)
         .filter(event => filterZoomEvent(event))
+        .touchable(true)
         .on("zoom", event => {
           transform = event.transform;
           ticked();
         });
 
-    d3.select(canvas).call(zoom);
+    const touchOptions = {
+      passive: false,
+      capture: false
+    };
+
+    d3.select(canvas)
+      .on("touchstart touchmove", null)
+      .call(zoom);
+
     canvas.addEventListener("mousedown", onMouseDown);
+    canvas.addEventListener("touchstart", onMouseDown, touchOptions);
     canvas.addEventListener("click", onClick);
     canvas.addEventListener("mousemove", onCanvasMouseMove);
+    canvas.addEventListener("touchmove", onCanvasMouseMove, touchOptions);
     canvas.addEventListener("mouseleave", onCanvasMouseLeave);
+    canvas.addEventListener("touchend", onCanvasMouseLeave);
   }
 
   // 事件处理函数
   function filterZoomEvent(event) {
+    // 如果是触摸事件，需要检查触摸点是否在节点上
+    if (event.type === "touchstart") {
+      const touch = event.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = (touch.clientX - rect.left - transform.x) / transform.k;
+      const y = (touch.clientY - rect.top - transform.y) / transform.k;
+      const node = simulation.find(x, y, CANVAS_CONFIG.nodeClickRadius);
+      return !node; // 如果触摸点在节点上，阻止缩放
+    }
+    // 对于鼠标事件保持原有逻辑
     if (event.type === "mousedown") {
       const [x, y] = transform.invert(d3.pointer(event, canvas));
       return !isMouseOverNode(x, y) && !draggingNode;
@@ -233,39 +255,59 @@ onMounted(() => {
   }
 
   function onMouseDown(event) {
-    const [x, y] = transform.invert(d3.pointer(event));
+    if (event.type === "touchstart") {
+      event.preventDefault();
+    }
+
+    const point = event.touches ? event.touches[0] : event;
+    const [x, y] = transform.invert(d3.pointer(point, canvas));
     draggingNode = simulation.find(x, y, CANVAS_CONFIG.nodeClickRadius);
 
     // 记录按下时的时间和位置
     mouseDownTime.value = Date.now();
     mouseDownPosition.value = {
-      x: event.clientX,
-      y: event.clientY,
+      x: point.clientX,
+      y: point.clientY,
     };
 
     if (draggingNode) {
+      // 设置当前拖拽的节点为悬停节点
+      hoveredNode = draggingNode;
+      
       event.stopPropagation();
       document.body.style.userSelect = "none";
       draggingNode.fx = x;
       draggingNode.fy = y;
       simulation.alphaTarget(0.3).restart();
 
-      window.addEventListener("mousemove", onMouseMove);
-      window.addEventListener("mouseup", onMouseUp);
+      const touchOptions = { passive: false, capture: false };
+
+      // 根据事件类型绑定对应的事件监听器
+      if (event.touches) {
+        window.addEventListener("touchmove", onMouseMove, touchOptions);
+        window.addEventListener("touchend", onMouseUp);
+      } else {
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", onMouseUp);
+      }
     }
   }
 
   function onMouseMove(event) {
     if (draggingNode) {
+      const point = event.touches ? event.touches[0] : event;
       const moveDistance = Math.sqrt(
-          Math.pow(event.clientX - mouseDownPosition.value.x, 2) +
-          Math.pow(event.clientY - mouseDownPosition.value.y, 2),
+        Math.pow(point.clientX - mouseDownPosition.value.x, 2) +
+        Math.pow(point.clientY - mouseDownPosition.value.y, 2)
       );
 
       // 只有当移动距离大于5像素时才开始拖拽
       if (moveDistance > 5) {
         isDragging = true;
-        const [x, y] = getTransformedMousePosition(event);
+        const rect = canvas.getBoundingClientRect();
+        const x = (point.clientX - rect.left - transform.x) / transform.k;
+        const y = (point.clientY - rect.top - transform.y) / transform.k;
+
         const boundedPosition = getBoundedPosition(x, y);
         updateDraggingNodePosition(boundedPosition);
         simulation.alphaTarget(0.3);
@@ -279,11 +321,18 @@ onMounted(() => {
       draggingNode.fx = null;
       draggingNode.fy = null;
       document.body.style.userSelect = "";
+      // 清除悬停节点
+      hoveredNode = null;
       draggingNode = null;
       simulation.alphaTarget(0).alpha(0.3);
 
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
+      if (event.type === 'touchend') {
+        window.removeEventListener("touchmove", onMouseMove);
+        window.removeEventListener("touchend", onMouseUp);
+      } else {
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("mouseup", onMouseUp);
+      }
     }
   }
 
@@ -392,8 +441,11 @@ onMounted(() => {
       return;
     }
 
-    const [x, y] = getTransformedMousePosition(event);
-    const node = findClickedNode(x, y);
+    const point = event.touches ? event.touches[0] : event;
+    const rect = canvas.getBoundingClientRect();
+    const x = (point.clientX - rect.left - transform.x) / transform.k;
+    const y = (point.clientY - rect.top - transform.y) / transform.k;
+    const node = simulation.find(x, y, CANVAS_CONFIG.nodeClickRadius);
 
     if (node !== hoveredNode) {
       hoveredNode = node;
@@ -457,7 +509,7 @@ onMounted(() => {
       text,
     } = getThemeColors();
 
-    // 获取与悬停节点相连的点
+    // 获取与悬停点相连的点
     const connectedNodes = new Set();
     if (hoveredNode) {
       map_data.links.forEach(link => {
@@ -470,7 +522,7 @@ onMounted(() => {
       });
     }
 
-    // 先绘制普通节点
+    // 先绘��普通节点
     context.beginPath();
     map_data.nodes.filter(d => !d.isCurrent && d !== hoveredNode).forEach(d => {
       drawNode(d, CANVAS_CONFIG.nodeRadius);
@@ -501,7 +553,7 @@ onMounted(() => {
       context.fill();
     }
 
-    // 绘制当前节点
+    // 绘制前节点
     const currentNode = map_data.nodes.find(d => d.isCurrent);
     if (currentNode) {
       context.beginPath();
@@ -563,26 +615,22 @@ onMounted(() => {
 
 <template>
   <div class="graph-wrapper">
-    <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand"
-
-    >
+    <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
       View Local Graph
 
-
       {{ isExpanded ? "▼" : "▶" }}
-
     </button>
     <div
-        ref="containerRef"
-        class="graph-container"
-        :class="{ expanded: isExpanded || isLargeScreen }"
-        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+      ref="containerRef"
+      class="graph-container"
+      :class="{ expanded: isExpanded || isLargeScreen }"
+      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
     >
       <canvas
-          ref="canvasRef"
-          :width="canvasSize.width"
-          :height="canvasSize.height"
-          :style="{
+        ref="canvasRef"
+        :width="canvasSize.width"
+        :height="canvasSize.height"
+        :style="{
           width: canvasSize.width + 'px',
           height: canvasSize.height + 'px',
         }"
@@ -592,8 +640,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-
 .toggle-button {
   display: block;
   width: 100%;
