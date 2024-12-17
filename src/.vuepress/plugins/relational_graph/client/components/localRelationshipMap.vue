@@ -5,21 +5,6 @@ import * as d3 from "d3";
 
 import {FORCE_CONFIG, STYLE_CONFIG, CANVAS_CONFIG} from "../graph_config.js";
 
-// 添加路径匹配工具函数
-function isPathMatch(routePath, nodePath) {
-  // 1. 解码 URL 编码的字符
-  const decodedRoutePath = decodeURIComponent(routePath);
-
-  // 2. 移除两个路径的后缀（.html 和 .md 等）
-  const cleanRoutePath = decodedRoutePath.replace(/\.[^/.]+$/, "");
-  const cleanNodePath = nodePath.replace(/\.[^/.]+$/, "");
-
-  // 3. 移除开头的斜杠
-  const normalizedRoutePath = cleanRoutePath.replace(/^\//, "");
-  const normalizedNodePath = cleanNodePath.replace(/^\//, "");
-
-  return normalizedRoutePath === normalizedNodePath;
-}
 
 // 基础数据设置
 const data = usePageData();
@@ -32,10 +17,7 @@ const mouseDownPosition = ref({
   y: 0,
 });
 const containerRef = ref(null);
-const canvasSize = ref({
-  width: CANVAS_CONFIG.defaultWidth,
-  height: CANVAS_CONFIG.defaultHeight,
-});
+
 const containerWidth = ref(0);
 const isLargeScreen = ref(false);
 const isExpanded = ref(false);
