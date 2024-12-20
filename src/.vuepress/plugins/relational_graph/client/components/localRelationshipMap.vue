@@ -61,12 +61,10 @@ function updateContainerWidth() {
 function toggleExpand() {
   isExpanded.value = !isExpanded.value;
   // 展开时需要重新计算和更新画布
-  if (isExpanded.value) { // todo
+  if (isExpanded.value) {
     nextTick(() => {
       updateContainerWidth();
-      if (window.simulation) {
-        window.simulation.alpha(0.3).restart();
-      }
+      graphRef.value?.restartSimulation(0.3);
     });
   }
 }
@@ -117,9 +115,7 @@ onUnmounted(() => {
   }
 
   // 停止力导向图模拟
-  if (window.simulation) {
-    window.simulation.stop();
-  }
+  graphRef.value?.stopSimulation();
 });
 </script>
 
