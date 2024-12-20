@@ -106,6 +106,12 @@ const canvasSize = ref({
   width: props.canvasWidth,
   height: props.canvasHeight,
 });
+watch(() => props.canvasWidth, (newWidth) => {
+  canvasSize.value = {
+    width: newWidth,
+    height: canvasSize.value.height
+  };
+}, { immediate: true });
 const canvasRef = ref(null);
 const mouseDownTime = ref(0);
 const mouseDownPosition = ref({

@@ -50,6 +50,7 @@ function updateContainerWidth() {
       height: 300,
     };
 
+
     // 重启模拟程序
     nextTick(() => {
       graphRef.value?.restartSimulation();
