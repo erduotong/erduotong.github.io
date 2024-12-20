@@ -1,10 +1,10 @@
 <script setup lang="js">
 import * as d3 from "d3";
-import {onMounted, ref, watch} from "vue";
+import {onMounted, ref, watch, onUnmounted} from "vue";
 import {withBase} from "vuepress/client";
 
 // 定义 emit 事件
-const emit = defineEmits(['routerTo']);
+const emit = defineEmits(['routerTo', 'nodeClick']);
 
 // 用于存储模拟程序的引用
 let simulation = null;
@@ -70,7 +70,7 @@ function isPathMatch(routePath, nodePath) {
   // 1. 解码 URL 编码的字符
   const decodedRoutePath = decodeURIComponent(routePath);
 
-  // 2. 移除两个路径的后缀（.html 和 .md 等）
+  // 2. 移除两个路径的后缀（.html �� .md 等）
   const cleanRoutePath = decodedRoutePath.replace(/\.[^/.]+$/, "");
   const cleanNodePath = nodePath.replace(/\.[^/.]+$/, "");
 
@@ -124,6 +124,74 @@ onMounted(() => {
   let draggingNode = null;
   let transform = d3.zoomIdentity;
   let hoveredNode = null;
+  let observer = null;
+
+  // 事件监听器设置
+  function setupEventListeners() {
+    const zoom = d3.zoom()
+        .scaleExtent(CANVAS_CONFIG.zoomExtent)
+        .filter(event => filterZoomEvent(event))
+        .touchable(true)
+        .on("zoom", event => {
+          transform = event.transform;
+          ticked();
+        });
+
+    const touchOptions = {
+      passive: true,
+      capture: false,
+    };
+
+    d3.select(canvas)
+        .on("touchstart touchmove", null)
+        .call(zoom);
+
+    canvas.addEventListener("mousedown", onMouseDown);
+    canvas.addEventListener("touchstart", onMouseDown, touchOptions);
+    canvas.addEventListener("click", onClick);
+    canvas.addEventListener("touchend", onClick);
+    canvas.addEventListener("mousemove", onCanvasMouseMove);
+    canvas.addEventListener("touchmove", onCanvasMouseMove, touchOptions);
+    canvas.addEventListener("mouseleave", onCanvasMouseLeave);
+    canvas.addEventListener("touchend", onCanvasMouseLeave);
+  }
+
+  // 初始化 observer
+  observer = new MutationObserver(() => {
+    if (canvas && context) {
+      ticked();
+    }
+  });
+
+  // 观察 html 元素的 style 属性变化
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["style", "class", "data-theme"],
+  });
+
+  // 清理函数
+  const cleanup = () => {
+    if (observer) {
+      observer.disconnect();
+    }
+    if (simulation) {
+      simulation.stop();
+    }
+    // 移除所有事件监听器
+    canvas.removeEventListener("mousedown", onMouseDown);
+    canvas.removeEventListener("click", onClick);
+    canvas.removeEventListener("mousemove", onCanvasMouseMove);
+    canvas.removeEventListener("mouseleave", onCanvasMouseLeave);
+    canvas.removeEventListener("touchstart", onMouseDown);
+    canvas.removeEventListener("touchend", onClick);
+    canvas.removeEventListener("touchmove", onCanvasMouseMove);
+    canvas.removeEventListener("touchend", onCanvasMouseLeave);
+    d3.select(canvas).on(".zoom", null);
+  };
+
+  // 在组件卸载时调用清理函数
+  onUnmounted(cleanup);
+
   // 找到当前节点
   const currentNode = map_data.nodes.find(node =>
       isPathMatch(props.currentPath, node.value.path),
@@ -156,36 +224,6 @@ onMounted(() => {
         .on("tick", ticked);
 
     return window.simulation;
-  }
-
-  // 事件监听器设置
-  function setupEventListeners() {
-    const zoom = d3.zoom()
-        .scaleExtent(CANVAS_CONFIG.zoomExtent)
-        .filter(event => filterZoomEvent(event))
-        .touchable(true)
-        .on("zoom", event => {
-          transform = event.transform;
-          ticked();
-        });
-
-    const touchOptions = {
-      passive: false,
-      capture: false,
-    };
-
-    d3.select(canvas)
-        .on("touchstart touchmove", null)
-        .call(zoom);
-
-    canvas.addEventListener("mousedown", onMouseDown);
-    canvas.addEventListener("touchstart", onMouseDown, touchOptions);
-    canvas.addEventListener("click", onClick);
-    canvas.addEventListener("touchend", onClick);
-    canvas.addEventListener("mousemove", onCanvasMouseMove);
-    canvas.addEventListener("touchmove", onCanvasMouseMove, touchOptions);
-    canvas.addEventListener("mouseleave", onCanvasMouseLeave);
-    canvas.addEventListener("touchend", onCanvasMouseLeave);
   }
 
   // 事件处理函数
@@ -224,7 +262,7 @@ onMounted(() => {
     };
 
     if (draggingNode) {
-      // 设置当前拖拽的节点为悬停节点
+      // 设置当前拖拽的节���为悬停节点
       hoveredNode = draggingNode;
 
       event.stopPropagation();
@@ -422,18 +460,6 @@ onMounted(() => {
     }
   }
 
-  // 添加 CSS 变量察器
-  const observer = new MutationObserver(() => {
-    // CSS 变量发生变化时重新渲染
-    ticked();
-  });
-
-  // 观察 html 元素的 style 属性变化
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ["style", "class", "data-theme"],
-  });
-
   // 获取主题色函数
   function getThemeColors() {
     const root = getComputedStyle(document.documentElement);
@@ -572,6 +598,13 @@ watch(() => canvasSize.value, () => {
         .strength(0.01);
     window.simulation.force("center", centerForce);
     window.simulation.alpha(0.3).restart();
+  }
+});
+
+// 添加组件卸载时的清理
+onUnmounted(() => {
+  if (simulation) {
+    simulation.stop();
   }
 });
 </script>

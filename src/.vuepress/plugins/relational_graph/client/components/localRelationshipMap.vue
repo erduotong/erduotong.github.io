@@ -1,7 +1,6 @@
 <script setup lang="js">
 import {onMounted, ref, onUnmounted, nextTick} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
-import * as d3 from "d3";
 import RelationGraph from "./relationGraph.vue";
 
 
@@ -72,16 +71,15 @@ function toggleExpand() {
   }
 }
 
+let mediaQuery = null;
+let resizeObserver = null;
+
 onMounted(() => {
-
-
-
-
   // 初始化屏幕尺寸状态
   updateScreenSize();
 
   // 添加媒体查询监听器
-  const mediaQuery = window.matchMedia("(min-width: 1440px)");
+  mediaQuery = window.matchMedia("(min-width: 1440px)");
   mediaQuery.addEventListener("change", updateScreenSize);
 
   // 初始化容器宽度
@@ -91,7 +89,7 @@ onMounted(() => {
   window.addEventListener("resize", updateContainerWidth);
 
   // 修改 ResizeObserver
-  const resizeObserver = new ResizeObserver(entries => {
+  resizeObserver = new ResizeObserver(entries => {
     for (const entry of entries) {
       updateContainerWidth(); // 这里会同时处理画大小和力导向图的更新
     }
@@ -101,21 +99,27 @@ onMounted(() => {
   if (containerRef.value) {
     resizeObserver.observe(containerRef.value);
   }
+});
 
+// 在组件卸载时清理所有事件监听器和观察器
+onUnmounted(() => {
+  // 清理窗口事件监听器
+  window.removeEventListener("resize", updateContainerWidth);
 
-
-
-
-
-
-
-  // 在组件卸载时清理观察器
-  onUnmounted(() => {
-    window.removeEventListener("resize", updateContainerWidth);
+  // 清理媒体查询监听器
+  if (mediaQuery) {
     mediaQuery.removeEventListener("change", updateScreenSize);
-    observer.disconnect();
-  });
+  }
 
+  // 清理 ResizeObserver
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+  }
+
+  // 停止力导向图模拟
+  if (window.simulation) {
+    window.simulation.stop();
+  }
 });
 </script>
 
