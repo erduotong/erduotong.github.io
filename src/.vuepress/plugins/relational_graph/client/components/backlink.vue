@@ -1,16 +1,16 @@
-<script setup lang="js">
-import {usePageData, useRouter, withBase} from "vuepress/client";
-import {computed} from "vue";
+<script setup lang="ts">
+import { usePageData, useRouter, withBase } from "vuepress/client";
+import { computed } from "vue";
+import type { BioChainData } from "../../types";
 
 const data = usePageData();
-const biodata = data.value?.bioChainData;
+const biodata = data.value?.bioChainData as BioChainData | undefined;
 const hasBacklink = computed(() => {
   return biodata?.backlink && biodata?.backlink?.length > 0;
 });
 const tot_link = computed(() => {
   return biodata?.backlink?.length;
 });
-
 </script>
 
 <template>
@@ -19,9 +19,7 @@ const tot_link = computed(() => {
       <span>链接到当前文件 </span>
       <span>{{ tot_link }}</span>
     </div>
-    <div v-if="!hasBacklink">
-      没有文件链接到当前文件
-    </div>
+    <div v-if="!hasBacklink">没有文件链接到当前文件</div>
     <div v-else>
       <template v-for="item in biodata.backlink">
         <div class="backlink-item">
@@ -49,7 +47,6 @@ const tot_link = computed(() => {
 }
 
 .backlink-item a {
-
   text-decoration: none;
 }
 

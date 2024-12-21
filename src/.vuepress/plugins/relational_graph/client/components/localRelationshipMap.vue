@@ -1,29 +1,31 @@
-<script setup lang="js">
-import {onMounted, ref, onUnmounted, nextTick} from "vue";
+<script setup lang="ts">
+import {nextTick, onMounted, onUnmounted, ref} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-
+import type {CanvasSize, LocalMapNodeLink} from "../../types";
 
 // 基础数据设置
 const data = usePageData();
-const map_data = data.value?.bioChainData?.localMap;
+const map_data = data.value?.bioChainData?.localMap as
+    | LocalMapNodeLink
+    | undefined;
 
 const router = useRouter();
-const graphRef = ref(null);
+const graphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
 
 // 处理节点点击事件
-const handleNodeClick = (path) => {
+const handleNodeClick = (path: string) => {
   router.push(withBase(path));
 };
 
-const containerRef = ref(null);
-const canvasSize = ref({
+const containerRef = ref<HTMLElement | null>(null);
+const canvasSize = ref<CanvasSize>({
   width: 300,
   height: 300,
 });
-const containerWidth = ref(0);
-const isLargeScreen = ref(false);
-const isExpanded = ref(false);
+const containerWidth = ref<number>(0);
+const isLargeScreen = ref<boolean>(false);
+const isExpanded = ref<boolean>(false);
 
 // 添加媒体查询监听函数
 function updateScreenSize() {
@@ -34,11 +36,14 @@ function updateScreenSize() {
 function updateContainerWidth() {
   if (containerRef.value) {
     const parentElement = containerRef.value.parentElement;
+    if (!parentElement) return;
+
     const parentRect = parentElement.getBoundingClientRect();
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
-      containerWidth.value = document.documentElement.clientWidth - parentRect.left - 40;
+      containerWidth.value =
+          document.documentElement.clientWidth - parentRect.left - 40;
     } else {
       // 小屏幕时直接使用父元素宽度减40
       containerWidth.value = parentRect.width - 40;
@@ -49,7 +54,6 @@ function updateContainerWidth() {
       width: containerWidth.value,
       height: 300,
     };
-
 
     // 重启模拟程序
     nextTick(() => {
@@ -70,8 +74,8 @@ function toggleExpand() {
   }
 }
 
-let mediaQuery = null;
-let resizeObserver = null;
+let mediaQuery: MediaQueryList | null = null;
+let resizeObserver: ResizeObserver | null = null;
 
 onMounted(() => {
   // 初始化屏幕尺寸状态
@@ -88,7 +92,7 @@ onMounted(() => {
   window.addEventListener("resize", updateContainerWidth);
 
   // 修改 ResizeObserver
-  resizeObserver = new ResizeObserver(entries => {
+  resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       updateContainerWidth(); // 这里会同时处理画大小和力导向图的更新
     }
@@ -116,7 +120,7 @@ onUnmounted(() => {
   }
 
   // 停止力导向图模拟
-  graphRef.value?.stopSimulation();
+  graphRef.value?.stopSimulation?.();
 });
 </script>
 
@@ -124,22 +128,21 @@ onUnmounted(() => {
   <div class="graph-wrapper">
     <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
       查看关系图谱
-
       {{ isExpanded ? "▼" : "▶" }}
     </button>
     <div
-      ref="containerRef"
-      class="graph-container"
-      :class="{ expanded: isExpanded || isLargeScreen }"
-      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+        ref="containerRef"
+        class="graph-container"
+        :class="{ expanded: isExpanded || isLargeScreen }"
+        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
     >
       <relation-graph
-        ref="graphRef"
-        :canvas-height="canvasSize.height"
-        :canvas-width="canvasSize.width"
-        :current-path="router.currentRoute.value.path"
-        :data="map_data"
-        @node-click="handleNodeClick"
+          ref="graphRef"
+          :canvas-height="canvasSize.height"
+          :canvas-width="canvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
       ></relation-graph>
     </div>
   </div>
