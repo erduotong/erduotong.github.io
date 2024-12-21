@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch, computed } from "vue";
 import { usePageData, useRouter, withBase } from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
 import type { CanvasSize, LocalMapNodeLink } from "../../types";
@@ -20,6 +20,7 @@ const handleNodeClick = (path: string) => {
 };
 
 const containerRef = ref<HTMLElement | null>(null);
+const fullscreenContainerRef = ref<HTMLElement | null>(null);
 const canvasSize = ref<CanvasSize>({
   width: 300,
   height: 300,
@@ -27,6 +28,10 @@ const canvasSize = ref<CanvasSize>({
 const containerWidth = ref<number>(0);
 const isLargeScreen = ref<boolean>(false);
 const isExpanded = ref<boolean>(false);
+const fullscreenCanvasSize = ref<CanvasSize>({
+  width: 800,
+  height: 600,
+});
 
 // 添加媒体查询监听函数
 function updateScreenSize() {
@@ -70,13 +75,28 @@ function toggleExpand() {
   if (isExpanded.value) {
     nextTick(() => {
       updateContainerWidth();
-      graphRef.value?.restartSimulation(0.3);
+      graphRef.value?.restartSimulation();
     });
   }
 }
 
 let mediaQuery: MediaQueryList | null = null;
 let resizeObserver: ResizeObserver | null = null;
+
+const updateFullscreenSize = () => {
+  if (fullscreenContainerRef.value) {
+    const rect = fullscreenContainerRef.value.getBoundingClientRect();
+    console.log(rect.height);
+    fullscreenCanvasSize.value = {
+      width: rect.width,
+      height: rect.height,
+    };
+    // 重启力导向图模拟
+    nextTick(() => {
+      graphRef.value?.restartSimulation();
+    });
+  }
+};
 
 onMounted(() => {
   // 初始化屏幕尺寸状态
@@ -95,7 +115,15 @@ onMounted(() => {
   // 修改 ResizeObserver
   resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
-      updateContainerWidth(); // 这里会同时处理画大小和力导向图的更新
+      if (entry.target === containerRef.value) {
+        updateContainerWidth();
+      } else if (entry.target === fullscreenContainerRef.value) {
+        updateFullscreenSize();
+        // 重启力导向图模拟
+        nextTick(() => {
+          graphRef.value?.restartSimulation();
+        });
+      }
     }
   });
 
@@ -109,6 +137,7 @@ onMounted(() => {
 onUnmounted(() => {
   // 清理窗口事件监听器
   window.removeEventListener("resize", updateContainerWidth);
+  window.removeEventListener("resize", updateFullscreenSize);
 
   // 清理媒体查询监听器
   if (mediaQuery) {
@@ -127,6 +156,26 @@ onUnmounted(() => {
 const isLocalGraphFullScreen = ref(false);
 watch(isLocalGraphFullScreen, (value) => {
   console.log(value);
+});
+
+// 监听全屏状态变化
+watch(isLocalGraphFullScreen, (value) => {
+  if (value) {
+    // 添加窗口大小变化监听
+    window.addEventListener("resize", updateFullscreenSize);
+    nextTick(() => {
+      if (fullscreenContainerRef.value && resizeObserver) {
+        updateFullscreenSize();
+        resizeObserver.observe(fullscreenContainerRef.value);
+      }
+    });
+  } else {
+    // 移除窗口大小变化监听
+    window.removeEventListener("resize", updateFullscreenSize);
+    if (fullscreenContainerRef.value && resizeObserver) {
+      resizeObserver.unobserve(fullscreenContainerRef.value);
+    }
+  }
 });
 </script>
 
@@ -170,49 +219,61 @@ watch(isLocalGraphFullScreen, (value) => {
         :current-path="router.currentRoute.value.path"
         :data="map_data"
         @node-click="handleNodeClick"
+        v-if="!isLocalGraphFullScreen"
       ></relation-graph>
     </div>
   </div>
-  <div
-    id="fullscreen-graph-mask"
-    @click.self="isLocalGraphFullScreen = false"
-    v-if="isLocalGraphFullScreen"
-  >
-    <div id="fullscreen-graph-container">
-      <button
-        @click="isLocalGraphFullScreen = false"
-        class="fullscreen-map-button"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+
+  <teleport to="body">
+    <div
+      id="fullscreen-graph-mask"
+      @click.self="isLocalGraphFullScreen = false"
+      v-if="isLocalGraphFullScreen"
+    >
+      <div id="fullscreen-graph-container" ref="fullscreenContainerRef">
+        <button
+          @click="isLocalGraphFullScreen = false"
+          class="fullscreen-map-button"
         >
-          <path
-            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M15 16L9 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M9 16L15 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15 16L9 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 16L15 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <relation-graph
+          ref="graphRef"
+          :canvas-height="fullscreenCanvasSize.height"
+          :canvas-width="fullscreenCanvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
+        ></relation-graph>
+      </div>
     </div>
-  </div>
+  </teleport>
 </template>
 
 <style scoped>
