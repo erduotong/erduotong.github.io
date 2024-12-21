@@ -123,7 +123,7 @@ onUnmounted(() => {
 <template>
   <div class="graph-wrapper">
     <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
-      View Local Graph
+      查看关系图谱
 
       {{ isExpanded ? "▼" : "▶" }}
     </button>
