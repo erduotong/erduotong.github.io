@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import * as d3 from "d3";
-import {onMounted, onUnmounted, ref, watch} from "vue";
+import {computed, onMounted, onUnmounted, ref, watch} from "vue";
 import type {CanvasSize, Link, LocalMapNodeLink, MousePosition, Node,} from "../../types";
 
 // 定义 emit 事件
@@ -93,22 +93,10 @@ const props = defineProps<{
   canvasHeight: number;
 }>();
 
-const canvasSize = ref<CanvasSize>({
+const canvasSize = computed<CanvasSize>(() => ({
   width: props.canvasWidth,
   height: props.canvasHeight,
-});
-
-watch(
-    () => [props.canvasWidth,props.canvasHeight],
-    () => {
-      console.log('canvasSize.value',canvasSize.value)
-      canvasSize.value = {
-        width: canvasSize.value.width,
-        height: canvasSize.value.height,
-      };
-    },
-    {immediate: true}
-);
+}));
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const mouseDownTime = ref<number>(0);

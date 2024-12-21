@@ -100,7 +100,6 @@ const updateFullscreenSize = () => {
       width: Math.floor(rect.width),
       height: Math.floor(rect.height),
     };
-    console.log(fullscreenCanvasSize.value)
     // 重启力导向图模拟
     nextTick(() => {
       if (fullscreenGraphRef.value) {
