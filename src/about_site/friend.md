@@ -28,8 +28,8 @@ link="https://blog.mo7.cc"
 > 
 > 一些本站的信息:
 > - 网站名称: 耳朵同的博客
-> - 网站地址: [erduotong.github.io](https://erduotong.github.io)
-> - 网站图标: [https://erduotong.github.io/logo.png](https://erduotong.github.io/logo.png)
+> - 网站地址: [blog.erduotong.com](https://erduotong.github.io)
+> - 网站图标: [https://blog.erduotong.com/logo.png](https://erduotong.github.io/logo.png)
 > - 主人名字: 耳朵同
 > 
 > 申请格式:
