@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {nextTick, onMounted, onUnmounted, ref, watch} from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { usePageData, useRouter, withBase } from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
 import type { CanvasSize, LocalMapNodeLink } from "../../types";
@@ -145,7 +145,6 @@ watch(isLocalGraphFullScreen, (value) => {
       <button
         class="fullscreen-map-button"
         @click="isLocalGraphFullScreen = true"
-
       >
         <svg
           width="24"
@@ -164,18 +163,56 @@ watch(isLocalGraphFullScreen, (value) => {
         </svg>
       </button>
 
-        <relation-graph
-          ref="graphRef"
-          :canvas-height="canvasSize.height"
-          :canvas-width="canvasSize.width"
-          :current-path="router.currentRoute.value.path"
-          :data="map_data"
-          @node-click="handleNodeClick"
-        ></relation-graph>
-
+      <relation-graph
+        ref="graphRef"
+        :canvas-height="canvasSize.height"
+        :canvas-width="canvasSize.width"
+        :current-path="router.currentRoute.value.path"
+        :data="map_data"
+        @node-click="handleNodeClick"
+      ></relation-graph>
     </div>
   </div>
-
+  <div
+    id="fullscreen-graph-mask"
+    @click.self="isLocalGraphFullScreen = false"
+    v-if="isLocalGraphFullScreen"
+  >
+    <div id="fullscreen-graph-container">
+      <button
+        @click="isLocalGraphFullScreen = false"
+        class="fullscreen-map-button"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M15 16L9 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9 16L15 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -240,6 +277,7 @@ watch(isLocalGraphFullScreen, (value) => {
   transition: all 0.2s ease;
   z-index: 2;
 }
+
 @media (max-width: 1439px) {
   .fullscreen-map-button {
     top: 16px;
@@ -260,5 +298,30 @@ watch(isLocalGraphFullScreen, (value) => {
 
 .fullscreen-map-button:hover svg {
   opacity: 1;
+}
+
+#fullscreen-graph-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  z-index: 1000;
+}
+
+#fullscreen-graph-container {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-color: var(--vp-c-bg);
+  z-index: 1001;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
