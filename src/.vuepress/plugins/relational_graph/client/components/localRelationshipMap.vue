@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import {nextTick, onMounted, onUnmounted, ref} from "vue";
-import {usePageData, useRouter, withBase} from "vuepress/client";
+import {nextTick, onMounted, onUnmounted, ref, watch} from "vue";
+import { usePageData, useRouter, withBase } from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-import type {CanvasSize, LocalMapNodeLink} from "../../types";
+import type { CanvasSize, LocalMapNodeLink } from "../../types";
 
 // 基础数据设置
 const data = usePageData();
 // @ts-ignore
 const map_data = data.value?.bioChainData?.localMap as
-    | LocalMapNodeLink
-    | undefined;
+  | LocalMapNodeLink
+  | undefined;
 
 const router = useRouter();
 const graphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
@@ -44,7 +44,7 @@ function updateContainerWidth() {
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
       containerWidth.value =
-          document.documentElement.clientWidth - parentRect.left - 40;
+        document.documentElement.clientWidth - parentRect.left - 40;
     } else {
       // 小屏幕时直接使用父元素宽度减40
       containerWidth.value = parentRect.width - 40;
@@ -121,7 +121,12 @@ onUnmounted(() => {
   }
 
   // 停止力导向图模拟
+  // @ts-ignore
   graphRef.value?.stopSimulation?.();
+});
+const isLocalGraphFullScreen = ref(false);
+watch(isLocalGraphFullScreen, (value) => {
+  console.log(value);
 });
 </script>
 
@@ -132,21 +137,45 @@ onUnmounted(() => {
       {{ isExpanded ? "▼" : "▶" }}
     </button>
     <div
-        ref="containerRef"
-        class="graph-container"
-        :class="{ expanded: isExpanded || isLargeScreen }"
-        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+      ref="containerRef"
+      class="graph-container"
+      :class="{ expanded: isExpanded || isLargeScreen }"
+      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
     >
-      <relation-graph
+      <button
+        class="fullscreen-map-button"
+        @click="isLocalGraphFullScreen = true"
+
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+        <relation-graph
           ref="graphRef"
           :canvas-height="canvasSize.height"
           :canvas-width="canvasSize.width"
           :current-path="router.currentRoute.value.path"
           :data="map_data"
           @node-click="handleNodeClick"
-      ></relation-graph>
+        ></relation-graph>
+
     </div>
   </div>
+
 </template>
 
 <style scoped>
@@ -192,5 +221,44 @@ onUnmounted(() => {
   canvas {
     position: relative !important;
   }
+}
+
+.fullscreen-map-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+@media (max-width: 1439px) {
+  .fullscreen-map-button {
+    top: 16px;
+    right: 24px;
+  }
+}
+
+.fullscreen-map-button:hover {
+  background: var(--vp-c-bg-soft);
+  transform: scale(1.05);
+}
+
+.fullscreen-map-button svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.75;
+}
+
+.fullscreen-map-button:hover svg {
+  opacity: 1;
 }
 </style>
