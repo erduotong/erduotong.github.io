@@ -34,12 +34,10 @@ const fullscreenCanvasSize = ref<CanvasSize>({
   height: 600,
 });
 
-// 添加媒体查询听函数
 function updateScreenSize() {
   isLargeScreen.value = window.matchMedia("(min-width: 1440px)").matches;
 }
 
-// 修改 updateContainerWidth 函数
 function updateContainerWidth() {
   if (containerRef.value) {
     const parentElement = containerRef.value.parentElement;
