@@ -2,13 +2,13 @@
 import {nextTick, onMounted, onUnmounted, ref, watch} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-import type {CanvasSize, LocalMapNodeLink} from "../../types";
+import type {CanvasSize, MapNodeLink} from "../../types";
 
 // 基础数据设置
 const data = usePageData();
 // @ts-ignore
 const map_data = data.value?.bioChainData?.localMap as
-  | LocalMapNodeLink
+  | MapNodeLink
   | undefined;
 
 const router = useRouter();

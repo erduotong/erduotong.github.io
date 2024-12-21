@@ -1,7 +1,7 @@
 export interface BioChainData {
   outlink: LinkItem[];
   backlink: LinkItem[];
-  localMap: LocalMapNodeLink;
+  localMap: MapNodeLink;
 }
 
 export interface LinkItem {
@@ -9,7 +9,7 @@ export interface LinkItem {
   link: string;
 }
 
-export interface LocalMapNodeLink {
+export interface MapNodeLink {
   nodes: Node[];
   links: Link[];
 }

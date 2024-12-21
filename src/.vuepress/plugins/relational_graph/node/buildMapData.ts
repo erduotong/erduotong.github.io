@@ -1,6 +1,6 @@
 import type {
   BioChainMapItem,
-  LocalMapNodeLink,
+  MapNodeLink,
   LocalMapItem,
   Page,
   QueueItem,
@@ -9,7 +9,7 @@ import type {
 export const bioChainMap: Record<string, BioChainMapItem> = {};
 const max_deep = 5;
 
-function generateLocalMap(root: string): LocalMapNodeLink {
+function generateLocalMap(root: string): MapNodeLink {
   const localMap: Record<string, LocalMapItem> = {};
   const queue: QueueItem[] = [
     {
@@ -58,7 +58,7 @@ function generateLocalMap(root: string): LocalMapNodeLink {
     });
   }
   // 转成node-link的格式
-  const localMapNodeLink: LocalMapNodeLink = {
+  const localMapNodeLink: MapNodeLink = {
     nodes: [],
     links: [],
   };
@@ -83,6 +83,9 @@ function generateLocalMap(root: string): LocalMapNodeLink {
     });
   }
   return localMapNodeLink;
+}
+function buildGlobalMap(): void {
+
 }
 
 export function buildBioChainMap(pages: Page[]): void {
