@@ -1,9 +1,7 @@
 ---
-backlink: []
+category: []
 date: '2024-10-19'
 isOriginal: true
-outlink:
-- /image/IMG-20241111 220710110-Obsidian组件——检查不规范的文件.png
 tags:
 - Obsidian
 - Dataviewjs

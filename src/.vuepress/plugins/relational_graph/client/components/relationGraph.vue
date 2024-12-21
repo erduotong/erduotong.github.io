@@ -4,7 +4,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import type {
   CanvasSize,
   Link,
-  LocalMapNodeLink,
+  MapNodeLink,
   MousePosition,
   Node,
 } from "../../types";
@@ -93,7 +93,7 @@ function isPathMatch(routePath: string, nodePath: string): boolean {
 }
 
 const props = defineProps<{
-  data: LocalMapNodeLink;
+  data: MapNodeLink;
   currentPath?: string;
   canvasWidth: number;
   canvasHeight: number;

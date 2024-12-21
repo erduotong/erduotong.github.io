@@ -1,11 +1,9 @@
 ---
-backlink: []
+category:
+- blog
 date: '2024-11-15'
 isOriginal: true
-outlink:
-- /image/IMG-20241115 235917513-一个基于Tauri的简单Todo - just tauri todo.png
 tags:
-- Type/Blog
 - Tauri
 - 项目记录
 title: 一个基于Tauri的简单Todo - just tauri todo

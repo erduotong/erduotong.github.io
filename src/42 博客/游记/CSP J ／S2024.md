@@ -1,11 +1,9 @@
 ---
-backlink:
-- ../../30 日记/2024/2024-10-26 周六.md
+category:
+- blog
 date: '2024-10-26'
 isOriginal: true
-outlink: []
 tags:
-- Type/Blog
 - CSP
 - 游记
 title: CSP J ／S2024

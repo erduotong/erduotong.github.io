@@ -1,16 +1,11 @@
 ---
-backlink:
-- ../000 MOCS/Vuepress相关.md
+category:
+- 卡片
 date: '2024-10-18'
 isOriginal: true
-outlink:
-- /image/IMG-20241129 221622551-添加Giscus评论.png
-- /image/IMG-20241129 221622590-添加Giscus评论.png
-- /image/IMG-20241129 221623310-添加Giscus评论.png
 tags:
 - giscus
 - vuepress/theme-hope
-- Type/卡片
 title: 添加Giscus评论
 ---
 ## 简介

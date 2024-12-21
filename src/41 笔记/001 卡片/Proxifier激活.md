@@ -1,14 +1,9 @@
 ---
-backlink:
-- ./Proxifier.md
+category:
+- 卡片
 date: '2024-12-07'
 isOriginal: true
-outlink:
-- ./Proxifier.md
-- /image/IMG-20241208 000157989-Proxifier激活.png
-- /image/IMG-20241208 000214984-Proxifier激活.png
 tags:
-- Type/卡片
 - Proxifier
 - 破解激活
 title: Proxifier激活

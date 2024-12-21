@@ -1,10 +1,9 @@
 ---
-backlink: []
+category:
+- 卡片
 date: '2024-11-16'
 isOriginal: true
-outlink: []
 tags:
-- Type/卡片
 - Git
 - github
 - ssh

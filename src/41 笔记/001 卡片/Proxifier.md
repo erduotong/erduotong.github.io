@@ -1,13 +1,9 @@
 ---
-backlink:
-- ./Proxifier转发到Fiddler.md
-- ./Proxifier激活.md
+category:
+- 卡片
 date: '2024-12-07'
 isOriginal: true
-outlink:
-- ./Proxifier激活.md
 tags:
-- Type/卡片
 - Proxifier
 title: Proxifier
 ---

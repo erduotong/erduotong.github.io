@@ -1,10 +1,9 @@
 ---
-backlink: []
+category:
+- project
 date: '2024-10-29'
 isOriginal: true
-outlink: []
-tags:
-- Type/project
+tags: []
 ---
 # Obsidian折腾记录
 ## 信息

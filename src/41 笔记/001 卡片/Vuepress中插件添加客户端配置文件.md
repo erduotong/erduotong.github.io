@@ -1,10 +1,9 @@
 ---
-backlink: []
+category:
+- 卡片
 date: '2024-12-08'
 isOriginal: true
-outlink: []
-tags:
-- Type/卡片
+tags: []
 title: Vuepress中插件添加客户端配置文件
 ---
 ## 背景

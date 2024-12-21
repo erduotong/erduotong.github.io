@@ -1,14 +1,11 @@
 ---
-backlink:
-- ../000 MOCS/Vuepress相关.md
+category:
+- 卡片
 date: '2024-10-02'
 isOriginal: true
-outlink:
-- /image/IMG-20241129 221622538-vuepress 打包后不自动退出.png
 tags:
 - vuepress
 - debug
-- Type/卡片
 title: vuepress 打包后不自动退出
 ---
 # 描述

@@ -1,16 +1,12 @@
 ---
-backlink:
-- ../000 MOCS/Vuepress相关.md
+category:
+- 卡片
 date: '2024-10-26'
 isOriginal: true
-outlink:
-- /image/IMG-20241129 221622536-jsdom导致无法使用localStorage.png
-- /image/IMG-20241129 221622892-jsdom导致无法使用localStorage.png
 tags:
 - localStorage
 - jsdom
 - nodejs
-- Type/卡片
 title: jsdom导致无法使用localStorage
 ---
 ## 情况

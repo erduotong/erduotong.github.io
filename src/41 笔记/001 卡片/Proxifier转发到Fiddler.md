@@ -1,19 +1,9 @@
 ---
-backlink: []
+category:
+- 卡片
 date: '2024-12-08'
 isOriginal: true
-outlink:
-- ./Proxifier.md
-- /image/IMG-20241208 192602069-Proxifier转发到Fiddler.png
-- /image/IMG-20241208 192633641-Proxifier转发到Fiddler.png
-- /image/IMG-20241208 194918795-Proxifier转发到Fiddler.png
-- /image/IMG-20241208 194853838-Proxifier转发到Fiddler.png
-- /image/IMG-20241208 195116327-Proxifier转发到Fiddler.png
-- /image/IMG-20241208 195130110-Proxifier转发到Fiddler.png
-- /image/Pasted image 20241208195245.png
-- /image/Pasted image 20241208195341.png
-tags:
-- Type/卡片
+tags: []
 title: Proxifier转发到Fiddler
 ---
 ## 前言

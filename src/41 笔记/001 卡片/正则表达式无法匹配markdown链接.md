@@ -1,12 +1,11 @@
 ---
-backlink: []
+category:
+- 卡片
 date: '2024-10-03'
 isOriginal: true
-outlink: []
 tags:
 - debug
 - 正则表达式
-- '#Type/卡片'
 title: 正则表达式无法匹配markdown链接
 ---
 ## 背景
