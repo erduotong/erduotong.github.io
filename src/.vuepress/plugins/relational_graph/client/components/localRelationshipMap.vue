@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, watch, computed } from "vue";
-import { usePageData, useRouter, withBase } from "vuepress/client";
+import {nextTick, onMounted, onUnmounted, ref, watch} from "vue";
+import {usePageData, useRouter, withBase} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-import type { CanvasSize, LocalMapNodeLink } from "../../types";
+import type {CanvasSize, LocalMapNodeLink} from "../../types";
 
 // 基础数据设置
 const data = usePageData();
@@ -13,6 +13,7 @@ const map_data = data.value?.bioChainData?.localMap as
 
 const router = useRouter();
 const graphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
+const fullscreenGraphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
 
 // 处理节点点击事件
 const handleNodeClick = (path: string) => {
@@ -33,7 +34,7 @@ const fullscreenCanvasSize = ref<CanvasSize>({
   height: 600,
 });
 
-// 添加媒体查询监听函数
+// 添加媒体查询听函数
 function updateScreenSize() {
   isLargeScreen.value = window.matchMedia("(min-width: 1440px)").matches;
 }
@@ -45,14 +46,23 @@ function updateContainerWidth() {
     if (!parentElement) return;
 
     const parentRect = parentElement.getBoundingClientRect();
+    const parentStyle = window.getComputedStyle(parentElement);
+    const parentPadding =
+      parseFloat(parentStyle.paddingLeft) +
+      parseFloat(parentStyle.paddingRight);
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
-      containerWidth.value =
-        document.documentElement.clientWidth - parentRect.left - 40;
+      containerWidth.value = Math.max(
+        300,
+        document.documentElement.clientWidth - parentRect.left - 40
+      );
     } else {
-      // 小屏幕时直接使用父元素宽度减40
-      containerWidth.value = parentRect.width - 40;
+      // 小屏幕时考虑父元素的内边距
+      containerWidth.value = Math.max(
+        300,
+        parentRect.width - parentPadding - 20
+      );
     }
 
     // 更新 canvasSize
@@ -71,7 +81,7 @@ function updateContainerWidth() {
 // 添加切换折叠状态的方法
 function toggleExpand() {
   isExpanded.value = !isExpanded.value;
-  // 展开时需要重新计算和更新画布
+  // 展开时��要重新计算和更新画布
   if (isExpanded.value) {
     nextTick(() => {
       updateContainerWidth();
@@ -86,14 +96,16 @@ let resizeObserver: ResizeObserver | null = null;
 const updateFullscreenSize = () => {
   if (fullscreenContainerRef.value) {
     const rect = fullscreenContainerRef.value.getBoundingClientRect();
-    console.log(rect.height);
     fullscreenCanvasSize.value = {
-      width: rect.width,
-      height: rect.height,
+      width: Math.floor(rect.width),
+      height: Math.floor(rect.height),
     };
+    console.log(fullscreenCanvasSize.value)
     // 重启力导向图模拟
     nextTick(() => {
-      graphRef.value?.restartSimulation();
+      if (fullscreenGraphRef.value) {
+        fullscreenGraphRef.value.restartSimulation();
+      }
     });
   }
 };
@@ -106,8 +118,12 @@ onMounted(() => {
   mediaQuery = window.matchMedia("(min-width: 1440px)");
   mediaQuery.addEventListener("change", updateScreenSize);
 
-  // 初始化容器宽度
-  updateContainerWidth();
+  // 初始化容器宽度并确保DOM渲染完成
+  nextTick(() => {
+    updateContainerWidth();
+    // 重启力导向图模拟
+    graphRef.value?.restartSimulation();
+  });
 
   // 监听窗口大小变化
   window.addEventListener("resize", updateContainerWidth);
@@ -121,7 +137,7 @@ onMounted(() => {
         updateFullscreenSize();
         // 重启力导向图模拟
         nextTick(() => {
-          graphRef.value?.restartSimulation();
+          fullscreenGraphRef.value?.restartSimulation();
         });
       }
     }
@@ -154,19 +170,20 @@ onUnmounted(() => {
   graphRef.value?.stopSimulation?.();
 });
 const isLocalGraphFullScreen = ref(false);
-watch(isLocalGraphFullScreen, (value) => {
-  console.log(value);
-});
 
 // 监听全屏状态变化
 watch(isLocalGraphFullScreen, (value) => {
   if (value) {
     // 添加窗口大小变化监听
     window.addEventListener("resize", updateFullscreenSize);
+    // 等待组件挂载完成后再计算尺寸
     nextTick(() => {
-      if (fullscreenContainerRef.value && resizeObserver) {
+      if (fullscreenContainerRef.value) {
         updateFullscreenSize();
-        resizeObserver.observe(fullscreenContainerRef.value);
+        // 然后再添加观察器
+        if (resizeObserver) {
+          resizeObserver.observe(fullscreenContainerRef.value);
+        }
       }
     });
   } else {
@@ -224,56 +241,54 @@ watch(isLocalGraphFullScreen, (value) => {
     </div>
   </div>
 
-  <teleport to="body">
-    <div
-      id="fullscreen-graph-mask"
-      @click.self="isLocalGraphFullScreen = false"
-      v-if="isLocalGraphFullScreen"
-    >
-      <div id="fullscreen-graph-container" ref="fullscreenContainerRef">
-        <button
-          @click="isLocalGraphFullScreen = false"
-          class="fullscreen-map-button"
+  <div
+    id="fullscreen-graph-mask"
+    @click.self="isLocalGraphFullScreen = false"
+    v-if="isLocalGraphFullScreen"
+  >
+    <div id="fullscreen-graph-container" ref="fullscreenContainerRef">
+      <button
+        @click="isLocalGraphFullScreen = false"
+        class="fullscreen-map-button"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15 16L9 8"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9 16L15 8"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-        <relation-graph
-          ref="graphRef"
-          :canvas-height="fullscreenCanvasSize.height"
-          :canvas-width="fullscreenCanvasSize.width"
-          :current-path="router.currentRoute.value.path"
-          :data="map_data"
-          @node-click="handleNodeClick"
-        ></relation-graph>
-      </div>
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M15 16L9 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9 16L15 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <relation-graph
+        ref="fullscreenGraphRef"
+        :canvas-height="fullscreenCanvasSize.height"
+        :canvas-width="fullscreenCanvasSize.width"
+        :current-path="router.currentRoute.value.path"
+        :data="map_data"
+        @node-click="handleNodeClick"
+      ></relation-graph>
     </div>
-  </teleport>
+  </div>
 </template>
 
 <style scoped>

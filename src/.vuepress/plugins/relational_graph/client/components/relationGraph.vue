@@ -101,6 +101,7 @@ const canvasSize = ref<CanvasSize>({
 watch(
     () => [props.canvasWidth,props.canvasHeight],
     () => {
+      console.log('canvasSize.value',canvasSize.value)
       canvasSize.value = {
         width: canvasSize.value.width,
         height: canvasSize.value.height,
