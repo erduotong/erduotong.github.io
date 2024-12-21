@@ -6,6 +6,7 @@ import type {CanvasSize, LocalMapNodeLink} from "../../types";
 
 // 基础数据设置
 const data = usePageData();
+// @ts-ignore
 const map_data = data.value?.bioChainData?.localMap as
     | LocalMapNodeLink
     | undefined;

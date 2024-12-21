@@ -13,6 +13,7 @@ const relational_graph = () => {
     name: "vuepress-plugin-relational-graph",
     onInitialized: (app: App) => {
       Object.assign(bioChainMap, {});
+      // @ts-ignore
       buildBioChainMap(app.pages);
     },
     clientConfigFile: path.resolve(__dirname, "../client/config.ts"),
