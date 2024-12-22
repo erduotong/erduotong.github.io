@@ -68,6 +68,8 @@ jobs:
           cache: pnpm
       - name: Build The Site
         run: pnpm docs:build
+      - name: Add CNAME
+        run: echo 'blog.erduotong.com' > src/.vuepress/dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
