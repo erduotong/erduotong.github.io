@@ -15,12 +15,10 @@ const __dirname = getDirname(import.meta.url);
 export let options: RelationalGraphConfig = {};
 const relational_graph = (config: RelationalGraphConfig = {}) => {
   options = config;
-  console.log(options, 123123123);
   return {
     name: "vuepress-plugin-relational-graph",
     onInitialized: (app: App) => {
       Object.assign(bioChainMap, {});
-      console.log(options, 123123123);
       // @ts-ignore
       buildBioChainMap(app.pages);
     },
