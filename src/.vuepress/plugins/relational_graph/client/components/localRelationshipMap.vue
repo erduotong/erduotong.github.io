@@ -6,6 +6,8 @@ import type {CanvasSize, MapNodeLink} from "../../types";
 
 declare const __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH: boolean;
 declare const __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP: number;
+declare const __RELATIONAL_GRAPH_HEIGHT: number;
+declare const __RELATIONAL_GRAPH_MAX_WIDTH: number;
 
 // 基础数据设置
 const data = usePageData();
@@ -18,6 +20,10 @@ const options = computed(() => {
   return {
     foldEmptyGraph: __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH,
     localGraphDeep: __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP,
+    graphSize: {
+      height: __RELATIONAL_GRAPH_HEIGHT,
+      maxWidth: __RELATIONAL_GRAPH_MAX_WIDTH,
+    },
   };
 });
 
@@ -35,7 +41,7 @@ const containerRef = ref<HTMLElement | null>(null);
 const fullscreenContainerRef = ref<HTMLElement | null>(null);
 const canvasSize = ref<CanvasSize>({
   width: 300,
-  height: 300,
+  height: options.value.graphSize.height,
 });
 const containerWidth = ref<number>(0);
 const isLargeScreen = ref<boolean>(false);
@@ -62,10 +68,15 @@ function updateContainerWidth() {
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
-      containerWidth.value = Math.max(
-          300,
-          document.documentElement.clientWidth - parentRect.left - 40
-      );
+      if (options.value.graphSize.maxWidth) {
+        containerWidth.value = Math.min(
+            options.value.graphSize.maxWidth,
+            document.documentElement.clientWidth - parentRect.left - 40
+        );
+      } else {
+        containerWidth.value =
+            document.documentElement.clientWidth - parentRect.left - 40;
+      }
     } else {
       // 小屏幕时考虑父元素的内边距
       containerWidth.value = Math.max(
@@ -77,7 +88,7 @@ function updateContainerWidth() {
     // 更新 canvasSize
     canvasSize.value = {
       width: containerWidth.value,
-      height: 300,
+      height: options.value.graphSize.height,
     };
 
     // 重启模拟程序
@@ -90,7 +101,7 @@ function updateContainerWidth() {
 // 添加切换折叠状态的方法
 function toggleExpand() {
   isExpanded.value = !isExpanded.value;
-  // 展开时��要重新计算和更新画布
+  // 展开时要重新计算和更新画布
   if (isExpanded.value) {
     nextTick(() => {
       updateContainerWidth();
@@ -214,7 +225,14 @@ watch(isLocalGraphFullScreen, (value) => {
         ref="containerRef"
         class="graph-container"
         :class="{ expanded: isExpanded || isLargeScreen }"
-        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+        :style="
+        isLargeScreen
+          ? {
+              width: containerWidth + 'px',
+              height: options.graphSize.height + 'px',
+            }
+          : ''
+      "
     >
       <button
           class="fullscreen-map-button"
@@ -316,7 +334,6 @@ watch(isLocalGraphFullScreen, (value) => {
 }
 
 .graph-container {
-  height: 300px;
   position: relative;
   display: flex;
   justify-content: center;

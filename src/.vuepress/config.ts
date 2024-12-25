@@ -20,7 +20,9 @@ export default defineUserConfig({
     description: "欢迎来到耳朵同的博客",
     plugins: [relational_graph({
         localGraphDeep: 20,
-        foldEmptyGraph: true
+        foldEmptyGraph: true,
+        graphMaxWidth: 400,
+        graphHeight: 400,
     })],
     theme,
     bundler: viteBundler({

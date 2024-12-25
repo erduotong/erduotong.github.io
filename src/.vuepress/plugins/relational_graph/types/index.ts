@@ -85,6 +85,8 @@ export interface BoundedPosition {
 }
 
 export interface RelationalGraphConfig {
-  localGraphDeep?: number;
-  foldEmptyGraph?: boolean;
+  localGraphDeep?: number; // 局部关系图谱的深度（以当前页面为中心）
+  foldEmptyGraph?: boolean; // 是否折叠空的关系图谱（只有一个节点）
+  graphMaxWidth?: number; // 最大宽度 单位: px
+  graphHeight?: number; // 高度 单位: px
 }
