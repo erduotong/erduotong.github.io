@@ -83,3 +83,8 @@ export interface BoundedPosition {
   x: number;
   y: number;
 }
+
+export interface RelationalGraphConfig {
+  localGraphDeep?: number;
+  foldEmptyGraph?: boolean;
+}

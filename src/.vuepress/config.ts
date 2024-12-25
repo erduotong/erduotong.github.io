@@ -9,7 +9,6 @@ import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
 import relational_graph from "./plugins/relational_graph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic"
-import {slimsearchPlugin} from "@vuepress/plugin-slimsearch";
 
 
 const __dirname = getDirname(import.meta.url);
@@ -19,7 +18,10 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "耳朵同的博客",
     description: "欢迎来到耳朵同的博客",
-    plugins: [relational_graph()],
+    plugins: [relational_graph({
+        localGraphDeep: 20,
+        foldEmptyGraph: true
+    })],
     theme,
     bundler: viteBundler({
         viteOptions: {

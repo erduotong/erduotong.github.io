@@ -1,19 +1,30 @@
 <script setup lang="ts">
-import {nextTick, onMounted, onUnmounted, ref, watch} from "vue";
+import {computed, nextTick, onMounted, onUnmounted, ref, watch} from "vue";
 import {usePageData, useRouter, withBase} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
 import type {CanvasSize, MapNodeLink} from "../../types";
 
+declare const __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH: boolean;
+declare const __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP: number;
+
 // 基础数据设置
 const data = usePageData();
 // @ts-ignore
-const map_data = data.value?.bioChainData?.localMap as
-  | MapNodeLink
-  | undefined;
-
+const map_data = data.value?.bioChainData?.localMap as MapNodeLink | undefined;
 const router = useRouter();
 const graphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
 const fullscreenGraphRef = ref<InstanceType<typeof RelationGraph> | null>(null);
+const options = computed(() => {
+  return {
+    foldEmptyGraph: __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH,
+    localGraphDeep: __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP,
+  };
+});
+
+const shouldFoldEmptyGraph = computed(() => {
+  if (!options.value.foldEmptyGraph) return true;
+  return map_data?.nodes.length > 1;
+});
 
 // 处理节点点击事件
 const handleNodeClick = (path: string) => {
@@ -46,20 +57,20 @@ function updateContainerWidth() {
     const parentRect = parentElement.getBoundingClientRect();
     const parentStyle = window.getComputedStyle(parentElement);
     const parentPadding =
-      parseFloat(parentStyle.paddingLeft) +
-      parseFloat(parentStyle.paddingRight);
+        parseFloat(parentStyle.paddingLeft) +
+        parseFloat(parentStyle.paddingRight);
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
       containerWidth.value = Math.max(
-        300,
-        document.documentElement.clientWidth - parentRect.left - 40
+          300,
+          document.documentElement.clientWidth - parentRect.left - 40
       );
     } else {
       // 小屏幕时考虑父元素的内边距
       containerWidth.value = Math.max(
-        300,
-        parentRect.width - parentPadding - 20
+          300,
+          parentRect.width - parentPadding - 20
       );
     }
 
@@ -194,95 +205,95 @@ watch(isLocalGraphFullScreen, (value) => {
 </script>
 
 <template>
-  <div class="graph-wrapper">
+  <div class="graph-wrapper" v-if="shouldFoldEmptyGraph">
     <button v-if="!isLargeScreen" class="toggle-button" @click="toggleExpand">
       查看关系图谱
       {{ isExpanded ? "▼" : "▶" }}
     </button>
     <div
-      ref="containerRef"
-      class="graph-container"
-      :class="{ expanded: isExpanded || isLargeScreen }"
-      :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
+        ref="containerRef"
+        class="graph-container"
+        :class="{ expanded: isExpanded || isLargeScreen }"
+        :style="isLargeScreen ? { width: containerWidth + 'px' } : ''"
     >
       <button
-        class="fullscreen-map-button"
-        @click="isLocalGraphFullScreen = true"
+          class="fullscreen-map-button"
+          @click="isLocalGraphFullScreen = true"
       >
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
         </svg>
       </button>
 
       <relation-graph
-        ref="graphRef"
-        :canvas-height="canvasSize.height"
-        :canvas-width="canvasSize.width"
-        :current-path="router.currentRoute.value.path"
-        :data="map_data"
-        @node-click="handleNodeClick"
-        v-if="!isLocalGraphFullScreen"
+          ref="graphRef"
+          :canvas-height="canvasSize.height"
+          :canvas-width="canvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
+          v-if="!isLocalGraphFullScreen"
       ></relation-graph>
     </div>
   </div>
 
   <div
-    id="fullscreen-graph-mask"
-    @click.self="isLocalGraphFullScreen = false"
-    v-if="isLocalGraphFullScreen"
+      id="fullscreen-graph-mask"
+      @click.self="isLocalGraphFullScreen = false"
+      v-if="isLocalGraphFullScreen"
   >
     <div id="fullscreen-graph-container" ref="fullscreenContainerRef">
       <button
-        @click="isLocalGraphFullScreen = false"
-        class="fullscreen-map-button"
+          @click="isLocalGraphFullScreen = false"
+          class="fullscreen-map-button"
       >
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
           <path
-            d="M15 16L9 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M15 16L9 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
           <path
-            d="M9 16L15 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M9 16L15 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
         </svg>
       </button>
       <relation-graph
-        ref="fullscreenGraphRef"
-        :canvas-height="fullscreenCanvasSize.height"
-        :canvas-width="fullscreenCanvasSize.width"
-        :current-path="router.currentRoute.value.path"
-        :data="map_data"
-        @node-click="handleNodeClick"
+          ref="fullscreenGraphRef"
+          :canvas-height="fullscreenCanvasSize.height"
+          :canvas-width="fullscreenCanvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
       ></relation-graph>
     </div>
   </div>

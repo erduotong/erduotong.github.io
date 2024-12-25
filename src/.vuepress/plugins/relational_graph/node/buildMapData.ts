@@ -1,11 +1,14 @@
 import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem,} from "../types/index.js";
 import {fs, path} from "vuepress/utils"
 import {App} from "vuepress/core";
+import { options } from "./index.js";
 
 export const bioChainMap: Record<string, BioChainMapItem> = {};
-const max_deep = 5;
+let max_deep = 5;
 
 function generateLocalMap(root: string): MapNodeLink {
+    max_deep = options.localGraphDeep || 5;
+
     const localMap: Record<string, LocalMapItem> = {};
     const queue: QueueItem[] = [
         {
