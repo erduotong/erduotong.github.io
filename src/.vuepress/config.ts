@@ -21,8 +21,8 @@ export default defineUserConfig({
     plugins: [relational_graph({
         localGraphDeep: 20,
         foldEmptyGraph: true,
-        graphMaxWidth: 400,
-        graphHeight: 400,
+        graphMaxWidth: 300,
+        graphHeight: 300,
     })],
     theme,
     bundler: viteBundler({
