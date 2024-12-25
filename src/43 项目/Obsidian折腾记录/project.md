@@ -4,6 +4,7 @@ category:
 date: '2024-10-29'
 isOriginal: true
 tags: []
+title: README
 ---
 # Obsidian折腾记录
 ## 信息

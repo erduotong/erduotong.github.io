@@ -4,6 +4,7 @@ category:
 date: '2024-10-19'
 isOriginal: true
 tags: []
+title: README
 ---
 # Obsidian 模板&组件
 ## 信息
