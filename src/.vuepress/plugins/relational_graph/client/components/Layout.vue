@@ -2,6 +2,15 @@
 import {Layout} from "vuepress-theme-hope/client/export.js";
 import Backlink from "./backlink.vue";
 import LocalRelationshipMap from "./localRelationshipMap.vue";
+import {computed} from "vue";
+
+declare const __RELATIONAL_GRAPH_ENABLE_LOCAL_GRAPH: boolean;
+const options = computed(() => {
+  return {
+    enableLocalGraph: __RELATIONAL_GRAPH_ENABLE_LOCAL_GRAPH,
+  };
+});
+
 </script>
 
 <template>
@@ -10,7 +19,7 @@ import LocalRelationshipMap from "./localRelationshipMap.vue";
       <backlink></backlink>
     </template>
     <template #tocBefore>
-      <local-relationship-map></local-relationship-map>
+      <local-relationship-map v-if="options.enableLocalGraph"></local-relationship-map>
     </template>
   </layout>
 </template>
