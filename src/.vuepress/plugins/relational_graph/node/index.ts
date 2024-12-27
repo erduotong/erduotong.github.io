@@ -17,7 +17,7 @@ const relational_graph = (config: RelationalGraphConfig = {}) => {
             Object.assign(bioChainMap, {});
             // @ts-ignore
             buildBioChainMap(app.pages);
-            writeTempGlobalGraph(app).then();
+            writeTempGlobalGraph(app);
         },
         onGenerated: async (app: App) => {
             await writeGlobalGraph(app);

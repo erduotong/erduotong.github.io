@@ -199,14 +199,14 @@ export async function writeGlobalGraph(app: App): Promise<void> {
     const globalMap = buildGlobalMap();
     const location = app.dir.dest(graphDataName);
     await fs.ensureDir(path.dirname(location));
-    await fs.writeFile(location, JSON.stringify(globalMap), 'utf-8');
+    await fs.writeFile(location, `export default ${JSON.stringify(globalMap)}`, 'utf-8');
     console.log("GlobalRelationalGraph.json has been written to " + location);
 }
 
-export async function writeTempGlobalGraph(app: App): Promise<void> {
+export function writeTempGlobalGraph(app: App) {
     const globalMap = buildGlobalMap();
     const location = app.dir.temp(graphDataName);
-    await fs.ensureDir(path.dirname(location));
-    await fs.writeFile(location, JSON.stringify(globalMap), 'utf-8');
+    fs.ensureDirSync(path.dirname(location));
+    fs.writeFileSync(location, `export default ${JSON.stringify(globalMap)}`, 'utf-8');
 
 }
