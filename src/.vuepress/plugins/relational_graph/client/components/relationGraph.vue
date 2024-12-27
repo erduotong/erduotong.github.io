@@ -223,7 +223,7 @@ onMounted(() => {
         canvasSize.value.width / 2,
         canvasSize.value.height / 2
       )
-      .strength(0.01);
+      .strength(0.005);
 
     window.simulation = d3
       .forceSimulation<Node>(map_data.nodes)
@@ -667,6 +667,23 @@ onUnmounted((): void => {
     simulation.stop();
   }
 });
+
+// 添加 watch 监听 data 变化
+watch(
+  () => props.data,
+  (newData) => {
+    if (!newData || !simulation) return;
+
+    // 更新节点和连接
+    simulation
+      .nodes(newData.nodes)
+      .force("link", FORCE_CONFIG.link.links(newData.links));
+
+    // 重启模拟
+    simulation.alpha(1).restart();
+  },
+  { deep: true }
+);
 </script>
 
 <template>
