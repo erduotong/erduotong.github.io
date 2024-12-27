@@ -3,7 +3,7 @@
  * @author erduotong
  */
 import {getDirname, path} from "vuepress/utils";
-import {bioChainMap, buildBioChainMap, writeGlobalGraph,} from "./buildMapData.js";
+import {bioChainMap, buildBioChainMap, writeGlobalGraph, writeTempGlobalGraph,} from "./buildMapData.js";
 import type {App} from "vuepress/core";
 import {RelationalGraphConfig} from "../types/index.js";
 
@@ -17,6 +17,7 @@ const relational_graph = (config: RelationalGraphConfig = {}) => {
             Object.assign(bioChainMap, {});
             // @ts-ignore
             buildBioChainMap(app.pages);
+            writeTempGlobalGraph(app).then();
         },
         onGenerated: async (app: App) => {
             await writeGlobalGraph(app);
