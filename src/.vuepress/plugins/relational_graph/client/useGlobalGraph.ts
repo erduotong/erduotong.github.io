@@ -7,7 +7,7 @@ import {MapNodeLink} from "../types/index.js";
 import {ref} from "vue";
 
 export const graphDataName = "globalRelationalGraph.js";
-export const showGlobalGraph = ref(false);
+export const showGlobalGraph = ref(true);
 /**
  * 获取全局图谱的数据
  */
