@@ -1,4 +1,4 @@
-import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem,} from "../types/index.js";
+import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem, titleGetter,} from "../types/index.js";
 import {fs, path} from "vuepress/utils";
 import {App} from "vuepress/core";
 import {options} from "./index.js";
@@ -121,6 +121,7 @@ function buildGlobalMap(): MapNodeLink {
 
 function write_to_frontmatter(page: Page): void {
     // 第三次遍历 写入到页面中
+    // @ts-ignore
     const bioChain = bioChainMap[page.data.filePathRelative];
 
     if (!bioChain) {
@@ -164,14 +165,16 @@ function write_to_frontmatter(page: Page): void {
     };
 }
 
-export function buildBioChainMap(pages: Page[]): void {
+export function buildBioChainMap(pages: Page[], titleGetter: titleGetter = (page) => {
+    return page.title;
+}): void {
     // 生成双链
     for (const page of pages) {
         if (!page.filePathRelative) {
             continue;
         }
         bioChainMap[page.filePathRelative] = {
-            title: page.title,
+            title: titleGetter(page),
             outlink: [],
             backlink: [],
         };
