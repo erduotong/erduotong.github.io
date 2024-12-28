@@ -47,7 +47,7 @@ const FORCE_CONFIG = {
     .forceLink<Node, Link>()
     .id((d: Node) => d.id)
     .distance(80)
-    .strength(0.5),
+    .strength(0.6),
   charge: d3
     .forceManyBody<Node>()
     .strength((d: Node) => (d.isIsolated ? -100 : -150))
@@ -385,7 +385,7 @@ onMounted(() => {
         capture: false,
       };
 
-      // 根据事件类型绑定对应的事件监听器
+      // 根据事件类型绑定对应的事件监听���
       if ((event as TouchEvent).touches) {
         window.addEventListener("touchmove", onMouseMove, touchOptions);
         window.addEventListener("touchend", onMouseUp);
@@ -465,7 +465,7 @@ onMounted(() => {
       bottom: (canvasSize.value.height - transform.y) / transform.k,
     };
 
-    // 返回限制在边界内的坐标
+    // 返回限���在边界内的坐标
     return {
       x: Math.max(
         bounds.left + CANVAS_CONFIG.nodePadding,
@@ -525,7 +525,7 @@ onMounted(() => {
     });
   }
 
-  // 处理点击事件
+  // 处理点击事���
   function onClick(event) {
     // 获取点击位置
     const point = event.changedTouches ? event.changedTouches[0] : event;
