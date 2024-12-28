@@ -19,24 +19,27 @@ export interface Node {
   value: NodeValue;
   x?: number;
   y?: number;
-  fx?: number | null;
-  fy?: number | null;
-  isCurrent?: boolean;
-  isIsolated?: boolean;
   vx?: number;
   vy?: number;
+  fx?: number | null;
+  fy?: number | null;
+  index?: number;
+  isIsolated?: boolean;
+  isCurrent?: boolean;
+  isVirtual?: boolean;
 }
 
 export interface NodeValue {
   title: string;
   path: string;
-  outlink: string[];
-  backlink: string[];
+  outlink?: string[];
+  backlink?: string[];
 }
 
 export interface Link {
   source: string | Node;
   target: string | Node;
+  isVirtual?: boolean;
 }
 
 export interface LocalMapItem {
@@ -91,7 +94,7 @@ export interface RelationalGraphConfig {
   localGraphDeep?: number; // 局部关系图谱的深度（以当前页面为中心） 默认为5
   foldEmptyGraph?: boolean; // 是否折叠空的关系图谱（只有一个节点） 默认为false
   graphMaxWidth?: number; // 最大宽度 单位: px 默认为 Infinity
-  graphHeight?: number; // ���度 单位: px  默认为 300
+  graphHeight?: number; // 度 单位: px  默认为 300
   enableGlobalGraph?: boolean; // 是否启用全局关系图谱 默认为true
   enableLocalGraph?: boolean; // 是否启用局部关系图谱 默认为true
 }
