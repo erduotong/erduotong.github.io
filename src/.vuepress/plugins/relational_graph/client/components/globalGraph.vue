@@ -34,7 +34,7 @@ async function getGlobalGraphData() {
 
   try {
     is_loading = true;
-    data.value = await getGlobalGraph(options.value.isDev);
+    data.value = await getGlobalGraph(options.value.isDev, withBase);
   } finally {
     is_loading = false;
     first_loaded.value = true;
