@@ -20,8 +20,8 @@
   "dependencies": {
     "@mermaid-js/mermaid-mindmap": "^9.3.0",
     "@types/d3": "^7.4.3",
-    "@vuepress/plugin-feed": "2.0.0-rc.66",
-    "@vuepress/plugin-slimsearch": "2.0.0-rc.67",
+    "@vuepress/plugin-feed": "2.0.0-rc.68",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.68",
     "d3": "^7.9.0",
     "katex": "^0.16.18",
     "markdown-it-container": "^4.0.0",
