@@ -6,9 +6,11 @@ import RelationGraph from "./relationGraph.vue";
 import {useRouter, withBase} from "vuepress/client";
 
 declare const __VUEPRESS_DEV__: boolean;
+declare const __RELATIONAL_GRAPH_GRAPH_PATH: { target: string };
 const options = computed(() => {
   return {
     isDev: __VUEPRESS_DEV__,
+    graphPath: __RELATIONAL_GRAPH_GRAPH_PATH,
   };
 });
 const first_loaded = ref(false);
@@ -34,7 +36,7 @@ async function getGlobalGraphData() {
 
   try {
     is_loading = true;
-    data.value = await getGlobalGraph(options.value.isDev, withBase);
+    data.value = await getGlobalGraph(options.value.isDev, withBase,options.value.graphPath);
   } finally {
     is_loading = false;
     first_loaded.value = true;
