@@ -28,8 +28,6 @@ export default defineUserConfig({
     bundler: viteBundler({
         viteOptions: {
             plugins: [minipic({
-
-
                     cache: false
                 }
             )]
