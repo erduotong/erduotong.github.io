@@ -14,7 +14,10 @@ let simulation: d3.Simulation<Node, Link> | null = null;
 // 重启模拟程序的方法
 const restartSimulation = (): void => {
   if (simulation) {
-    simulation.alpha(0.3).restart();
+    simulation
+        .alpha(FORCE_CONFIG.simulation.restart.alpha)
+        .alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget)
+        .restart();
   }
 };
 
@@ -105,6 +108,24 @@ const FORCE_CONFIG = {
       node.vy! -= (dy / distance) * inwardForce;
     }
   },
+  // 模拟器配置
+  simulation: {
+    alphaDecay: 0.02,
+    alphaMin: 0.001,
+    velocityDecay: 0.85,
+    // 重启相关配置
+    restart: {
+      alpha: 0.3,
+      alphaTarget: 0.3,
+      // 用于 watch 时的重启
+      watchAlpha: 0.2,
+      // 用于 data 变化时的重启
+      dataChangeAlpha: 1,
+      // 用于拖拽结束时的重启
+      dragEndAlphaTarget: 0,
+      dragEndAlpha: 0.3,
+    },
+  },
 } as const;
 
 // 样式配置
@@ -178,7 +199,6 @@ const themeColors = ref({
 
 // 修改获取主题色函数
 function initThemeColors(): void {
-
   const root = getComputedStyle(document.documentElement);
 
   // 获取accent颜色
@@ -390,26 +410,19 @@ onMounted(() => {
         .force("center", centerForce)
         .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
         .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2))
-        .alphaDecay(0.02)
-        .alphaMin(0.001)
-        .velocityDecay(0.85)
+        .alphaDecay(FORCE_CONFIG.simulation.alphaDecay)
+        .alphaMin(FORCE_CONFIG.simulation.alphaMin)
+        .velocityDecay(FORCE_CONFIG.simulation.velocityDecay)
         .on("tick", () => {
           // 应用孤立节点的力
           map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
-
-          // 添加阻尼效果和平滑过渡
-          map_data.nodes.forEach((node) => {
-            node.x += (node.x - node.x) * 0.1;
-            node.y += (node.y - node.y) * 0.1;
-          });
-
           ticked();
         });
 
     return window.simulation;
   }
 
-  // 事件处理��数
+  // 事件处理数
   function filterZoomEvent(
       event: d3.D3ZoomEvent<HTMLCanvasElement, unknown>
   ): boolean {
@@ -459,7 +472,9 @@ onMounted(() => {
       document.body.style.userSelect = "none";
       draggingNode.fx = x;
       draggingNode.fy = y;
-      simulation.alphaTarget(0.3).restart();
+      simulation
+          .alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget)
+          .restart();
 
       const touchOptions: AddEventListenerOptions = {
         passive: false,
@@ -495,10 +510,10 @@ onMounted(() => {
         const x = (point.clientX - rect.left - transform.x) / transform.k;
         const y = (point.clientY - rect.top - transform.y) / transform.k;
 
-        // 获取边界内的位置并更新节点位置
+        // 获取边界内的位置并更新节��位置
         const boundedPosition = getBoundedPosition(x, y);
         updateDraggingNodePosition(boundedPosition);
-        simulation.alphaTarget(0.3);
+        simulation.alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget);
       }
       event.preventDefault();
     }
@@ -514,7 +529,9 @@ onMounted(() => {
       // 清除悬停节点和拖拽节点
       hoveredNode = null;
       draggingNode = null;
-      simulation.alphaTarget(0).alpha(0.3);
+      simulation
+          .alphaTarget(FORCE_CONFIG.simulation.restart.dragEndAlphaTarget)
+          .alpha(FORCE_CONFIG.simulation.restart.dragEndAlpha);
 
       // 根据事件类型移除对应的事件监听器
       if (event.type === "touchend") {
@@ -527,8 +544,7 @@ onMounted(() => {
     }
   }
 
-
-// 获取边界内的位置
+  // 获取边界内的位置
   function getBoundedPosition(x, y) {
     // 计算边界范围
     const bounds = {
@@ -789,7 +805,6 @@ onMounted(() => {
         // 如果有悬停节点，调整透明度
         if (hoveredNode) {
           if (node === hoveredNode || connectedNodes.has(node)) {
-
           } else {
             opacity = opacity * STYLE_CONFIG.node.normalOpacity; // 降低非相关节点的文字透明度
           }
@@ -808,8 +823,6 @@ onMounted(() => {
       }
     });
   }
-
-
 });
 declare global {
   // @ts-ignore
@@ -831,7 +844,9 @@ watch(
             .force("center", centerForce)
             .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
             .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2));
-        window.simulation.alpha(0.2).restart();
+        window.simulation
+            .alpha(FORCE_CONFIG.simulation.restart.watchAlpha)
+            .restart();
       }
     }
 );
@@ -853,11 +868,9 @@ watch(
       simulation
           .nodes(newData.nodes)
           .force("link", FORCE_CONFIG.link.links(newData.links));
-
       // 重启模拟
-      simulation.alpha(1).restart();
-    },
-    {deep: true}
+      simulation.alpha(FORCE_CONFIG.simulation.restart.dataChangeAlpha).restart();
+    }
 );
 </script>
 
