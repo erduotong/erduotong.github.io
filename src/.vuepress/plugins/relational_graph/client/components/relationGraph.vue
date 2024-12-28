@@ -35,7 +35,6 @@ const CANVAS_CONFIG = {
   zoomExtent: [0.1, 10],
   nodeClickRadius: 15,
   hoverNodeRadius: 8,
-  isolatedCircleRadius: 100, // 孤立节点圆形边界的半径基数
 } as const;
 
 // 力导向图配置
@@ -43,85 +42,28 @@ const FORCE_CONFIG = {
   link: d3
       .forceLink<Node, Link>()
       .id((d: Node) => d.id)
-      .distance(80)
-      .strength(0.6),
+      .distance(100) // 调整连接线的距离
+      .strength(0.8), // 调整连接线的强度
   charge: d3
       .forceManyBody<Node>()
-      .strength((d: Node) => (d.isIsolated ? -100 : -150))
-      .distanceMin(60)
-      .distanceMax(250),
+      .strength((d: Node) => (-100)) // 调整电荷力，减少排斥力
+      .distanceMin(50) // 最小距离
+      .distanceMax(300), // 最大距离
   collision: d3
       .forceCollide<Node>()
-      .radius(30) // 设置碰撞半径
-      .strength(1), // 设置碰撞力的强度为最大
-  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
-  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
-  // 添加孤立节点的力
-  isolatedForce: (node: Node) => {
-    if (!node.isIsolated) return;
-
-    const dx = node.x! - canvasSize.value.width / 2;
-    const dy = node.y! - canvasSize.value.height / 2;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const isolatedNodesCount = map_data.nodes.filter(
-        (n) => n.isIsolated
-    ).length;
-    const targetRadius = Math.min(
-        Math.max(
-            Math.sqrt(isolatedNodesCount) * CANVAS_CONFIG.isolatedCircleRadius,
-            100
-        ),
-        Math.min(canvasSize.value.width, canvasSize.value.height) / 3
-    );
-
-    // 计算当前节点周围的拥挤程度
-    const crowdingFactor = map_data.nodes
-        .filter((n) => n.isIsolated)
-        .reduce((acc, other) => {
-          const dx2 = other.x! - node.x!;
-          const dy2 = other.y! - node.y!;
-          const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-          if (dist < targetRadius * 0.2) {
-            // 只考虑较近的节点
-            return acc + 1 / (dist + 1);
-          }
-          return acc;
-        }, 0);
-
-    // 基础向外力，减小力的强度
-    const outwardForce = 0.08;
-
-    if (distance < targetRadius * 0.9) {
-      // 在内圈时，主要受到向外的力
-      const force = outwardForce * (1 + crowdingFactor * 0.1);
-      node.vx! += (dx / distance) * force;
-      node.vy! += (dy / distance) * force;
-    } else if (distance > targetRadius) {
-      // 超出目标半径时，将节点拉回
-      const scale = (targetRadius - distance) / distance;
-      node.vx! += dx * scale * 0.08;
-      node.vy! += dy * scale * 0.08;
-    } else if (crowdingFactor > 2) {
-      // 在边缘但很拥挤时，给予一个向内的力
-      const inwardForce = 0.04 * (crowdingFactor - 2);
-      node.vx! -= (dx / distance) * inwardForce;
-      node.vy! -= (dy / distance) * inwardForce;
-    }
-  },
-  // 模拟器配置
+      .radius(30) // 调整碰撞半径
+      .strength(0.7), // 调整碰撞力的强度
+  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的X轴中心力
+  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的Y轴中心力
   simulation: {
-    alphaDecay: 0.02,
-    alphaMin: 0.001,
-    velocityDecay: 0.85,
-    // 重启相关配置
+    alphaDecay: 0.01, // 增加alphaDecay，使得模拟更快停止
+    alphaMin: 0.001, // 设置alphaMin，避免无限刷新
+    velocityDecay: 0.6, // 调整速度衰减，使得节点移动更平滑
     restart: {
-      alpha: 0.3,
+      alpha: 1,
       alphaTarget: 0.3,
-      // 用于 watch 时的重启
-      watchAlpha: 0.2,
-      // 用于 data 变化时的重启
+      watchAlpha: 0.3,
       dataChangeAlpha: 1,
-      // 用于拖拽结束时的重启
       dragEndAlphaTarget: 0,
       dragEndAlpha: 0.3,
     },
@@ -267,7 +209,7 @@ onMounted(() => {
     attributeFilter: ["style", "class", "data-theme"],
   });
 
-  // 在组件卸载时清理observer
+  // 组件卸载时清理observer
   onUnmounted(() => {
     styleObserver.disconnect();
   });
@@ -400,7 +342,7 @@ onMounted(() => {
             canvasSize.value.width / 2,
             canvasSize.value.height / 2
         )
-        .strength(0.001);
+        .strength(0.002);
 
     window.simulation = d3
         .forceSimulation<Node>(map_data.nodes)
@@ -414,8 +356,6 @@ onMounted(() => {
         .alphaMin(FORCE_CONFIG.simulation.alphaMin)
         .velocityDecay(FORCE_CONFIG.simulation.velocityDecay)
         .on("tick", () => {
-          // 应用孤立节点的力
-          map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
           ticked();
         });
 
@@ -510,7 +450,7 @@ onMounted(() => {
         const x = (point.clientX - rect.left - transform.x) / transform.k;
         const y = (point.clientY - rect.top - transform.y) / transform.k;
 
-        // 获取边界内的位置并更新节��位置
+        // 获取边界内的位置并更新节点位置
         const boundedPosition = getBoundedPosition(x, y);
         updateDraggingNodePosition(boundedPosition);
         simulation.alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget);
