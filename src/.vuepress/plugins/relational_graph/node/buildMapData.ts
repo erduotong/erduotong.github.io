@@ -166,6 +166,9 @@ function write_to_frontmatter(page: Page): void {
 }
 
 export function buildBioChainMap(pages: Page[], titleGetter: titleGetter = (page) => {
+    if (!page.title || page.title.trim() === "") {
+        return page.filePathRelative
+    }
     return page.title;
 }): void {
     // 生成双链
