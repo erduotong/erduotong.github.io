@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {onMounted, onUnmounted, ref} from 'vue'
 
 const startTime = new Date("2024-09-22T00:00:00+08:00") // 网站创建时间
@@ -58,22 +58,22 @@ onMounted(() => {
   position: relative;
 
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-
-  padding-block: 0.75rem;
-  padding-inline: calc(var(--sidebar-space) + 2rem) 2rem;
-  border-top: 1px solid var(--vp-c-border);
-
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-mute);
-
-  text-align: center;
 
   transition: border-top-color var(--vp-t-color),
   background var(--vp-t-color),
   padding var(--vp-t-transform);
+  text-align: center;
+  color: var(--vp-c-text-mute);
+
+  border-top: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg);
+
+  padding-block: 0.75rem;
+
+  padding-inline: calc(var(--sidebar-space) + 2rem) 2rem;
 
   @media (max-width: hope-config.$tablet) {
     padding-inline-start: 2rem;
@@ -100,8 +100,8 @@ onMounted(() => {
 }
 
 .footer {
-  margin: 0.5rem 1rem;
   font-size: 14px;
+  margin: 0.5rem 1rem;
 
   @media print {
     display: none;
@@ -109,8 +109,8 @@ onMounted(() => {
 }
 
 .copyright {
-  margin: 6px 0;
   font-size: 13px;
+  margin: 6px 0;
 }
 
 /*noinspection CssUnusedSymbol*/

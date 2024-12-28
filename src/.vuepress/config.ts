@@ -23,6 +23,7 @@ export default defineUserConfig({
         foldEmptyGraph: true,
         graphMaxWidth: 300,
         graphHeight: 300,
+        globalGraphTimeout: 3000,
     })],
     theme,
     bundler: viteBundler({

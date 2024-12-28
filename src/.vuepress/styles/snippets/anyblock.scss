@@ -18,13 +18,13 @@
 /**
  * 颜色相关
  */
- :root {
-  --ab-tab-root-bg-color: #0d1117;  // #ffffff;
-  --ab-tab-root-bd-color: #34343f;  // #e0e0e0;
-  --ab-tab-root-tx-color: #9e9e9e;  // blackc
+:root {
+  --ab-tab-root-bg-color: #0d1117; // #ffffff;
+  --ab-tab-root-bd-color: #34343f; // #e0e0e0;
+  --ab-tab-root-tx-color: #9e9e9e; // blackc
 
-  --ab-bright-color: orange;        // lightgoldenrodyellow、yellowgreen
-  --pre-background-color: #1b1b1b;  // rgb(36,36,36)
+  --ab-bright-color: orange; // lightgoldenrodyellow、yellowgreen
+  --pre-background-color: #1b1b1b; // rgb(36,36,36)
 
   --ab-table-border-width: 1px;
   --ab-table-border-color: #363636;
@@ -32,9 +32,10 @@
   --ab-width-inner: 100%;
   --ab-width-outer: 100%;
 }
+
 // 获取一些Obsidian的默认颜色并覆盖默认颜色 (mdit不可用)
 .theme-dark,
-.theme-light{
+.theme-light {
   --ab-tab-root-bg-color: var(--color-base-00);
   --ab-tab-root-bd-color: var(--color-base-30);
   --ab-tab-root-tx-color: var(--color-base-70);
@@ -45,16 +46,18 @@
   --ab-table-border-width: var(--table-border-width);
   --ab-table-border-color: var(--table-border-color);
 }
+
 // 获取VuePress的默认颜色并覆盖默认颜色
 html[data-theme="light"] #app,
-html[data-theme="dark"] #app{
-  --ab-tab-root-bg-color: var(--bg-color);     // --code-bg-color
+html[data-theme="dark"] #app {
+  --ab-tab-root-bg-color: var(--bg-color); // --code-bg-color
   --ab-tab-root-bd-color: var(--border-color); // --code-border-color
-  --ab-tab-root-tx-color: var(--text-color);   // --code-color
+  --ab-tab-root-tx-color: var(--text-color); // --code-color
 
   --ab-bright-color: var(--theme-color);
   --pre-background-color: var(--code-bg-color);
 }
+
 html[data-theme="light"] #app {
   --color-red: #e93147;
   --color-orange: #ec7500;
@@ -65,6 +68,7 @@ html[data-theme="light"] #app {
   --color-purple: #7852ee;
   --color-pink: #d53984;
 }
+
 html[data-theme="dark"] #app {
   --color-red: #fb464c;
   --color-orange: #e9973f;
@@ -88,28 +92,33 @@ html[data-theme="dark"] #app {
 .app-container {
   // 阅读模式
   .markdown-reading-view {
-    .ab-replace{
+    .ab-replace {
       margin-top: 0;
       margin-bottom: 22px;
     }
   }
+
   // 源码/实时模式
   .markdown-source-view {
-    .ab-replace{
+    .ab-replace {
       margin-top: -18px; // 消除CM自带的间隙
       margin-bottom: -18px;
     }
-    .block-language-anyblock>.ab-replace {
+
+    .block-language-anyblock > .ab-replace {
       margin-top: 0;
       margin-bottom: 0;
     }
   }
+
   // 源码模式
-  .markdown-source-view.is-live-preview {}
+  .markdown-source-view.is-live-preview {
+  }
 }
+
 // 打印模式
-.print{
-  .ab-replace>.ab-button {
+.print {
+  .ab-replace > .ab-button {
     display: none;
   }
 }
@@ -121,41 +130,45 @@ html[data-theme="dark"] #app {
  *     &>.ab-replaceEl // 内容 (感觉冗余了)
  *   &>.ab-button      // 操作控件 (刷新/编辑/下拉框)
  */
-.ab-replace{
+.ab-replace {
   /*background-color: #272e3a;*/
   position: relative;
   border-radius: 4px;
 
-  &>.ab-note{
+  & > .ab-note {
     position: relative;
     /*padding: 24px 12px 12px 12px;*/
   }
 
-  &>.ab-button{
-    box-sizing: border-box;
+  & > .ab-button {
     position: absolute;
     top: 4px;
+    box-sizing: border-box;
+
     &.ab-button-1 {
       right: 4px;
     }
+
     &.ab-button-2 {
       right: 40px;
     }
+
     &.ab-button-3 {
       right: 76px;
     }
   }
 
-  img.cm-widgetBuffer{
+  img.cm-widgetBuffer {
     height: 2px;
   }
 }
 
-.ab-note{
+.ab-note {
   // 修复重渲染问题
   .markdown-rendered table { // 重渲染的表格宽度过宽的问题 (这里好像是Sp主题引起的)
     min-width: 0;
   }
+
   .markdown-rendered ul li,
   .markdown-rendered ol li { // 重渲染的列表间隔会变得特别高
     margin-bottom: 0;
@@ -166,59 +179,72 @@ html[data-theme="dark"] #app {
     display: table;
     width: 100%;
   }
-  table[modeT="true"]{  // 表格转置
-    tr { display: block; float: left; }
-    th, td { display: block; }
+
+  table[modeT="true"] { // 表格转置
+    tr {
+      display: block;
+      float: left;
+    }
+
+    th, td {
+      display: block;
+    }
   }
 
   // 未渲染前的mermaid
   pre.ab-mermaid-raw {
+    margin-top: 0;
     border: solid 1px;
     border-radius: 6px;
-    margin-top: 0;
   }
+
   // 未渲染前的markmap
   .ab-markmap-svg {
+    width: 100%;
     border: solid 1px;
     border-radius: 6px;
-    width: 100%;
   }
 
   // 标签栏
-  .ab-tab-root{
+  .ab-tab-root {
     .ab-tab-nav {
       // height: 40px;
       box-sizing: border-box;
-      border: 2px solid var(--ab-tab-root-bd-color);
-      background-color: var(--ab-tab-root-bd-color);
       color: var(--ab-tab-root-tx-color);
+      border: 2px solid var(--ab-tab-root-bd-color);
       border-bottom: none;
       border-radius: 10px 10px 0 0;
+      background-color: var(--ab-tab-root-bd-color);
+
       .ab-tab-nav-item {
-        height: 38px; // 40-2
-        box-shadow: none;
-        border: none;
-        border-radius: 10px 10px 0 0;
-        padding-left: 20px;
-        padding-right: 20px;
         font-size: 0.9em;
         font-weight: bold;
+        height: 38px; // 40-2
+        padding-right: 20px;
+        padding-left: 20px;
+        border: none;
+        border-radius: 10px 10px 0 0;
+        box-shadow: none;
+
         &[is_activate="false"] {
+          color: var(--ab-tab-root-tx-color);
           background-color: var(--ab-tab-root-bd-color);
-          color: var(--ab-tab-root-tx-color);
         }
-        &[is_activate="true"]{
-          background-color: var(--ab-tab-root-bg-color);
+
+        &[is_activate="true"] {
           color: var(--ab-tab-root-tx-color);
+          background-color: var(--ab-tab-root-bg-color);
         }
       }
     }
+
     .ab-tab-content {
-      border: 2px solid var(--ab-tab-root-bd-color);
-      background-color: var(--ab-tab-root-bg-color);
-      color: var(--ab-tab-root-tx-color);
-      border-top: none;
       padding: 10px 20px;
+      color: var(--ab-tab-root-tx-color);
+      border: 2px solid var(--ab-tab-root-bd-color);
+      border-top: none;
+      background-color: var(--ab-tab-root-bg-color);
+
       .ab-tab-content-item {
 
       }
@@ -226,43 +252,47 @@ html[data-theme="dark"] #app {
   }
 
   // 使单元格内容更紧凑 - 去除单元格内部的间隔 (首尾)
-  td>p:first-child, th>p:first-child, // ob x 8
-  td>ul:first-child, th>ul:first-child,
-  .ab-list-table-witharrow>p:first-child,
-  .ab-nodes-content>p:first-child,
-  .ab-items-item>div>p:first-child, .ab-items-item>div>ul:first-child,
-  td>div>p:first-child, th>div>p:first-child, // mdit x 8
-  td>div>ul:first-child, th>div>ul:first-child, 
-  .ab-list-table-witharrow>div>p:first-child,
-  .ab-nodes-content>div>p:first-child,
-  .ab-items-item>div>div>p:first-child, .ab-items-item>div>div>ul:first-child
-  {
+  td > p:first-child, th > p:first-child, // ob x 8
+  td > ul:first-child, th > ul:first-child,
+  .ab-list-table-witharrow > p:first-child,
+  .ab-nodes-content > p:first-child,
+  .ab-items-item > div > p:first-child, .ab-items-item > div > ul:first-child,
+  td > div > p:first-child, th > div > p:first-child, // mdit x 8
+  td > div > ul:first-child, th > div > ul:first-child,
+  .ab-list-table-witharrow > div > p:first-child,
+  .ab-nodes-content > div > p:first-child,
+  .ab-items-item > div > div > p:first-child, .ab-items-item > div > div > ul:first-child {
     margin-top: 0;
   }
-  td>p:last-child, th>p:last-child, // ob x 8
-  td>ul:last-child, th>ul:last-child, 
-  .ab-list-table-witharrow>p:last-child,
-  .ab-nodes-content>p:last-child,
-  .ab-items-item>div>p:last-child, .ab-items-item>div>ul:last-child,
-  td>div>p:last-child, th>div>p:last-child, // mdit x 8
-  td>div>ul:last-child, th>div>ul:last-child,
-  .ab-list-table-witharrow>div>p:last-child,
-  .ab-nodes-content>div>p:last-child,
-  .ab-items-item>div>div>p:last-child, .ab-items-item>div>div>ul:last-child
-  {
+
+  td > p:last-child, th > p:last-child, // ob x 8
+  td > ul:last-child, th > ul:last-child,
+  .ab-list-table-witharrow > p:last-child,
+  .ab-nodes-content > p:last-child,
+  .ab-items-item > div > p:last-child, .ab-items-item > div > ul:last-child,
+  td > div > p:last-child, th > div > p:last-child, // mdit x 8
+  td > div > ul:last-child, th > div > ul:last-child,
+  .ab-list-table-witharrow > div > p:last-child,
+  .ab-nodes-content > div > p:last-child,
+  .ab-items-item > div > div > p:last-child, .ab-items-item > div > div > ul:last-child {
     margin-bottom: 0;
   }
 
   // 通用表格
-  table.ab-table{
+  table.ab-table {
     // 使空格内容更紧凑 -  去除单元格之间的间距
     border-collapse: collapse;
-    td,th{
-      white-space: normal;
-      overflow-wrap: break-word;
-      code {white-space: pre;}
+
+    td, th {
       padding: 2px 5px;
+      white-space: normal;
+
       border: solid var(--ab-table-border-width) var(--ab-table-border-color);
+
+      overflow-wrap: break-word;
+      code {
+        white-space: pre;
+      }
     }
 
     // 取消自带的隔行表格着色
@@ -277,11 +307,12 @@ html[data-theme="dark"] #app {
     // 仿列表样式的普通表格 // TODO 第一列是选不好的，得js那边给 “真-第一列” 进行标记
     &.ab-table-likelist {
       td {
-        border: none;
+        box-sizing: border-box;
         padding-bottom: 10px;
         vertical-align: top;
-        box-sizing: border-box;
+        border: none;
       }
+
       // td { // :nth-child(2) {
       //   padding-left: 20px;
       //   position: relative;
@@ -303,158 +334,223 @@ html[data-theme="dark"] #app {
       //     content: none;
       //   }
       // }
-      td[col_index="0"]{ // :first-child {
+      td[col_index="0"] { // :first-child {
+        position: relative;
         padding-right: 8px;
         padding-left: 20px;
-        position: relative;
+
         &::before {
           position: absolute;
           top: 14px;
-          transform: translateY(-50%);
+          left: 6px;
           width: 5px;
           height: 5px;
-          border: none;
-          left: 6px;
-
           content: '';
+          transform: translateY(-50%);
+
+          border: none;
           border-radius: 50%;
           background-color: currentColor;
         }
+
         &::after {
-          content: "";
           position: absolute;
           top: 3px;
-          bottom: 5px;
           right: 0;
+          bottom: 5px;
+          content: "";
           //width: 1px;
           //height: calc(100% - 6px);
-          border-right: 1px solid currentColor;
           pointer-events: none;
+          border-right: 1px solid currentColor;
         }
       }
     }
   }
 
   // 列表格
-  table.ab-list-table{
+  table.ab-list-table {
     // 通用
     .ab-foldable-tr {
-      &>td:first-child{
-        >div{
-          padding-left: 15px;
+      & > td:first-child {
+        > div {
           position: relative;
+          padding-left: 15px;
         }
       }
-      &[able_fold="true"]>td:first-child{
-        >div::before{
-          content: "";
+
+      &[able_fold="true"] > td:first-child {
+        > div::before {
           position: absolute;
           width: 0;
           height: 0;
+          content: "";
         }
       }
-      &[able_fold="true"][is_fold="true"]>td:first-child{ // 箭头图标
-        >div:first-child::before{
+
+      &[able_fold="true"][is_fold="true"] > td:first-child { // 箭头图标
+        > div:first-child::before {
           top: 5px;
           left: 2px;
+          cursor: pointer;
           border: 6px solid transparent;
           border-left-color: currentColor;
-          cursor: pointer;
         }
       }
-      &[able_fold="true"][is_fold="false"]>td:first-child{ // 箭头图标
-        >div:first-child::before{
+
+      &[able_fold="true"][is_fold="false"] > td:first-child { // 箭头图标
+        > div:first-child::before {
           top: 9px;
           left: -1px;
+          cursor: pointer;
           border: 6px solid transparent;
           border-top-color: currentColor;
-          cursor: pointer;
         }
       }
+
       // 缩进
-      &[tr_level="0"]>td:first-child{padding-left: calc(0*24px);}
-      &[tr_level="1"]>td:first-child{padding-left: calc(1*24px);}
-      &[tr_level="2"]>td:first-child{padding-left: calc(2*24px);}
-      &[tr_level="3"]>td:first-child{padding-left: calc(3*24px);}
-      &[tr_level="4"]>td:first-child{padding-left: calc(4*24px);}
-      &[tr_level="5"]>td:first-child{padding-left: calc(5*24px);}
-      &[tr_level="6"]>td:first-child{padding-left: calc(6*24px);}
-      &[tr_level="7"]>td:first-child{padding-left: calc(7*24px);}
-      &[tr_level="8"]>td:first-child{padding-left: calc(8*24px);}
-      &[tr_level="9"]>td:first-child{padding-left: calc(9*24px);}
-      &[tr_level="10"]>td:first-child{padding-left: calc(10*24px);}
-      &[tr_level="11"]>td:first-child{padding-left: calc(11*24px);}
-      &[tr_level="12"]>td:first-child{padding-left: calc(12*24px);}
-      &[tr_level="13"]>td:first-child{padding-left: calc(13*24px);}
-      &[tr_level="14"]>td:first-child{padding-left: calc(14*24px);}
-      &[tr_level="15"]>td:first-child{padding-left: calc(15*24px);}
-      &[tr_level="16"]>td:first-child{padding-left: calc(16*24px);}
+      &[tr_level="0"] > td:first-child {
+        padding-left: calc(0 * 24px);
+      }
+
+      &[tr_level="1"] > td:first-child {
+        padding-left: calc(1 * 24px);
+      }
+
+      &[tr_level="2"] > td:first-child {
+        padding-left: calc(2 * 24px);
+      }
+
+      &[tr_level="3"] > td:first-child {
+        padding-left: calc(3 * 24px);
+      }
+
+      &[tr_level="4"] > td:first-child {
+        padding-left: calc(4 * 24px);
+      }
+
+      &[tr_level="5"] > td:first-child {
+        padding-left: calc(5 * 24px);
+      }
+
+      &[tr_level="6"] > td:first-child {
+        padding-left: calc(6 * 24px);
+      }
+
+      &[tr_level="7"] > td:first-child {
+        padding-left: calc(7 * 24px);
+      }
+
+      &[tr_level="8"] > td:first-child {
+        padding-left: calc(8 * 24px);
+      }
+
+      &[tr_level="9"] > td:first-child {
+        padding-left: calc(9 * 24px);
+      }
+
+      &[tr_level="10"] > td:first-child {
+        padding-left: calc(10 * 24px);
+      }
+
+      &[tr_level="11"] > td:first-child {
+        padding-left: calc(11 * 24px);
+      }
+
+      &[tr_level="12"] > td:first-child {
+        padding-left: calc(12 * 24px);
+      }
+
+      &[tr_level="13"] > td:first-child {
+        padding-left: calc(13 * 24px);
+      }
+
+      &[tr_level="14"] > td:first-child {
+        padding-left: calc(14 * 24px);
+      }
+
+      &[tr_level="15"] > td:first-child {
+        padding-left: calc(15 * 24px);
+      }
+
+      &[tr_level="16"] > td:first-child {
+        padding-left: calc(16 * 24px);
+      }
     }
 
     // 仿列表样式的列表格
     &.ab-listtable-likelist {
       margin-left: 24px;
+
       td {
-        border: none;
         vertical-align: top;
+        border: none;
       }
+
       // 覆盖列表格的部分样式
-      .ab-foldable-tr>td:first-child>.ab-list-table-witharrow {
+      .ab-foldable-tr > td:first-child > .ab-list-table-witharrow {
+        position: relative;
         padding: 0 !important;
         padding-right: 8px;
         padding-left: 20px;
-        position: relative;
+
         &::before {
-          border: solid 1px !important;
-          background: none !important;
-          width: 6px !important;
-          height: 6px !important;
-  
-          box-sizing: border-box;
           position: absolute;
           top: 12px !important;
-          transform: translateY(-50%) !important;
           left: -14px !important;
-          content: '';
-          border-radius: 50%;
-        }
-      }
-      .ab-foldable-tr[tr_level="0"]>td:first-child>.ab-list-table-witharrow {
-        &::before {
-          border: 0 !important;
-          background-color: currentColor !important;
+          box-sizing: border-box;
+
           width: 6px !important;
           height: 6px !important;
+          content: '';
+          transform: translateY(-50%) !important;
+          border: solid 1px !important;
+          border-radius: 50%;
+          background: none !important;
+        }
+      }
+
+      .ab-foldable-tr[tr_level="0"] > td:first-child > .ab-list-table-witharrow {
+        &::before {
+          width: 6px !important;
+          height: 6px !important;
+          border: 0 !important;
+          background-color: currentColor !important;
         }
       }
     }
 
     // 仿目录结构的列表格
-    &.ab-table-folder .ab-foldable-tr{
+    &.ab-table-folder .ab-foldable-tr {
       td:first-child {
-        white-space: pre;
         vertical-align: top;
+        white-space: pre;
       }
-      &>td>div{
+
+      & > td > div {
         // float: left; (这个没办法让div下的div2和div3在同一行，用inline-block代替之)
         display: inline-block;
+
         &.ab-list-table-witharrow {
           padding-left: 6px; // old 15
         }
       }
-      .ab-list-table-svg svg{
+
+      .ab-list-table-svg svg {
         width: 14px;
         height: 14px;
         fill: var(--ab-bright-color);
       }
+
       // 边框处理
       td:first-child {
         border: none;
       }
+
       td {
-        border-left: none;
         border-right: none;
         border-bottom: none;
+        border-left: none;
       }
     }
   }
@@ -462,33 +558,36 @@ html[data-theme="dark"] #app {
   // 时间线表格
   table.ab-table-timeline {
     td {
-      border-right: none;
       padding-left: 20px;
+      border-right: none;
     }
-    td[col_index="0"] {
-      border: none;
-      border-left: none;
-      border-right: solid 2px;
-      padding-left: 5px;
-      padding-right: 20px;
-      color: var(--ab-bright-color);
 
+    td[col_index="0"] {
       position: relative;
       overflow: visible;
+      padding-right: 20px;
+      padding-left: 5px;
+      color: var(--ab-bright-color);
+      border: none;
+
+      border-right: solid 2px;
+      border-left: none;
+
       &::after {
         position: absolute;
         top: 1em;
-        transform: translateY(-50%);
+        right: -8px;
         width: 10px;
         height: 10px;
-        right: -8px;
-
         content: '';
-        background-color: var(--ab-bright-color);
-        border-radius: 50%;
+
+        transform: translateY(-50%);
         border: solid 2px;
+        border-radius: 50%;
+        background-color: var(--ab-bright-color);
       }
     }
+
     // td:nth-child(2) {
     //   padding-left: 20px;
     // }
@@ -498,147 +597,171 @@ html[data-theme="dark"] #app {
     tr:first-child td {
       border-top: none;
     }
+
     tr:last-child td {
       border-bottom: none;
     }
   }
 
   // FAQ
-  .markdown-rendered.ab-faq-content{
-    p:first-child {margin-top: 0;}
-    p:last-child {margin-bottom: 0;}
+  .markdown-rendered.ab-faq-content {
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
-  .ab-faq{
-    .ab-faq-line{
+
+  .ab-faq {
+    .ab-faq-line {
       line-height: 30px;
-      width: 100%;
-      padding: 0 15px 0 15px;
       clear: both;
       overflow-y: auto;
-      
+      width: 100%;
+      padding: 0 15px 0 15px;
+
       .ab-faq-bubble {
         float: left;
         width: calc(100% - 75px);
       }
     }
+
     .ab-faq-line.ab-faq-q,
-    .ab-faq-line.ab-faq-Q{
-      background-color: #1e53ee;
+    .ab-faq-line.ab-faq-Q {
       border-radius: 12px 12px 0 0;
+      background-color: #1e53ee;
     }
+
     .ab-faq-line.ab-faq-a,
-    .ab-faq-line.ab-faq-A{
-      background-color: #f5f8fe;
-      border-radius: 0 0 12px 12px;
-      color: #a994a6;
+    .ab-faq-line.ab-faq-A {
       margin-bottom: 20px;
+      color: #a994a6;
+      border-radius: 0 0 12px 12px;
+      background-color: #f5f8fe;
     }
-    .ab-faq-line::before{
+
+    .ab-faq-line::before {
       float: left;
       width: 24px;
     }
+
     .ab-faq-line.ab-faq-q::before,
-    .ab-faq-line.ab-faq-Q::before{
+    .ab-faq-line.ab-faq-Q::before {
       content: "Q";
     }
+
     .ab-faq-line.ab-faq-a::before,
-    .ab-faq-line.ab-faq-A::before{
+    .ab-faq-line.ab-faq-A::before {
       content: "A";
     }
   }
 
   // 折叠
-  .ab-deco-fold{
-    .ab-deco-fold-button{
-      background-color: var(--ab-bright-color);
-      height: 30px;
+  .ab-deco-fold {
+    .ab-deco-fold-button {
       line-height: 30px;
+      width: 100%;
+      height: 30px;
       padding-left: 6px;
       border-radius: 5px;
-      width: 100%;
+      background-color: var(--ab-bright-color);
     }
   }
 
   // 滚动
-  .ab-deco-scroll.ab-deco-scroll-y{
-    overflow-y:auto;
+  .ab-deco-scroll.ab-deco-scroll-y {
+    overflow-y: auto;
   }
-  .ab-deco-scroll.ab-deco-scroll-x{
-    overflow-x:auto;
+
+  .ab-deco-scroll.ab-deco-scroll-x {
+    overflow-x: auto;
     white-space: pre;
   }
 
   // 超出折叠
-  .ab-deco-overfold{
-    overflow-y: hidden;
+  .ab-deco-overfold {
     position: relative;
-    .ab-deco-overfold-button{
+    overflow-y: hidden;
+
+    .ab-deco-overfold-button {
+      line-height: 40px;
       position: absolute;
       bottom: 0;
-      height: 40px;
-      line-height: 40px;
-      width: 100%;
-      text-align: center;
       box-sizing: content-box;
+      width: 100%;
+      height: 40px;
+      text-align: center;
     }
-    .ab-deco-overfold-content{
+
+    .ab-deco-overfold-content {
       margin-bottom: 40px;
     }
   }
-  .ab-deco-overfold[is-fold="true"]{
-    .ab-deco-overfold-button{
+
+  .ab-deco-overfold[is-fold="true"] {
+    .ab-deco-overfold-button {
       padding-top: 60px;
       background-image: linear-gradient(-180deg, rgba(24, 26, 27, 0) 0%, rgb(24, 26, 27) 100%)
     }
   }
 
   // 黑幕
-  .ab-deco-heimu, .ab-deco-heimu a{
+  .ab-deco-heimu, .ab-deco-heimu a {
+    color: #252525;
     background-color: #252525;
-    color:#252525;
     text-shadow: none;
-    &::selection{
-      background:#9ab0c0;
-      color:#fff;
+
+    &::selection {
+      color: #ffffff;
+      background: #9ab0c0;
     }
   }
-  .ab-deco-heimu:hover, .ab-deco-heimu:hover a{
-    transition:color .13s linear;
-    color:#fff;
+
+  .ab-deco-heimu:hover, .ab-deco-heimu:hover a {
+    transition: color .13s linear;
+    color: #ffffff;
   }
 
   // 标题 // TODO 在ob阅读模式下间距不正常
-  .ab-deco-title{
+  .ab-deco-title {
     width: 100%;
-    p{
+
+    p {
       font-size: 17px;
       line-height: 17px;
       margin: 0;
       margin-bottom: 10px;
     }
-    .ab-deco-title-title{
+
+    .ab-deco-title-title {
       height: auto;
     }
-    .ab-deco-title-title[title-type="table"]>p{
+
+    .ab-deco-title-title[title-type="table"] > p {
       font-weight: bold;
-      text-align: center;
       margin-top: 10px;
       margin-bottom: 16px;
+      text-align: center;
     }
-    .ab-deco-title-title[title-type="pre"]>p{
-      display: inline;
+
+    .ab-deco-title-title[title-type="pre"] > p {
       font-size: 16px;
       font-weight: 400;
-      background-color: var(--pre-background-color);
+      display: inline;
+      margin: 0;
       padding: 8px 16px 11px 16px;
       border-radius: 8px 8px 0 0;
-      margin: 0;
+      background-color: var(--pre-background-color);
     }
-    .ab-deco-title-title[title-type="quote"]>p{
+
+    .ab-deco-title-title[title-type="quote"] > p {
       font-weight: bold;
       margin-bottom: 20px;
     }
-    .ab-deco-title-title[title-type="ul"]>p{
+
+    .ab-deco-title-title[title-type="ul"] > p {
       font-weight: bold;
     }
   }
@@ -647,14 +770,17 @@ html[data-theme="dark"] #app {
   .ab-items {
     white-space: normal;
     overflow-wrap: break-word;
-    code {white-space: pre;}
+
+    code {
+      white-space: pre;
+    }
 
     // 分栏
-    &.ab-col{
+    &.ab-col {
       display: flex; // Flexbox 布局
       flex-wrap: wrap; // 元素换行显示
       gap: 1rem; // 间隙
-      .ab-items-item {        
+      .ab-items-item {
         flex: 1 0 calc(33.33% - 1rem); // 每个项目的宽度大约为容器的 33.33%，减去间隙的一半
         box-sizing: border-box; // 确保 padding 和 border 不影响元素的实际大小
         padding: 10px;
@@ -662,19 +788,19 @@ html[data-theme="dark"] #app {
     }
 
     // 卡片
-    &.ab-card{
+    &.ab-card {
       // 布局无关部分
       .ab-items-item {
         box-sizing: border-box; // 确保 padding 和 border 不影响元素的实际大小
-        color: var(--ab-tab-root-tx-color);
-        background-color: var(--ab-tab-root-bg-color);
-        border: solid 2px var(--ab-tab-root-bd-color);
-        border-radius: 6px;
-        box-shadow: #34343f;
         margin-bottom: 10px;
         padding: 5px 10px;
+        color: var(--ab-tab-root-tx-color);
+        border: solid 2px var(--ab-tab-root-bd-color);
+        border-radius: 6px;
+        background-color: var(--ab-tab-root-bg-color);
+        box-shadow: #34343f;
 
-        &>div {
+        & > div {
           padding-top: 5px;
           padding-bottom: 5px;
         }
@@ -683,8 +809,9 @@ html[data-theme="dark"] #app {
           color: var(--ab-bright-color);
           border-bottom: 1px solid var(--ab-bright-color);
         }
+
         .ab-items-content {
-          
+
         }
       }
 
@@ -738,21 +865,48 @@ html[data-theme="dark"] #app {
     }
 
     // 补充结合样式
-    &.ab-col1 { column-count: 1 !important; }
-    &.ab-col2 { column-count: 2 !important; }
-    &.ab-col3 { column-count: 3 !important; }
-    &.ab-col4 { column-count: 4 !important; }
-    &.ab-col5 { column-count: 5 !important; }
-    &.ab-col6 { column-count: 6 !important; }
-    &.ab-col7 { column-count: 7 !important; }
-    &.ab-col8 { column-count: 8 !important; }
+    &.ab-col1 {
+      column-count: 1 !important;
+    }
+
+    &.ab-col2 {
+      column-count: 2 !important;
+    }
+
+    &.ab-col3 {
+      column-count: 3 !important;
+    }
+
+    &.ab-col4 {
+      column-count: 4 !important;
+    }
+
+    &.ab-col5 {
+      column-count: 5 !important;
+    }
+
+    &.ab-col6 {
+      column-count: 6 !important;
+    }
+
+    &.ab-col7 {
+      column-count: 7 !important;
+    }
+
+    &.ab-col8 {
+      column-count: 8 !important;
+    }
   }
 
   // 节点图、括弧图、ab思维导图
   .ab-nodes {
     white-space: normal;
     overflow-wrap: break-word;
-    code {white-space: pre;}
+
+    code {
+      white-space: pre;
+    }
+
     // display: flex;
     // flex-direction: column;
     // align-items: flex-start;
@@ -761,61 +915,70 @@ html[data-theme="dark"] #app {
     // 圆弧节点，最左侧必是
     .ab-nodes-content {
       display: inline-block;
-      background-color: rgba(100,100,100,0.25);
-      padding: 2px 10px;
       margin-left: 5px;
+      padding: 2px 10px;
+      background-color: rgba(100, 100, 100, 0.25);
     }
+
     // 圆弧节点组，最右测必是
     .ab-nodes-children {
+      position: relative; // 作为定位容器
       display: flex;
-      flex-direction: column;
       // align-items
-      gap: 16px; // 上下间距，旧1.2em/20px
+      flex-direction: column;
 
       // border-left: 2px solid currentColor; // black;
       padding-left: 0.8em;
-      position: relative; // 作为定位容器
+      gap: 16px; // 上下间距，旧1.2em/20px
       // 圆弧样式 - 中间箭头
       .ab-nodes-bracket {
-        content: "";
-        box-sizing: border-box;
         position: absolute;
-        width: 8px;
-        height: 8px;
         top: calc(50% - 4px);
         left: calc(-8px + 2px); // 重合一个px避免出现黑线
-        clip-path: polygon(100% 0, 100% 100%, 13.40% 50%); // 裁剪成等边三角形
+        box-sizing: border-box;
+        width: 8px;
+        height: 8px;
+        content: "";
         background-color: currentColor;
+        clip-path: polygon(100% 0, 100% 100%, 13.40% 50%); // 裁剪成等边三角形
       }
+
       // 圆弧样式 - 两头弯曲
       .ab-nodes-bracket2 {
-        content: "";
-        box-sizing: border-box;
         position: absolute;
-        width: 10px;
-        height: calc(100% - 8px);  // JS: 缩短第一个和最后一个节点的一半
-        top: 4px;                  // JS: 第一个节点的一半
+        top: 4px; // JS: 第一个节点的一半
         left: 0;
-        border-radius: 10px 0 0 10px;
-        border-left: 2px solid currentColor;
+        box-sizing: border-box;
+        width: 10px;
+        height: calc(100% - 8px); // JS: 缩短第一个和最后一个节点的一半
+        content: "";
         border-top: 2px solid currentColor;
         border-bottom: 2px solid currentColor;
+        border-left: 2px solid currentColor;
+        border-radius: 10px 0 0 10px;
       }
 
       // 节点内容
       .ab-nodes-node {
         display: flex;
-        flex-direction: row;
         align-items: center;
-        gap: 1.2em;   // 左右间隙
+        flex-direction: row;
+        gap: 1.2em; // 左右间隙
       }
     }
+
     // 最左侧节点处理，不显示
-    &>.ab-nodes-node>.ab-nodes-bracket { display: none; }
-    &>.ab-nodes-node>.ab-nodes-bracket2 { display: none; }
+    & > .ab-nodes-node > .ab-nodes-bracket {
+      display: none;
+    }
+
+    & > .ab-nodes-node > .ab-nodes-bracket2 {
+      display: none;
+    }
+
     // 最右侧节点处理
     .ab-nodes-node[has_children="false"] {
-      &>.ab-nodes-children {
+      & > .ab-nodes-children {
         display: none;
       }
     }
@@ -825,8 +988,8 @@ html[data-theme="dark"] #app {
   .ab-nodes.min {
     .ab-nodes-content {
       padding: 0;
-      background: none;
       border-bottom: solid 1px currentColor;
+      background: none;
     }
 
     .ab-nodes-children {
@@ -837,11 +1000,11 @@ html[data-theme="dark"] #app {
       }
 
       .ab-nodes-bracket {
+        top: calc(50% - 4px);
+        left: calc(-8px + 2px);
         display: none;
         width: 6px;
         height: 6px;
-        top: calc(50% - 4px);
-        left: calc(-8px + 2px)
       }
     }
 
@@ -849,105 +1012,262 @@ html[data-theme="dark"] #app {
     .ab-nodes-content {
       padding-right: 1.2em;
     }
+
     .ab-nodes-children {
       .ab-nodes-node {
         gap: 0;
       }
     }
   }
+
   // 最右侧节点处理
   .ab-nodes-node[has_children="false"] {
-    &>.ab-nodes-content {
+    & > .ab-nodes-content {
       padding-right: 4px;
     }
   }
-  // 颜色
-  .ab-nodes.min>.ab-nodes-children {
-    &>.ab-nodes-node:nth-child(8n+1) { --node-color: var(--color-red); }
-    &>.ab-nodes-node:nth-child(8n+2) { --node-color: var(--color-orange); }
-    &>.ab-nodes-node:nth-child(8n+3) { --node-color: var(--color-yellow); }
-    &>.ab-nodes-node:nth-child(8n+4) { --node-color: var(--color-green); }
-    &>.ab-nodes-node:nth-child(8n+5) { --node-color: var(--color-cyan); }
-    &>.ab-nodes-node:nth-child(8n+6) { --node-color: var(--color-blue); }
-    &>.ab-nodes-node:nth-child(8n+7) { --node-color: var(--color-purple); }
-    &>.ab-nodes-node:nth-child(8n+0) { --node-color: var(--color-pink); }
 
-    &>.ab-nodes-node .ab-nodes-content,
-    &>.ab-nodes-node .ab-nodes-bracket,
-    &>.ab-nodes-node .ab-nodes-bracket2 {
+  // 颜色
+  .ab-nodes.min > .ab-nodes-children {
+    & > .ab-nodes-node:nth-child(8n+1) {
+      --node-color: var(--color-red);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+2) {
+      --node-color: var(--color-orange);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+3) {
+      --node-color: var(--color-yellow);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+4) {
+      --node-color: var(--color-green);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+5) {
+      --node-color: var(--color-cyan);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+6) {
+      --node-color: var(--color-blue);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+7) {
+      --node-color: var(--color-purple);
+    }
+
+    & > .ab-nodes-node:nth-child(8n+0) {
+      --node-color: var(--color-pink);
+    }
+
+    & > .ab-nodes-node .ab-nodes-content,
+    & > .ab-nodes-node .ab-nodes-bracket,
+    & > .ab-nodes-node .ab-nodes-bracket2 {
       border-color: var(--node-color);
     }
-    &>.ab-nodes-node .ab-nodes-bracket {
+
+    & > .ab-nodes-node .ab-nodes-bracket {
       background-color: var(--node-color);
     }
   }
 }
 
 // 设置面板中表格的滚动条翻转
-div.md-table-fig1{
-  overflow-x:scroll;
-  transform:scaleY(-1);
-  table.ab-setting.md-table-fig2{
-    overflow-x:scroll;
-    text-overflow: clip !important;
-    transform:scaleY(-1);
-    // white-space: nowrap;
+div.md-table-fig1 {
+  overflow-x: scroll;
+  transform: scaleY(-1);
+
+  table.ab-setting.md-table-fig2 {
+    overflow-x: scroll;
+    transform: scaleY(-1);
     white-space: pre-wrap;
+    // white-space: nowrap;
+    text-overflow: clip !important;
   }
 }
 
 // 自定义样式
-.ab-custom-text-red {color: red !important;}
-.ab-custom-text-orange {color: orange !important;}
-.ab-custom-text-yellow {color: yellow !important;}
-.ab-custom-text-green {color: green !important;}
-.ab-custom-text-cyan {color: cyan !important;}
-.ab-custom-text-blue {color: blue !important;}
-.ab-custom-text-purple {color: purple !important;}
-.ab-custom-text-white {color: white !important;}
-.ab-custom-text-black {color: black !important;}
-.ab-custom-bg-red {background-color: red !important;}
-.ab-custom-bg-orange {background-color: orange !important;}
-.ab-custom-bg-yellow {background-color: yellow !important;}
-.ab-custom-bg-green {background-color: green !important;}
-.ab-custom-bg-cyan {background-color: cyan !important;}
-.ab-custom-bg-blue {background-color: blue !important;}
-.ab-custom-bg-purple {background-color: purple !important;}
-.ab-custom-bg-white {background-color: white !important;}
-.ab-custom-bg-black {background-color: black !important;}
-.ab-custom-dire-top * {vertical-align: top !important;}
-.ab-custom-dire-down * {vertical-align: bottom !important;}
-.ab-custom-dire-left * {text-align: left !important;}
-.ab-custom-dire-right * {text-align: right !important;}
-.ab-custom-dire-center * {vertical-align: middle !important; text-align: center !important;}
-.ab-custom-dire-hcenter * {text-align: center !important;}
-.ab-custom-dire-vcenter * {vertical-align: middle !important;}
-.ab-custom-dire-justify * {text-align: justify !important;}
-.ab-custom-font-large {font-size: large !important;}
-.ab-custom-font-largex {font-size: x-large !important;}
-.ab-custom-font-largexx {font-size: xx-large !important;}
-.ab-custom-font-small {font-size: small !important;}
-.ab-custom-font-smallx {font-size: x-small !important;}
-.ab-custom-font-smallxx {font-size: xx-small !important;}
-.ab-custom-font-bold {font-weight: bold !important;}
+.ab-custom-text-red {
+  color: red !important;
+}
+
+.ab-custom-text-orange {
+  color: orange !important;
+}
+
+.ab-custom-text-yellow {
+  color: yellow !important;
+}
+
+.ab-custom-text-green {
+  color: green !important;
+}
+
+.ab-custom-text-cyan {
+  color: cyan !important;
+}
+
+.ab-custom-text-blue {
+  color: blue !important;
+}
+
+.ab-custom-text-purple {
+  color: purple !important;
+}
+
+.ab-custom-text-white {
+  color: white !important;
+}
+
+.ab-custom-text-black {
+  color: black !important;
+}
+
+.ab-custom-bg-red {
+  background-color: red !important;
+}
+
+.ab-custom-bg-orange {
+  background-color: orange !important;
+}
+
+.ab-custom-bg-yellow {
+  background-color: yellow !important;
+}
+
+.ab-custom-bg-green {
+  background-color: green !important;
+}
+
+.ab-custom-bg-cyan {
+  background-color: cyan !important;
+}
+
+.ab-custom-bg-blue {
+  background-color: blue !important;
+}
+
+.ab-custom-bg-purple {
+  background-color: purple !important;
+}
+
+.ab-custom-bg-white {
+  background-color: white !important;
+}
+
+.ab-custom-bg-black {
+  background-color: black !important;
+}
+
+.ab-custom-dire-top * {
+  vertical-align: top !important;
+}
+
+.ab-custom-dire-down * {
+  vertical-align: bottom !important;
+}
+
+.ab-custom-dire-left * {
+  text-align: left !important;
+}
+
+.ab-custom-dire-right * {
+  text-align: right !important;
+}
+
+.ab-custom-dire-center * {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.ab-custom-dire-hcenter * {
+  text-align: center !important;
+}
+
+.ab-custom-dire-vcenter * {
+  vertical-align: middle !important;
+}
+
+.ab-custom-dire-justify * {
+  text-align: justify !important;
+}
+
+.ab-custom-font-large {
+  font-size: large !important;
+}
+
+.ab-custom-font-largex {
+  font-size: x-large !important;
+}
+
+.ab-custom-font-largexx {
+  font-size: xx-large !important;
+}
+
+.ab-custom-font-small {
+  font-size: small !important;
+}
+
+.ab-custom-font-smallx {
+  font-size: x-small !important;
+}
+
+.ab-custom-font-smallxx {
+  font-size: xx-small !important;
+}
+
+.ab-custom-font-bold {
+  font-weight: bold !important;
+}
+
 // 首列重点表格
 table.ab-table-fc {
   td[col_index="0"] {
-    white-space: pre;
     font-weight: 500;
-    vertical-align: top;
     width: 0px;
+    vertical-align: top;
+    white-space: pre;
   }
 }
-.ab-custom-td-nowrap td, .ab-custom-td1-nowrap tr>td:first-child {white-space: pre !important;}
-.ab-custom-td-wrap td, .ab-custom-td1-wrap tr>td:first-child {white-space: normal !important; overflow-wrap: break-word;}
-.ab-custom-td-0 td, .ab-custom-td1-0 tr>td:first-child {width: 0px !important;}
-.ab-custom-td-100 td, .ab-custom-td1-100 tr>td:first-child {width: 100px !important;}
-.ab-custom-td-150 td, .ab-custom-td1-150 tr>td:first-child {width: 150px !important;}
-.ab-custom-td-200 td, .ab-custom-td1-200 tr>td:first-child {width: 200px !important;}
-.ab-custom-td-250 td, .ab-custom-td1-250 tr>td:first-child {width: 250px !important;}
-.ab-custom-td-300 td, .ab-custom-td1-300 tr>td:first-child {width: 300px !important;}
-.ab-custom-td-half td, .ab-custom-td1-half tr>td:first-child {width: 50% !important;}
+
+.ab-custom-td-nowrap td, .ab-custom-td1-nowrap tr > td:first-child {
+  white-space: pre !important;
+}
+
+.ab-custom-td-wrap td, .ab-custom-td1-wrap tr > td:first-child {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+}
+
+.ab-custom-td-0 td, .ab-custom-td1-0 tr > td:first-child {
+  width: 0px !important;
+}
+
+.ab-custom-td-100 td, .ab-custom-td1-100 tr > td:first-child {
+  width: 100px !important;
+}
+
+.ab-custom-td-150 td, .ab-custom-td1-150 tr > td:first-child {
+  width: 150px !important;
+}
+
+.ab-custom-td-200 td, .ab-custom-td1-200 tr > td:first-child {
+  width: 200px !important;
+}
+
+.ab-custom-td-250 td, .ab-custom-td1-250 tr > td:first-child {
+  width: 250px !important;
+}
+
+.ab-custom-td-300 td, .ab-custom-td1-300 tr > td:first-child {
+  width: 300px !important;
+}
+
+.ab-custom-td-half td, .ab-custom-td1-half tr > td:first-child {
+  width: 50% !important;
+}
+
 // .ab-super-width {
 //   width: var(--ab-width-outer);
 //   margin-left: calc((100% - var(--ab-width-outer)) / 2);

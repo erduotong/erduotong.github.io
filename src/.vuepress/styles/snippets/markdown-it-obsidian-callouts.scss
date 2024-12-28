@@ -33,17 +33,21 @@
   --callout-warning: 236, 117, 0;
   --callout-quote: 158, 158, 158;
 }
+
 // use obsidian color, and override the default color
 .theme-light {
   --callout-blend-mode: var(darken);
 }
+
 .theme-dark {
   --callout-blend-mode: var(lighten);
 }
+
 // use vuepress color, and override the default color
 html[data-theme="light"] #app {
   --callout-blend-mode: var(darken);
 }
+
 html[data-theme="dark"] #app {
   --callout-blend-mode: var(lighten);
 }
@@ -53,36 +57,36 @@ html[data-theme="dark"] #app {
  *
  * The following style is exactly the same as in obsidian
  */
-.callout{
+.callout {
   overflow: hidden;
+  margin: 1em 0;
+  padding: var(--callout-padding);
+  border-width: var(--callout-border-width);
   border-style: solid;
   border-color: rgba(var(--callout-color), var(--callout-border-opacity));
-  border-width: var(--callout-border-width);
   border-radius: var(--callout-radius);
-  margin: 1em 0;
-  mix-blend-mode: var(--callout-blend-mode);
   background-color: rgba(var(--callout-color), 0.1);
-  padding: var(--callout-padding);
+  mix-blend-mode: var(--callout-blend-mode);
 
   .callout-title {
-    padding: var(--callout-title-padding);
-    display: flex;
-    gap: 4px;
     font-size: var(--callout-title-size);
-    color: rgb(var(--callout-color));
     line-height: var(--line-height-tight);
+    display: flex;
     align-items: flex-start;
+    padding: var(--callout-title-padding);
+    color: rgb(var(--callout-color));
+    gap: 4px;
 
     .callout-icon {
-      flex: 0 0 auto;
       display: flex;
       align-items: center;
+      flex: 0 0 auto;
     }
 
     .callout-title-inner {
-      --font-weight: var(--callout-title-weight);
       font-weight: var(--font-weight);
       color: var(--callout-title-color);
+      --font-weight: var(--callout-title-weight);
     }
   }
 
@@ -94,34 +98,42 @@ html[data-theme="dark"] #app {
 
   --callout-color: var(--callout-default);
   --callout-icon: lucide-pencil;
+
   &[data-callout="todo"] {
     --callout-color: var(--callout-todo);
     --callout-icon: lucide-check-circle-2;
   }
+
   &[data-callout="success"], &[data-callout="check"], &[data-callout="done"] {
     --callout-color: var(--callout-success);
     --callout-icon: lucide-check;
   }
+
   &[data-callout="warning"], &[data-callout="caution"], &[data-callout="attention"] {
     --callout-color: var(--callout-warning);
     --callout-icon: lucide-alert-triangle;
   }
+
   &[data-callout="danger"], &[data-callout="error"] {
     --callout-color: var(--callout-error);
     --callout-icon: lucide-zap;
   }
+
   &[data-callout="tip"], &[data-callout="hint"] {
     --callout-color: var(--callout-tip);
     --callout-icon: lucide-flame;
   }
+
   &callout[data-callout="example"] {
     --callout-color: var(--callout-example);
     --callout-icon: lucide-list;
   }
+
   &[data-callout="abstract"], &[data-callout="summary"], &[data-callout="tldr"] {
     --callout-color: var(--callout-summary);
     --callout-icon: lucide-clipboard-list;
   }
+
   &[data-callout="quote"], &[data-callout="cite"] {
     --callout-color: var(--callout-quote);
     --callout-icon: quote-glyph;
