@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, Ref, ref } from "vue";
-import { getGlobalGraphData } from "../GetGlobalGraphData.js";
-import { MapNodeLink } from "../../types/index.js";
+import {computed, onMounted, Ref, ref} from "vue";
+import {showGlobalGraph, useGlobalGraph} from "../useGlobalGraph.js";
+import {MapNodeLink} from "../../types/index.js";
 
 declare const __VUEPRESS_DEV__: boolean;
 const options = computed(() => {
@@ -11,28 +11,28 @@ const options = computed(() => {
 });
 const data: Ref<MapNodeLink | null> = ref(null);
 onMounted(async () => {
-  data.value = await getGlobalGraphData(options.value.isDev);
-  console.log(data.value);
+  data.value = await useGlobalGraph(options.value.isDev);
 });
 </script>
 
 <template>
+  {{showGlobalGraph}}
   <div id="globalGraphMask">
     <div id="globalGraphContainer">
       <button class="fullscreen-map-button">
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
         </svg>
       </button>

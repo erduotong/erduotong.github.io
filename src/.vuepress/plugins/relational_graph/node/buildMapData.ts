@@ -2,7 +2,7 @@ import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem,} from 
 import {fs, path} from "vuepress/utils"
 import {App} from "vuepress/core";
 import {options} from "./index.js";
-import {graphDataName} from "../client/GetGlobalGraphData.js";
+import {graphDataName} from "../client/useGlobalGraph.js";
 
 export const bioChainMap: Record<string, BioChainMapItem> = {};
 let max_deep = 5;
