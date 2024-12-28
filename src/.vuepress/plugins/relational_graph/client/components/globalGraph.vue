@@ -212,6 +212,7 @@ const handleNodeClick = (path: string) => {
           :canvas-width="canvasSize.width"
           :canvas-height="canvasSize.height"
           :current-path="router.currentRoute.value.path"
+          :simulation-timeout="2000"
           @node-click="handleNodeClick"
       ></relation-graph>
     </div>
