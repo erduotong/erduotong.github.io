@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import * as d3 from "d3";
 import {computed, onMounted, onUnmounted, ref, watch} from "vue";
 import type {CanvasSize, Link, MapNodeLink, MousePosition, Node,} from "../../types";
@@ -10,30 +10,11 @@ const emit = defineEmits<{
 
 // 用于存储模拟程序的引用
 let simulation: d3.Simulation<Node, Link> | null = null;
-let simulationTimer: number | null = null;
 
 // 重启模拟程序的方法
 const restartSimulation = (): void => {
   if (simulation) {
     simulation.alpha(0.3).restart();
-    resetSimulationTimer();
-  }
-};
-
-// 重置计时器的方法
-const resetSimulationTimer = (): void => {
-  if (props.simulationTimeout && simulation) {
-    if (simulationTimer) {
-      window.clearTimeout(simulationTimer);
-    }
-    if (!props.simulationTimeout) {
-      return;
-    }
-    simulationTimer = window.setTimeout(() => {
-      if (simulation) {
-        simulation.stop();
-      }
-    }, props.simulationTimeout);
   }
 };
 
@@ -169,7 +150,6 @@ const props = defineProps<{
   currentPath?: string;
   canvasWidth: number;
   canvasHeight: number;
-  simulationTimeout?: number;
 }>();
 
 const canvasSize = computed<CanvasSize>(() => ({
@@ -198,6 +178,7 @@ const themeColors = ref({
 
 // 修改获取主题色函数
 function initThemeColors(): void {
+
   const root = getComputedStyle(document.documentElement);
 
   // 获取accent颜色
@@ -254,7 +235,7 @@ onMounted(() => {
 
     if (shouldUpdate) {
       initThemeColors();
-      // 触��重绘
+      // 触发重绘
       if (simulation) {
         ticked();
       }
@@ -374,15 +355,6 @@ onMounted(() => {
   // 设置事件监听
   setupEventListeners();
 
-  // 如果设置了超时时间，启动计时器
-  if (props.simulationTimeout) {
-    simulationTimer = window.setTimeout(() => {
-      if (simulation) {
-        simulation.stop();
-      }
-    }, props.simulationTimeout);
-  }
-
   // 力导图初始化
   function initializeSimulation(): d3.Simulation<Node, Link> {
     // 标记孤立节点
@@ -437,7 +409,7 @@ onMounted(() => {
     return window.simulation;
   }
 
-  // 事件处理数
+  // 事件处理��数
   function filterZoomEvent(
       event: d3.D3ZoomEvent<HTMLCanvasElement, unknown>
   ): boolean {
@@ -502,8 +474,6 @@ onMounted(() => {
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseup", onMouseUp);
       }
-      // 重置计时器
-      resetSimulationTimer();
     }
   }
 
@@ -532,7 +502,6 @@ onMounted(() => {
       }
       event.preventDefault();
     }
-    resetSimulationTimer();
   }
 
   // 处理鼠标松开事件
@@ -558,7 +527,8 @@ onMounted(() => {
     }
   }
 
-  // 获取边界内的位置
+
+// 获取边界内的位置
   function getBoundedPosition(x, y) {
     // 计算边界范围
     const bounds = {
@@ -590,7 +560,7 @@ onMounted(() => {
   }
 
   // 渲染相关函数
-  // 每���更新画布内容
+  // 每帧更新画布内容
   function ticked() {
     context.clearRect(0, 0, canvasSize.value.width, canvasSize.value.height);
     context.save();
@@ -653,8 +623,6 @@ onMounted(() => {
           emit("nodeClick", clickedNode.value.path);
         }
       }
-      // 重置计时器
-      resetSimulationTimer();
     }
 
     isDragging = false;
@@ -821,6 +789,7 @@ onMounted(() => {
         // 如果有悬停节点，调整透明度
         if (hoveredNode) {
           if (node === hoveredNode || connectedNodes.has(node)) {
+
           } else {
             opacity = opacity * STYLE_CONFIG.node.normalOpacity; // 降低非相关节点的文字透明度
           }
@@ -839,6 +808,8 @@ onMounted(() => {
       }
     });
   }
+
+
 });
 declare global {
   // @ts-ignore
@@ -861,16 +832,12 @@ watch(
             .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
             .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2));
         window.simulation.alpha(0.2).restart();
-        resetSimulationTimer();
       }
     }
 );
 
 // 添加组件卸载时的清理
 onUnmounted((): void => {
-  if (simulationTimer) {
-    window.clearTimeout(simulationTimer);
-  }
   if (simulation) {
     simulation.stop();
   }
@@ -897,22 +864,22 @@ watch(
 <template>
   <canvas
       ref="canvasRef"
+      :width="canvasSize.width"
       :height="canvasSize.height"
       :style="{
       width: canvasSize.width + 'px',
       height: canvasSize.height + 'px',
     }"
-      :width="canvasSize.width"
   ></canvas>
 </template>
 
 <style scoped>
 canvas {
+  border: 1px solid rgb(60, 60, 67);
+  margin: 0;
+  border-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;
-  margin: 0;
-  border: 1px solid rgb(60, 60, 67);
-  border-radius: 5px;
 }
 </style>

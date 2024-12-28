@@ -7,12 +7,11 @@ import {useRouter, withBase} from "vuepress/client";
 
 declare const __VUEPRESS_DEV__: boolean;
 declare const __RELATIONAL_GRAPH_GRAPH_PATH: { target: string };
-declare const __RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT: number;
 const options = computed(() => {
   return {
     isDev: __VUEPRESS_DEV__,
     graphPath: __RELATIONAL_GRAPH_GRAPH_PATH,
-    globalGraphTimeout: __RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT || null,
+
   };
 });
 const first_loaded = ref(false);
@@ -214,7 +213,6 @@ const handleNodeClick = (path: string) => {
           :canvas-width="canvasSize.width"
           :current-path="router.currentRoute.value.path"
           :data="data"
-          :simulation-timeout="__RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT"
           @node-click="handleNodeClick"
       ></relation-graph>
     </div>
