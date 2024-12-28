@@ -221,7 +221,7 @@ onMounted(() => {
     }
   });
 
-  // 观察 html 元素的 style 属性���化
+  // 观察 html 元素的 style 属性化
   observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["style", "class", "data-theme"],
@@ -705,19 +705,39 @@ onMounted(() => {
     context.font = STYLE_CONFIG.text.font;
     const { text } = getThemeColors();
 
+    // 获取与悬停节点相连的节点集合
+    const connectedNodes = new Set<Node>();
+    if (hoveredNode) {
+      map_data.links.forEach((link) => {
+        if (link.source === hoveredNode) {
+          connectedNodes.add(link.target as Node);
+        }
+        if (link.target === hoveredNode) {
+          connectedNodes.add(link.source as Node);
+        }
+      });
+    }
+
     map_data.nodes.forEach((node) => {
       let shouldDrawText = false;
       let opacity = 1;
 
-      if (node === hoveredNode) {
-        shouldDrawText = true;
-      } else if (transform.k > STYLE_CONFIG.text.minScale) {
+      if (transform.k > STYLE_CONFIG.text.minScale) {
         shouldDrawText = true;
         opacity = Math.min(
           (transform.k - STYLE_CONFIG.text.minScale) /
             (STYLE_CONFIG.text.maxScale - STYLE_CONFIG.text.minScale),
           1
         );
+
+        // 如果有悬停节点，调整透明度
+        if (hoveredNode) {
+          if (node === hoveredNode || connectedNodes.has(node)) {
+            opacity = opacity; // 保持原有透明度
+          } else {
+            opacity = opacity * STYLE_CONFIG.node.normalOpacity; // 降低非相关节点的文字透明度
+          }
+        }
       }
 
       if (shouldDrawText) {
