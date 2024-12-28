@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {computed, nextTick, Ref, ref, watch} from "vue";
 import {getGlobalGraph, showGlobalGraph} from "../useGlobalGraph.js";
 import {CanvasSize, MapNodeLink} from "../../types/index.js";
@@ -7,10 +7,12 @@ import {useRouter, withBase} from "vuepress/client";
 
 declare const __VUEPRESS_DEV__: boolean;
 declare const __RELATIONAL_GRAPH_GRAPH_PATH: { target: string };
+declare const __RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT: number;
 const options = computed(() => {
   return {
     isDev: __VUEPRESS_DEV__,
     graphPath: __RELATIONAL_GRAPH_GRAPH_PATH,
+    globalGraphTimeout: __RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT || null,
   };
 });
 const first_loaded = ref(false);
@@ -36,7 +38,7 @@ async function getGlobalGraphData() {
 
   try {
     is_loading = true;
-    data.value = await getGlobalGraph(options.value.isDev, withBase,options.value.graphPath);
+    data.value = await getGlobalGraph(options.value.isDev, withBase, options.value.graphPath);
   } finally {
     is_loading = false;
     first_loaded.value = true;
@@ -125,18 +127,18 @@ const handleNodeClick = (path: string) => {
 
 <template>
   <div
-      id="globalGraphMask"
       v-if="showGlobalGraph"
+      id="globalGraphMask"
       @click.self="showGlobalGraph = false"
   >
     <div id="globalGraphContainer" ref="containerRef">
       <button class="fullscreen-map-button" @click="showGlobalGraph = false">
         <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
             fill="none"
+            height="24"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
             xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -169,11 +171,11 @@ const handleNodeClick = (path: string) => {
       <div v-else-if="hasError" class="error-container">
         <svg
             class="error-icon"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
             fill="none"
+            height="48"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="48"
             xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -206,13 +208,13 @@ const handleNodeClick = (path: string) => {
       </div>
 
       <relation-graph
-          ref="graphRef"
           v-if="data"
-          :data="data"
-          :canvas-width="canvasSize.width"
+          ref="graphRef"
           :canvas-height="canvasSize.height"
+          :canvas-width="canvasSize.width"
           :current-path="router.currentRoute.value.path"
-          :simulation-timeout="2000"
+          :data="data"
+          :simulation-timeout="__RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT"
           @node-click="handleNodeClick"
       ></relation-graph>
     </div>
@@ -222,25 +224,25 @@ const handleNodeClick = (path: string) => {
 <style scoped>
 .fullscreen-map-button {
   position: absolute;
+  z-index: 10;
   top: 8px;
   right: 8px;
-  width: 32px;
-  height: 32px;
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
   padding: 0;
+  cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 10;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
 }
 
 .fullscreen-map-button:hover {
-  background: var(--vp-c-bg-soft);
   transform: scale(1.05);
+  background: var(--vp-c-bg-soft);
 }
 
 .fullscreen-map-button svg {
@@ -255,46 +257,46 @@ const handleNodeClick = (path: string) => {
 
 #globalGraphMask {
   position: fixed;
+  z-index: 1000;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 }
 
 #globalGraphContainer {
   position: fixed;
+  z-index: 1001;
   top: 10%;
   left: 10%;
-  width: 80%;
-  height: 80%;
-  background-color: var(--vp-c-bg);
-  z-index: 1001;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+  background-color: var(--vp-c-bg);
 }
 
 .loading-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 16px;
   color: var(--vp-c-text-1);
+  gap: 16px;
 }
 
 .loading-spinner {
   display: inline-block;
   width: 40px;
   height: 40px;
+  animation: loading-spin 0.8s linear infinite;
   border: 4px solid transparent;
-  border-radius: 50%;
   border-top-color: var(--vp-c-brand);
   border-right-color: var(--vp-c-brand);
-  animation: loading-spin 0.8s linear infinite;
+  border-radius: 50%;
 }
 
 @keyframes loading-spin {
@@ -308,11 +310,11 @@ const handleNodeClick = (path: string) => {
 
 .error-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 16px;
   color: var(--vp-c-text-1);
+  gap: 16px;
 }
 
 .error-text {
@@ -323,17 +325,17 @@ const handleNodeClick = (path: string) => {
 
 .retry-button {
   padding: 8px 16px;
-  background: var(--vp-c-bg);
+  cursor: pointer;
+  transition: all 0.2s;
   color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-accent);
   border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s;
+  background: var(--vp-c-bg);
 }
 
 .retry-button:hover {
-  background: var(--vp-c-bg-soft);
   transform: scale(1.05);
+  background: var(--vp-c-bg-soft);
 }
 
 .error-icon {

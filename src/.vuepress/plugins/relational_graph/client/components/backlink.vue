@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import { usePageData, useRouter, withBase } from "vuepress/client";
-import { computed } from "vue";
-import type { BioChainData } from "../../types";
+<script lang="ts" setup>
+import {usePageData, withBase} from "vuepress/client";
+import {computed} from "vue";
+import type {BioChainData} from "../../types";
 
 const data = usePageData();
 const biodata = data.value?.bioChainData as BioChainData | undefined;
@@ -32,9 +32,9 @@ const tot_link = computed(() => {
 
 <style scoped>
 .backlink-container {
+  margin: 20px 50px;
   padding: 10px;
   border-top: 1px solid #ddd;
-  margin: 20px 50px;
 }
 
 .backlink-header {

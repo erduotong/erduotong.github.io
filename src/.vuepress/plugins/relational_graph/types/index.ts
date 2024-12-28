@@ -74,6 +74,7 @@ export interface MousePosition {
 
 export type Page = vp.Page;
 export type titleGetter = (page: Page) => string;
+
 export interface RelationalGraphConfig {
     localGraphDeep?: number; // 局部关系图谱的深度（以当前页面为中心） 默认为5
     foldEmptyGraph?: boolean; // 是否折叠空的关系图谱（只有一个节点） 默认为false
@@ -82,4 +83,5 @@ export interface RelationalGraphConfig {
     enableGlobalGraph?: boolean; // 是否启用全局关系图谱 默认为true
     enableLocalGraph?: boolean; // 是否启用局部关系图谱 默认为true
     titleGetter?: titleGetter; // 标题获取器 需要返回页面的标题 默认为 page的title，如果不存在就用path
+    globalGraphTimeout?: number; // 全局关系图谱的最大刷新时间 单位: ms
 }

@@ -7,7 +7,7 @@ export default (md) => {
         // 在渲染之前对文本进行预处理
         const processedSrc = src.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, p1, p2) => {
             // 替换链接中的空格为 %20
-            const newLink = p2.replace(/ /g, '%20');
+            const newLink = p2.replace(/ /g, "%20");
             return `[${p1}](${newLink})`;
         });
 

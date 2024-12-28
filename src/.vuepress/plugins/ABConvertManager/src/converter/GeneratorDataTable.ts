@@ -1,5 +1,4 @@
 /// 这个估计本来是想做可排序可筛选的数据表格
-import {ABConvertManager} from "../ABConvertManager"
 /*
 import type {List_TableInfo} from "src/ab_converter/converter/listProcess"
 

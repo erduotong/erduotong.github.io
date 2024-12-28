@@ -1,9 +1,9 @@
-<script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
-import { usePageData, useRouter, withBase } from "vuepress/client";
+<script lang="ts" setup>
+import {computed, nextTick, onMounted, onUnmounted, ref, watch} from "vue";
+import {usePageData, useRouter, withBase} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-import type { CanvasSize, MapNodeLink } from "../../types";
-import { showGlobalGraph } from "../useGlobalGraph.js";
+import type {CanvasSize, MapNodeLink} from "../../types";
+import {showGlobalGraph} from "../useGlobalGraph.js";
 
 declare const __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH: boolean;
 declare const __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP: number;
@@ -66,25 +66,25 @@ function updateContainerWidth() {
     const parentRect = parentElement.getBoundingClientRect();
     const parentStyle = window.getComputedStyle(parentElement);
     const parentPadding =
-      parseFloat(parentStyle.paddingLeft) +
-      parseFloat(parentStyle.paddingRight);
+        parseFloat(parentStyle.paddingLeft) +
+        parseFloat(parentStyle.paddingRight);
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
       if (options.value.graphSize.maxWidth) {
         containerWidth.value = Math.min(
-          options.value.graphSize.maxWidth,
-          document.documentElement.clientWidth - parentRect.left - 40
+            options.value.graphSize.maxWidth,
+            document.documentElement.clientWidth - parentRect.left - 40
         );
       } else {
         containerWidth.value =
-          document.documentElement.clientWidth - parentRect.left - 40;
+            document.documentElement.clientWidth - parentRect.left - 40;
       }
     } else {
       // 小屏幕时考虑父元素的内边距
       containerWidth.value = Math.max(
-        300,
-        parentRect.width - parentPadding - 20
+          300,
+          parentRect.width - parentPadding - 20
       );
     }
 
@@ -219,22 +219,21 @@ watch(isLocalGraphFullScreen, (value) => {
 </script>
 
 <template>
-  <div class="relationship-map" v-if="shouldFoldEmptyGraph">
+  <div v-if="shouldFoldEmptyGraph" class="relationship-map">
     <button
-      v-if="!isLargeScreen"
-      class="relationship-map__toggle-btn"
-      @click="toggleExpand"
+        v-if="!isLargeScreen"
+        class="relationship-map__toggle-btn"
+        @click="toggleExpand"
     >
       查看关系图谱
       {{ isExpanded ? "▼" : "▶" }}
     </button>
     <div
-      ref="containerRef"
-      class="relationship-map__container"
-      :class="{
+        ref="containerRef"
+        :class="{
         'relationship-map__container--expanded': isExpanded || isLargeScreen,
       }"
-      :style="
+        :style="
         isLargeScreen
           ? {
               width: containerWidth + 'px',
@@ -242,43 +241,44 @@ watch(isLocalGraphFullScreen, (value) => {
             }
           : ''
       "
+        class="relationship-map__container"
     >
       <button
-        class="relationship-map__btn relationship-map__btn--fullscreen"
-        @click="isLocalGraphFullScreen = true"
+          class="relationship-map__btn relationship-map__btn--fullscreen"
+          @click="isLocalGraphFullScreen = true"
       >
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="24"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
         </svg>
       </button>
       <button
-        class="relationship-map__btn relationship-map__btn--global"
-        @click="showGlobalGraph = true"
-        v-if="options.enableGlobalGraph"
+          v-if="options.enableGlobalGraph"
+          class="relationship-map__btn relationship-map__btn--global"
+          @click="showGlobalGraph = true"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="svg-icon lucide-git-fork"
+            class="svg-icon lucide-git-fork"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <circle cx="12" cy="18" r="3"></circle>
           <circle cx="6" cy="6" r="3"></circle>
@@ -289,65 +289,65 @@ watch(isLocalGraphFullScreen, (value) => {
       </button>
 
       <relation-graph
-        ref="graphRef"
-        :canvas-height="canvasSize.height"
-        :canvas-width="canvasSize.width"
-        :current-path="router.currentRoute.value.path"
-        :data="map_data"
-        @node-click="handleNodeClick"
-        v-if="!isLocalGraphFullScreen"
+          v-if="!isLocalGraphFullScreen"
+          ref="graphRef"
+          :canvas-height="canvasSize.height"
+          :canvas-width="canvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
       ></relation-graph>
     </div>
   </div>
 
   <div
-    class="relationship-map-fullscreen"
-    @click.self="isLocalGraphFullScreen = false"
-    v-if="isLocalGraphFullScreen"
+      v-if="isLocalGraphFullScreen"
+      class="relationship-map-fullscreen"
+      @click.self="isLocalGraphFullScreen = false"
   >
     <div
-      class="relationship-map-fullscreen__container"
-      ref="fullscreenContainerRef"
+        ref="fullscreenContainerRef"
+        class="relationship-map-fullscreen__container"
     >
       <button
-        @click="isLocalGraphFullScreen = false"
-        class="relationship-map__btn relationship-map__btn--close"
+          class="relationship-map__btn relationship-map__btn--close"
+          @click="isLocalGraphFullScreen = false"
       >
         <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="24"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
           <path
-            d="M15 16L9 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M15 16L9 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
           <path
-            d="M9 16L15 8"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+              d="M9 16L15 8"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
           />
         </svg>
       </button>
       <relation-graph
-        ref="fullscreenGraphRef"
-        :canvas-height="fullscreenCanvasSize.height"
-        :canvas-width="fullscreenCanvasSize.width"
-        :current-path="router.currentRoute.value.path"
-        :data="map_data"
-        @node-click="handleNodeClick"
+          ref="fullscreenGraphRef"
+          :canvas-height="fullscreenCanvasSize.height"
+          :canvas-width="fullscreenCanvasSize.width"
+          :current-path="router.currentRoute.value.path"
+          :data="map_data"
+          @node-click="handleNodeClick"
       ></relation-graph>
     </div>
   </div>
@@ -361,45 +361,45 @@ watch(isLocalGraphFullScreen, (value) => {
 
 /* 切换按钮样式 */
 .relationship-map__toggle-btn {
+  font-size: 14px;
+  font-weight: 600;
   display: block;
   width: 100%;
-  background: var(--vp-c-bg-mute);
+  margin-bottom: 8px;
+  padding: 8px 8px 8px 16px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
-  color: var(--vp-c-text-1);
-  cursor: pointer;
-  font-size: 14px;
-  margin-bottom: 8px;
-  text-align: left;
-  padding: 8px 8px 8px 16px;
-  font-weight: 600;
+  background: var(--vp-c-bg-mute);
 }
 
 /* 图谱容器样式 */
 .relationship-map__container {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
 /* 按钮基础样式 */
 .relationship-map__btn {
   position: absolute;
+  z-index: 2;
   top: 8px;
-  width: 24px;
-  height: 32px;
-  background: transparent;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 32px;
   padding: 0;
+  cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 2;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: transparent;
 }
 
 .relationship-map__btn svg {
@@ -409,8 +409,8 @@ watch(isLocalGraphFullScreen, (value) => {
 }
 
 .relationship-map__btn:hover {
-  background: var(--vp-c-bg-soft);
   transform: scale(1.05);
+  background: var(--vp-c-bg-soft);
 }
 
 .relationship-map__btn:hover svg {
@@ -434,36 +434,36 @@ watch(isLocalGraphFullScreen, (value) => {
 /* 全屏模式样式 */
 .relationship-map-fullscreen {
   position: fixed;
+  z-index: 1000;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 }
 
 .relationship-map-fullscreen__container {
   position: fixed;
+  z-index: 1001;
   top: 10%;
   left: 10%;
-  width: 80%;
-  height: 80%;
-  background-color: var(--vp-c-bg);
-  z-index: 1001;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+  background-color: var(--vp-c-bg);
 }
 
 /* 响应式样式 */
 @media (max-width: 1439px) {
   .relationship-map__container {
+    overflow: hidden;
     width: 100%;
     height: 0;
-    overflow: hidden;
-    opacity: 0;
     padding: 2px;
+    opacity: 0;
   }
 
   .relationship-map__container--expanded {

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {Layout} from "vuepress-theme-hope/client/export.js";
 import Backlink from "./backlink.vue";
 import LocalRelationshipMap from "./localRelationshipMap.vue";

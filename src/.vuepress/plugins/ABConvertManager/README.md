@@ -85,25 +85,28 @@ $pnpm install -D any-block-converter-markdown-it@3.1.3-beta11
 
 1. 由于某bug未解决，不支持markmap
 2. 需要在父项目提供jsdom环境：(还要 pnpm install -D jsdom)
+
   ```ts
   import jsdom from "jsdom"
-  const { JSDOM } = jsdom
-  const dom = new JSDOM(`<!DOCTYPE html><html><body></body></html>`, {
+
+const {JSDOM} = jsdom
+const dom = new JSDOM(`<!DOCTYPE html><html><body></body></html>`, {
     url: 'http://localhost/', // @warn 若缺少该行，则在mdit+build环境下，编译报错
-  });
-  // @ts-ignore 不能将类型“DOMWindow”分配给类型“Window & typeof globalThis”
-  global.window = dom.window
-  global.history = dom.window.history // @warn 若缺少该行，则在mdit+build环境下，编译报错：ReferenceError: history is not defined
-  global.document = dom.window.document
-  global.NodeList = dom.window.NodeList
-  global.HTMLElement = dom.window.HTMLElement
-  global.HTMLDivElement = dom.window.HTMLDivElement
-  global.HTMLPreElement = dom.window.HTMLPreElement
-  global.HTMLQuoteElement = dom.window.HTMLQuoteElement
-  global.HTMLTableElement = dom.window.HTMLTableElement
-  global.HTMLUListElement = dom.window.HTMLUListElement
-  global.HTMLScriptElement = dom.window.HTMLScriptElement
-  dom.window.scrollTo = ()=>{} // @warn 若缺少该行，编译警告：Error: Not implemented: window.scrollTo
+});
+// @ts-ignore 不能将类型“DOMWindow”分配给类型“Window & typeof globalThis”
+global.window = dom.window
+global.history = dom.window.history // @warn 若缺少该行，则在mdit+build环境下，编译报错：ReferenceError: history is not defined
+global.document = dom.window.document
+global.NodeList = dom.window.NodeList
+global.HTMLElement = dom.window.HTMLElement
+global.HTMLDivElement = dom.window.HTMLDivElement
+global.HTMLPreElement = dom.window.HTMLPreElement
+global.HTMLQuoteElement = dom.window.HTMLQuoteElement
+global.HTMLTableElement = dom.window.HTMLTableElement
+global.HTMLUListElement = dom.window.HTMLUListElement
+global.HTMLScriptElement = dom.window.HTMLScriptElement
+dom.window.scrollTo = () => {
+} // @warn 若缺少该行，编译警告：Error: Not implemented: window.scrollTo
   ```
 
 ## 开发/设计/架构补充
@@ -177,21 +180,21 @@ $ npm publish  # 上传 (注意不要重名、npm账号可能需要邮箱验证)
 这里从源码版迁移到npm版踩了很多坑：
 
 - 源码使用
-  - 就是一开始的做法
-  - 相关文件: 无
-  - 使用结果: 成功
+    - 就是一开始的做法
+    - 相关文件: 无
+    - 使用结果: 成功
 - build_tsc
-  - 使用结果: 成功，但上传npm后失败
-  - NPM使用结果：[ERR_MODULE_NOT_FOUND]
+    - 使用结果: 成功，但上传npm后失败
+    - NPM使用结果：[ERR_MODULE_NOT_FOUND]
 - build_tsup
-  - 使用结果: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'markdown-it' imported from ...
+    - 使用结果: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'markdown-it' imported from ...
 - build_vite
-  - 参考: https://github.com/ebullient/markdown-it-obsidian-callouts/
-  - 相关文件: package.json、tsconfig.json、vite.config.ts
-  - 构建结果: 成功
-  - 使用结果: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'markdown-it' imported from ...
-    安装mdit后：TypeError: Cannot read properties of undefined (reading 'prototype')
-  - NPM使用结果：TypeError: Cannot read properties of undefined (reading 'prototype')
+    - 参考: https://github.com/ebullient/markdown-it-obsidian-callouts/
+    - 相关文件: package.json、tsconfig.json、vite.config.ts
+    - 构建结果: 成功
+    - 使用结果: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'markdown-it' imported from ...
+      安装mdit后：TypeError: Cannot read properties of undefined (reading 'prototype')
+    - NPM使用结果：TypeError: Cannot read properties of undefined (reading 'prototype')
 - build_rollup
 
 解决：
@@ -241,7 +244,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find module
 
 1. 手动添加.js扩展名
 2. 设置别名，
-   tsconfig.json: 
+   tsconfig.json:
    ```json
    "paths": {
       "@theme-hope/*": ["./src/client/*.js"]

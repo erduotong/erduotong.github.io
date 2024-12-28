@@ -8,7 +8,5 @@ export default defineClientConfig({
     },
     setup() {
     },
-    rootComponents: [
-
-    ],
+    rootComponents: [],
 });
