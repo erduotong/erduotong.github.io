@@ -14,11 +14,12 @@ export const showGlobalGraph = ref(false);
  */
 export async function getGlobalGraph(
   isDev: boolean,
-  withBaseFunc: Function
+  withBaseFunc: Function,
+  graphPath: { target: string } = { target: "" }
 ): Promise<MapNodeLink | null> {
   try {
     if (isDev) {
-      const module = await import(/* @vite-ignore */ `/@temp/${graphDataName}`);
+      const module = await import(/* @vite-ignore */ `/${graphPath.target}`);
       return module?.default || null;
     } else {
       const response = await fetch(withBaseFunc(`${graphDataName}`));

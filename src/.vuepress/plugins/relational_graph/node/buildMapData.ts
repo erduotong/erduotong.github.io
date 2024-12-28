@@ -1,5 +1,5 @@
 import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem,} from "../types/index.js";
-import {fs, path} from "vuepress/utils"
+import {fs, path} from "vuepress/utils";
 import {App} from "vuepress/core";
 import {options} from "./index.js";
 import {graphDataName} from "../client/useGlobalGraph.js";
@@ -199,14 +199,17 @@ export async function writeGlobalGraph(app: App): Promise<void> {
     const globalMap = buildGlobalMap();
     const location = app.dir.dest(graphDataName);
     await fs.ensureDir(path.dirname(location));
-    await fs.writeFile(location,JSON.stringify(globalMap), 'utf-8');
-    console.log("GlobalRelationalGraph.json has been written to " + location);
+    await fs.writeFile(location, JSON.stringify(globalMap), "utf-8");
 }
 
-export function writeTempGlobalGraph(app: App) {
+export function writeTempGlobalGraph(app: App): string {
     const globalMap = buildGlobalMap();
     const location = app.dir.temp(graphDataName);
     fs.ensureDirSync(path.dirname(location));
-    fs.writeFileSync(location, JSON.stringify(globalMap), 'utf-8');
+    fs.writeFileSync(location, JSON.stringify(globalMap), "utf-8");
 
+// 计算出路径 后面导入用
+    const projectRoot = app.dir.source();
+
+    return path.relative(projectRoot, location);
 }

@@ -221,7 +221,7 @@ onMounted(() => {
     }
   });
 
-  // 观察 html 元素的 style 属性变化
+  // 观察 html 元素的 style 属性���化
   observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["style", "class", "data-theme"],
@@ -305,7 +305,7 @@ onMounted(() => {
       .forceSimulation<Node>(map_data.nodes)
       .force("link", FORCE_CONFIG.link.links(map_data.links))
       .force("charge", FORCE_CONFIG.charge)
-      .force("collision", FORCE_CONFIG.collision) // 添加碰撞力
+      .force("collision", FORCE_CONFIG.collision)
       .force("center", centerForce)
       .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
       .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2))
@@ -315,6 +315,13 @@ onMounted(() => {
       .on("tick", () => {
         // 应用孤立节点的力
         map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
+
+        // 添加阻尼效果和平滑过渡
+        map_data.nodes.forEach((node) => {
+          node.x += (node.x - node.x) * 0.1;
+          node.y += (node.y - node.y) * 0.1;
+        });
+
         ticked();
       });
 
