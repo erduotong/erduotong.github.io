@@ -38,6 +38,7 @@ const CANVAS_CONFIG = {
   zoomExtent: [0.1, 10],
   nodeClickRadius: 15,
   hoverNodeRadius: 8,
+  isolatedCircleRadius: 100, // 孤立节点圆形边界的半径基数
 } as const;
 
 // 力导向图配置
@@ -45,13 +46,71 @@ const FORCE_CONFIG = {
   link: d3
     .forceLink<Node, Link>()
     .id((d: Node) => d.id)
-    .distance(70)
-    .strength(0.2),
+    .distance(80)
+    .strength(0.5),
   charge: d3
     .forceManyBody<Node>()
-    .strength(-80)
-    .distanceMin(20)
-    .distanceMax(120),
+    .strength((d: Node) => (d.isIsolated ? -100 : -150))
+    .distanceMin(60)
+    .distanceMax(250),
+  collision: d3
+    .forceCollide<Node>()
+    .radius(30) // 设置碰撞半径
+    .strength(1), // 设置碰撞力的强度为最大
+  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
+  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
+  // 添加孤立节点的力
+  isolatedForce: (node: Node) => {
+    if (!node.isIsolated) return;
+
+    const dx = node.x! - canvasSize.value.width / 2;
+    const dy = node.y! - canvasSize.value.height / 2;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const isolatedNodesCount = map_data.nodes.filter(
+      (n) => n.isIsolated
+    ).length;
+    const targetRadius = Math.min(
+      Math.max(
+        Math.sqrt(isolatedNodesCount) * CANVAS_CONFIG.isolatedCircleRadius,
+        100
+      ),
+      Math.min(canvasSize.value.width, canvasSize.value.height) / 3
+    );
+
+    // 计算当前节点周围的拥挤程度
+    const crowdingFactor = map_data.nodes
+      .filter((n) => n.isIsolated)
+      .reduce((acc, other) => {
+        const dx2 = other.x! - node.x!;
+        const dy2 = other.y! - node.y!;
+        const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+        if (dist < targetRadius * 0.2) {
+          // 只考虑较近的节点
+          return acc + 1 / (dist + 1);
+        }
+        return acc;
+      }, 0);
+
+    // 基础向外力，减小力的强度
+    const outwardForce = 0.08;
+
+    if (distance < targetRadius * 0.9) {
+      // 在内圈时，主要受到向外的力
+      const force = outwardForce * (1 + crowdingFactor * 0.1);
+      node.vx! += (dx / distance) * force;
+      node.vy! += (dy / distance) * force;
+    } else if (distance > targetRadius) {
+      // 超出目标半径时，将节点拉回
+      const scale = (targetRadius - distance) / distance;
+      node.vx! += dx * scale * 0.08;
+      node.vy! += dy * scale * 0.08;
+    } else if (crowdingFactor > 2) {
+      // 在边缘但很拥挤时，给予一个向内的力
+      const inwardForce = 0.04 * (crowdingFactor - 2);
+      node.vx! -= (dx / distance) * inwardForce;
+      node.vy! -= (dy / distance) * inwardForce;
+    }
+  },
 } as const;
 
 // 样式配置
@@ -78,10 +137,10 @@ const STYLE_CONFIG = {
 
 // 添加路径匹配工具函数
 function isPathMatch(routePath: string, nodePath: string): boolean {
-  // 1. 解码 URL 编码的字符
+  // 1. 码 URL 编码的字符
   const decodedRoutePath = decodeURIComponent(routePath);
 
-  // 2. 移除两个路径的后缀（.html �� .md 等）
+  // 2. 移除两个路径的后缀（.html  .md 等）
   const cleanRoutePath = decodedRoutePath.replace(/\.[^/.]+$/, "");
   const cleanNodePath = nodePath.replace(/\.[^/.]+$/, "");
 
@@ -217,20 +276,47 @@ onMounted(() => {
 
   // 力导图初始化
   function initializeSimulation(): d3.Simulation<Node, Link> {
+    // 标记孤立节点
+    map_data.nodes.forEach((node) => {
+      node.isIsolated = !map_data.links.some(
+        (link) =>
+          (typeof link.source === "string"
+            ? link.source === node.id
+            : link.source === node) ||
+          (typeof link.target === "string"
+            ? link.target === node.id
+            : link.target === node)
+      );
+
+      // 设置节点的初始位置在画布中心
+      node.x = canvasSize.value.width / 2;
+      node.y = canvasSize.value.height / 2;
+    });
+
     // 创建一个 center force
     const centerForce = d3
       .forceCenter<Node>(
         canvasSize.value.width / 2,
         canvasSize.value.height / 2
       )
-      .strength(0.005);
+      .strength(0.001);
 
     window.simulation = d3
       .forceSimulation<Node>(map_data.nodes)
       .force("link", FORCE_CONFIG.link.links(map_data.links))
       .force("charge", FORCE_CONFIG.charge)
+      .force("collision", FORCE_CONFIG.collision) // 添加碰撞力
       .force("center", centerForce)
-      .on("tick", ticked);
+      .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
+      .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2))
+      .alphaDecay(0.02)
+      .alphaMin(0.001)
+      .velocityDecay(0.85)
+      .on("tick", () => {
+        // 应用孤立节点的力
+        map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
+        ticked();
+      });
 
     return window.simulation;
   }
@@ -292,7 +378,7 @@ onMounted(() => {
         capture: false,
       };
 
-      // 根据事件���型绑定对应的事件监听器
+      // 根据事件类型绑定对应的事件监听器
       if ((event as TouchEvent).touches) {
         window.addEventListener("touchmove", onMouseMove, touchOptions);
         window.addEventListener("touchend", onMouseUp);
@@ -535,7 +621,7 @@ onMounted(() => {
   function drawNodes(): void {
     const { accent, text } = getThemeColors();
 
-    // 获取与悬停点相连的点
+    // 获与悬停点相连的点
     const connectedNodes = new Set<Node>();
     if (hoveredNode) {
       map_data.links.forEach((link) => {
@@ -548,7 +634,7 @@ onMounted(() => {
       });
     }
 
-    // 先绘普通节点
+    // 先绘制所有普通节点（包括孤立节点）
     context.beginPath();
     map_data.nodes
       .filter((d) => !d.isCurrent && d !== hoveredNode)
@@ -561,7 +647,7 @@ onMounted(() => {
       : STYLE_CONFIG.node.highlightOpacity;
     context.fill();
 
-    // 如果有悬停节点，绘制与其���连的节点
+    // 如果有悬停节点，绘制与其相连的节点
     if (hoveredNode) {
       context.beginPath();
       Array.from(connectedNodes).forEach((d) => {
@@ -583,7 +669,7 @@ onMounted(() => {
       context.fill();
     }
 
-    // 绘制前节点
+    // 绘制当前节点
     const currentNode = map_data.nodes.find((d) => d.isCurrent);
     if (currentNode) {
       context.beginPath();
@@ -639,6 +725,11 @@ onMounted(() => {
       }
     });
   }
+
+  // 添加获取孤立节点数量的函数
+  function getIsolatedNodesCount(): number {
+    return map_data.nodes.filter((node) => node.isIsolated).length;
+  }
 });
 declare global {
   interface Window {
@@ -654,9 +745,12 @@ watch(
           canvasSize.value.width / 2,
           canvasSize.value.height / 2
         )
-        .strength(0.01);
-      window.simulation.force("center", centerForce);
-      window.simulation.alpha(0.3).restart();
+        .strength(0.002);
+      window.simulation
+        .force("center", centerForce)
+        .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
+        .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2));
+      window.simulation.alpha(0.2).restart();
     }
   }
 );
