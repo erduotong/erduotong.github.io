@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import * as d3 from "d3";
 import {computed, onMounted, onUnmounted, ref, watch} from "vue";
 import type {CanvasSize, Link, MapNodeLink, MousePosition, Node,} from "../../types";
@@ -10,30 +10,14 @@ const emit = defineEmits<{
 
 // 用于存储模拟程序的引用
 let simulation: d3.Simulation<Node, Link> | null = null;
-let simulationTimer: number | null = null;
 
 // 重启模拟程序的方法
 const restartSimulation = (): void => {
   if (simulation) {
-    simulation.alpha(0.3).restart();
-    resetSimulationTimer();
-  }
-};
-
-// 重置计时器的方法
-const resetSimulationTimer = (): void => {
-  if (props.simulationTimeout && simulation) {
-    if (simulationTimer) {
-      window.clearTimeout(simulationTimer);
-    }
-    if (!props.simulationTimeout) {
-      return;
-    }
-    simulationTimer = window.setTimeout(() => {
-      if (simulation) {
-        simulation.stop();
-      }
-    }, props.simulationTimeout);
+    simulation
+        .alpha(FORCE_CONFIG.simulation.restart.alpha)
+        .alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget)
+        .restart();
   }
 };
 
@@ -51,7 +35,6 @@ const CANVAS_CONFIG = {
   zoomExtent: [0.1, 10],
   nodeClickRadius: 15,
   hoverNodeRadius: 8,
-  isolatedCircleRadius: 100, // 孤立节点圆形边界的半径基数
 } as const;
 
 // 力导向图配置
@@ -59,70 +42,31 @@ const FORCE_CONFIG = {
   link: d3
       .forceLink<Node, Link>()
       .id((d: Node) => d.id)
-      .distance(80)
-      .strength(0.6),
+      .distance(100) // 调整连接线的距离
+      .strength(0.8), // 调整连接线的强度
   charge: d3
       .forceManyBody<Node>()
-      .strength((d: Node) => (d.isIsolated ? -100 : -150))
-      .distanceMin(60)
-      .distanceMax(250),
+      .strength((d: Node) => (-100)) // 调整电荷力，减少排斥力
+      .distanceMin(50) // 最小距离
+      .distanceMax(300), // 最大距离
   collision: d3
       .forceCollide<Node>()
-      .radius(30) // 设置碰撞半径
-      .strength(1), // 设置碰撞力的强度为最大
-  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
-  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
-  // 添加孤立节点的力
-  isolatedForce: (node: Node) => {
-    if (!node.isIsolated) return;
-
-    const dx = node.x! - canvasSize.value.width / 2;
-    const dy = node.y! - canvasSize.value.height / 2;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const isolatedNodesCount = map_data.nodes.filter(
-        (n) => n.isIsolated
-    ).length;
-    const targetRadius = Math.min(
-        Math.max(
-            Math.sqrt(isolatedNodesCount) * CANVAS_CONFIG.isolatedCircleRadius,
-            100
-        ),
-        Math.min(canvasSize.value.width, canvasSize.value.height) / 3
-    );
-
-    // 计算当前节点周围的拥挤程度
-    const crowdingFactor = map_data.nodes
-        .filter((n) => n.isIsolated)
-        .reduce((acc, other) => {
-          const dx2 = other.x! - node.x!;
-          const dy2 = other.y! - node.y!;
-          const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-          if (dist < targetRadius * 0.2) {
-            // 只考虑较近的节点
-            return acc + 1 / (dist + 1);
-          }
-          return acc;
-        }, 0);
-
-    // 基础向外力，减小力的强度
-    const outwardForce = 0.08;
-
-    if (distance < targetRadius * 0.9) {
-      // 在内圈时，主要受到向外的力
-      const force = outwardForce * (1 + crowdingFactor * 0.1);
-      node.vx! += (dx / distance) * force;
-      node.vy! += (dy / distance) * force;
-    } else if (distance > targetRadius) {
-      // 超出目标半径时，将节点拉回
-      const scale = (targetRadius - distance) / distance;
-      node.vx! += dx * scale * 0.08;
-      node.vy! += dy * scale * 0.08;
-    } else if (crowdingFactor > 2) {
-      // 在边缘但很拥挤时，给予一个向内的力
-      const inwardForce = 0.04 * (crowdingFactor - 2);
-      node.vx! -= (dx / distance) * inwardForce;
-      node.vy! -= (dy / distance) * inwardForce;
-    }
+      .radius(30) // 调整碰撞半径
+      .strength(0.7), // 调整碰撞力的强度
+  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的X轴中心力
+  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的Y轴中心力
+  simulation: {
+    alphaDecay: 0.01, // 增加alphaDecay，使得模拟更快停止
+    alphaMin: 0.001, // 设置alphaMin，避免无限刷新
+    velocityDecay: 0.6, // 调整速度衰减，使得节点移动更平滑
+    restart: {
+      alpha: 1,
+      alphaTarget: 0.3,
+      watchAlpha: 0.3,
+      dataChangeAlpha: 1,
+      dragEndAlphaTarget: 0,
+      dragEndAlpha: 0.3,
+    },
   },
 } as const;
 
@@ -169,7 +113,6 @@ const props = defineProps<{
   currentPath?: string;
   canvasWidth: number;
   canvasHeight: number;
-  simulationTimeout?: number;
 }>();
 
 const canvasSize = computed<CanvasSize>(() => ({
@@ -254,7 +197,7 @@ onMounted(() => {
 
     if (shouldUpdate) {
       initThemeColors();
-      // 触��重绘
+      // 触发重绘
       if (simulation) {
         ticked();
       }
@@ -266,7 +209,7 @@ onMounted(() => {
     attributeFilter: ["style", "class", "data-theme"],
   });
 
-  // 在组件卸载时清理observer
+  // 组件卸载时清理observer
   onUnmounted(() => {
     styleObserver.disconnect();
   });
@@ -374,15 +317,6 @@ onMounted(() => {
   // 设置事件监听
   setupEventListeners();
 
-  // 如果设置了超时时间，启动计时器
-  if (props.simulationTimeout) {
-    simulationTimer = window.setTimeout(() => {
-      if (simulation) {
-        simulation.stop();
-      }
-    }, props.simulationTimeout);
-  }
-
   // 力导图初始化
   function initializeSimulation(): d3.Simulation<Node, Link> {
     // 标记孤立节点
@@ -408,7 +342,7 @@ onMounted(() => {
             canvasSize.value.width / 2,
             canvasSize.value.height / 2
         )
-        .strength(0.001);
+        .strength(0.002);
 
     window.simulation = d3
         .forceSimulation<Node>(map_data.nodes)
@@ -418,19 +352,10 @@ onMounted(() => {
         .force("center", centerForce)
         .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
         .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2))
-        .alphaDecay(0.02)
-        .alphaMin(0.001)
-        .velocityDecay(0.85)
+        .alphaDecay(FORCE_CONFIG.simulation.alphaDecay)
+        .alphaMin(FORCE_CONFIG.simulation.alphaMin)
+        .velocityDecay(FORCE_CONFIG.simulation.velocityDecay)
         .on("tick", () => {
-          // 应用孤立节点的力
-          map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
-
-          // 添加阻尼效果和平滑过渡
-          map_data.nodes.forEach((node) => {
-            node.x += (node.x - node.x) * 0.1;
-            node.y += (node.y - node.y) * 0.1;
-          });
-
           ticked();
         });
 
@@ -487,7 +412,9 @@ onMounted(() => {
       document.body.style.userSelect = "none";
       draggingNode.fx = x;
       draggingNode.fy = y;
-      simulation.alphaTarget(0.3).restart();
+      simulation
+          .alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget)
+          .restart();
 
       const touchOptions: AddEventListenerOptions = {
         passive: false,
@@ -502,8 +429,6 @@ onMounted(() => {
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseup", onMouseUp);
       }
-      // 重置计时器
-      resetSimulationTimer();
     }
   }
 
@@ -528,11 +453,10 @@ onMounted(() => {
         // 获取边界内的位置并更新节点位置
         const boundedPosition = getBoundedPosition(x, y);
         updateDraggingNodePosition(boundedPosition);
-        simulation.alphaTarget(0.3);
+        simulation.alphaTarget(FORCE_CONFIG.simulation.restart.alphaTarget);
       }
       event.preventDefault();
     }
-    resetSimulationTimer();
   }
 
   // 处理鼠标松开事件
@@ -545,7 +469,9 @@ onMounted(() => {
       // 清除悬停节点和拖拽节点
       hoveredNode = null;
       draggingNode = null;
-      simulation.alphaTarget(0).alpha(0.3);
+      simulation
+          .alphaTarget(FORCE_CONFIG.simulation.restart.dragEndAlphaTarget)
+          .alpha(FORCE_CONFIG.simulation.restart.dragEndAlpha);
 
       // 根据事件类型移除对应的事件监听器
       if (event.type === "touchend") {
@@ -590,7 +516,7 @@ onMounted(() => {
   }
 
   // 渲染相关函数
-  // 每���更新画布内容
+  // 每帧更新画布内容
   function ticked() {
     context.clearRect(0, 0, canvasSize.value.width, canvasSize.value.height);
     context.save();
@@ -653,8 +579,6 @@ onMounted(() => {
           emit("nodeClick", clickedNode.value.path);
         }
       }
-      // 重置计时器
-      resetSimulationTimer();
     }
 
     isDragging = false;
@@ -860,17 +784,15 @@ watch(
             .force("center", centerForce)
             .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
             .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2));
-        window.simulation.alpha(0.2).restart();
-        resetSimulationTimer();
+        window.simulation
+            .alpha(FORCE_CONFIG.simulation.restart.watchAlpha)
+            .restart();
       }
     }
 );
 
 // 添加组件卸载时的清理
 onUnmounted((): void => {
-  if (simulationTimer) {
-    window.clearTimeout(simulationTimer);
-  }
   if (simulation) {
     simulation.stop();
   }
@@ -886,33 +808,31 @@ watch(
       simulation
           .nodes(newData.nodes)
           .force("link", FORCE_CONFIG.link.links(newData.links));
-
       // 重启模拟
-      simulation.alpha(1).restart();
-    },
-    {deep: true}
+      simulation.alpha(FORCE_CONFIG.simulation.restart.dataChangeAlpha).restart();
+    }
 );
 </script>
 
 <template>
   <canvas
       ref="canvasRef"
+      :width="canvasSize.width"
       :height="canvasSize.height"
       :style="{
       width: canvasSize.width + 'px',
       height: canvasSize.height + 'px',
     }"
-      :width="canvasSize.width"
   ></canvas>
 </template>
 
 <style scoped>
 canvas {
+  border: 1px solid rgb(60, 60, 67);
+  margin: 0;
+  border-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;
-  margin: 0;
-  border: 1px solid rgb(60, 60, 67);
-  border-radius: 5px;
 }
 </style>

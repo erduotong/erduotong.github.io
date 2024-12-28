@@ -42,7 +42,6 @@ const relational_graph = (config: RelationalGraphConfig = {}) => {
                 options.enableLocalGraph !== undefined
                     ? options.enableLocalGraph
                     : true,
-            __RELATIONAL_GRAPH_GLOBAL_GRAPH_TIMEOUT: options.globalGraphTimeout,
             __RELATIONAL_GRAPH_GRAPH_PATH: graph_path,
         },
     };
