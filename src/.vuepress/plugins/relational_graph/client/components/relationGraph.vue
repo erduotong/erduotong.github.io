@@ -46,16 +46,71 @@ const FORCE_CONFIG = {
   link: d3
     .forceLink<Node, Link>()
     .id((d: Node) => d.id)
-    .distance(60)
-    .strength((d: Link) => (d.isVirtual ? 0.05 : 0.6)),
+    .distance(80)
+    .strength(0.6),
   charge: d3
     .forceManyBody<Node>()
-    .strength(-150)
+    .strength((d: Node) => (d.isIsolated ? -100 : -150))
     .distanceMin(60)
     .distanceMax(250),
-  collision: d3.forceCollide<Node>().radius(30).strength(1),
-  x: d3.forceX<Node>().strength(0.03),
-  y: d3.forceY<Node>().strength(0.03),
+  collision: d3
+    .forceCollide<Node>()
+    .radius(30) // 设置碰撞半径
+    .strength(1), // 设置碰撞力的强度为最大
+  x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
+  y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.03)),
+  // 添加孤立节点的力
+  isolatedForce: (node: Node) => {
+    if (!node.isIsolated) return;
+
+    const dx = node.x! - canvasSize.value.width / 2;
+    const dy = node.y! - canvasSize.value.height / 2;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const isolatedNodesCount = map_data.nodes.filter(
+      (n) => n.isIsolated
+    ).length;
+    const targetRadius = Math.min(
+      Math.max(
+        Math.sqrt(isolatedNodesCount) * CANVAS_CONFIG.isolatedCircleRadius,
+        100
+      ),
+      Math.min(canvasSize.value.width, canvasSize.value.height) / 3
+    );
+
+    // 计算当前节点周围的拥挤程度
+    const crowdingFactor = map_data.nodes
+      .filter((n) => n.isIsolated)
+      .reduce((acc, other) => {
+        const dx2 = other.x! - node.x!;
+        const dy2 = other.y! - node.y!;
+        const dist = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+        if (dist < targetRadius * 0.2) {
+          // 只考虑较近的节点
+          return acc + 1 / (dist + 1);
+        }
+        return acc;
+      }, 0);
+
+    // 基础向外力，减小力的强度
+    const outwardForce = 0.08;
+
+    if (distance < targetRadius * 0.9) {
+      // 在内圈时，主要受到向外的力
+      const force = outwardForce * (1 + crowdingFactor * 0.1);
+      node.vx! += (dx / distance) * force;
+      node.vy! += (dy / distance) * force;
+    } else if (distance > targetRadius) {
+      // 超出目标半径时，将节点拉回
+      const scale = (targetRadius - distance) / distance;
+      node.vx! += dx * scale * 0.08;
+      node.vy! += dy * scale * 0.08;
+    } else if (crowdingFactor > 2) {
+      // 在边缘但很拥挤时，给予一个向内的力
+      const inwardForce = 0.04 * (crowdingFactor - 2);
+      node.vx! -= (dx / distance) * inwardForce;
+      node.vy! -= (dy / distance) * inwardForce;
+    }
+  },
 } as const;
 
 // 样式配置
@@ -221,23 +276,7 @@ onMounted(() => {
 
   // 力导图初始化
   function initializeSimulation(): d3.Simulation<Node, Link> {
-    // 标记孤立节点并创建虚拟连接
-    const virtualLinks: Link[] = [];
-    const virtualCenterNode: Node = {
-      id: "virtual-center",
-      value: {
-        title: "",
-        path: "",
-        outlink: [],
-        backlink: [],
-      },
-      isVirtual: true,
-      x: canvasSize.value.width / 2,
-      y: canvasSize.value.height / 2,
-      fx: canvasSize.value.width / 2,
-      fy: canvasSize.value.height / 2,
-    };
-
+    // 标记孤立节点
     map_data.nodes.forEach((node) => {
       node.isIsolated = !map_data.links.some(
         (link) =>
@@ -249,23 +288,10 @@ onMounted(() => {
             : link.target === node)
       );
 
-      // 为孤立节点创建到虚拟中心的连接
-      if (node.isIsolated) {
-        virtualLinks.push({
-          source: node.id,
-          target: virtualCenterNode.id,
-          isVirtual: true,
-        });
-      }
-
       // 设置节点的初始位置在画布中心
       node.x = canvasSize.value.width / 2;
       node.y = canvasSize.value.height / 2;
     });
-
-    // 将虚拟节点和虚拟连接添加到数据中
-    const allNodes = [...map_data.nodes, virtualCenterNode];
-    const allLinks = [...map_data.links, ...virtualLinks];
 
     // 创建一个 center force
     const centerForce = d3
@@ -276,8 +302,8 @@ onMounted(() => {
       .strength(0.001);
 
     window.simulation = d3
-      .forceSimulation<Node>(allNodes)
-      .force("link", FORCE_CONFIG.link.links(allLinks))
+      .forceSimulation<Node>(map_data.nodes)
+      .force("link", FORCE_CONFIG.link.links(map_data.links))
       .force("charge", FORCE_CONFIG.charge)
       .force("collision", FORCE_CONFIG.collision)
       .force("center", centerForce)
@@ -287,6 +313,15 @@ onMounted(() => {
       .alphaMin(0.001)
       .velocityDecay(0.85)
       .on("tick", () => {
+        // 应用孤立节点的力
+        map_data.nodes.forEach(FORCE_CONFIG.isolatedForce);
+
+        // 添加阻尼效果和平滑过渡
+        map_data.nodes.forEach((node) => {
+          node.x += (node.x - node.x) * 0.1;
+          node.y += (node.y - node.y) * 0.1;
+        });
+
         ticked();
       });
 
@@ -350,7 +385,7 @@ onMounted(() => {
         capture: false,
       };
 
-      // 根据事件类型绑定对应的事件监听器
+      // 根据事件类型绑定对应的事件监听���
       if ((event as TouchEvent).touches) {
         window.addEventListener("touchmove", onMouseMove, touchOptions);
         window.addEventListener("touchend", onMouseUp);
@@ -430,7 +465,7 @@ onMounted(() => {
       bottom: (canvasSize.value.height - transform.y) / transform.k,
     };
 
-    // 返回限在边界内的坐标
+    // 返回限���在边界内的坐标
     return {
       x: Math.max(
         bounds.left + CANVAS_CONFIG.nodePadding,
@@ -490,7 +525,7 @@ onMounted(() => {
     });
   }
 
-  // 处理点击事件
+  // 处理点击事���
   function onClick(event) {
     // 获取点击位置
     const point = event.changedTouches ? event.changedTouches[0] : event;
@@ -563,13 +598,11 @@ onMounted(() => {
     };
   }
 
-  // 修��� drawLinks 函数
+  // 修改 drawLinks 函数
   function drawLinks(): void {
     const { accent } = getThemeColors();
 
     map_data.links.forEach((link) => {
-      if (link.isVirtual) return; // 跳过虚拟连接的绘制
-
       context.beginPath();
       drawLink(link);
 
@@ -599,7 +632,6 @@ onMounted(() => {
     const connectedNodes = new Set<Node>();
     if (hoveredNode) {
       map_data.links.forEach((link) => {
-        if (link.isVirtual) return; // 跳过虚拟连接
         if (link.source === hoveredNode) {
           connectedNodes.add(link.target as Node);
         }
@@ -609,10 +641,10 @@ onMounted(() => {
       });
     }
 
-    // 先绘制所有普通节点（括孤立节点）
+    // 先绘制所有普通节点（包括孤立节点）
     context.beginPath();
     map_data.nodes
-      .filter((d) => !d.isCurrent && d !== hoveredNode && !d.isVirtual)
+      .filter((d) => !d.isCurrent && d !== hoveredNode)
       .forEach((d) => {
         drawNode(d, CANVAS_CONFIG.nodeRadius);
       });
@@ -698,7 +730,7 @@ onMounted(() => {
           1
         );
 
-        // 如果有悬停���点，调整透明度
+        // 如果有悬停节点，调整透明度
         if (hoveredNode) {
           if (node === hoveredNode || connectedNodes.has(node)) {
             opacity = opacity; // 保持原有透明度
