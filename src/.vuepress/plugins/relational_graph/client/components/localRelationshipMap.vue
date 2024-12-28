@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import {computed, nextTick, onMounted, onUnmounted, ref, watch} from "vue";
-import {usePageData, useRouter, withBase} from "vuepress/client";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { usePageData, useRouter, withBase } from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
-import type {CanvasSize, MapNodeLink} from "../../types";
+import type { CanvasSize, MapNodeLink } from "../../types";
+import { showGlobalGraph } from "../useGlobalGraph.js";
 
 declare const __RELATIONAL_GRAPH_FOLD_EMPTY_GRAPH: boolean;
 declare const __RELATIONAL_GRAPH_LOCAL_GRAPH_DEEP: number;
@@ -63,25 +64,25 @@ function updateContainerWidth() {
     const parentRect = parentElement.getBoundingClientRect();
     const parentStyle = window.getComputedStyle(parentElement);
     const parentPadding =
-        parseFloat(parentStyle.paddingLeft) +
-        parseFloat(parentStyle.paddingRight);
+      parseFloat(parentStyle.paddingLeft) +
+      parseFloat(parentStyle.paddingRight);
 
     if (isLargeScreen.value) {
       // 大屏幕时使用距离屏幕边距的算方式
       if (options.value.graphSize.maxWidth) {
         containerWidth.value = Math.min(
-            options.value.graphSize.maxWidth,
-            document.documentElement.clientWidth - parentRect.left - 40
+          options.value.graphSize.maxWidth,
+          document.documentElement.clientWidth - parentRect.left - 40
         );
       } else {
         containerWidth.value =
-            document.documentElement.clientWidth - parentRect.left - 40;
+          document.documentElement.clientWidth - parentRect.left - 40;
       }
     } else {
       // 小屏幕时考虑父元素的内边距
       containerWidth.value = Math.max(
-          300,
-          parentRect.width - parentPadding - 20
+        300,
+        parentRect.width - parentPadding - 20
       );
     }
 
@@ -222,10 +223,10 @@ watch(isLocalGraphFullScreen, (value) => {
       {{ isExpanded ? "▼" : "▶" }}
     </button>
     <div
-        ref="containerRef"
-        class="graph-container"
-        :class="{ expanded: isExpanded || isLargeScreen }"
-        :style="
+      ref="containerRef"
+      class="graph-container"
+      :class="{ expanded: isExpanded || isLargeScreen }"
+      :style="
         isLargeScreen
           ? {
               width: containerWidth + 'px',
@@ -235,83 +236,103 @@ watch(isLocalGraphFullScreen, (value) => {
       "
     >
       <button
-          class="fullscreen-map-button"
-          @click="isLocalGraphFullScreen = true"
+        class="fullscreen-map-button"
+        @click="isLocalGraphFullScreen = true"
       >
         <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-              d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M6.00005 19L19 5.99996M19 5.99996V18.48M19 5.99996H6.52005"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
+        </svg>
+      </button>
+      <button class="fullscreen-map-button fullscreen-map-button-global" @click="showGlobalGraph = true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="svg-icon lucide-git-fork"
+        >
+          <circle cx="12" cy="18" r="3"></circle>
+          <circle cx="6" cy="6" r="3"></circle>
+          <circle cx="18" cy="6" r="3"></circle>
+          <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path>
+          <path d="M12 12v3"></path>
         </svg>
       </button>
 
       <relation-graph
-          ref="graphRef"
-          :canvas-height="canvasSize.height"
-          :canvas-width="canvasSize.width"
-          :current-path="router.currentRoute.value.path"
-          :data="map_data"
-          @node-click="handleNodeClick"
-          v-if="!isLocalGraphFullScreen"
+        ref="graphRef"
+        :canvas-height="canvasSize.height"
+        :canvas-width="canvasSize.width"
+        :current-path="router.currentRoute.value.path"
+        :data="map_data"
+        @node-click="handleNodeClick"
+        v-if="!isLocalGraphFullScreen"
       ></relation-graph>
     </div>
   </div>
 
   <div
-      id="fullscreen-graph-mask"
-      @click.self="isLocalGraphFullScreen = false"
-      v-if="isLocalGraphFullScreen"
+    id="fullscreen-graph-mask"
+    @click.self="isLocalGraphFullScreen = false"
+    v-if="isLocalGraphFullScreen"
   >
     <div id="fullscreen-graph-container" ref="fullscreenContainerRef">
       <button
-          @click="isLocalGraphFullScreen = false"
-          class="fullscreen-map-button"
+        @click="isLocalGraphFullScreen = false"
+        class="fullscreen-map-button"
       >
         <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
           <path
-              d="M15 16L9 8"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M15 16L9 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
           <path
-              d="M9 16L15 8"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M9 16L15 8"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </button>
       <relation-graph
-          ref="fullscreenGraphRef"
-          :canvas-height="fullscreenCanvasSize.height"
-          :canvas-width="fullscreenCanvasSize.width"
-          :current-path="router.currentRoute.value.path"
-          :data="map_data"
-          @node-click="handleNodeClick"
+        ref="fullscreenGraphRef"
+        :canvas-height="fullscreenCanvasSize.height"
+        :canvas-width="fullscreenCanvasSize.width"
+        :current-path="router.currentRoute.value.path"
+        :data="map_data"
+        @node-click="handleNodeClick"
       ></relation-graph>
     </div>
   </div>
@@ -365,9 +386,9 @@ watch(isLocalGraphFullScreen, (value) => {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 32px;
+  width: 24px;
   height: 32px;
-  background: var(--vp-c-bg);
+  background: transparent;
   border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
   cursor: pointer;
@@ -379,10 +400,19 @@ watch(isLocalGraphFullScreen, (value) => {
   z-index: 2;
 }
 
+.fullscreen-map-button-global {
+  right: 30px;
+}
+
 @media (max-width: 1439px) {
   .fullscreen-map-button {
     top: 16px;
     right: 24px;
+  }
+}
+@media (max-width: 1439px) {
+  .fullscreen-map-button-global{
+    right: 46px;
   }
 }
 
