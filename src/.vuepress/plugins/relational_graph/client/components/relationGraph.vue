@@ -221,7 +221,7 @@ onMounted(() => {
     }
   });
 
-  // 观察 html 元素的 style 属性化
+  // 观察 html 元素的 style 属性���
   observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["style", "class", "data-theme"],
@@ -385,7 +385,7 @@ onMounted(() => {
         capture: false,
       };
 
-      // 根据事件类型绑定对应的事件监听���
+      // 根据事件类型绑定对应的事件监听器
       if ((event as TouchEvent).touches) {
         window.addEventListener("touchmove", onMouseMove, touchOptions);
         window.addEventListener("touchend", onMouseUp);
@@ -465,7 +465,7 @@ onMounted(() => {
       bottom: (canvasSize.value.height - transform.y) / transform.k,
     };
 
-    // 返回限���在边界内的坐标
+    // 返回限在边界内的坐标
     return {
       x: Math.max(
         bounds.left + CANVAS_CONFIG.nodePadding,
@@ -516,7 +516,7 @@ onMounted(() => {
     context.arc(d.x, d.y, radius, 0, 2 * Math.PI);
   }
 
-  // 检查鼠标是否在节点上
+  // 检查鼠标是否在节���上
   function isMouseOverNode(x, y) {
     return map_data.nodes.some((node) => {
       const dx = node.x - x;
@@ -525,7 +525,7 @@ onMounted(() => {
     });
   }
 
-  // 处理点击事���
+  // 处理点击事件
   function onClick(event) {
     // 获取点击位置
     const point = event.changedTouches ? event.changedTouches[0] : event;
@@ -592,9 +592,28 @@ onMounted(() => {
   // 获取主题色函数
   function getThemeColors(): { accent: string; text: string } {
     const root = getComputedStyle(document.documentElement);
+
+    // 获取accent颜色,依次尝试不同的变量名
+    let accent = root.getPropertyValue("--vp-c-accent").trim();
+    if (!accent) {
+      accent = root.getPropertyValue("--theme-color").trim();
+      if (!accent) {
+        accent = "#299764";
+      }
+    }
+
+    // 获取text颜色,依次尝试不同的变量名
+    let text = root.getPropertyValue("--vp-c-text").trim();
+    if (!text) {
+      text = root.getPropertyValue("--text-color").trim();
+      if (!text) {
+        text = "#000000";
+      }
+    }
+
     return {
-      accent: root.getPropertyValue("--vp-c-accent").trim(),
-      text: root.getPropertyValue("--vp-c-text").trim(),
+      accent,
+      text,
     };
   }
 
