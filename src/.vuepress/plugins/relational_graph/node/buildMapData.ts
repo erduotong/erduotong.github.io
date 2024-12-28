@@ -2,7 +2,7 @@ import type {BioChainMapItem, LocalMapItem, MapNodeLink, Page, QueueItem,} from 
 import {fs, path} from "vuepress/utils"
 import {App} from "vuepress/core";
 import {options} from "./index.js";
-import {graphDataName} from "../client/GetGlobalGraphData.js";
+import {graphDataName} from "../client/useGlobalGraph.js";
 
 export const bioChainMap: Record<string, BioChainMapItem> = {};
 let max_deep = 5;
@@ -199,7 +199,7 @@ export async function writeGlobalGraph(app: App): Promise<void> {
     const globalMap = buildGlobalMap();
     const location = app.dir.dest(graphDataName);
     await fs.ensureDir(path.dirname(location));
-    await fs.writeFile(location, `export default ${JSON.stringify(globalMap)}`, 'utf-8');
+    await fs.writeFile(location,JSON.stringify(globalMap), 'utf-8');
     console.log("GlobalRelationalGraph.json has been written to " + location);
 }
 
@@ -207,6 +207,6 @@ export function writeTempGlobalGraph(app: App) {
     const globalMap = buildGlobalMap();
     const location = app.dir.temp(graphDataName);
     fs.ensureDirSync(path.dirname(location));
-    fs.writeFileSync(location, `export default ${JSON.stringify(globalMap)}`, 'utf-8');
+    fs.writeFileSync(location, JSON.stringify(globalMap), 'utf-8');
 
 }
