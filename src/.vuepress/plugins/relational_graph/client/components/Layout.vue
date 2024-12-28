@@ -4,7 +4,6 @@ import Backlink from "./backlink.vue";
 import LocalRelationshipMap from "./localRelationshipMap.vue";
 import {computed} from "vue";
 import GlobalGraph from "./globalGraph.vue";
-import {showGlobalGraph} from "../useGlobalGraph.js";
 
 declare const __RELATIONAL_GRAPH_ENABLE_LOCAL_GRAPH: boolean;
 const options = computed(() => {
@@ -16,7 +15,7 @@ const options = computed(() => {
 </script>
 
 <template>
-  <button @click="showGlobalGraph = !showGlobalGraph">reverse</button>
+
   <global-graph></global-graph>
   <layout>
     <template #contentAfter>

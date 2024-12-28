@@ -11,7 +11,7 @@ export const showGlobalGraph = ref(false);
 /**
  * 获取全局图谱的数据
  */
-export async function useGlobalGraph(
+export async function getGlobalGraph(
     isDev: boolean
 ): Promise<MapNodeLink | null> {
     await new Promise((resolve) => setTimeout(resolve, 1000));

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {computed, onMounted, Ref, ref} from "vue";
-import {showGlobalGraph, useGlobalGraph} from "../useGlobalGraph.js";
+import {computed, Ref, ref, watch} from "vue";
+import {getGlobalGraph, showGlobalGraph} from "../useGlobalGraph.js";
 import {MapNodeLink} from "../../types/index.js";
 
 declare const __VUEPRESS_DEV__: boolean;
@@ -10,13 +10,33 @@ const options = computed(() => {
   };
 });
 const data: Ref<MapNodeLink | null> = ref(null);
-onMounted(async () => {
-  data.value = await useGlobalGraph(options.value.isDev);
-});
+let is_loading = false
+
+/**
+ * 获取全局图数据 如果已经获取过则直接返回
+ */
+async function getGlobalGraphData() {
+  if (data.value || is_loading) return;
+
+  try {
+    is_loading = true;
+    data.value = await getGlobalGraph(options.value.isDev);
+  } finally {
+    is_loading = false;
+  }
+
+}
+
+watch(showGlobalGraph, async () => {
+  if (showGlobalGraph.value) {
+    await getGlobalGraphData();
+
+  }
+
+}, {immediate: true});
 </script>
 
 <template>
-  {{showGlobalGraph}}
   <div id="globalGraphMask">
     <div id="globalGraphContainer">
       <button class="fullscreen-map-button">
