@@ -52,9 +52,9 @@ const FORCE_CONFIG = {
     .strength(0.8), // 调整连接线的强度
   charge: d3
     .forceManyBody<Node>()
-    .strength((d: Node) => -100) // 调整电荷力，减少排斥力
-    .distanceMin(50) // 最小距离
-    .distanceMax(300), // 最大距离
+    .strength((d: Node) => { return -50 - 250 * (d.linkCount-1 || 0) }) // 根据连接数调整电荷力
+    .distanceMin(10) // 最小距离
+    .distanceMax(400), // 最大距离
   collision: d3
     .forceCollide<Node>()
     .radius(30) // 调整碰撞半径
@@ -132,6 +132,21 @@ function initializeMapData(data: MapNodeLink, currentPath?: string): void {
   // 深拷贝数据以避免直接修改props
   const newNodes = JSON.parse(JSON.stringify(data.nodes));
   const newLinks = JSON.parse(JSON.stringify(data.links));
+
+  // 计算每个节点的连接数
+  newNodes.forEach((node) => {
+    node.linkCount = newLinks.reduce((count, link) => {
+      if (
+        (typeof link.source === "string" ? link.source : link.source.id) ===
+          node.id ||
+        (typeof link.target === "string" ? link.target : link.target.id) ===
+          node.id
+      ) {
+        count += 1;
+      }
+      return count;
+    }, 0);
+  });
 
   // 标记孤立节点并设置初始位置
   newNodes.forEach((node) => {
@@ -590,7 +605,8 @@ onMounted(() => {
   }
 
   // 绘制节点
-  function drawNode(d, radius) {
+  function drawNode(d, baseRadius) {
+    const radius = baseRadius + (d.linkCount-1 || 0) * 0.4; // 基础半径加上点连接数的倍数
     context.moveTo(d.x + radius, d.y);
     context.arc(d.x, d.y, radius, 0, 2 * Math.PI);
   }
