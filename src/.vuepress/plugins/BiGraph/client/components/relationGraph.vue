@@ -299,25 +299,6 @@ onMounted(() => {
   // 在组件卸载时调用清理函数
   onUnmounted(cleanup);
 
-  // 找到当前节点
-  let currentNode: Node | undefined;
-  if (props.currentPath) {
-    currentNode = map_data.nodes.find((node) =>
-      isPathMatch(props.currentPath!, node.value.path)
-    );
-    if (currentNode) {
-      currentNode.isCurrent = true;
-      currentNode.fx = canvasSize.value.width / 2;
-      currentNode.fy = canvasSize.value.height / 2;
-      setTimeout(() => {
-        if (currentNode) {
-          currentNode.fx = null;
-          currentNode.fy = null;
-        }
-      }, 1000);
-    }
-  }
-
   // 初始化力导向图
   simulation = initializeSimulation();
   // 设置事件监听
@@ -835,6 +816,43 @@ watch(
     // 重启模拟
     simulation.alpha(FORCE_CONFIG.simulation.restart.dataChangeAlpha).restart();
   }
+);
+
+// 添加 watch 监听 currentPath 的变化
+watch(
+  () => props.currentPath,
+  (newPath) => {
+    if (!map_data || !map_data.nodes) return;
+
+    // 重置所有节点的 isCurrent 状态
+    map_data.nodes.forEach((node) => {
+      node.isCurrent = false;
+      // 同时清除所有节点的固定位置
+      node.fx = null;
+      node.fy = null;
+    });
+
+    // 设置新的当前节点
+    if (newPath) {
+      const newCurrentNode = map_data.nodes.find((node) =>
+        isPathMatch(newPath, node.value.path)
+      );
+      if (newCurrentNode) {
+        newCurrentNode.isCurrent = true;
+        // 将新的当前节点固定在画布中心
+        newCurrentNode.fx = canvasSize.value.width / 2;
+        newCurrentNode.fy = canvasSize.value.height / 2;
+        // 1秒后释放固定位置
+        setTimeout(() => {
+          if (newCurrentNode) {
+            newCurrentNode.fx = null;
+            newCurrentNode.fy = null;
+          }
+        }, 1000);
+      }
+    }
+  },
+  { immediate: true }
 );
 </script>
 
