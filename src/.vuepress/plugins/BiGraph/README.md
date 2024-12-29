@@ -1,8 +1,8 @@
-# Relational_graph
+# BiGraph
 
 ## 使用
 
-(1) 将Relational_graph添加到你的主题中，并像 [config.ts](https://github.com/erduotong/erduotong.github.io/blob/main/src/.vuepress/config.ts) 中的那样使用他
+(1) 将BiGraph添加到你的主题中，并像 [config.ts](https://github.com/erduotong/erduotong.github.io/blob/main/src/.vuepress/config.ts) 中的那样使用他
 
 (2) 如果您使用该插件时，文档框架不是最新vuepress-hope-theme主题，你可能需要进行一些额外的操作
 
@@ -25,8 +25,6 @@
   --vp-c-bg: var(--bg-color);
   --vp-c-bg-mute: var(--bg-color);
   --vp-c-bg-soft: var(--bg-color);
-  /* 链接色 */
-  --link-color: var(--theme-color);
 }
 ```
 

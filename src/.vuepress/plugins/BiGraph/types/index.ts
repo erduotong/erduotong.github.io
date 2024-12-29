@@ -75,7 +75,7 @@ export interface MousePosition {
 export type Page = vp.Page;
 export type titleGetter = (page: Page) => string;
 
-export interface RelationalGraphConfig {
+export interface BiGraphConfig {
     localGraphDeep?: number; // 局部关系图谱的深度（以当前页面为中心） 默认为5
     foldEmptyGraph?: boolean; // 是否折叠空的关系图谱（只有一个节点） 默认为false
     graphMaxWidth?: number; // 最大宽度 单位: px 默认为 Infinity
