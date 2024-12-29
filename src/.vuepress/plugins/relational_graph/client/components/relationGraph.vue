@@ -46,7 +46,7 @@ const FORCE_CONFIG = {
       .strength(0.8), // 调整连接线的强度
   charge: d3
       .forceManyBody<Node>()
-      .strength((d: Node) => (-100)) // 调整电荷力，减少排斥力
+      .strength((d: Node) => -100) // 调整电荷力，减少排斥力
       .distanceMin(50) // 最小距离
       .distanceMax(300), // 最大距离
   collision: d3
@@ -760,6 +760,7 @@ onMounted(() => {
             node.x - textWidth / 2,
             node.y + STYLE_CONFIG.text.offset
         );
+        context.globalAlpha = 1; // 恢复默认透明度
       }
     });
   }
