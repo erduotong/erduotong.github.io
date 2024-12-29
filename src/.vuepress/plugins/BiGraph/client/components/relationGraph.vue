@@ -753,8 +753,8 @@ onMounted(() => {
 
       if (shouldDrawText) {
         const textWidth = context.measureText(node.value.title).width;
-        const [r, g, b] = text.match(/\d+/g).map(Number);
-        context.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+        context.fillStyle = text;
+        context.globalAlpha = opacity;
         context.fillText(
             node.value.title,
             node.x - textWidth / 2,
