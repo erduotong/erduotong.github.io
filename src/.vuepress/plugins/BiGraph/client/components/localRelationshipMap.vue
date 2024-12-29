@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, onUnmounted, ref, watch} from "vue";
-import {usePageData, useRouter, withBase} from "vuepress/client";
+import {usePageData, useRouter} from "vuepress/client";
 import RelationGraph from "./relationGraph.vue";
 import type {CanvasSize, MapNodeLink} from "../../types";
 import {showGlobalGraph} from "../useGlobalGraph.js";
@@ -39,7 +39,7 @@ const shouldFoldEmptyGraph = computed(() => {
 
 // 处理节点点击事件
 const handleNodeClick = (path: string) => {
-  router.push(withBase(path));
+  router.push(`/${path}`);
 };
 
 const containerRef = ref<HTMLElement | null>(null);
