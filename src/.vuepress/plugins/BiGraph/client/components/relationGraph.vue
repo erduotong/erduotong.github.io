@@ -121,6 +121,67 @@ const props = defineProps<{
   canvasHeight: number;
 }>();
 
+// 将map_data改为响应式数据
+const map_data = ref<MapNodeLink>({
+  nodes: [],
+  links: [],
+});
+
+// 添加初始化数据的函数
+function initializeMapData(data: MapNodeLink, currentPath?: string): void {
+  // 深拷贝数据以避免直接修改props
+  const newNodes = JSON.parse(JSON.stringify(data.nodes));
+  const newLinks = JSON.parse(JSON.stringify(data.links));
+
+  // 标记孤立节点并设置初始位置
+  newNodes.forEach((node) => {
+    // 重置节点状态
+    node.isCurrent = false;
+    node.fx = null;
+    node.fy = null;
+
+    node.isIsolated = !newLinks.some(
+      (link) =>
+        (typeof link.source === "string"
+          ? link.source === node.id
+          : link.source.id === node.id) ||
+        (typeof link.target === "string"
+          ? link.target === node.id
+          : link.target.id === node.id)
+    );
+
+    // 设置节点的初始位置在画布中心
+    node.x = canvasSize.value.width / 2;
+    node.y = canvasSize.value.height / 2;
+  });
+
+  // 设置当前节点
+  if (currentPath) {
+    const currentNode = newNodes.find((node) =>
+      isPathMatch(currentPath, node.value.path)
+    );
+    if (currentNode) {
+      currentNode.isCurrent = true;
+      // 将当前节点固定在画布中心
+      currentNode.fx = canvasSize.value.width / 2;
+      currentNode.fy = canvasSize.value.height / 2;
+      // 1秒后释放固定位置
+      setTimeout(() => {
+        if (currentNode) {
+          currentNode.fx = null;
+          currentNode.fy = null;
+        }
+      }, 1000);
+    }
+  }
+
+  // 更新响应式数据
+  map_data.value = {
+    nodes: newNodes,
+    links: newLinks,
+  };
+}
+
 const canvasSize = computed<CanvasSize>(() => ({
   width: props.canvasWidth,
   height: props.canvasHeight,
@@ -132,7 +193,6 @@ const mouseDownPosition = ref<MousePosition>({
   x: 0,
   y: 0,
 });
-const map_data = props.data;
 
 // 添加颜色存储
 const themeColors = ref({
@@ -178,6 +238,9 @@ onMounted(() => {
   // 初始化颜色
   initThemeColors();
 
+  // 初始化数据
+  initializeMapData(props.data, props.currentPath);
+
   // 设置 MutationObserver 监听样式变化
   const styleObserver = new MutationObserver(() => {
     const root = getComputedStyle(document.documentElement);
@@ -220,7 +283,7 @@ onMounted(() => {
     styleObserver.disconnect();
   });
 
-  if (!map_data) {
+  if (!map_data.value) {
     return;
   }
   // 初始化变量
@@ -307,8 +370,8 @@ onMounted(() => {
   // 力导图初始化
   function initializeSimulation(): d3.Simulation<Node, Link> {
     // 标记孤立节点
-    map_data.nodes.forEach((node) => {
-      node.isIsolated = !map_data.links.some(
+    map_data.value.nodes.forEach((node) => {
+      node.isIsolated = !map_data.value.links.some(
         (link) =>
           (typeof link.source === "string"
             ? link.source === node.id
@@ -332,8 +395,8 @@ onMounted(() => {
       .strength(0.002);
 
     window.simulation = d3
-      .forceSimulation<Node>(map_data.nodes)
-      .force("link", FORCE_CONFIG.link.links(map_data.links))
+      .forceSimulation<Node>(map_data.value.nodes)
+      .force("link", FORCE_CONFIG.link.links(map_data.value.links))
       .force("charge", FORCE_CONFIG.charge)
       .force("collision", FORCE_CONFIG.collision)
       .force("center", centerForce)
@@ -534,7 +597,7 @@ onMounted(() => {
 
   // 检查鼠标是否在节点上
   function isMouseOverNode(x, y) {
-    return map_data.nodes.some((node) => {
+    return map_data.value.nodes.some((node) => {
       const dx = node.x - x;
       const dy = node.y - y;
       return Math.sqrt(dx * dx + dy * dy) < CANVAS_CONFIG.nodeClickRadius;
@@ -601,7 +664,7 @@ onMounted(() => {
   function drawLinks(): void {
     const { accent } = themeColors.value;
 
-    map_data.links.forEach((link) => {
+    map_data.value.links.forEach((link) => {
       context.beginPath();
       drawLink(link);
 
@@ -630,7 +693,7 @@ onMounted(() => {
     // 获与悬停点相连的点
     const connectedNodes = new Set<Node>();
     if (hoveredNode) {
-      map_data.links.forEach((link) => {
+      map_data.value.links.forEach((link) => {
         if (link.source === hoveredNode) {
           connectedNodes.add(link.target as Node);
         }
@@ -642,7 +705,7 @@ onMounted(() => {
 
     // 先绘制所有普通节点（包括孤立节点）
     context.beginPath();
-    map_data.nodes
+    map_data.value.nodes
       .filter((d) => !d.isCurrent && d !== hoveredNode)
       .forEach((d) => {
         drawNode(d, CANVAS_CONFIG.nodeRadius);
@@ -676,7 +739,7 @@ onMounted(() => {
     }
 
     // 绘制当前节点
-    const currentNode = map_data.nodes.find((d) => d.isCurrent);
+    const currentNode = map_data.value.nodes.find((d) => d.isCurrent);
     if (currentNode) {
       context.beginPath();
       drawNode(
@@ -707,7 +770,7 @@ onMounted(() => {
     // 获取与悬停节点相连的节点集合
     const connectedNodes = new Set<Node>();
     if (hoveredNode) {
-      map_data.links.forEach((link) => {
+      map_data.value.links.forEach((link) => {
         if (link.source === hoveredNode) {
           connectedNodes.add(link.target as Node);
         }
@@ -717,7 +780,7 @@ onMounted(() => {
       });
     }
 
-    map_data.nodes.forEach((node) => {
+    map_data.value.nodes.forEach((node) => {
       let shouldDrawText = false;
       let opacity = 1;
 
@@ -803,56 +866,23 @@ onUnmounted((): void => {
   }
 });
 
-// 添加 watch 监听 data 变化
+// 合并 data 和 currentPath 的监听
 watch(
-  () => props.data,
-  (newData) => {
+  () => [props.data, props.currentPath],
+  ([newData, newPath]: [MapNodeLink, string | undefined]) => {
     if (!newData || !simulation) return;
 
-    // 更新节点和连接
+    // 初始化新数据
+    initializeMapData(newData, newPath);
+
+    // 更新模拟器的节点和连接
     simulation
-      .nodes(newData.nodes)
-      .force("link", FORCE_CONFIG.link.links(newData.links));
+      .nodes(map_data.value.nodes)
+      .force("link", FORCE_CONFIG.link.links(map_data.value.links));
+
     // 重启模拟
     simulation.alpha(FORCE_CONFIG.simulation.restart.dataChangeAlpha).restart();
   }
-);
-
-// 添加 watch 监听 currentPath 的变化
-watch(
-  () => props.currentPath,
-  (newPath) => {
-    if (!map_data || !map_data.nodes) return;
-
-    // 重置所有节点的 isCurrent 状态
-    map_data.nodes.forEach((node) => {
-      node.isCurrent = false;
-      // 同时清除所有节点的固定位置
-      node.fx = null;
-      node.fy = null;
-    });
-
-    // 设置新的当前节点
-    if (newPath) {
-      const newCurrentNode = map_data.nodes.find((node) =>
-        isPathMatch(newPath, node.value.path)
-      );
-      if (newCurrentNode) {
-        newCurrentNode.isCurrent = true;
-        // 将新的当前节点固定在画布中心
-        newCurrentNode.fx = canvasSize.value.width / 2;
-        newCurrentNode.fy = canvasSize.value.height / 2;
-        // 1秒后释放固定位置
-        setTimeout(() => {
-          if (newCurrentNode) {
-            newCurrentNode.fx = null;
-            newCurrentNode.fy = null;
-          }
-        }, 1000);
-      }
-    }
-  },
-  { immediate: true }
 );
 </script>
 
