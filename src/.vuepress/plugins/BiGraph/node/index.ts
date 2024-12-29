@@ -5,11 +5,11 @@
 import {getDirname, path} from "vuepress/utils";
 import {bioChainMap, buildBioChainMap, writeGlobalGraph, writeTempGlobalGraph,} from "./buildMapData.js";
 import type {App} from "vuepress/core";
-import {RelationalGraphConfig} from "../types/index.js";
+import {BiGraphConfig} from "../types/index.js";
 
 const __dirname = getDirname(import.meta.url);
-export let options: RelationalGraphConfig = {};
-const relational_graph = (config: RelationalGraphConfig = {}) => {
+export let options: BiGraphConfig = {};
+const BiGraph = (config: BiGraphConfig = {}) => {
     options = config;
     const graph_path = {target: ""};
     return {
@@ -47,4 +47,4 @@ const relational_graph = (config: RelationalGraphConfig = {}) => {
     };
 };
 
-export default relational_graph;
+export default BiGraph;

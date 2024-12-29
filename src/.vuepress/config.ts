@@ -6,7 +6,7 @@ import img_space_adder from './plugins/markdown_it/img_space_adder.js'
 import enable_multi_h1 from './plugins/markdown_it/enable_multi_h1.js'
 import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
 import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
-import relational_graph from "./plugins/relational_graph/node/index.js";
+import BiGraph from "./plugins/BiGraph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic"
 
@@ -18,7 +18,7 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "耳朵同的博客",
     description: "欢迎来到耳朵同的博客",
-    plugins: [relational_graph({
+    plugins: [BiGraph({
         localGraphDeep: 20,
         foldEmptyGraph: true,
         graphMaxWidth: 300,
