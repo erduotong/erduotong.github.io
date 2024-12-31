@@ -17,13 +17,18 @@ export default navbar([
                 icon: "sticky-note"
             },
             {
+                text: "卡片笔记",
+                link: "/42 卡片笔记/",
+                icon: "id-card"
+            },
+            {
                 text: "博客",
-                link: "/42 博客/",
+                link: "/43 博客/",
                 icon: "book"
             },
             {
                 text: "项目",
-                link: "/43 项目/",
+                link: "/44 项目/",
                 icon: "laptop-code"
             },
         ]

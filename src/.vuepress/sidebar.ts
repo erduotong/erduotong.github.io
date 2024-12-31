@@ -18,17 +18,24 @@ export default sidebar({
             children: "structure",
         },
         {
+            text: "卡片笔记",
+            icon: "id-card",
+            prefix: "42 卡片笔记/",
+            link: "42 卡片笔记/",
+            children: "structure",
+        },
+        {
             text: "博客",
             icon: "book",
-            prefix: "42 博客/",
-            link: "42 博客/",
+            prefix: "43 博客/",
+            link: "43 博客/",
             children: "structure",
         },
         {
             text: "项目",
             icon: "laptop-code",
-            prefix: "43 项目/",
-            link: "43 项目/",
+            prefix: "44 项目/",
+            link: "44 项目/",
             children: "structure",
         },
         {
