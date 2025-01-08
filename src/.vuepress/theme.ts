@@ -9,7 +9,6 @@ export default hopeTheme({
         name: "耳朵同",
         url: "https://erduotong.github.io",
     },
-    iconAssets: "fontawesome-with-brands",
     editLink: false,
     hotReload: true,
     logo: "/logo.png",
@@ -89,6 +88,9 @@ export default hopeTheme({
         slimsearch: {
             indexContent: true,
             suggestion: false
+        },
+        icon:{
+            assets: "fontawesome-with-brands"
         }
     },
 }, {
