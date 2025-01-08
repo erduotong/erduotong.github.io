@@ -20,7 +20,7 @@ export default defineUserConfig({
     description: "欢迎来到耳朵同的博客",
     plugins: [BiGraph({
         localGraphDeep: 20,
-        foldEmptyGraph: true,
+        foldEmptyGraph: false,
         graphMaxWidth: 300,
         graphHeight: 300,
     })],
