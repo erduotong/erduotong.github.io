@@ -33,8 +33,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(markdown-it@14.1.0)
       markmap-lib:
-        specifier: ^0.17.2
-        version: 0.17.2(markmap-common@0.17.1)
+        specifier: ^0.18.5
+        version: 0.18.5(markmap-common@0.17.1)
       mermaid:
         specifier: ^11.4.1
         version: 11.4.1
@@ -65,7 +65,7 @@ importers:
         version: 2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)
       vuepress-theme-hope:
         specifier: 2.0.0-rc.67
-        version: 2.0.0-rc.67(@vuepress/plugin-feed@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(@vuepress/plugin-slimsearch@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(katex@0.16.19)(markdown-it@14.1.0)(markmap-lib@0.17.2(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
+        version: 2.0.0-rc.67(@vuepress/plugin-feed@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(@vuepress/plugin-slimsearch@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(katex@0.16.19)(markdown-it@14.1.0)(markmap-lib@0.18.5(markmap-common@0.17.1))(markmap-view@0.18.5(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
 
 packages:
 
@@ -416,9 +416,6 @@ packages:
 
   '@iconify/utils@2.2.1':
     resolution: {integrity: sha512-0/7J7hk4PqXmxo5PDBDxmnecw5PxklZJfNjIVG9FM0mEfVrvfudS22rYWsqVk6gR3UJ/mSYS90X4R3znXnqfNA==}
-
-  '@iktakahiro/markdown-it-katex@4.0.1':
-    resolution: {integrity: sha512-kGFooO7fIOgY34PSG8ZNVsUlKhhNoqhzW2kq94TNGa8COzh73PO4KsEoPOsQVG1mEAe8tg7GqG0FoVao0aMHaw==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -1008,6 +1005,9 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
 
+  '@vscode/markdown-it-katex@1.1.1':
+    resolution: {integrity: sha512-3KTlbsRBPJQLE2YmLL7K6nunTlU+W9T5+FjfNdWuIUKgxSS6HWLQHaO3L4MkJi7z7MpIPpY+g4N+cWNBPE/MSA==}
+
   '@vue/compiler-core@3.5.13':
     resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
 
@@ -1437,10 +1437,6 @@ packages:
     resolution: {integrity: sha512-quS9HgjQpdaXOvsZz82Oz7uxtXiy6UIsIQcpBj7HRw2M63Skasm9qlDocAM7jNuaxdhpPU7c4kJN+gA5MCu4ww==}
     engines: {node: '>=18.17'}
 
-  cheerio@1.0.0-rc.12:
-    resolution: {integrity: sha512-VqR8m68vM46BNnuZ5NtnGBKIE/DfN0cRIzg9n40EIq9NOv90ayxLBXA8fXC5gquFRGJSTRqBq25Jt2ECLR431Q==}
-    engines: {node: '>= 6'}
-
   chevrotain-allstar@0.3.1:
     resolution: {integrity: sha512-b7g+y9A0v4mxCW1qUhf3BSVPg+/NvGErk/dOkrDaHA0nQIQGAtrOjlX//9OQtRlSCy+x9rfB5N8yC71lH1nvMw==}
     peerDependencies:
@@ -1502,9 +1498,6 @@ packages:
 
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
-
-  commander@2.20.3:
-    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
@@ -1980,9 +1973,6 @@ packages:
     resolution: {integrity: sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==}
     engines: {node: '>=8.0.0'}
 
-  htmlparser2@8.0.2:
-    resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
-
   htmlparser2@9.1.0:
     resolution: {integrity: sha512-5zfg6mHUoaer/97TxnGpxmbR7zJtPwIYFMZ/H5ucTlPZhKvtum05yiPK3Mgai3a0DyVxv7qYqoweaEd2nrYQzQ==}
 
@@ -2105,10 +2095,6 @@ packages:
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
 
-  katex@0.12.0:
-    resolution: {integrity: sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==}
-    hasBin: true
-
   katex@0.16.19:
     resolution: {integrity: sha512-3IA6DYVhxhBabjSLTNO9S4+OliA3Qvb8pBQXMfC4WxXJgLwZgnfDl0BmB4z6nBMdznBsZ+CGM8DrGZ5hcguDZg==}
     hasBin: true
@@ -2215,18 +2201,18 @@ packages:
   markmap-common@0.17.1:
     resolution: {integrity: sha512-U1v2+CkdE9OzNgONvBwUW26RMcu27Bqlv/JuAG+l1qRkTduD2aT4cGew6qb4VLjpqhcBwS3mcj0Xd7LVW01QFA==}
 
-  markmap-html-parser@0.17.1:
-    resolution: {integrity: sha512-wdzneAsNXNIYH3R8xZVNYi/4MXhswuZ4wmZxHS3+BLp9jO6kBCoQybICB90tcAcXUjiSAYRnirq3EvkSK0AdDw==}
+  markmap-html-parser@0.18.5:
+    resolution: {integrity: sha512-wgLUn666XzZO/U+QpzwZGttPvR+q5b2aNrdUn8+6CFqG/l5GhoMqBG+7juBIBWsAPS28sr9CoRlb0JNCwgCF6A==}
     peerDependencies:
       markmap-common: '*'
 
-  markmap-lib@0.17.2:
-    resolution: {integrity: sha512-zS5nL8OBR4hRpqegxeXAd4jQq/wd+Xn21bHhW0QHgGzE3dJTG55pLDi1rmdaHLCTpN7lUtO5MBOZ1HyXGYuHwQ==}
+  markmap-lib@0.18.5:
+    resolution: {integrity: sha512-SUQ0N7SPvx55Rf0lBkI/6rkuFqzFV1QEjjoruQ4+YpBKM7EdxYlIQsY9l6Ggbzsr0WltT/m/LxVleI546GQEPA==}
     peerDependencies:
       markmap-common: '*'
 
-  markmap-view@0.17.2:
-    resolution: {integrity: sha512-kF9bbXWF/10UBFTatv0kPQSBgVb8+Xn4Bttep78i9879nzqRaIjCNzZYGtpxK0gx9B4U9NGMZrx/B4cTTwmeQA==}
+  markmap-view@0.18.5:
+    resolution: {integrity: sha512-bDMlsEG9rZ8c9kVRGd54EzQ2Kv8+uwTWHZlBj5Hq1TzjRPoSuim3f4eSSKuw8vgCr90A9aNTc7Xx8VjbyO+8zA==}
     peerDependencies:
       markmap-common: '*'
 
@@ -3539,10 +3525,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@iktakahiro/markdown-it-katex@4.0.1':
-    dependencies:
-      katex: 0.12.0
-
   '@isaacs/cliui@8.0.2':
     dependencies:
       string-width: 5.1.2
@@ -4089,6 +4071,10 @@ snapshots:
     dependencies:
       vite: 6.0.7(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0)
       vue: 3.5.13
+
+  '@vscode/markdown-it-katex@1.1.1':
+    dependencies:
+      katex: 0.16.19
 
   '@vue/compiler-core@3.5.13':
     dependencies:
@@ -4781,16 +4767,6 @@ snapshots:
       undici: 6.21.0
       whatwg-mimetype: 4.0.0
 
-  cheerio@1.0.0-rc.12:
-    dependencies:
-      cheerio-select: 2.1.0
-      dom-serializer: 2.0.0
-      domhandler: 5.0.3
-      domutils: 3.2.2
-      htmlparser2: 8.0.2
-      parse5: 7.2.1
-      parse5-htmlparser2-tree-adapter: 7.1.0
-
   chevrotain-allstar@0.3.1(chevrotain@11.0.3):
     dependencies:
       chevrotain: 11.0.3
@@ -4864,8 +4840,6 @@ snapshots:
       delayed-stream: 1.0.0
 
   comma-separated-tokens@2.0.3: {}
-
-  commander@2.20.3: {}
 
   commander@7.2.0: {}
 
@@ -5412,13 +5386,6 @@ snapshots:
       css-line-break: 2.1.0
       text-segmentation: 1.0.3
 
-  htmlparser2@8.0.2:
-    dependencies:
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-      domutils: 3.2.2
-      entities: 4.5.0
-
   htmlparser2@9.1.0:
     dependencies:
       domelementtype: 2.3.0
@@ -5543,10 +5510,6 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  katex@0.12.0:
-    dependencies:
-      commander: 2.20.3
-
   katex@0.16.19:
     dependencies:
       commander: 8.3.0
@@ -5656,16 +5619,16 @@ snapshots:
       '@gera2ld/jsx-dom': 2.2.2
       npm2url: 0.2.4
 
-  markmap-html-parser@0.17.1(markmap-common@0.17.1):
+  markmap-html-parser@0.18.5(markmap-common@0.17.1):
     dependencies:
       '@babel/runtime': 7.26.0
-      cheerio: 1.0.0-rc.12
+      cheerio: 1.0.0
       markmap-common: 0.17.1
 
-  markmap-lib@0.17.2(markmap-common@0.17.1):
+  markmap-lib@0.18.5(markmap-common@0.17.1):
     dependencies:
       '@babel/runtime': 7.26.0
-      '@iktakahiro/markdown-it-katex': 4.0.1
+      '@vscode/markdown-it-katex': 1.1.1
       highlight.js: 11.11.1
       katex: 0.16.19
       markdown-it: 14.1.0
@@ -5674,12 +5637,12 @@ snapshots:
       markdown-it-sub: 2.0.0
       markdown-it-sup: 2.0.0
       markmap-common: 0.17.1
-      markmap-html-parser: 0.17.1(markmap-common@0.17.1)
-      markmap-view: 0.17.2(markmap-common@0.17.1)
+      markmap-html-parser: 0.18.5(markmap-common@0.17.1)
+      markmap-view: 0.18.5(markmap-common@0.17.1)
       prismjs: 1.29.0
       yaml: 2.7.0
 
-  markmap-view@0.17.2(markmap-common@0.17.1):
+  markmap-view@0.18.5(markmap-common@0.17.1):
     dependencies:
       '@babel/runtime': 7.26.0
       '@gera2ld/jsx-dom': 2.2.2
@@ -6550,7 +6513,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  vuepress-plugin-md-enhance@2.0.0-rc.67(markdown-it@14.1.0)(markmap-lib@0.17.2(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)):
+  vuepress-plugin-md-enhance@2.0.0-rc.67(markdown-it@14.1.0)(markmap-lib@0.18.5(markmap-common@0.17.1))(markmap-view@0.18.5(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)):
     dependencies:
       '@mdit/plugin-container': 0.14.0(markdown-it@14.1.0)
       '@mdit/plugin-demo': 0.14.0(markdown-it@14.1.0)
@@ -6566,7 +6529,8 @@ snapshots:
       vuepress: 2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)
       vuepress-shared: 2.0.0-rc.67(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
     optionalDependencies:
-      markmap-lib: 0.17.2(markmap-common@0.17.1)
+      markmap-lib: 0.18.5(markmap-common@0.17.1)
+      markmap-view: 0.18.5(markmap-common@0.17.1)
       mermaid: 11.4.1
       sass-embedded: 1.83.1
     transitivePeerDependencies:
@@ -6583,7 +6547,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  vuepress-theme-hope@2.0.0-rc.67(@vuepress/plugin-feed@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(@vuepress/plugin-slimsearch@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(katex@0.16.19)(markdown-it@14.1.0)(markmap-lib@0.17.2(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)):
+  vuepress-theme-hope@2.0.0-rc.67(@vuepress/plugin-feed@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(@vuepress/plugin-slimsearch@2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)))(katex@0.16.19)(markdown-it@14.1.0)(markmap-lib@0.18.5(markmap-common@0.17.1))(markmap-view@0.18.5(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)):
     dependencies:
       '@vuepress/helper': 2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
       '@vuepress/plugin-active-header-links': 2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
@@ -6621,7 +6585,7 @@ snapshots:
       vue: 3.5.13
       vuepress: 2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13)
       vuepress-plugin-components: 2.0.0-rc.67(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
-      vuepress-plugin-md-enhance: 2.0.0-rc.67(markdown-it@14.1.0)(markmap-lib@0.17.2(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
+      vuepress-plugin-md-enhance: 2.0.0-rc.67(markdown-it@14.1.0)(markmap-lib@0.18.5(markmap-common@0.17.1))(markmap-view@0.18.5(markmap-common@0.17.1))(mermaid@11.4.1)(sass-embedded@1.83.1)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
       vuepress-shared: 2.0.0-rc.67(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
     optionalDependencies:
       '@vuepress/plugin-feed': 2.0.0-rc.69(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.5)(sass-embedded@1.83.1)(yaml@2.7.0))(vue@3.5.13))
