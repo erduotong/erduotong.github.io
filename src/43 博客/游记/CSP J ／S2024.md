@@ -1,7 +1,7 @@
 ---
 category:
 - blog
-date: '2024-10-26'
+date: 2024-10-26
 isOriginal: true
 tags:
 - CSP

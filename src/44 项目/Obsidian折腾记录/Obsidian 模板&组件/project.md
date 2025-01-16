@@ -1,7 +1,7 @@
 ---
 category:
 - project
-date: '2024-10-19'
+date: 2024-10-19
 isOriginal: true
 tags: []
 title: README

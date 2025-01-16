@@ -1,7 +1,7 @@
 ---
 category:
 - blog
-date: '2024-11-15'
+date: 2024-11-15
 isOriginal: true
 tags:
 - Tauri
