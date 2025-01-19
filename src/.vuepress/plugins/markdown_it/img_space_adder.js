@@ -15,7 +15,7 @@ export default (md) => {
 
         const processedSrc = src.replace(regex, (match) => {
 
-            return `\n\n${match}\n\n`;
+            return `\n${match}\n`;
         });
 
 
