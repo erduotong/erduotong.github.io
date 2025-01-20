@@ -4,10 +4,10 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-    hostname: "https://erduotong.github.io",
+    hostname: "https://blog.erduotong.com",
     author: {
         name: "耳朵同",
-        url: "https://erduotong.github.io",
+        url: "https://blog.erduotong.com",
     },
     editLink: false,
     hotReload: true,
@@ -19,7 +19,7 @@ export default hopeTheme({
     fullscreen: true,
     contributors: false,
     // repo
-    repo: "https://github.com/erduotong/erduotong.github.io",
+    repo: "https://github.com/erduotong/blog.erduotong.com",
     repoLabel: "Github",
     repoDisplay: true,
     // 博客相关
