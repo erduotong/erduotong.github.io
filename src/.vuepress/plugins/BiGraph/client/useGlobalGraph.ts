@@ -23,9 +23,7 @@ export async function getGlobalGraph(
             return module?.default || null;
         } else {
 
-            const response = await fetch(withBaseFunc(`${graphDataName}`), {
-                cache: "no-cache"
-            });
+            const response = await fetch(withBaseFunc(`${graphDataName}`));
             if (!response.ok) {
                 return null;
             }
