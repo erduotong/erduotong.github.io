@@ -10,7 +10,7 @@ title: 一个基于Tauri的简单Todo - just tauri todo
 ---
 ## 基本信息
 - 链接: https://github.com/erduotong/just-tauri-todo
-- Release: 不提供
+- Release: https://github.com/erduotong/just-tauri-todo/releases/latest
 ## 简介
 这是一个基于Tauri的练手项目，旨在帮助了解Tauri的前后端通信/状态管理，采用了最经典的Todo。
 经过测试，可以正常构建+运行
