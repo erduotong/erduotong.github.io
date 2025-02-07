@@ -26,3 +26,7 @@ title: 一个基于Tauri的简单Todo - just tauri todo
 ### IDE
 - 前端开发: Webstorm
 - 后端(Rust端): Vscode + RustRover(不得不说RR真难用)
+## 项目亮点
+- 使用Tauri开发
+- 极小的打包体积
+- Rust后端
