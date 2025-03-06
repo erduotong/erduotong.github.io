@@ -11,26 +11,26 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.19",
+    "@vuepress/bundler-vite": "2.0.0-rc.20",
     "jsdom": "^25.0.1",
     "vue": "^3.5.13",
-    "vuepress": "2.0.0-rc.19",
-    "vuepress-theme-hope": "2.0.0-rc.71"
+    "vuepress": "2.0.0-rc.20",
+    "vuepress-theme-hope": "2.0.0-rc.74"
   },
   "dependencies": {
     "@mermaid-js/mermaid-mindmap": "^9.3.0",
     "@types/d3": "^7.4.3",
-    "@vuepress/plugin-feed": "2.0.0-rc.74",
-    "@vuepress/plugin-slimsearch": "2.0.0-rc.74",
+    "@vuepress/plugin-feed": "2.0.0-rc.82",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.82",
     "d3": "^7.9.0",
     "katex": "^0.16.21",
     "markdown-it-container": "^4.0.0",
-    "markdown-it-obsidian-callouts": "^0.3.1",
-    "markmap-lib": "^0.18.9",
+    "markdown-it-obsidian-callouts": "^0.3.2",
+    "markmap-lib": "^0.18.11",
     "mermaid": "^11.4.1",
     "plantuml-encoder": "^1.4.0",
     "relation-graph": "^2.2.10",
-    "sass-embedded": "^1.83.4",
+    "sass-embedded": "^1.85.1",
     "vite-plugin-minipic": "^1.2.0"
   }
 }
