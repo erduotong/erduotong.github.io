@@ -19,7 +19,7 @@ export default hopeTheme({
     fullscreen: true,
     contributors: false,
     // repo
-    repo: "https://github.com/erduotong/blog.erduotong.com",
+    repo: "https://github.com/erduotong/erduotong.github.io",
     repoLabel: "Github",
     repoDisplay: true,
     // 博客相关
@@ -57,7 +57,7 @@ export default hopeTheme({
         footnote: true,
         mark: true,
         mermaid: true,
-
+        breaks: true,
     },
 
 
