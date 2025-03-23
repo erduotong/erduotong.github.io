@@ -30,7 +30,7 @@ export default hopeTheme({
         medias: {
             Github: "https://github.com/erduotong",
             BiliBili: "https://space.bilibili.com/1486177608",
-            Email: "3135351980@qq.com"
+            Email: "erduotong@qq.com"
         },
         timeline: "所谓开拓，就是沿着前人未尽的道路，走出更遥远的距离...",
     },
