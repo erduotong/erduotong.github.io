@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站点已迁移</title>
+    <style>
+        :root {
+            --text-color: #333;
+            --bg-color: #fff;
+            --primary-color: #1a73e8;
+            --hover-color: #0d5bba;
+            --border-color: #e0e0e0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #f0f0f0;
+                --bg-color: #1a1a1a;
+                --primary-color: #4d90fe;
+                --hover-color: #2a75ff;
+                --border-color: #444;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--hover-color);
+        }
+
+        .redirect-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .redirect-link:hover {
+            background-color: var(--hover-color);
+            text-decoration: none;
+        }
+
+        .countdown {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .info-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+            background-color: var(--bg-color);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>本站已迁移到 blog.erduotong.com</h1>
+<p>即将自动跳转，请稍候...</p>
+<p><span class="countdown">5</span> 秒后将自动跳转到新站点</p>
+
+<div class="info-box">
+    <p>您正在访问的页面将跳转到：</p>
+    <p id="destination-url" style="word-break: break-all;"></p>
+</div>
+
+<p>如果没有正确跳转，请点击下方链接：</p>
+<a href="#" id="manual-redirect" class="redirect-link">前往新站点</a>
+
+<script>
+    // 新域名基础地址
+    const newBaseUrl = "https://blog.erduotong.com";
+
+    // 获取当前路径（去掉域名），并确保路径以 / 开头
+    let currentPath = window.location.pathname;
+    if (!currentPath.startsWith('/')) {
+        currentPath = '/' + currentPath;
+    }
+
+    // 拼接查询参数和哈希
+    const query = window.location.search;
+    const hash = window.location.hash;
+    console.log(currentPath)
+    const destinationUrl = newBaseUrl + currentPath + query + hash;
+
+    // 设置5秒后跳转
+    setTimeout(function() {
+        window.location.href = destinationUrl;
+    }, 5000);
+
+    // 更新显示的目标URL
+    document.getElementById('destination-url').textContent = destinationUrl;
+    document.getElementById('manual-redirect').href = destinationUrl;
+
+    // 倒计时功能
+    var seconds = 5;
+    var countdown = setInterval(function() {
+        seconds--;
+        document.querySelector('.countdown').textContent = seconds;
+        if (seconds <= 0) {
+            clearInterval(countdown);
+        }
+    }, 1000);
+</script>
+</body>
+</html>
