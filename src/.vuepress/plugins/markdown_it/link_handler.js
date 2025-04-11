@@ -1,3 +1,8 @@
+/**
+ * @fileOverview 让 链接的空格可以正常显示为%20
+ * @param md
+ */
+
 export default (md) => {
     // 保存原始的 render 方法
     const originalRender = md.render;
