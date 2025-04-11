@@ -9,6 +9,7 @@ import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
 import BiGraph from "./plugins/BiGraph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic"
+import BetterVuepressLink from "./plugins/BetterVuepressLink/node/index.js";
 
 
 const __dirname = getDirname(import.meta.url);
@@ -23,7 +24,7 @@ export default defineUserConfig({
         foldEmptyGraph: false,
         graphMaxWidth: 300,
         graphHeight: 300,
-    })],
+    }),BetterVuepressLink()],
     theme,
     bundler: viteBundler({
         viteOptions: {
