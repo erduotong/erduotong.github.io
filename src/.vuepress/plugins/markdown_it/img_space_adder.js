@@ -1,3 +1,8 @@
+/**
+ * @fileOverview 让图片之间能独立渲染成段
+ *
+ */
+
 const imageTypes = [
     "png", "jpg", "jpeg", "gif", "svg", "bmp", "tiff", "webp", "ico", "heic",
     "heif", "jfif", "pjpeg", "pjp", "apng", "avif", "tga", "dds", "ai", "eps",

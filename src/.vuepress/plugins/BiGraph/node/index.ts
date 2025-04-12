@@ -13,7 +13,7 @@ const BiGraph = (config: BiGraphConfig = {}) => {
     options = config;
     const graph_path = {target: ""};
     return {
-        name: "vuepress-plugin-relational-graph",
+        name: "vuepress-plugin-bi-graph",
         onInitialized: (app: App) => {
             Object.assign(bioChainMap, {});
 
