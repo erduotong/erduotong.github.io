@@ -26,7 +26,6 @@ export default defineUserConfig({
             graphMaxWidth: 300,
             graphHeight: 300,
         }),
-        BetterVuepressLink(),
     ],
     theme,
     bundler: viteBundler({
