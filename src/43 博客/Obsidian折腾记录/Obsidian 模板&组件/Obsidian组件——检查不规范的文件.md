@@ -2,7 +2,7 @@
 category: []
 date: 2024-10-19
 isOriginal: true
-permalink: 466489a5d5aeea9048cb1b0461de73ac
+permalink: /466489a5d5aeea9048cb1b0461de73ac
 tags:
 - Obsidian
 - Dataviewjs

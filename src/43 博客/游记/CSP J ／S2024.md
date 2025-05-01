@@ -3,7 +3,7 @@ category:
 - blog
 date: 2024-10-26
 isOriginal: true
-permalink: 019882fb4fe4c94ee2ee0ecfa3838ce0
+permalink: /019882fb4fe4c94ee2ee0ecfa3838ce0
 tags:
 - CSP
 - 游记
