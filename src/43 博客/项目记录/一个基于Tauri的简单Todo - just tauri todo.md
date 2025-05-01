@@ -3,6 +3,7 @@ category:
 - blog
 date: 2024-11-15
 isOriginal: true
+permalink: /posts/4c23371a7a220bdf268400bd57c4b97c/
 tags:
 - Tauri
 - 项目记录
