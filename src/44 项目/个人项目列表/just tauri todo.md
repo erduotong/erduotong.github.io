@@ -6,7 +6,7 @@ isOriginal: true
 tags:
 - Tauri
 - 项目记录
-title: 一个基于Tauri的简单Todo - just tauri todo
+title: just tauri todo
 ---
 ## 基本信息
 - 链接: [https://github.com/erduotong/just-tauri-todo](https://github.com/erduotong/just-tauri-todo)
@@ -15,7 +15,7 @@ title: 一个基于Tauri的简单Todo - just tauri todo
 这是一个基于Tauri的练手项目，旨在帮助了解Tauri的前后端通信/状态管理，采用了最经典的Todo。
 经过测试，可以正常构建+运行
 应用截图:
-![IMG-20241227 225608111-一个基于Tauri的简单Todo - just tauri todo.png](/image/IMG-20241227 225608111-一个基于Tauri的简单Todo - just tauri todo.png)
+![IMG-20250509 221818531-just tauri todo.png](/image/IMG-20250509 221818531-just tauri todo.png)
 ## 技术栈
 ### 前端
 - Vue
