@@ -15,7 +15,7 @@ title: just tauri todo
 这是一个基于Tauri的练手项目，旨在帮助了解Tauri的前后端通信/状态管理，采用了最经典的Todo。
 经过测试，可以正常构建+运行
 应用截图:
-![IMG-20250509 221818531-just tauri todo.png](/image/IMG-20250509 221818531-just tauri todo.png)
+![IMG-20250510 142332597-just tauri todo.png](/image/IMG-20250510 142332597-just tauri todo.png)
 ## 技术栈
 ### 前端
 - Vue
