@@ -17,6 +17,7 @@ export interface MapNodeLink {
 }
 
 export interface Node {
+    linkCount: number;
     id: string;
     value: NodeValue;
     x?: number;
