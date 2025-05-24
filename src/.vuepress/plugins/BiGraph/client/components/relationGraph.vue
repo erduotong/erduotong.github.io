@@ -52,7 +52,7 @@ const FORCE_CONFIG = {
     .strength(0.8), // 调整连接线的强度
   charge: d3
     .forceManyBody<Node>()
-    .strength((d: Node) => { return -50 - 250 * (d.linkCount-1 || 0) }) // 根据连接数调整电荷力
+    .strength((d: Node) => { return -40 - 180 * (d.linkCount-1 || 0) }) // 根据连接数调整电荷力
     .distanceMin(10) // 最小距离
     .distanceMax(400), // 最大距离
   collision: d3
@@ -62,7 +62,7 @@ const FORCE_CONFIG = {
   x: d3.forceX<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的X轴中心力
   y: d3.forceY<Node>().strength((d: Node) => (d.isIsolated ? 0.02 : 0.1)), // 减小孤立节点的Y轴中心力
   simulation: {
-    alphaDecay: 0.01, // 增加alphaDecay，使得模拟更快停止
+    alphaDecay: 0.003, // 增加alphaDecay，使得模拟更快停止
     alphaMin: 0.001, // 设置alphaMin，避免无限刷新
     velocityDecay: 0.6, // 调整速度衰减，使得节点移动更平滑
     restart: {
@@ -89,7 +89,7 @@ const STYLE_CONFIG = {
   },
   text: {
     font: "12px 'Microsoft YaHei', 'Heiti SC', 'SimHei', -apple-system, sans-serif",
-    offset: 25,
+    offset: 20,
     minScale: 0.5,
     maxScale: 1.5,
   },
@@ -177,16 +177,6 @@ function initializeMapData(data: MapNodeLink, currentPath?: string): void {
     );
     if (currentNode) {
       currentNode.isCurrent = true;
-      // 将当前节点固定在画布中心
-      currentNode.fx = canvasSize.value.width / 2;
-      currentNode.fy = canvasSize.value.height / 2;
-      // 1秒后释放固定位置
-      setTimeout(() => {
-        if (currentNode) {
-          currentNode.fx = null;
-          currentNode.fy = null;
-        }
-      }, 1000);
     }
   }
 
@@ -409,7 +399,7 @@ onMounted(() => {
       )
       .strength(0.002);
 
-    window.simulation = d3
+   return d3
       .forceSimulation<Node>(map_data.value.nodes)
       .force("link", FORCE_CONFIG.link.links(map_data.value.links))
       .force("charge", FORCE_CONFIG.charge)
@@ -424,7 +414,6 @@ onMounted(() => {
         ticked();
       });
 
-    return window.simulation;
   }
 
   // 事件处理数
@@ -606,7 +595,8 @@ onMounted(() => {
 
   // 绘制节点
   function drawNode(d, baseRadius) {
-    const radius = baseRadius + (d.linkCount-1 || 0) * 0.4; // 基础半径加上点连接数的倍数
+    const linkCountBonus = Math.max(0, d.linkCount - 1) * 0.4;
+    const radius = baseRadius + linkCountBonus; // 基础半径加上点连接数的倍数
     context.moveTo(d.x + radius, d.y);
     context.arc(d.x, d.y, radius, 0, 2 * Math.PI);
   }
@@ -799,6 +789,8 @@ onMounted(() => {
     map_data.value.nodes.forEach((node) => {
       let shouldDrawText = false;
       let opacity = 1;
+      // 计算节点的动态视觉半径 (不包括悬停时的放大效果)
+      const visualNodeRadius = CANVAS_CONFIG.nodeRadius + Math.max(0, node.linkCount - 1) * 0.4;
 
       if (transform.k > STYLE_CONFIG.text.minScale) {
         shouldDrawText = true;
@@ -824,7 +816,7 @@ onMounted(() => {
         context.fillText(
           node.value.title,
           node.x - textWidth / 2,
-          node.y + STYLE_CONFIG.text.offset
+          node.y + STYLE_CONFIG.text.offset + visualNodeRadius
         );
         context.globalAlpha = 1; // 恢复默认透明度
       }
@@ -857,18 +849,18 @@ declare global {
 watch(
   () => canvasSize.value,
   (): void => {
-    if (window.simulation) {
+    if (simulation) {
       const centerForce = d3
         .forceCenter<Node>(
           canvasSize.value.width / 2,
           canvasSize.value.height / 2
         )
         .strength(0.002);
-      window.simulation
+      simulation
         .force("center", centerForce)
         .force("x", FORCE_CONFIG.x.x(canvasSize.value.width / 2))
         .force("y", FORCE_CONFIG.y.y(canvasSize.value.height / 2));
-      window.simulation
+      simulation
         .alpha(FORCE_CONFIG.simulation.restart.watchAlpha)
         .restart();
     }
