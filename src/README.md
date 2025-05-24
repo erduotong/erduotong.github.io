@@ -9,7 +9,7 @@ heroFullScreen: true
 tagline: 这里是耳朵同的博客
 bgImage: //file.mo7.cc/api/public/bz?idx=1
 projects:
-  - icon: project
+  - icon: sort
     name: 站点导航
     desc: 查看所有的文章
     link: /catalog.html
