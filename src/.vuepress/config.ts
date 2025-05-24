@@ -5,13 +5,12 @@ import link_handler from "./plugins/markdown_it/link_handler.js";
 import img_space_adder from "./plugins/markdown_it/img_space_adder.js";
 import enable_multi_h1 from "./plugins/markdown_it/enable_multi_h1.js";
 import mdItObsidianCallouts from "markdown-it-obsidian-callouts";
-import ab_mdit from "./plugins/ABConvertManager/src/index_mdit.js";
 import BiGraph from "./plugins/BiGraph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic";
-import BetterVuepressLink from "./plugins/BetterVuepressLink/node/index.js";
 import importFallbackPlugin from "./plugins/ImageFallback/index.js";
-
+import { ab_mdit, jsdom_init } from "markdown-it-any-block"
+jsdom_init()
 const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
     base: "/",
@@ -52,7 +51,7 @@ export default defineUserConfig({
         md.use(img_space_adder);
         md.use(enable_multi_h1);
         md.use(mdItObsidianCallouts);
-
+        md.use(ab_mdit)
         md.use(ab_mdit);
     },
     markdown: {
