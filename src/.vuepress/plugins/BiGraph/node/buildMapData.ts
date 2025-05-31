@@ -68,6 +68,7 @@ function generateLocalMap(root: string): MapNodeLink {
             value: {
                 ...localMap[key],
             },
+            linkCount: 0
         });
         localMap[key].outlink.forEach((link) => {
             localMapNodeLink.links.push({
@@ -101,6 +102,7 @@ function buildGlobalMap(): MapNodeLink {
                 outlink: bioChainMap[path].outlink,
                 backlink: bioChainMap[path].backlink,
             },
+            linkCount: 0
         });
         bioChainMap[path].backlink.forEach((link) => {
             graph.links.push({
