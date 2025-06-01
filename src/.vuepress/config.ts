@@ -40,7 +40,7 @@ export default defineUserConfig({
         },
     }),
     alias: {
-        "@theme-hope/components/PageFooter": path.resolve(
+        "@theme-hope/components/base/PageFooter": path.resolve(
             __dirname,
             "./components/websiteFooter.vue"
         ),
