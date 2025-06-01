@@ -55,17 +55,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: merged
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
-          run_install: true
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 21
           cache: pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+          run_install: true
       - name: Build The Site
         run: pnpm docs:build
 
