@@ -2,6 +2,7 @@ import {hopeTheme} from "vuepress-theme-hope";
 
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
+import {cut} from "nodejs-jieba";
 
 export default hopeTheme({
     hostname: "https://blog.erduotong.com",
@@ -87,7 +88,12 @@ export default hopeTheme({
 
         slimsearch: {
             indexContent: true,
-            suggestion: false
+            suggestion: false,
+            indexOptions: {
+                // 使用 nodejs-jieba 进行分词
+                tokenize: (text, fieldName) =>
+                    fieldName === 'id' ? [text] : cut(text, true),
+            },
         },
         icon:{
             assets: "fontawesome-with-brands"
