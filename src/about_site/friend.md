@@ -16,7 +16,12 @@ desc="专心致志做事，大气温和待人。"
 logo="https://file.mo7.cc/static/lxh_gif/lxh_71.gif"
 link="https://blog.mo7.cc"
 />
-
+<VPCard
+title="洛元の小屋"
+desc="专心致志做事，大气温和待人。"
+logo="https://blog.dimeta.top/upload/avatar.jpg"
+link="https://blog.dimeta.top/"
+/>
 
 
 > [!quote]- 申请友链 >
@@ -29,7 +34,7 @@ link="https://blog.mo7.cc"
 > 一些本站的信息:
 > - 网站名称: 耳朵同的博客
 > - 网站地址: [blog.erduotong.com](https://erduotong.github.io)
-> - 网站图标: [https://blog.erduotong.com/logo.png](https://erduotong.github.io/logo.png)
+> - 网站图标: [https://blog.erduotong.com/logo.png](https://blog.erduotong.com/logo.png)
 > - 主人名字: 耳朵同
 >
 > 申请格式:
