@@ -4,3 +4,7 @@ node_modules/
 src/.vuepress/.cache
 src/.vuepress/.temp
 src/.vuepress/.dist
+/src/.vuepress/dist/404_image.png
+/src/.vuepress/dist/BingSiteAuth.xml
+/src/.vuepress/dist/blog_preview.png
+/src/.vuepress/dist/logo.png
