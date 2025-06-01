@@ -18,7 +18,7 @@ link="https://blog.mo7.cc"
 />
 <VPCard
 title="洛元の小屋"
-desc="专心致志做事，大气温和待人。"
+desc="洛元の小屋，科技，游戏，生活为主的blog"
 logo="https://blog.dimeta.top/upload/avatar.jpg"
 link="https://blog.dimeta.top/"
 />
