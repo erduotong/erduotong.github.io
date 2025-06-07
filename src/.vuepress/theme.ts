@@ -86,7 +86,7 @@ export default hopeTheme({
         },
 
         docsearch: {
-            apiKey: "bcb43bfa655e61d81e5ba8978c0c9137",
+            apiKey: "15a9f03171fcf4ace1777c109ae50ba2",
             indexName: "blog.erduotong.com",
             appId: "VQ59113T2I",
             placeholder: "搜索文档",
