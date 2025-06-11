@@ -86,9 +86,9 @@ export default hopeTheme({
         },
 
         docsearch: {
-            apiKey: "15a9f03171fcf4ace1777c109ae50ba2",
-            indexName: "blog.erduotong.com",
-            appId: "VQ59113T2I",
+            apiKey: "8b80f6438a5fed7cfced1d2ef86922a0",
+            indexName: "erduotong",
+            appId: "L68784ZQB2",
             placeholder: "搜索文档",
             translations: {
                 button: {
@@ -128,8 +128,6 @@ export default hopeTheme({
                     },
                 }
             },
-            maxResultsPerGroup: 5,
-            indexBase: "https://blog.erduotong.com",
 
         },
         icon: {
