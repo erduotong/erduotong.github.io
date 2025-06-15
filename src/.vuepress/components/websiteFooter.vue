@@ -42,12 +42,14 @@ onMounted(() => {
 
       </div>
     </div>
+
     <div class="copyright">
       <div> Copyright © 2024-present 耳朵同</div>
-
-      <div>本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
-        {{ time.seconds }} 秒
-      </div>
+      <ClientOnly>
+        <div>本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
+          {{ time.seconds }} 秒
+        </div>
+      </ClientOnly>
     </div>
   </footer>
 </template>
