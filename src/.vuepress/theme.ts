@@ -76,7 +76,19 @@ export default hopeTheme({
             json: true,
             image: "/logo.png",
             icon: "/logo.png",
-            devServer: true
+            devServer: true,
+            channel: {
+                copyright: " Copyright © 2024-present 耳朵同",
+                //@ts-ignore
+                pubDate: "2024-09-22T00:00:00+08:00",
+                ttl: 60,
+                author: {
+                    name:"耳朵同",
+                    email: "erduotong@qq.com",
+                    url:"http://blog.erduotong.com",
+                }
+
+            }
         },
         comment: {
             provider: "Giscus",
