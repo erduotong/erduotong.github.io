@@ -48,6 +48,13 @@ onMounted(() => {
 
     <div class="copyright">
       <div> Copyright © 2024-present 耳朵同</div>
+      <div class="license">
+        本站内容采用
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
+          CC BY-NC-SA 4.0
+        </a>
+        进行许可
+      </div>
       <ClientOnly>
         <div>本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
           {{ time.seconds }} 秒
