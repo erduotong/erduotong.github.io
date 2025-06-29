@@ -8,7 +8,7 @@ import mdItObsidianCallouts from "markdown-it-obsidian-callouts";
 import BiGraph from "./plugins/BiGraph/node/index.js";
 import viteBundler from "@vuepress/bundler-vite";
 import minipic from "vite-plugin-minipic";
-import importFallbackPlugin from "./plugins/ImageFallback/index.js";
+import importFallbackPlugin from "./plugins/markdown_it/image_fallback_handler.js";
 import { ab_mdit, jsdom_init } from "markdown-it-any-block"
 jsdom_init()
 const __dirname = getDirname(import.meta.url);

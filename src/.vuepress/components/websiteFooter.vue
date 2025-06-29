@@ -5,11 +5,11 @@ const startTime = new Date("2024-09-22T00:00:00+08:00") // 网站创建时间
 // 计算网站运行时间
 const time = ref({
   days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
+  hours: '00' as string,
+  minutes: '00' as string,
+  seconds: '00' as string
 })
-const padZero = (num) => String(num).padStart(2, '0');
+const padZero = (num: number): string => String(num).padStart(2, '0');
 
 const calculateTime = () => {
   const now = new Date();
@@ -35,8 +35,11 @@ onMounted(() => {
       <!--suppress HtmlUnknownTarget -->
       <div>
         <span>订阅本站</span> |
+        <!--suppress HtmlUnknownTarget -->
         <a href="/rss.xml">RSS</a> |
+        <!--suppress HtmlUnknownTarget -->
         <a href="/atom">Atom</a> |
+        <!--suppress HtmlUnknownTarget -->
         <a href="/feed.json">JSON</a>
 
 
@@ -45,6 +48,13 @@ onMounted(() => {
 
     <div class="copyright">
       <div> Copyright © 2024-present 耳朵同</div>
+      <div class="license">
+        本站内容采用
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
+          CC BY-NC-SA 4.0
+        </a>
+        进行许可
+      </div>
       <ClientOnly>
         <div>本站已运行 {{ time.days }} 天 {{ time.hours }} 小时 {{ time.minutes }} 分钟
           {{ time.seconds }} 秒
