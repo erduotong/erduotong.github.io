@@ -1,0 +1,101 @@
+{
+  "components": [
+    {
+      "id": "4421a777-e457-4cbc-8861-b900a6f65923",
+      "type": "multi",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": true,
+      "showShadow": false,
+      "createAt": "2025-04-14T15:03:44.694Z",
+      "updateAt": "2025-04-14T15:03:44.694Z",
+      "components": [
+        {
+          "componentId": "d2c99275-c71e-47c4-a67f-716846ec23d0"
+        }
+      ],
+      "layoutType": "tab",
+      "locked": false,
+      "layoutOptions": {}
+    },
+    {
+      "id": "d2c99275-c71e-47c4-a67f-716846ec23d0",
+      "type": "dynamicDataView",
+      "titleAlign": "center",
+      "tabTitle": "",
+      "maxWidthRatio": -1,
+      "showBorder": false,
+      "showShadow": false,
+      "createAt": "2025-04-13T14:56:50.246Z",
+      "updateAt": "2025-04-13T14:56:50.246Z",
+      "viewType": "table",
+      "newPageNameFormat": "{{date:YYYYMMDDHHmmss}} ",
+      "properties": [
+        {
+          "id": "__componentsTitleProperty_0x7c00",
+          "name": "文件名",
+          "type": "text",
+          "isShow": true,
+          "wrap": false,
+          "options": {
+            "width": "360"
+          }
+        },
+        {
+          "id": "20751cdc-e072-4dd0-9f3a-71dcd834c4ee",
+          "name": "date",
+          "isShow": true,
+          "type": "date",
+          "options": {}
+        }
+      ],
+      "templates": [],
+      "groups": [],
+      "colorfulGroups": false,
+      "viewOptions": {
+        "openPageIn": "tab",
+        "openPageAfterCreate": true,
+        "items": [],
+        "pinFiltersToMenuBar": false,
+        "showGrid": false,
+        "heightType": "auto",
+        "heightValue": 600
+      },
+      "filter": {
+        "id": "f6534651-5ba1-42f2-859b-d569e140eab7",
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "id": "de0c5ccb-3702-47b6-a9b6-9025f55156e4",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#历史/单课",
+            "conditions": []
+          },
+          {
+            "id": "54380f4f-9b73-4a57-847f-ae06be622989",
+            "type": "filter",
+            "operator": "contains",
+            "property": "${file.tags}",
+            "value": "#初中/七上",
+            "conditions": []
+          }
+        ]
+      },
+      "sort": {
+        "orders": [
+          {
+            "id": "5718d896-4adb-4a66-9288-f9ab9219785b",
+            "property": "${file.basename}",
+            "direction": "asc",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ],
+  "rootComponentId": "4421a777-e457-4cbc-8861-b900a6f65923"
+}
