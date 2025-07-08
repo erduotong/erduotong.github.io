@@ -3988,6 +3988,1450 @@
       "y": -164
     },
     {
+      "height": 72,
+      "id": "0aa2977606299cc5",
+      "styleAttributes": {
+      },
+      "text": "[[14. 海峡两岸的交往#解决台湾问题的措施|台湾当局开始被迫调整”三不“政策]]",
+      "type": "text",
+      "width": 216,
+      "x": 13772,
+      "y": 242
+    },
+    {
+      "height": 50,
+      "id": "1e325360a127c56f",
+      "styleAttributes": {
+      },
+      "text": "[[18. 科技文化成就#\"863\"计划|863计划]]",
+      "type": "text",
+      "width": 180,
+      "x": 13428,
+      "y": 253
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "9580b11b30fa3dc9",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 13285,
+      "y": 253
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "14302ca7c3fcd82c",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 13665,
+      "y": 253
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "e91f2b16945862f2",
+      "styleAttributes": {
+      },
+      "text": "# 1986",
+      "type": "text",
+      "width": 164,
+      "x": 13228,
+      "y": -164
+    },
+    {
+      "height": 60,
+      "id": "03a69acf4e8607f2",
+      "styleAttributes": {
+      },
+      "text": "设立[[9. 对外开放#设立经济特区|海南经济特区]]",
+      "type": "text",
+      "width": 216,
+      "x": 14172,
+      "y": 395
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "a22cc90350a7d4e6",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 14465,
+      "y": 400
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "c8892bb6c6c97cf5",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 14465,
+      "y": 118
+    },
+    {
+      "height": 60,
+      "id": "1bc3c08b88c83a72",
+      "styleAttributes": {
+      },
+      "text": "台湾成立[[14. 海峡两岸的交往#解决台湾问题的措施|海峡交流基金会]]",
+      "type": "text",
+      "width": 276,
+      "x": 14572,
+      "y": 113
+    },
+    {
+      "height": 60,
+      "id": "4d3eccf3b41b4760",
+      "styleAttributes": {
+      },
+      "text": "设立[[9. 对外开放#沿海经济开放区|上海浦东开发区]]",
+      "type": "text",
+      "width": 245,
+      "x": 14572,
+      "y": 395
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "1e53443ff3388db9",
+      "styleAttributes": {
+      },
+      "text": "# 1987",
+      "type": "text",
+      "width": 164,
+      "x": 13608,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "da9694828614b61d",
+      "styleAttributes": {
+      },
+      "text": "# 1981",
+      "type": "text",
+      "width": 164,
+      "x": 10948,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "e541f1d17771848c",
+      "styleAttributes": {
+      },
+      "text": "# 1985",
+      "type": "text",
+      "width": 164,
+      "x": 12728,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "7d1a2d7f59f99f40",
+      "styleAttributes": {
+      },
+      "text": "# 1984",
+      "type": "text",
+      "width": 164,
+      "x": 12288,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "62ef82888145f4ef",
+      "styleAttributes": {
+      },
+      "text": "# 1988",
+      "type": "text",
+      "width": 164,
+      "x": 14008,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "e77d0957f66066a9",
+      "styleAttributes": {
+      },
+      "text": "# 1982",
+      "type": "text",
+      "width": 164,
+      "x": 11368,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "69209adc46e5c0d4",
+      "styleAttributes": {
+      },
+      "text": "# 1979",
+      "type": "text",
+      "width": 164,
+      "x": 9957,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "a10994fc82dc2044",
+      "styleAttributes": {
+      },
+      "text": "# 1980",
+      "type": "text",
+      "width": 164,
+      "x": 10428,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "ab09ad5129b12812",
+      "styleAttributes": {
+      },
+      "text": "# 1983",
+      "type": "text",
+      "width": 164,
+      "x": 11828,
+      "y": -164
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "2e13d099ef00ef22",
+      "styleAttributes": {
+      },
+      "text": "# 1990",
+      "type": "text",
+      "width": 164,
+      "x": 14408,
+      "y": -164
+    },
+    {
+      "height": 55,
+      "id": "8355985868281a01",
+      "styleAttributes": {
+      },
+      "text": "[[13. 香港和澳门回归祖国#\"一国两制\"的构想|一国两制]]构想提出",
+      "type": "text",
+      "width": 229,
+      "x": 11148,
+      "y": 250
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "a07e822eef6885a7",
+      "styleAttributes": {
+      },
+      "text": "## 80年代初",
+      "type": "text",
+      "width": 183,
+      "x": 10939,
+      "y": 253
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "ad49735a811d59e9",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 12345,
+      "y": 253
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "06f827905a846a52",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 11005,
+      "y": 116
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "fb9e469a09b25db6",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 12785,
+      "y": 400
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "29be72684bdf115f",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 11425,
+      "y": 117
+    },
+    {
+      "height": 62,
+      "id": "5f8648ceb100f748",
+      "styleAttributes": {
+      },
+      "text": "[[7. 伟大的历史转折#拨乱反正|十一届六中全会召开]]",
+      "type": "text",
+      "width": 216,
+      "x": 11137,
+      "y": 110
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "e1afff46a28fc2c7",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 11885,
+      "y": 526
+    },
+    {
+      "height": 60,
+      "id": "a1770918f01d1a71",
+      "styleAttributes": {
+      },
+      "text": "开放[[9. 对外开放#开放沿海城市|14个沿海开放城市]]",
+      "type": "text",
+      "width": 276,
+      "x": 12452,
+      "y": 395
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "b474ef346c6b3db9",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 12345,
+      "y": 117
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "53c6b7f5b5a23872",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 13285,
+      "y": 117
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "34bcfacefae181e1",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 13665,
+      "y": 117
+    },
+    {
+      "height": 60,
+      "id": "6f6e3f5770f12258",
+      "styleAttributes": {
+      },
+      "text": "[[10. 建设中国特色社会主义#中国共产党第13次全国代表大会|中共13大召开]]",
+      "type": "text",
+      "width": 185,
+      "x": 13772,
+      "y": 112
+    },
+    {
+      "height": 72,
+      "id": "ebd72779ae45a2c6",
+      "styleAttributes": {
+      },
+      "text": "[[12. 民族大团结#民族区域自治制度#过程|《中华人民共和国民族区域自治法》]]颁布实施",
+      "type": "text",
+      "width": 276,
+      "x": 12452,
+      "y": 242
+    },
+    {
+      "height": 60,
+      "id": "426f72efb9651f54",
+      "styleAttributes": {
+      },
+      "text": "[[8. 经济体制改革#城市经济体制改革|城市经济体制改革]]开始",
+      "type": "text",
+      "width": 276,
+      "x": 12452,
+      "y": 112
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "463aa2e929f62e41",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 14065,
+      "y": 400
+    },
+    {
+      "height": 50,
+      "id": "c2c72ac6d573c18f",
+      "styleAttributes": {
+      },
+      "text": "[[9. 对外开放#沿海经济开放区|3个沿海经济开放区]]开放",
+      "type": "text",
+      "width": 269,
+      "x": 12959,
+      "y": 400
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "4eef00122d1721e8",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 12345,
+      "y": 400
+    },
+    {
+      "height": 55,
+      "id": "66559968e3ce3ffd",
+      "styleAttributes": {
+      },
+      "text": "[[18. 科技文化成就#邓稼先|邓稼先逝世]]",
+      "type": "text",
+      "width": 180,
+      "x": 13428,
+      "y": 115
+    },
+    {
+      "height": 93,
+      "id": "3ee476d0b89bef88",
+      "styleAttributes": {
+      },
+      "text": "开放[[9. 对外开放#设立经济特区|深圳、珠海、汕头、厦门]]四个经济特区",
+      "type": "text",
+      "width": 269,
+      "x": 10608,
+      "y": 379
+    },
+    {
+      "height": 72,
+      "id": "5b8137f717b2caf1",
+      "styleAttributes": {
+      },
+      "text": "[[7. 伟大的历史转折#拨乱反正|恢复刘少奇名誉]]",
+      "type": "text",
+      "width": 200,
+      "x": 10608,
+      "y": 110
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "f6b0200f141e5a73",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 10485,
+      "y": 400
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "5ab4e959657e4877",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 10485,
+      "y": 121
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "cd0202664122edf4",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 10014,
+      "y": 120
+    },
+    {
+      "height": 65,
+      "id": "e47ee27fabed80a0",
+      "styleAttributes": {
+      },
+      "text": "[[8. 经济体制改革#家庭联产承包责任制#过程|家庭联产承包责任制]]基本在农村普遍实行",
+      "type": "text",
+      "width": 265,
+      "x": 11992,
+      "y": 519
+    },
+    {
+      "height": 105,
+      "id": "186c08cbf538efba",
+      "styleAttributes": {
+      },
+      "text": "[[10. 建设中国特色社会主义#邓小平理论指导地位的确立|中共十二大]]召开，邓小平提出要建设有中国特色的社会主义",
+      "type": "text",
+      "width": 256,
+      "x": 11532,
+      "y": 89
+    },
+    {
+      "height": 73,
+      "id": "38577cf999e60a47",
+      "styleAttributes": {
+      },
+      "text": "[[14. 海峡两岸的交往#解决台湾问题的措施|发表《告台湾同胞书》]]",
+      "type": "text",
+      "width": 240,
+      "x": 10148,
+      "y": 109
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "553880d1ec7a2f09",
+      "styleAttributes": {
+      },
+      "text": "## 10月",
+      "type": "text",
+      "width": 130,
+      "x": -243,
+      "y": 242
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "62d840f52afa8f94",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 4600,
+      "y": 117
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "f59a8882023745de",
+      "styleAttributes": {
+      },
+      "text": "## 7月",
+      "type": "text",
+      "width": 130,
+      "x": 1464,
+      "y": 250
+    },
+    {
+      "height": 50,
+      "id": "98c1552a2acb0a9c",
+      "styleAttributes": {
+      },
+      "text": "[[4. 新中国工业化的起步和人民代表大会制度的确立#成就|武汉长江大桥]]建成",
+      "type": "text",
+      "width": 240,
+      "x": 3880,
+      "y": 526
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "0377382b762c5aab",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 261
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "15503bf81abccdaf",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 116
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "d1b2628d92b764cf",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 65,
+      "x": 314,
+      "y": 121
+    },
+    {
+      "height": 65,
+      "id": "dacea41e4c03126c",
+      "styleAttributes": {
+      },
+      "text": "[[1. 中华人民共和国成立#开国大典|中华人民共和国成立]]",
+      "type": "text",
+      "width": 240,
+      "x": -66,
+      "y": 235
+    },
+    {
+      "height": 80,
+      "id": "e8910288a97a5d0f",
+      "styleAttributes": {
+      },
+      "text": "[[5. 三大改造#农业、手工业合作化|三大改造——农业、手工业合作化]]改造开始",
+      "type": "text",
+      "width": 260,
+      "x": 1647,
+      "y": 380
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "dce577e284d09a7a",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 526
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "7f6d19ce40690a81",
+      "styleAttributes": {
+      },
+      "text": "## 4-7月",
+      "type": "text",
+      "width": 147,
+      "x": 1916,
+      "y": 261
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "599bdb632b7239d5",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 1504,
+      "y": 395
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "0106ef642cef8e0a",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 4177,
+      "y": 109
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "c2df2451618a765f",
+      "styleAttributes": {
+      },
+      "text": "## 9月",
+      "type": "text",
+      "width": 130,
+      "x": 1924,
+      "y": 116
+    },
+    {
+      "height": 50,
+      "id": "d3611bcd7af77c83",
+      "styleAttributes": {
+      },
+      "text": "[[16. 独立自主的和平外交#加强与亚非国家的团结合作|万隆会议]]",
+      "type": "text",
+      "width": 149,
+      "x": 2611,
+      "y": 116
+    },
+    {
+      "height": 80,
+      "id": "b24afd97f6299dde",
+      "styleAttributes": {
+      },
+      "text": "[[1. 中华人民共和国成立#中国人民政治协商会议|政治协商会议召开]]，\n共同纲领通过",
+      "type": "text",
+      "width": 250,
+      "x": -66,
+      "y": 105
+    },
+    {
+      "height": 65,
+      "id": "810c457b67900e66",
+      "styleAttributes": {
+      },
+      "text": "[[3. 土地改革|土地改革]]开始",
+      "type": "text",
+      "width": 180,
+      "x": 484,
+      "y": 113
+    },
+    {
+      "height": 65,
+      "id": "71b38e5b620c63ba",
+      "styleAttributes": {
+      },
+      "text": "[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|七千人大会]]召开",
+      "type": "text",
+      "width": 197,
+      "x": 5163,
+      "y": 111
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "314e920101c37883",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5820,
+      "y": 118
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "a32e3e238dd19433",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5820,
+      "y": 395
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "0eb2724d999721fc",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 3757,
+      "y": 658
+    },
+    {
+      "height": 65,
+      "id": "47d35aa1ea9c3052",
+      "styleAttributes": {
+      },
+      "text": "我国进入社会主义初级阶段",
+      "type": "text",
+      "width": 301,
+      "x": 3079,
+      "y": 109
+    },
+    {
+      "height": 79,
+      "id": "32fe5eb0db9186f8",
+      "styleAttributes": {
+      },
+      "text": "[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|”大跃进“和人民公社化运动]]开始",
+      "type": "text",
+      "width": 216,
+      "x": 4284,
+      "y": 95
+    },
+    {
+      "height": 116,
+      "id": "8f4bde9423a77028",
+      "styleAttributes": {
+      },
+      "text": "第一届[[4. 新中国工业化的起步和人民代表大会制度的确立#人民代表大会制度的确立|全国人民代表大会]]召开，《中华人民共和国宪法》颁布",
+      "type": "text",
+      "width": 250,
+      "x": 2127,
+      "y": 83
+    },
+    {
+      "height": 58,
+      "id": "344ecdd295c6f6a6",
+      "styleAttributes": {
+      },
+      "text": "[[6. 艰辛探索与建设成就#文化大革命|文化大革命]]开始",
+      "type": "text",
+      "width": 210,
+      "x": 5930,
+      "y": 391
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "2fb1b4323044e583",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5023,
+      "y": 118
+    },
+    {
+      "height": 60,
+      "id": "c0db4956de3b80fa",
+      "styleAttributes": {
+      },
+      "text": "中国组建[[15. 钢铁长城#导弹部队的发展|第二炮兵部队]]",
+      "type": "text",
+      "width": 256,
+      "x": 5930,
+      "y": 113
+    },
+    {
+      "height": 88,
+      "id": "060278e63a13b2e5",
+      "styleAttributes": {
+      },
+      "text": "我国第一次成功进行了[[18. 科技文化成就#两弹过程|导弹核武器的试验]]",
+      "type": "text",
+      "width": 256,
+      "x": 5930,
+      "y": 233
+    },
+    {
+      "height": 88,
+      "id": "de1c5b0ab4238fc4",
+      "styleAttributes": {
+      },
+      "text": "[[5. 三大改造#农业、手工业合作化|农业、手工业]]改造结束",
+      "type": "text",
+      "width": 180,
+      "x": 3079,
+      "y": 376
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "d30387e2e957c0ca",
+      "styleAttributes": {
+      },
+      "text": "# 1957",
+      "type": "text",
+      "width": 164,
+      "x": 3700,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "5e71eba6baf07d7c",
+      "styleAttributes": {
+      },
+      "text": "# 1958",
+      "type": "text",
+      "width": 164,
+      "x": 4120,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "fb03764afc0b7447",
+      "styleAttributes": {
+      },
+      "text": "# 1961",
+      "type": "text",
+      "width": 164,
+      "x": 4543,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "de4c0358299c1b2b",
+      "styleAttributes": {
+      },
+      "text": "# 1956",
+      "type": "text",
+      "width": 164,
+      "x": 2884,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "6771fa1f8d155ab1",
+      "styleAttributes": {
+      },
+      "text": "# 1955",
+      "type": "text",
+      "width": 164,
+      "x": 2447,
+      "y": -160
+    },
+    {
+      "height": 69,
+      "id": "d36867799b783838",
+      "styleAttributes": {
+      },
+      "text": "我国[[18. 科技文化成就#两弹过程|第一颗原子弹]]爆炸成功",
+      "type": "text",
+      "width": 196,
+      "x": 5547,
+      "y": 109
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "00c8d09a3ea8a136",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5440,
+      "y": 118
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "00c577a98bf02d21",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 800
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "4f699cf0b3552888",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 800
+    },
+    {
+      "height": 81,
+      "id": "48a203b3526738cc",
+      "styleAttributes": {
+      },
+      "text": "社会主义基本制度确立",
+      "type": "text",
+      "width": 160,
+      "x": 3341,
+      "y": 445
+    },
+    {
+      "height": 80,
+      "id": "fb11ddf77befbb0d",
+      "styleAttributes": {
+      },
+      "text": "[[5. 三大改造#资本主义工商业|三大改造——资本主义工商业]]改造开始",
+      "type": "text",
+      "width": 233,
+      "x": 2127,
+      "y": 511
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "187a3ce2c6a6c914",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 1964,
+      "y": 526
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "44bc048dfc38292e",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2941,
+      "y": 395
+    },
+    {
+      "height": 80,
+      "id": "8809aab8e9b34c57",
+      "styleAttributes": {
+      },
+      "text": "[[5. 三大改造#资本主义工商业|资本主义工商业]]改造结束",
+      "type": "text",
+      "width": 180,
+      "x": 3079,
+      "y": 511
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "6563e8185a5e933e",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 2504,
+      "y": 116
+    },
+    {
+      "height": 65,
+      "id": "5955547840ad84f0",
+      "styleAttributes": {
+      },
+      "text": "[[1. 中华人民共和国成立#西藏和平解放|西藏和平解放]]",
+      "type": "text",
+      "width": 180,
+      "x": 887,
+      "y": 388
+    },
+    {
+      "height": 60,
+      "id": "9c552db0755d5f2a",
+      "styleAttributes": {
+      },
+      "text": "[[16. 独立自主的和平外交#和平共处五项原则|和平共处五项原则]]提出",
+      "type": "text",
+      "width": 260,
+      "x": 1647,
+      "y": 116
+    },
+    {
+      "height": 65,
+      "id": "1193e47a034345a4",
+      "styleAttributes": {
+      },
+      "text": "[[3. 土地改革|土地改革]]结束",
+      "type": "text",
+      "width": 180,
+      "x": 1207,
+      "y": 116
+    },
+    {
+      "height": 93,
+      "id": "a3fd0db798b7fe48",
+      "styleAttributes": {
+      },
+      "text": "毛泽东提出[[18. 科技文化成就#文化事业的发展|\"百花齐放\" \"百家争鸣]]方针",
+      "type": "text",
+      "width": 225,
+      "x": 3079,
+      "y": 779
+    },
+    {
+      "color": "2",
+      "height": 56,
+      "id": "c65cafb921bd3b33",
+      "styleAttributes": {
+      },
+      "text": "## 9月13日",
+      "type": "text",
+      "width": 136,
+      "x": 7094,
+      "y": 393
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "a0f1b6d198ad513e",
+      "styleAttributes": {
+      },
+      "text": "# 1953",
+      "type": "text",
+      "width": 164,
+      "x": 1447,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "4e99e0fcdaf4c60f",
+      "styleAttributes": {
+      },
+      "text": "# 1952",
+      "type": "text",
+      "width": 164,
+      "x": 1067,
+      "y": -160
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "7df7aaa5ca9a64a9",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 1124,
+      "y": 123
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "2a3eaa67afa65d29",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 1504,
+      "y": 121
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "8ccffcd0c4293cd6",
+      "styleAttributes": {
+      },
+      "text": "# 1954",
+      "type": "text",
+      "width": 164,
+      "x": 1907,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "74068e0226cc54a2",
+      "styleAttributes": {
+      },
+      "text": "# 1951",
+      "type": "text",
+      "width": 164,
+      "x": 723,
+      "y": -160
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "79ccc3ffa209dd84",
+      "styleAttributes": {
+      },
+      "text": " ",
+      "type": "text",
+      "width": 50,
+      "x": 780,
+      "y": 395
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "17f0563f858d398d",
+      "styleAttributes": {
+      },
+      "text": "# 1949",
+      "type": "text",
+      "width": 164,
+      "x": -260,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "ba20d339a9d6814b",
+      "styleAttributes": {
+      },
+      "text": "# 1950",
+      "type": "text",
+      "width": 164,
+      "x": 264,
+      "y": -159
+    },
+    {
+      "height": 69,
+      "id": "ed9ce3e3ca154821",
+      "styleAttributes": {
+      },
+      "text": "[[17. 外交事业的发展#中美建交|基辛格秘密访华]]",
+      "type": "text",
+      "width": 196,
+      "x": 7300,
+      "y": 110
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "9d0a725b9d9d1460",
+      "styleAttributes": {
+      },
+      "text": "## 4月",
+      "type": "text",
+      "width": 118,
+      "x": 7103,
+      "y": 252
+    },
+    {
+      "height": 69,
+      "id": "a4beddc49517e534",
+      "styleAttributes": {
+      },
+      "text": "我国[[18. 科技文化成就#一星过程|第一颗人造地球卫星]]发射成功",
+      "type": "text",
+      "width": 239,
+      "x": 6864,
+      "y": 110
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "b878211ad89c6665",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 6397,
+      "y": 113
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "a1254f00e0dbbb94",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 7137,
+      "y": 120
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "41768a881b34273c",
+      "styleAttributes": {
+      },
+      "text": "## 10月25日",
+      "type": "text",
+      "width": 186,
+      "x": 7069,
+      "y": 526
+    },
+    {
+      "height": 69,
+      "id": "64607f6edb632de9",
+      "styleAttributes": {
+      },
+      "text": "我国[[18. 科技文化成就#两弹过程|第一颗氢弹]]爆炸成功",
+      "type": "text",
+      "width": 196,
+      "x": 6504,
+      "y": 104
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "1e93f2096d02bb15",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 6757,
+      "y": 119
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "1db81a63c95b1c20",
+      "styleAttributes": {
+      },
+      "text": "# 1964",
+      "type": "text",
+      "width": 164,
+      "x": 5383,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "3c0c823c48de8c7f",
+      "styleAttributes": {
+      },
+      "text": "# 1967",
+      "type": "text",
+      "width": 164,
+      "x": 6340,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "f3485df954d88016",
+      "styleAttributes": {
+      },
+      "text": "# 1976",
+      "type": "text",
+      "width": 164,
+      "x": 8383,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "74144c6d25de52d9",
+      "styleAttributes": {
+      },
+      "text": "# 1970",
+      "type": "text",
+      "width": 164,
+      "x": 6700,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "c67c46f45262590a",
+      "styleAttributes": {
+      },
+      "text": "# 1973",
+      "type": "text",
+      "width": 164,
+      "x": 7960,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "99ff903fed75d1ac",
+      "styleAttributes": {
+      },
+      "text": "# 1966",
+      "type": "text",
+      "width": 164,
+      "x": 5763,
+      "y": -160
+    },
+    {
+      "height": 79,
+      "id": "a5be7386e135ac0a",
+      "styleAttributes": {
+      },
+      "text": "提出[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|“调整、巩固、充实、提高”]]八字方针",
+      "type": "text",
+      "width": 259,
+      "x": 4707,
+      "y": 103
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "e17e4f34d727d42f",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 3757,
+      "y": 526
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "e729bc8f92654168",
+      "styleAttributes": {
+      },
+      "text": "# 1962",
+      "type": "text",
+      "width": 164,
+      "x": 4966,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "cbd5f7eeac8f7723",
+      "styleAttributes": {
+      },
+      "text": "# 1972",
+      "type": "text",
+      "width": 164,
+      "x": 7520,
+      "y": -160
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "c2b1adc222f7e6cc",
+      "styleAttributes": {
+      },
+      "text": "# 1971",
+      "type": "text",
+      "width": 164,
+      "x": 7080,
+      "y": -160
+    },
+    {
       "height": 68,
       "id": "6cc6aabd47fd53d7",
       "styleAttributes": {
@@ -4034,75 +5478,6 @@
     {
       "color": "2",
       "height": 50,
-      "id": "7a32985905f6e674",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 7577,
-      "y": 113
-    },
-    {
-      "height": 69,
-      "id": "ed9ce3e3ca154821",
-      "styleAttributes": {
-      },
-      "text": "[[17. 外交事业的发展#中美建交|基辛格秘密访华]]",
-      "type": "text",
-      "width": 196,
-      "x": 7300,
-      "y": 110
-    },
-    {
-      "height": 68,
-      "id": "45245118c9cac74b",
-      "styleAttributes": {
-      },
-      "text": "[[17. 外交事业的发展#恢复联合国的合法席位|我国恢复联合国的合法席位]]",
-      "type": "text",
-      "width": 196,
-      "x": 7300,
-      "y": 517
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "a9a91cac631f3ce2",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 7577,
-      "y": 252
-    },
-    {
-      "height": 69,
-      "id": "7f1bccc49f19ee00",
-      "styleAttributes": {
-      },
-      "text": "[[17. 外交事业的发展#中美建交|美国乒乓球代表团访问中国]]",
-      "type": "text",
-      "width": 196,
-      "x": 7300,
-      "y": 242
-    },
-    {
-      "color": "3",
-      "height": 88,
-      "id": "ae704762aa2fccaf",
-      "styleAttributes": {
-      },
-      "text": "[[6. 艰辛探索与建设成就#文化大革命#过程|林彪反革命集团]]被粉碎",
-      "type": "text",
-      "width": 196,
-      "x": 7300,
-      "y": 377
-    },
-    {
-      "color": "2",
-      "height": 50,
       "id": "e6fcc6163061ce35",
       "styleAttributes": {
       },
@@ -4123,6 +5498,53 @@
       "width": 50,
       "x": 9194,
       "y": 522
+    },
+    {
+      "color": "#16d7fe",
+      "height": 50,
+      "id": "6d8f09b16d208e17",
+      "styleAttributes": {
+      },
+      "text": "# 1977",
+      "type": "text",
+      "width": 164,
+      "x": 8837,
+      "y": -160
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "ef8ed5d5a83647ac",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5820,
+      "y": 252
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "72c57e336ed0810c",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 50,
+      "x": 5820,
+      "y": 395
+    },
+    {
+      "height": 69,
+      "id": "7f1bccc49f19ee00",
+      "styleAttributes": {
+      },
+      "text": "[[17. 外交事业的发展#中美建交|美国乒乓球代表团访问中国]]",
+      "type": "text",
+      "width": 196,
+      "x": 7300,
+      "y": 242
     },
     {
       "color": "2",
@@ -4147,124 +5569,6 @@
       "width": 118,
       "x": 9160,
       "y": 252
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "9d0a725b9d9d1460",
-      "styleAttributes": {
-      },
-      "text": "## 4月",
-      "type": "text",
-      "width": 118,
-      "x": 7103,
-      "y": 252
-    },
-    {
-      "height": 69,
-      "id": "a4beddc49517e534",
-      "styleAttributes": {
-      },
-      "text": "我国[[18. 科技文化成就#一星过程|第一颗人造地球卫星]]发射成功",
-      "type": "text",
-      "width": 239,
-      "x": 6864,
-      "y": 110
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "b878211ad89c6665",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 6397,
-      "y": 113
-    },
-    {
-      "color": "2",
-      "height": 56,
-      "id": "c65cafb921bd3b33",
-      "styleAttributes": {
-      },
-      "text": "## 9月13日",
-      "type": "text",
-      "width": 136,
-      "x": 7094,
-      "y": 393
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "a1254f00e0dbbb94",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 7137,
-      "y": 120
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "41768a881b34273c",
-      "styleAttributes": {
-      },
-      "text": "## 10月25日",
-      "type": "text",
-      "width": 186,
-      "x": 7069,
-      "y": 526
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "53c6b7f5b5a23872",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 13285,
-      "y": 117
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "34bcfacefae181e1",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 13665,
-      "y": 117
-    },
-    {
-      "height": 69,
-      "id": "64607f6edb632de9",
-      "styleAttributes": {
-      },
-      "text": "我国[[18. 科技文化成就#两弹过程|第一颗氢弹]]爆炸成功",
-      "type": "text",
-      "width": 196,
-      "x": 6504,
-      "y": 104
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "1e93f2096d02bb15",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 6757,
-      "y": 119
     },
     {
       "color": "2",
@@ -4335,414 +5639,6 @@
       "y": 104
     },
     {
-      "height": 72,
-      "id": "0aa2977606299cc5",
-      "styleAttributes": {
-      },
-      "text": "[[14. 海峡两岸的交往#解决台湾问题的措施|台湾当局开始被迫调整”三不“政策]]",
-      "type": "text",
-      "width": 216,
-      "x": 13772,
-      "y": 242
-    },
-    {
-      "height": 50,
-      "id": "1e325360a127c56f",
-      "styleAttributes": {
-      },
-      "text": "[[18. 科技文化成就#\"863\"计划|863计划]]",
-      "type": "text",
-      "width": 180,
-      "x": 13428,
-      "y": 253
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "9580b11b30fa3dc9",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 13285,
-      "y": 253
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "14302ca7c3fcd82c",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 13665,
-      "y": 253
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "1e53443ff3388db9",
-      "styleAttributes": {
-      },
-      "text": "# 1987",
-      "type": "text",
-      "width": 164,
-      "x": 13608,
-      "y": -164
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "e91f2b16945862f2",
-      "styleAttributes": {
-      },
-      "text": "# 1986",
-      "type": "text",
-      "width": 164,
-      "x": 13228,
-      "y": -164
-    },
-    {
-      "height": 60,
-      "id": "6f6e3f5770f12258",
-      "styleAttributes": {
-      },
-      "text": "[[10. 建设中国特色社会主义#中国共产党第13次全国代表大会|中共13大召开]]",
-      "type": "text",
-      "width": 185,
-      "x": 13772,
-      "y": 112
-    },
-    {
-      "height": 60,
-      "id": "03a69acf4e8607f2",
-      "styleAttributes": {
-      },
-      "text": "设立[[9. 对外开放#设立经济特区|海南经济特区]]",
-      "type": "text",
-      "width": 216,
-      "x": 14172,
-      "y": 395
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "a22cc90350a7d4e6",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 14465,
-      "y": 400
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "c8892bb6c6c97cf5",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 14465,
-      "y": 118
-    },
-    {
-      "height": 55,
-      "id": "8355985868281a01",
-      "styleAttributes": {
-      },
-      "text": "[[13. 香港和澳门回归祖国#\"一国两制\"的构想|一国两制]]构想提出",
-      "type": "text",
-      "width": 229,
-      "x": 11148,
-      "y": 250
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "a07e822eef6885a7",
-      "styleAttributes": {
-      },
-      "text": "## 80年代初",
-      "type": "text",
-      "width": 183,
-      "x": 10939,
-      "y": 253
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "ad49735a811d59e9",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 12345,
-      "y": 253
-    },
-    {
-      "height": 72,
-      "id": "ebd72779ae45a2c6",
-      "styleAttributes": {
-      },
-      "text": "[[12. 民族大团结#民族区域自治制度#过程|《中华人民共和国民族区域自治法》]]颁布实施",
-      "type": "text",
-      "width": 276,
-      "x": 12452,
-      "y": 242
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "da9694828614b61d",
-      "styleAttributes": {
-      },
-      "text": "# 1981",
-      "type": "text",
-      "width": 164,
-      "x": 10948,
-      "y": -164
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "e541f1d17771848c",
-      "styleAttributes": {
-      },
-      "text": "# 1985",
-      "type": "text",
-      "width": 164,
-      "x": 12728,
-      "y": -164
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "7d1a2d7f59f99f40",
-      "styleAttributes": {
-      },
-      "text": "# 1984",
-      "type": "text",
-      "width": 164,
-      "x": 12288,
-      "y": -164
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "06f827905a846a52",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 11005,
-      "y": 116
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "62ef82888145f4ef",
-      "styleAttributes": {
-      },
-      "text": "# 1988",
-      "type": "text",
-      "width": 164,
-      "x": 14008,
-      "y": -164
-    },
-    {
-      "height": 60,
-      "id": "426f72efb9651f54",
-      "styleAttributes": {
-      },
-      "text": "[[8. 经济体制改革#城市经济体制改革|城市经济体制改革]]开始",
-      "type": "text",
-      "width": 276,
-      "x": 12452,
-      "y": 112
-    },
-    {
-      "height": 93,
-      "id": "3ee476d0b89bef88",
-      "styleAttributes": {
-      },
-      "text": "开放[[9. 对外开放#设立经济特区|深圳、珠海、汕头、厦门]]四个经济特区",
-      "type": "text",
-      "width": 269,
-      "x": 10608,
-      "y": 379
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "463aa2e929f62e41",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 14065,
-      "y": 400
-    },
-    {
-      "height": 50,
-      "id": "c2c72ac6d573c18f",
-      "styleAttributes": {
-      },
-      "text": "[[9. 对外开放#沿海经济开放区|3个沿海经济开放区]]开放",
-      "type": "text",
-      "width": 269,
-      "x": 12959,
-      "y": 400
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "fb9e469a09b25db6",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 12785,
-      "y": 400
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "e77d0957f66066a9",
-      "styleAttributes": {
-      },
-      "text": "# 1982",
-      "type": "text",
-      "width": 164,
-      "x": 11368,
-      "y": -164
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "29be72684bdf115f",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 11425,
-      "y": 117
-    },
-    {
-      "height": 72,
-      "id": "5b8137f717b2caf1",
-      "styleAttributes": {
-      },
-      "text": "[[7. 伟大的历史转折#拨乱反正|恢复刘少奇名誉]]",
-      "type": "text",
-      "width": 200,
-      "x": 10608,
-      "y": 110
-    },
-    {
-      "height": 62,
-      "id": "5f8648ceb100f748",
-      "styleAttributes": {
-      },
-      "text": "[[7. 伟大的历史转折#拨乱反正|十一届六中全会召开]]",
-      "type": "text",
-      "width": 216,
-      "x": 11137,
-      "y": 110
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "3c0c823c48de8c7f",
-      "styleAttributes": {
-      },
-      "text": "# 1967",
-      "type": "text",
-      "width": 164,
-      "x": 6340,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "1db81a63c95b1c20",
-      "styleAttributes": {
-      },
-      "text": "# 1964",
-      "type": "text",
-      "width": 164,
-      "x": 5383,
-      "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "f6b0200f141e5a73",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 10485,
-      "y": 400
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "e1afff46a28fc2c7",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 11885,
-      "y": 526
-    },
-    {
-      "height": 60,
-      "id": "a1770918f01d1a71",
-      "styleAttributes": {
-      },
-      "text": "开放[[9. 对外开放#开放沿海城市|14个沿海开放城市]]",
-      "type": "text",
-      "width": 276,
-      "x": 12452,
-      "y": 395
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "4eef00122d1721e8",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 12345,
-      "y": 400
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "6d8f09b16d208e17",
-      "styleAttributes": {
-      },
-      "text": "# 1977",
-      "type": "text",
-      "width": 164,
-      "x": 8837,
-      "y": -160
-    },
-    {
       "color": "#16d7fe",
       "height": 50,
       "id": "b4e36a1e1126268b",
@@ -4755,168 +5651,51 @@
       "y": -160
     },
     {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "f3485df954d88016",
-      "styleAttributes": {
-      },
-      "text": "# 1976",
-      "type": "text",
-      "width": 164,
-      "x": 8383,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "74144c6d25de52d9",
-      "styleAttributes": {
-      },
-      "text": "# 1970",
-      "type": "text",
-      "width": 164,
-      "x": 6700,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "c67c46f45262590a",
-      "styleAttributes": {
-      },
-      "text": "# 1973",
-      "type": "text",
-      "width": 164,
-      "x": 7960,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "99ff903fed75d1ac",
-      "styleAttributes": {
-      },
-      "text": "# 1966",
-      "type": "text",
-      "width": 164,
-      "x": 5763,
-      "y": -160
-    },
-    {
-      "height": 55,
-      "id": "66559968e3ce3ffd",
-      "styleAttributes": {
-      },
-      "text": "[[18. 科技文化成就#邓稼先|邓稼先逝世]]",
-      "type": "text",
-      "width": 180,
-      "x": 13428,
-      "y": 115
-    },
-    {
       "color": "2",
       "height": 50,
-      "id": "b474ef346c6b3db9",
+      "id": "7a32985905f6e674",
       "styleAttributes": {
       },
       "text": "",
       "type": "text",
       "width": 50,
-      "x": 12345,
-      "y": 117
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "69209adc46e5c0d4",
-      "styleAttributes": {
-      },
-      "text": "# 1979",
-      "type": "text",
-      "width": 164,
-      "x": 9957,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "a10994fc82dc2044",
-      "styleAttributes": {
-      },
-      "text": "# 1980",
-      "type": "text",
-      "width": 164,
-      "x": 10428,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "ab09ad5129b12812",
-      "styleAttributes": {
-      },
-      "text": "# 1983",
-      "type": "text",
-      "width": 164,
-      "x": 11828,
-      "y": -164
-    },
-    {
-      "height": 60,
-      "id": "1bc3c08b88c83a72",
-      "styleAttributes": {
-      },
-      "text": "台湾成立[[14. 海峡两岸的交往#解决台湾问题的措施|海峡交流基金会]]",
-      "type": "text",
-      "width": 276,
-      "x": 14572,
+      "x": 7577,
       "y": 113
     },
     {
-      "height": 60,
-      "id": "4d3eccf3b41b4760",
+      "height": 68,
+      "id": "45245118c9cac74b",
       "styleAttributes": {
       },
-      "text": "设立[[9. 对外开放#沿海经济开放区|上海浦东开发区]]",
+      "text": "[[17. 外交事业的发展#恢复联合国的合法席位|我国恢复联合国的合法席位]]",
       "type": "text",
-      "width": 245,
-      "x": 14572,
-      "y": 395
+      "width": 196,
+      "x": 7300,
+      "y": 517
     },
     {
       "color": "2",
       "height": 50,
-      "id": "5ab4e959657e4877",
+      "id": "a9a91cac631f3ce2",
       "styleAttributes": {
       },
       "text": "",
       "type": "text",
       "width": 50,
-      "x": 10485,
-      "y": 121
+      "x": 7577,
+      "y": 252
     },
     {
-      "color": "2",
-      "height": 50,
-      "id": "cd0202664122edf4",
+      "color": "3",
+      "height": 88,
+      "id": "ae704762aa2fccaf",
       "styleAttributes": {
       },
-      "text": "",
+      "text": "[[6. 艰辛探索与建设成就#文化大革命#过程|林彪反革命集团]]被粉碎",
       "type": "text",
-      "width": 50,
-      "x": 10014,
-      "y": 120
-    },
-    {
-      "height": 65,
-      "id": "e47ee27fabed80a0",
-      "styleAttributes": {
-      },
-      "text": "[[8. 经济体制改革#家庭联产承包责任制#过程|家庭联产承包责任制]]基本在农村普遍实行",
-      "type": "text",
-      "width": 265,
-      "x": 11992,
-      "y": 519
+      "width": 196,
+      "x": 7300,
+      "y": 377
     },
     {
       "color": "#16d7fe",
@@ -4955,40 +5734,6 @@
       "y": 1289
     },
     {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "2e13d099ef00ef22",
-      "styleAttributes": {
-      },
-      "text": "# 1990",
-      "type": "text",
-      "width": 164,
-      "x": 14408,
-      "y": -164
-    },
-    {
-      "height": 105,
-      "id": "186c08cbf538efba",
-      "styleAttributes": {
-      },
-      "text": "[[10. 建设中国特色社会主义#邓小平理论指导地位的确立|中共十二大]]召开，邓小平提出要建设有中国特色的社会主义",
-      "type": "text",
-      "width": 256,
-      "x": 11532,
-      "y": 89
-    },
-    {
-      "height": 73,
-      "id": "38577cf999e60a47",
-      "styleAttributes": {
-      },
-      "text": "[[14. 海峡两岸的交往#解决台湾问题的措施|发表《告台湾同胞书》]]",
-      "type": "text",
-      "width": 240,
-      "x": 10148,
-      "y": 109
-    },
-    {
       "height": 65,
       "id": "b9056e4d0f8dd84a",
       "styleAttributes": {
@@ -5011,52 +5756,6 @@
       "y": 1460
     },
     {
-      "color": "2",
-      "height": 50,
-      "id": "f59a8882023745de",
-      "styleAttributes": {
-      },
-      "text": "## 7月",
-      "type": "text",
-      "width": 130,
-      "x": 1464,
-      "y": 250
-    },
-    {
-      "height": 81,
-      "id": "48a203b3526738cc",
-      "styleAttributes": {
-      },
-      "text": "社会主义基本制度确立",
-      "type": "text",
-      "width": 160,
-      "x": 3341,
-      "y": 445
-    },
-    {
-      "height": 80,
-      "id": "fb11ddf77befbb0d",
-      "styleAttributes": {
-      },
-      "text": "[[5. 三大改造#资本主义工商业|三大改造——资本主义工商业]]改造开始",
-      "type": "text",
-      "width": 233,
-      "x": 2127,
-      "y": 511
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "187a3ce2c6a6c914",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 1964,
-      "y": 526
-    },
-    {
       "height": 60,
       "id": "803229504e01a8db",
       "styleAttributes": {
@@ -5068,29 +5767,6 @@
       "y": 256
     },
     {
-      "height": 88,
-      "id": "de1c5b0ab4238fc4",
-      "styleAttributes": {
-      },
-      "text": "[[5. 三大改造#农业、手工业合作化|农业、手工业]]改造结束",
-      "type": "text",
-      "width": 180,
-      "x": 3079,
-      "y": 376
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "44bc048dfc38292e",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 395
-    },
-    {
       "height": 54,
       "id": "e61b879952cf9906",
       "styleAttributes": {
@@ -5100,17 +5776,6 @@
       "width": 262,
       "x": 3079,
       "y": 259
-    },
-    {
-      "height": 80,
-      "id": "8809aab8e9b34c57",
-      "styleAttributes": {
-      },
-      "text": "[[5. 三大改造#资本主义工商业|资本主义工商业]]改造结束",
-      "type": "text",
-      "width": 180,
-      "x": 3079,
-      "y": 511
     },
     {
       "color": "2",
@@ -5137,370 +5802,6 @@
       "y": 707
     },
     {
-      "color": "2",
-      "height": 50,
-      "id": "553880d1ec7a2f09",
-      "styleAttributes": {
-      },
-      "text": "## 10月",
-      "type": "text",
-      "width": 130,
-      "x": -243,
-      "y": 242
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "ef8ed5d5a83647ac",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5820,
-      "y": 252
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "72c57e336ed0810c",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5820,
-      "y": 395
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "d30387e2e957c0ca",
-      "styleAttributes": {
-      },
-      "text": "# 1957",
-      "type": "text",
-      "width": 164,
-      "x": 3700,
-      "y": -160
-    },
-    {
-      "height": 79,
-      "id": "a5be7386e135ac0a",
-      "styleAttributes": {
-      },
-      "text": "提出[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|“调整、巩固、充实、提高”]]八字方针",
-      "type": "text",
-      "width": 259,
-      "x": 4707,
-      "y": 103
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "e17e4f34d727d42f",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 3757,
-      "y": 526
-    },
-    {
-      "height": 50,
-      "id": "98c1552a2acb0a9c",
-      "styleAttributes": {
-      },
-      "text": "[[4. 新中国工业化的起步和人民代表大会制度的确立#成就|武汉长江大桥]]建成",
-      "type": "text",
-      "width": 240,
-      "x": 3880,
-      "y": 526
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "a0f1b6d198ad513e",
-      "styleAttributes": {
-      },
-      "text": "# 1953",
-      "type": "text",
-      "width": 164,
-      "x": 1447,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "4e99e0fcdaf4c60f",
-      "styleAttributes": {
-      },
-      "text": "# 1952",
-      "type": "text",
-      "width": 164,
-      "x": 1067,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "5e71eba6baf07d7c",
-      "styleAttributes": {
-      },
-      "text": "# 1958",
-      "type": "text",
-      "width": 164,
-      "x": 4120,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "fb03764afc0b7447",
-      "styleAttributes": {
-      },
-      "text": "# 1961",
-      "type": "text",
-      "width": 164,
-      "x": 4543,
-      "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "62d840f52afa8f94",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 4600,
-      "y": 117
-    },
-    {
-      "height": 79,
-      "id": "32fe5eb0db9186f8",
-      "styleAttributes": {
-      },
-      "text": "[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|”大跃进“和人民公社化运动]]开始",
-      "type": "text",
-      "width": 216,
-      "x": 4284,
-      "y": 95
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "de4c0358299c1b2b",
-      "styleAttributes": {
-      },
-      "text": "# 1956",
-      "type": "text",
-      "width": 164,
-      "x": 2884,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "6771fa1f8d155ab1",
-      "styleAttributes": {
-      },
-      "text": "# 1955",
-      "type": "text",
-      "width": 164,
-      "x": 2447,
-      "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "6563e8185a5e933e",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2504,
-      "y": 116
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "0106ef642cef8e0a",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 4177,
-      "y": 109
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "7df7aaa5ca9a64a9",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 1124,
-      "y": 123
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "2a3eaa67afa65d29",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 1504,
-      "y": 121
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "8ccffcd0c4293cd6",
-      "styleAttributes": {
-      },
-      "text": "# 1954",
-      "type": "text",
-      "width": 164,
-      "x": 1907,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "74068e0226cc54a2",
-      "styleAttributes": {
-      },
-      "text": "# 1951",
-      "type": "text",
-      "width": 164,
-      "x": 723,
-      "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "79ccc3ffa209dd84",
-      "styleAttributes": {
-      },
-      "text": " ",
-      "type": "text",
-      "width": 50,
-      "x": 780,
-      "y": 395
-    },
-    {
-      "height": 65,
-      "id": "5955547840ad84f0",
-      "styleAttributes": {
-      },
-      "text": "[[1. 中华人民共和国成立#西藏和平解放|西藏和平解放]]",
-      "type": "text",
-      "width": 180,
-      "x": 887,
-      "y": 388
-    },
-    {
-      "height": 60,
-      "id": "9c552db0755d5f2a",
-      "styleAttributes": {
-      },
-      "text": "[[16. 独立自主的和平外交#和平共处五项原则|和平共处五项原则]]提出",
-      "type": "text",
-      "width": 260,
-      "x": 1647,
-      "y": 116
-    },
-    {
-      "height": 65,
-      "id": "1193e47a034345a4",
-      "styleAttributes": {
-      },
-      "text": "[[3. 土地改革|土地改革]]结束",
-      "type": "text",
-      "width": 180,
-      "x": 1207,
-      "y": 116
-    },
-    {
-      "height": 93,
-      "id": "a3fd0db798b7fe48",
-      "styleAttributes": {
-      },
-      "text": "毛泽东提出[[18. 科技文化成就#文化事业的发展|\"百花齐放\" \"百家争鸣]]方针",
-      "type": "text",
-      "width": 225,
-      "x": 3079,
-      "y": 779
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "0377382b762c5aab",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 261
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "15503bf81abccdaf",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 116
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "d1b2628d92b764cf",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 65,
-      "x": 314,
-      "y": 121
-    },
-    {
-      "height": 65,
-      "id": "dacea41e4c03126c",
-      "styleAttributes": {
-      },
-      "text": "[[1. 中华人民共和国成立#开国大典|中华人民共和国成立]]",
-      "type": "text",
-      "width": 240,
-      "x": -66,
-      "y": 235
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "33281e97c337b024",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 1504,
-      "y": 657
-    },
-    {
       "height": 97,
       "id": "eedccafc4ab3fb9d",
       "styleAttributes": {
@@ -5510,17 +5811,6 @@
       "width": 233,
       "x": 1647,
       "y": 227
-    },
-    {
-      "height": 60,
-      "id": "31b13da91b07af89",
-      "styleAttributes": {
-      },
-      "text": "[[6. 艰辛探索与建设成就#中共八大|中共八大]]",
-      "type": "text",
-      "width": 260,
-      "x": 3079,
-      "y": 926
     },
     {
       "color": "2",
@@ -5533,75 +5823,6 @@
       "width": 130,
       "x": -243,
       "y": 120
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "c2df2451618a765f",
-      "styleAttributes": {
-      },
-      "text": "## 9月",
-      "type": "text",
-      "width": 130,
-      "x": 1924,
-      "y": 116
-    },
-    {
-      "height": 50,
-      "id": "d3611bcd7af77c83",
-      "styleAttributes": {
-      },
-      "text": "[[16. 独立自主的和平外交#加强与亚非国家的团结合作|万隆会议]]",
-      "type": "text",
-      "width": 149,
-      "x": 2611,
-      "y": 116
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "17f0563f858d398d",
-      "styleAttributes": {
-      },
-      "text": "# 1949",
-      "type": "text",
-      "width": 164,
-      "x": -260,
-      "y": -160
-    },
-    {
-      "height": 116,
-      "id": "8f4bde9423a77028",
-      "styleAttributes": {
-      },
-      "text": "第一届[[4. 新中国工业化的起步和人民代表大会制度的确立#人民代表大会制度的确立|全国人民代表大会]]召开，《中华人民共和国宪法》颁布",
-      "type": "text",
-      "width": 250,
-      "x": 2127,
-      "y": 83
-    },
-    {
-      "height": 80,
-      "id": "b24afd97f6299dde",
-      "styleAttributes": {
-      },
-      "text": "[[1. 中华人民共和国成立#中国人民政治协商会议|政治协商会议召开]]，\n共同纲领通过",
-      "type": "text",
-      "width": 250,
-      "x": -66,
-      "y": 105
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "ba20d339a9d6814b",
-      "styleAttributes": {
-      },
-      "text": "# 1950",
-      "type": "text",
-      "width": 164,
-      "x": 264,
-      "y": -159
     },
     {
       "color": "2",
@@ -5628,123 +5849,6 @@
     },
     {
       "height": 65,
-      "id": "810c457b67900e66",
-      "styleAttributes": {
-      },
-      "text": "[[3. 土地改革|土地改革]]开始",
-      "type": "text",
-      "width": 180,
-      "x": 484,
-      "y": 113
-    },
-    {
-      "height": 58,
-      "id": "344ecdd295c6f6a6",
-      "styleAttributes": {
-      },
-      "text": "[[6. 艰辛探索与建设成就#文化大革命|文化大革命]]开始",
-      "type": "text",
-      "width": 210,
-      "x": 5930,
-      "y": 391
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "2fb1b4323044e583",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5023,
-      "y": 118
-    },
-    {
-      "height": 65,
-      "id": "71b38e5b620c63ba",
-      "styleAttributes": {
-      },
-      "text": "[[6. 艰辛探索与建设成就#”大跃进“和人民公社化运动|七千人大会]]召开",
-      "type": "text",
-      "width": 197,
-      "x": 5163,
-      "y": 111
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "e729bc8f92654168",
-      "styleAttributes": {
-      },
-      "text": "# 1962",
-      "type": "text",
-      "width": 164,
-      "x": 4966,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "cbd5f7eeac8f7723",
-      "styleAttributes": {
-      },
-      "text": "# 1972",
-      "type": "text",
-      "width": 164,
-      "x": 7520,
-      "y": -160
-    },
-    {
-      "color": "#16d7fe",
-      "height": 50,
-      "id": "c2b1adc222f7e6cc",
-      "styleAttributes": {
-      },
-      "text": "# 1971",
-      "type": "text",
-      "width": 164,
-      "x": 7080,
-      "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "314e920101c37883",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5820,
-      "y": 118
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "a32e3e238dd19433",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5820,
-      "y": 395
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "0eb2724d999721fc",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 3757,
-      "y": 658
-    },
-    {
-      "height": 65,
       "id": "5c7dc0b17f949551",
       "styleAttributes": {
       },
@@ -5766,107 +5870,27 @@
       "y": 650
     },
     {
-      "height": 69,
-      "id": "d36867799b783838",
-      "styleAttributes": {
-      },
-      "text": "我国[[18. 科技文化成就#两弹过程|第一颗原子弹]]爆炸成功",
-      "type": "text",
-      "width": 196,
-      "x": 5547,
-      "y": 109
-    },
-    {
-      "height": 65,
-      "id": "47d35aa1ea9c3052",
-      "styleAttributes": {
-      },
-      "text": "我国进入社会主义初级阶段",
-      "type": "text",
-      "width": 301,
-      "x": 3079,
-      "y": 109
-    },
-    {
       "color": "2",
       "height": 50,
-      "id": "00c8d09a3ea8a136",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 5440,
-      "y": 118
-    },
-    {
-      "height": 60,
-      "id": "c0db4956de3b80fa",
-      "styleAttributes": {
-      },
-      "text": "中国组建[[15. 钢铁长城#导弹部队的发展|第二炮兵部队]]",
-      "type": "text",
-      "width": 256,
-      "x": 5930,
-      "y": 113
-    },
-    {
-      "height": 88,
-      "id": "060278e63a13b2e5",
-      "styleAttributes": {
-      },
-      "text": "我国第一次成功进行了[[18. 科技文化成就#两弹过程|导弹核武器的试验]]",
-      "type": "text",
-      "width": 256,
-      "x": 5930,
-      "y": 233
-    },
-    {
-      "height": 80,
-      "id": "e8910288a97a5d0f",
-      "styleAttributes": {
-      },
-      "text": "[[5. 三大改造#农业、手工业合作化|三大改造——农业、手工业合作化]]改造开始",
-      "type": "text",
-      "width": 260,
-      "x": 1647,
-      "y": 380
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "dce577e284d09a7a",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 526
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "7f6d19ce40690a81",
-      "styleAttributes": {
-      },
-      "text": "## 4-7月",
-      "type": "text",
-      "width": 147,
-      "x": 1916,
-      "y": 261
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "599bdb632b7239d5",
+      "id": "33281e97c337b024",
       "styleAttributes": {
       },
       "text": "",
       "type": "text",
       "width": 50,
       "x": 1504,
-      "y": 395
+      "y": 657
+    },
+    {
+      "height": 60,
+      "id": "31b13da91b07af89",
+      "styleAttributes": {
+      },
+      "text": "[[6. 艰辛探索与建设成就#中共八大|中共八大]]",
+      "type": "text",
+      "width": 260,
+      "x": 3079,
+      "y": 926
     },
     {
       "color": "2",
@@ -5961,30 +5985,6 @@
       "width": 176,
       "x": -2100,
       "y": -160
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "00c577a98bf02d21",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 800
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "4f699cf0b3552888",
-      "styleAttributes": {
-      },
-      "text": "",
-      "type": "text",
-      "width": 50,
-      "x": 2941,
-      "y": 800
     },
     {
       "height": 50,
