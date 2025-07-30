@@ -12,24 +12,29 @@ export default navbar([
                 icon: "sort",
             },
             {
-                text: "笔记",
-                link: "/41 笔记/",
-                icon: "sticky-note"
-            },
-            {
-                text: "卡片笔记",
-                link: "/42 卡片笔记/",
-                icon: "id-card"
-            },
-            {
                 text: "博客",
-                link: "/43 博客/",
-                icon: "book"
+                link: "/40 Archive/博客",
+                icon: "book",
             },
             {
                 text: "项目",
-                link: "/44 项目/",
+                link: "/10 Project/",
                 icon: "laptop-code"
+            },
+            {
+                text: "领域",
+                link: "/20 Area/",
+                icon: "layer-group"
+            },
+            {
+                text: "资源",
+                link: "/30 Resource/",
+                icon: "boxes-stacked"
+            },
+            {
+                text: "归档",
+                link: "/40 Archive/",
+                icon: "box-archive"
             },
         ]
     },
