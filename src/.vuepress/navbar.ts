@@ -11,11 +11,13 @@ export default navbar([
                 link: "/catalog.html",
                 icon: "sort",
             },
+
             {
                 text: "博客",
-                link: "/40 Archive/博客",
-                icon: "book",
+                link: "/40 Archive/博客/",
+                icon: "blog",
             },
+
             {
                 text: "项目",
                 link: "/10 Project/",
