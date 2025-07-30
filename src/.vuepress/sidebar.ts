@@ -10,14 +10,16 @@ export default sidebar({
             icon: "sort",
 
         },
+
         {
             text: "博客",
-            link: "/40 Archive/博客",
-            icon: "book",
+            icon: "blog",
+            prefix: "40 Archive/博客/",
+            link: "40 Archive/博客/",
             children: "structure",
-            expanded: false,
             collapsible: true,
         },
+
         {
             text: "项目",
             icon: "laptop-code",
