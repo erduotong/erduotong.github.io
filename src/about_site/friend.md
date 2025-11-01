@@ -22,6 +22,12 @@ desc="洛元の小屋，科技，游戏，生活为主的blog"
 logo="https://blog.dimeta.top/upload/avatar.jpg"
 link="https://blog.dimeta.top/"
 />
+<VPCard
+title="异想之旅"
+desc="异想之旅のBlog"
+logo="https://blog.yxzl.dev/head.png"
+link="https://blog.yxzl.dev/"
+/>
 
 
 > [!quote]- 申请友链 >
