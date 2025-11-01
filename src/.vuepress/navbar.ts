@@ -65,7 +65,7 @@ export default navbar([
                 icon: "tag"
             },
             {
-                text: "分类",
+                text: "类别",
                 link: "/category/",
                 icon: "folder"
             },
