@@ -17,7 +17,11 @@ export default navbar([
                 link: "/40 Archive/博客/",
                 icon: "blog",
             },
-
+            {
+                text: "卡片笔记",
+                link: "/60 卡片笔记/",
+                icon: "note-sticky",
+            },
             {
                 text: "项目",
                 link: "/10 Project/",
@@ -61,7 +65,7 @@ export default navbar([
                 icon: "tag"
             },
             {
-                text: "分类",
+                text: "类别",
                 link: "/category/",
                 icon: "folder"
             },

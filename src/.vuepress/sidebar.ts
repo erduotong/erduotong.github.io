@@ -19,6 +19,15 @@ export default sidebar({
             children: "structure",
             collapsible: true,
         },
+        {
+            text: "卡片笔记",
+            icon: "note-sticky",
+            prefix: "60 卡片笔记/",
+            link: "60 卡片笔记/",
+            children: "structure",
+            expanded: false,
+            collapsible: true,
+        },
 
         {
             text: "项目",
