@@ -1,4 +1,0 @@
-onlyBuiltDependencies:
-  - nodejs-jieba
-  - esbuild
-  - sharp

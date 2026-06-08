@@ -1,39 +1,17 @@
 {
-  "name": "erduotong_blog",
-  "description": "erduotong's blog",
-  "version": "1.0.0",
-  "license": "",
+  "name": "erduotong.github.io",
   "type": "module",
-  "scripts": {
-    "docs:build": "vuepress-vite build src",
-    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
-    "docs:dev": "vuepress-vite dev src --port 3001",
-    "docs:update-package": "pnpm dlx vp-update"
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "devDependencies": {
-    "@types/markdown-it": "^14.1.2",
-    "@vuepress/bundler-vite": "2.0.0-rc.23",
-    "@vuepress/plugin-slimsearch": "2.0.0-rc.109",
-    "jsdom": "^26.1.0",
-    "markdown-it": "^14.1.0",
-    "markdown-it-any-block": "^3.3.2",
-    "vue": "^3.5.17",
-    "vuepress": "2.0.0-rc.23",
-    "vuepress-theme-hope": "2.0.0-rc.93"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@mermaid-js/mermaid-mindmap": "^9.3.0",
-    "@types/d3": "^7.4.3",
-    "@vuepress/plugin-feed": "2.0.0-rc.109",
-    "d3": "^7.9.0",
-    "katex": "^0.16.22",
-    "markdown-it-container": "^4.0.0",
-    "markdown-it-obsidian-callouts": "^0.3.2",
-    "markmap-lib": "^0.18.12",
-    "mermaid": "^11.8.1",
-    "plantuml-encoder": "^1.4.0",
-    "sass-embedded": "^1.89.2",
-    "sharp": "^0.34.2",
-    "vite-plugin-minipic": "^1.3.0"
+    "astro": "^6.4.4"
   }
 }
