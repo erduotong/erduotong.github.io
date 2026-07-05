@@ -29,4 +29,10 @@ export default defineConfig([
     {files: ["**/*.json5"], plugins: {json}, language: "json/json5", extends: ["json/recommended"]},
     {files: ["**/*.css"], plugins: {css}, language: "css/css", extends: ["css/recommended"]},
     ...eslintPluginAstro.configs.recommended,
+    {
+        files: ['**/*.astro'],
+        rules: {
+            'indent': ['error', 4],
+        }
+    }
 ]);
