@@ -9,6 +9,8 @@ import eslintPluginAstro from "eslint-plugin-astro";
 
 export default defineConfig([
     globalIgnores([".astro/**", "dist/**", "node_modules/**"]),
+    // 防止eslint不兼容tailwind写法
+    globalIgnores(["src/styles/global.css"]),
     {
         files: ["**/*.{js,mjs,cjs,ts,mts,cts,vue}"],
         plugins: {js},
@@ -22,7 +24,11 @@ export default defineConfig([
     {
         files: ["**/*.vue"],
         extends: [pluginVue.configs["flat/essential"]],
-        languageOptions: {parserOptions: {parser: tseslint.parser}}
+        languageOptions: {parserOptions: {parser: tseslint.parser}},
+        // 防止shadcn风格组件报错
+        rules: {
+            "vue/multi-word-component-names": "off"
+        }
     },
     {files: ["**/*.json"], plugins: {json}, language: "json/json", extends: ["json/recommended"]},
     {files: ["**/*.jsonc"], plugins: {json}, language: "json/jsonc", extends: ["json/recommended"]},
