@@ -2,6 +2,7 @@
 import {Image} from 'astro:assets';
 import logo from '@/assets/logo.png'
 import MobileMenu from './MobileMenu.vue';
+import DarkSwitcher from './DarkSwitcher.vue';
 ---
 
 <header class="sticky top-0 h-header-height">
@@ -21,6 +22,7 @@ import MobileMenu from './MobileMenu.vue';
 
         <!--Right-->
         <div class="flex items-center justify-end gap-1.5 lg:flex-1">
+            <DarkSwitcher client:load></DarkSwitcher>
             <MobileMenu client:load></MobileMenu>
         </div>
     </div>
