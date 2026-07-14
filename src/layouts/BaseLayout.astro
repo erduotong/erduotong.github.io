@@ -1,0 +1,51 @@
+---
+import "../styles/global.css"
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import {Card} from "@/components/ui/card/index.ts"
+---
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+    <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
+    <!--<link rel="icon" href="/favicon.ico" />-->
+    <title>耳朵同的博客</title>
+    </head>
+    <body>
+        <a href="#main-content" class="fixed z-50 left-1/2 top-2 rounded-full shadow-lg bg-primary
+        text-primary-foreground px-4 py-2 text-sm font-medium transition-all duration-200 ease-out skip-to-main-content">
+            Skip To Main Content
+        </a>
+
+        <Header></Header>
+        <!--todo 这里不一定是main content 要改逻辑-->
+        <main id="main-content">
+            <slot />
+        </main>
+        <Footer></Footer>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .skip-to-main-content {
+        transform: translate(-50%, calc(-100% - 4rem));
+        opacity: 0;
+    }
+
+    .skip-to-main-content:focus {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+    }
+
+</style>

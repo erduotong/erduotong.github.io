@@ -125,3 +125,8 @@
     @apply font-sans;
   }
 }
+
+@theme {
+    --height-header-height: 4rem;
+}
+
