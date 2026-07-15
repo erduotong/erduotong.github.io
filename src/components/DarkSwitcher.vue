@@ -11,7 +11,7 @@ const toggleDark = useToggle(isDark)
   <Button @click="toggleDark()" variant="ghost" size="icon-lg">
     <!-- TODO Dark Mode闪烁问题 -->
     <!-- TODO 切换动画 -->
-    <Moon v-if="isDark"></Moon>
-    <Sun v-else />
+    <Moon class="dark:hidden"></Moon>
+    <Sun class="hidden dark:block" />
   </Button>
 </template>

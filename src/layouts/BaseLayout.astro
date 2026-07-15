@@ -13,6 +13,27 @@ import { Card } from '@/components/ui/card/index.ts'
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <title>耳朵同的博客</title>
+        <!--Dark Mode适配，防止闪烁-->
+        <script is:inline>
+            (function () {
+                const getSystemTheme = () =>
+                    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                        ? 'dark'
+                        : 'light'
+
+                const getTheme = () => {
+                    try {
+                        const saved = localStorage.getItem('vueuse-color-scheme')
+                        if (saved && saved !== 'auto') return saved
+                    } catch (e) {
+                        // localStorage不可用的时候静默处理，使用默认主题
+                    }
+                    return getSystemTheme()
+                }
+
+                document.documentElement.classList.toggle('dark', getTheme() === 'dark')
+            })()
+        </script>
     </head>
     <body>
         <a href="#main-content" class="fixed z-50 left-1/2 top-2 rounded-full shadow-lg bg-primary
