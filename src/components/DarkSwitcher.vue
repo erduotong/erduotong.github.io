@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {Moon, Sun} from '@lucide/vue'
-import {Button} from "@/components/ui/button";
-import {useDark, useToggle} from "@vueuse/core";
+import { Moon, Sun } from '@lucide/vue'
+import { useDark, useToggle } from '@vueuse/core'
+import { Button } from '@/components/ui/button'
 
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 </script>
 
 <template>

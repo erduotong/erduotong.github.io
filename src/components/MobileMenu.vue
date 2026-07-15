@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 </script>
 
 <template>
