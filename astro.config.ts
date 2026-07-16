@@ -10,7 +10,7 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	integrations: [vue(), sitemap()],
-	trailingSlash: 'never',
+	trailingSlash: 'always',
 	fonts: [
 		{
 			provider: fontProviders.local(),

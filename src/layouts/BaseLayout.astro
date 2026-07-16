@@ -6,19 +6,28 @@ import Footer from '@/components/astro/Footer.astro'
 import Header from '@/components/astro/Header.astro'
 import SkipToMainContent from '@/components/astro/SkipToMainContent.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/const.ts'
+
+interface Props {
+	// 有title就拼接为 title | SITE_TITLE
+	// 没有则就 SITE_TITLE
+	title?: string
+	description: string
+}
+const title = Astro.props.title
+	? `${Astro.props.title} | ${SITE_TITLE} `
+	: SITE_TITLE
 ---
 <!doctype html>
 <html lang="zh">
     <!--suppress HtmlRequiredTitleElement -->
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}></BaseHead>
+        <BaseHead title={title} description={Astro.props.description}></BaseHead>
         <DarkModeAdapter></DarkModeAdapter>
     </head>
     <body>
         <SkipToMainContent href="#main-content"></SkipToMainContent>
         <Header></Header>
-        <!--todo 这里不一定是main content 要改逻辑-->
-        <main id="main-content">
+        <main>
             <slot />
         </main>
         <Footer></Footer>
