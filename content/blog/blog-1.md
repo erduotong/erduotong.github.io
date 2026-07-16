@@ -6,7 +6,7 @@ updateDate: 2025-06-01
 tags: ["前端", "Rust", "构建工具", "2025 趋势"]
 category: "技术"
 series: "2025 技术趋势"
-permalink: "y9xs52dxzzhqw8j9hf9afkciiekwiq8v"
+slug: javascript-rust-2025
 ---
 > test only
 
