@@ -1,3 +1,4 @@
+import { unified } from '@astrojs/markdown-remark'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
@@ -11,6 +12,9 @@ export default defineConfig({
 	},
 	integrations: [vue(), sitemap()],
 	trailingSlash: 'always',
+	markdown: {
+		processor: unified(),
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),

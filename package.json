@@ -15,6 +15,7 @@
 		"test": "vitest"
 	},
 	"dependencies": {
+		"@astrojs/markdown-remark": "^7.2.1",
 		"@astrojs/sitemap": "^3.7.3",
 		"@astrojs/vue": "^7.0.1",
 		"@lucide/vue": "^1.23.0",
