@@ -1,8 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import logo from '@/assets/logo.png'
-import DarkSwitcher from './DarkSwitcher.vue'
-import MobileMenu from './MobileMenu.vue'
+import DarkSwitcher from '@/components/vue/DarkSwitcher.vue'
+import { SITE_TITLE } from '@/const.ts'
+import MobileMenu from '../vue/MobileMenu.vue'
 ---
 
 <header class="sticky top-0 h-header-height">
@@ -12,7 +13,7 @@ import MobileMenu from './MobileMenu.vue'
         <div class="flex items-center gap-1.5 lg:flex-1  ">
             <a href="/" class="flex items-center gap-1.5 text-muted-foreground hover:text-primary">
                 <Image src={logo} alt="Logo" class="h-10 w-10 mx-1" loading={'eager'} />
-                <p class="font-medium text-xl transition-all ease-out duration-100">耳朵同的小站</p>
+                <p class="font-medium text-xl transition-all ease-out duration-100">{SITE_TITLE}</p>
             </a>
         </div>
 

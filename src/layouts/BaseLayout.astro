@@ -1,46 +1,21 @@
 ---
+import BaseHead from '@/components/astro/BaseHead.astro'
 import '../styles/global.css'
-import Footer from '@/components/Footer.astro'
-import Header from '@/components/Header.astro'
-import { Card } from '@/components/ui/card/index.ts'
+import DarkModeAdapter from '@/components/astro/DarkModeAdapter.astro'
+import Footer from '@/components/astro/Footer.astro'
+import Header from '@/components/astro/Header.astro'
+import SkipToMainContent from '@/components/astro/SkipToMainContent.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/const.ts'
 ---
 <!doctype html>
 <html lang="zh">
+    <!--suppress HtmlRequiredTitleElement -->
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <title>耳朵同的博客</title>
-        <!--Dark Mode适配，防止闪烁-->
-        <script is:inline>
-            (function () {
-                const getSystemTheme = () =>
-                    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-                        ? 'dark'
-                        : 'light'
-
-                const getTheme = () => {
-                    try {
-                        const saved = localStorage.getItem('vueuse-color-scheme')
-                        if (saved && saved !== 'auto') return saved
-                    } catch (e) {
-                        // localStorage不可用的时候静默处理，使用默认主题
-                    }
-                    return getSystemTheme()
-                }
-
-                document.documentElement.classList.toggle('dark', getTheme() === 'dark')
-            })()
-        </script>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}></BaseHead>
+        <DarkModeAdapter></DarkModeAdapter>
     </head>
     <body>
-        <a href="#main-content" class="fixed z-50 left-1/2 top-2 rounded-full shadow-lg bg-primary
-        text-primary-foreground px-4 py-2 text-sm font-medium transition-all duration-200 ease-out skip-to-main-content">
-            Skip To Main Content
-        </a>
-
+        <SkipToMainContent href="#main-content"></SkipToMainContent>
         <Header></Header>
         <!--todo 这里不一定是main content 要改逻辑-->
         <main id="main-content">
@@ -57,17 +32,4 @@ import { Card } from '@/components/ui/card/index.ts'
         width: 100%;
         min-height: 100%;
     }
-
-    .skip-to-main-content {
-        transform: translate(-50%, calc(-100% - 4rem));
-        opacity: 0;
-    }
-
-    .skip-to-main-content:focus {
-        transform: translate(-50%, 0);
-        opacity: 1;
-        outline: 2px solid var(--ring);
-        outline-offset: 2px;
-    }
-
 </style>
