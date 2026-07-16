@@ -5,7 +5,7 @@ pubDate: 2025-05-20
 updateDate: 2025-05-22
 tags: [ "徒步", "户外", "旅行", "周末", "莫干山" ]
 category: "生活"
-permalink: "weekend-hiking-moganshan"
+permalink: "fhi6q3v0iea85n94lhrsd3cioggbwsq6"
 ---
 > test only
 

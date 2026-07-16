@@ -5,7 +5,7 @@ pubDate: 2025-07-01
 tags: ["Astro", "博客", "教程", "GitHub Pages", "TypeScript"]
 category: "教程"
 series: "博客搭建系列"
-permalink: "astro-blog-guide-2025"
+permalink: "sfkg8a6dxfvotmmgsgee3dvz38crryxr"
 ---
 > test only
 
