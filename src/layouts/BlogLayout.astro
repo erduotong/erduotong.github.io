@@ -1,26 +1,35 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@/components/astro/FormattedDate.astro'
+import { SITE_OWNER } from '@/const.ts'
 import BaseLayout from './BaseLayout.astro'
 
-type Props = CollectionEntry<'blog'>['data']
-const { title, description } = Astro.props
+type Props = CollectionEntry<'blog'>['data'] & {
+	// biome-ignore lint/suspicious/noExplicitAny: 构建时生成，无法确定
+	remarkPluginFrontmatter: Record<string, any>
+}
+const { title, description, pubDate, remarkPluginFrontmatter } = Astro.props
+
+const readingTime = Math.ceil(remarkPluginFrontmatter.minutesRead)
 ---
 <BaseLayout title={title} description={description}>
-    <h1>{title}</h1>
-    
-    <main id="#main-content" class="flex items-center justify-center">
-        <article class="prose dark:prose-invert" id="blog-article">
+
+
+    <main id="main-content" class="flex flex-col items-center justify-center gap-1">
+        <div class="max-w-182 px-6 left-0">
+            <h1 class="font-black text-4xl">{title}</h1>
+            <div>{SITE_OWNER}</div>
+            <FormattedDate date={pubDate}></FormattedDate>
+            <time datetime={`PT${readingTime}M`}>
+                阅读 {readingTime} 分钟
+            </time>
+
+
+        </div>
+
+        <article class="prose dark:prose-invert max-w-182 px-6">
             <slot></slot>
         </article>
     </main>
 
 </BaseLayout>
-
-<style>
-    #blog-article {
-        max-width: 728px;
-        padding: 0 1.5rem;
-        margin: 0 auto;
-    }
-
-</style>
