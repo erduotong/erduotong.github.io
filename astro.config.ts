@@ -3,6 +3,10 @@ import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig, fontProviders } from 'astro/config'
+// vite和typescript奇怪的兼容性问题
+// @ts-expect-error
+// noinspection ES6PreferShortImport
+import { remarkReadingTime } from './src/lib/remarkReadingTime'
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +17,9 @@ export default defineConfig({
 	integrations: [vue(), sitemap()],
 	trailingSlash: 'always',
 	markdown: {
-		processor: unified(),
+		processor: unified({
+			remarkPlugins: [remarkReadingTime],
+		}),
 	},
 	fonts: [
 		{
