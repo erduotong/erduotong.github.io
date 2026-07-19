@@ -125,5 +125,7 @@
 }
 
 @theme {
-	--height-header-height: 4rem;
+	--header-height: 4rem;
+	--spacing-header: var(--header-height);
+	--height-header: var(--header-height);
 }

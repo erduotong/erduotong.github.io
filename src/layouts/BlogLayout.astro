@@ -13,23 +13,21 @@ const { title, description, pubDate, remarkPluginFrontmatter } = Astro.props
 const readingTime = Math.ceil(remarkPluginFrontmatter.minutesRead)
 ---
 <BaseLayout title={title} description={description}>
-
-
-    <main id="main-content" class="flex flex-col items-center justify-center gap-1">
-        <div class="max-w-182 px-6 left-0">
+    <main id="main-content" class="flex flex-col items-start gap-4 max-w-182 px-6 mx-auto mt-header ">
+        <div class="w-full flex flex-col gap-3">
             <h1 class="font-black text-4xl">{title}</h1>
-            <div>{SITE_OWNER}</div>
-            <FormattedDate date={pubDate}></FormattedDate>
-            <time datetime={`PT${readingTime}M`}>
-                阅读 {readingTime} 分钟
-            </time>
-
-
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                <div>{SITE_OWNER}</div>
+                <span class="opacity-50">·</span>
+                <FormattedDate date={pubDate}></FormattedDate>
+                <span class="opacity-50">·</span>
+                <time datetime={`PT${readingTime}M`}>
+                    阅读 {readingTime} 分钟
+                </time>
+            </div>
         </div>
-
-        <article class="prose dark:prose-invert max-w-182 px-6">
+        <article class="prose dark:prose-invert w-full ">
             <slot></slot>
         </article>
     </main>
-
 </BaseLayout>
