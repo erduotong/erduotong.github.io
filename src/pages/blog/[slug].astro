@@ -6,7 +6,7 @@ import BlogLayout from '@/layouts/BlogLayout.astro'
 export const getStaticPaths = (async () => {
 	const posts = await getCollection('blog')
 	return posts.map((post) => ({
-		params: { id: post.id },
+		params: { slug: post.id },
 		props: { post },
 	}))
 }) satisfies GetStaticPaths
@@ -14,7 +14,6 @@ export const getStaticPaths = (async () => {
 const { post } = Astro.props
 const { Content } = await render(post)
 ---
-<BlogLayout>
-    <h1>{post.data.title}</h1>
+<BlogLayout {...post.data}>
     <Content></Content>
 </BlogLayout>

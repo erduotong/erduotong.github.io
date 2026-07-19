@@ -1,6 +1,26 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
+
+type Props = CollectionEntry<'blog'>['data']
+const { title, description } = Astro.props
 ---
-<BaseLayout title="123" description="123">
-    <slot></slot>
+<BaseLayout title={title} description={description}>
+    <h1>{title}</h1>
+    
+    <main id="#main-content" class="flex items-center justify-center">
+        <article class="prose dark:prose-invert" id="blog-article">
+            <slot></slot>
+        </article>
+    </main>
+
 </BaseLayout>
+
+<style>
+    #blog-article {
+        max-width: 728px;
+        padding: 0 1.5rem;
+        margin: 0 auto;
+    }
+
+</style>
