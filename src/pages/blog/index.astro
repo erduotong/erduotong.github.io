@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import PostCard from '@/components/astro/PostCard.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const posts = await getCollection('blog')
+posts.sort((a, b) => {
+	return b.data.pubDate.getTime() - a.data.pubDate.getTime()
+})
+---
+<BaseLayout title="文章列表" description="本站所有的博客文章">
+    <main id="main-content" class="flex flex-col items-start gap-2 max-w-182 px-6 mx-auto mt-header ">
+        {
+            posts.map(post =>
+                    <PostCard
+                            title={post.data.title}
+                            slug={post.data.slug}
+                            description={post.data.description}
+                            pubDate={post.data.pubDate}
+                    />
+            )
+        }
+    </main>
+
+</BaseLayout>

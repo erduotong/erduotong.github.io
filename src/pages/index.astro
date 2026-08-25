@@ -1,9 +1,21 @@
 ---
+import { Button } from '@/components/ui/button'
 import { SITE_DESCRIPTION } from '@/const.ts'
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout description={SITE_DESCRIPTION}>
-Welcome To My Blog!
+    <div class="w-full h-full p-6 flex items-center gap-2">
+        <a href="/blog/journal/">
+            <Button>
+                Article Test
+            </Button>
+        </a>
+        <a href="/blog/">
+            <Button>
+                Blog List
+            </Button>
+        </a>
 
+    </div>
 </BaseLayout>
