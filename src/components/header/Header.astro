@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import logo from '@/assets/logo.png'
 import DarkSwitcher from '@/components/header/DarkSwitcher.vue'
 import { SITE_TITLE } from '@/const.ts'
+import DesktopNavigator from './DesktopNavigator.vue'
 import MobileMenu from './MobileMenu.vue'
 ---
 
@@ -10,20 +11,19 @@ import MobileMenu from './MobileMenu.vue'
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center
     justify-between gap-3 h-full bg-background/75 backdrop-blur-xs border-b">
         <!--Left-->
-        <div class="flex items-center gap-1.5 lg:flex-1  ">
+        <div class="flex items-center gap-1.5 ">
             <a href="/" class="flex items-center gap-1.5 text-foreground/90 hover:text-primary">
                 <Image src={logo} alt="Logo" class="h-10 w-10 mx-1" loading={'eager'} />
                 <p class="font-medium text-xl transition-all ease-out duration-100">{SITE_TITLE}</p>
             </a>
         </div>
-
+        <!--TODO 此处的加载策略可优化-->
         <!--Middle-->
-        <div class="hidden lg:flex">
-            Navigator
+        <div class="hidden lg:flex flex-1 p-2">
+            <DesktopNavigator client:load></DesktopNavigator>
         </div>
-
         <!--Right-->
-        <div class="flex items-center justify-end gap-1.5 lg:flex-1">
+        <div class="flex items-center justify-end gap-1.5">
             <DarkSwitcher client:load></DarkSwitcher>
             <MobileMenu client:load></MobileMenu>
         </div>
