@@ -115,19 +115,12 @@
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.552 0.016 285.938);
 }
-
+/*---break---*/
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
 	body {
 		@apply bg-background text-foreground;
-		@apply font-sans;
 	}
-}
-
-@theme {
-	--header-height: 4rem;
-	--spacing-header: var(--header-height);
-	--height-header: var(--header-height);
 }
