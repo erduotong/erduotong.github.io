@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import logo from '@/assets/logo.png'
 import DarkSwitcher from '@/components/header/DarkSwitcher.vue'
-import { SITE_TITLE } from '@/const.ts'
+import { NAVIGATION, SITE_TITLE } from '@/const.ts'
 import DesktopNavigator from './DesktopNavigator.vue'
 import MobileMenu from './MobileMenu.vue'
 ---
@@ -18,9 +18,12 @@ import MobileMenu from './MobileMenu.vue'
             </a>
         </div>
         <!--TODO 此处的加载策略可优化-->
+        
         <!--Middle-->
         <div class="hidden lg:flex flex-1 p-2">
-            <DesktopNavigator client:load></DesktopNavigator>
+            <DesktopNavigator client:load
+                              items={NAVIGATION}
+            ></DesktopNavigator>
         </div>
         <!--Right-->
         <div class="flex items-center justify-end gap-1.5">
