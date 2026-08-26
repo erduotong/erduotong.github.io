@@ -18,7 +18,7 @@ defineProps<{
 
 <template>
   <div class="w-full flex justify-center ">
-    <NavigationMenu>
+    <NavigationMenu :viewport="false">
       <NavigationMenuList>
         <template v-for="item in items" :key="item.title">
           <NavigationMenuItem v-if="item.type==='link'">
