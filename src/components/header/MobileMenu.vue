@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
 
   </Button>
 
-  <Teleport v-if="mounted" to="body">
+  <Teleport v-if="mounted" to="#mobile-navigation-container">
 
     <div
         v-if="open"
