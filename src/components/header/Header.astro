@@ -8,7 +8,7 @@ import MobileMenu from './MobileMenu.vue'
 ---
 
 <header class="sticky top-0 h-header">
-    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center
+    <div class="relative z-50 w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center
     justify-between gap-3 h-full bg-background/75 backdrop-blur-xs border-b">
         <!--Left-->
         <div class="flex items-center gap-1.5 ">
@@ -28,7 +28,10 @@ import MobileMenu from './MobileMenu.vue'
         <!--Right-->
         <div class="flex items-center justify-end gap-1.5">
             <DarkSwitcher client:load></DarkSwitcher>
-            <MobileMenu client:load></MobileMenu>
+            <div class="lg:hidden">
+                <MobileMenu client:load items={NAVIGATION}></MobileMenu>
+            </div>
+
         </div>
     </div>
 
