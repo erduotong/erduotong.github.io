@@ -1,7 +1,19 @@
 <script setup lang="ts">
 import { Menu, X } from '@lucide/vue'
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+import { Sidebar, SidebarGroup, SidebarProvider } from '@/components/ui/sidebar'
 import type { NavItem } from '@/types/nav.ts'
 
 defineProps<{
@@ -65,12 +77,28 @@ onBeforeUnmount(() => {
         v-if="open"
         tabindex="-1"
         aria-label="站点导航"
-        class="fixed inset-x-0 top-header bottom-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-background/90 "
+        class="fixed inset-x-0 top-header bottom-0 z-40 flex flex-col items-center
+        overflow-y-auto overscroll-contain bg-background p-4 "
     >
-        <div class="p-3">
-          <Button>一些测试内容</Button>
-          <Button>嗯对</Button>
-        </div>
+      <div class="w-full max-w-80">
+        <template v-for="(value,index) in items" :id="index">
+            <Collapsible v-if="value.type==='menu'">
+              <CollapsibleTrigger>
+                {{value.title}}
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <template v-for="(child,idx) in value.children" :id="idx">
+                  <a :href="child.href">{{child.title}}</a>
+                </template>
+              </CollapsibleContent>
+            </Collapsible>
+            <div v-else>
+              <a :href="value.href">{{value.title}}</a>
+            </div>
+        </template>
+      </div>
+
+
     </div>
 
   </Teleport>
